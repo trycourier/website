@@ -19,17 +19,29 @@ import Pricing from '../templates/cruip-sienna/pricing'
 import FAQ from '../templates/cruip-sienna/faq'
 
 export default () => (
-  <Template headerLogo={content.headerLogoLink} footerLogo={content.footerLogoLink} copyright={content.copyright} footerLinks={content.footerLinks} socialLinks={content.socialLinks}>
+  <Template
+    headerLogo={content.headerLogoLink}
+    footerLogo={content.footerLogoLink}
+    copyright={content.copyright}
+    footerLinks={content.footerLinks}
+    socialLinks={content.socialLinks}
+  >
     <SEO title={content.homepageTitle} />
 
     <Hero screenshot={content.heroScreenshot}>
       <h1 className="hero-title mt-0">{content.heroTitle}</h1>
       <p className="hero-paragraph">{content.heroDescription}</p>
-      <p className="hero-cta" style={{position: 'relative', zIndex: 99}}>{content.heroCTA}</p>
+      <p className="hero-cta" style={{ position: 'relative', zIndex: 99 }}>
+        {content.heroCTA}
+      </p>
     </Hero>
 
     <Clients clients={clients} />
-    <Features title={content.featuresTitle} description={content.featuresDescription} features={features} />
+    <Features
+      title={content.featuresTitle}
+      description={content.featuresDescription}
+      features={features}
+    />
     <Testimonials testimonials={testimonials} />
 
     <Pricing plans={pricingPlans} />

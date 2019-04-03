@@ -29,12 +29,24 @@ type TemplateParams = {
   socialLinks: React.ReactNode[]
 }
 
-const TemplateComponent: React.FunctionComponent<TemplateParams> = ({ children, headerLogo, footerLogo, copyright, footerLinks, socialLinks }) => (
+const TemplateComponent: React.FunctionComponent<TemplateParams> = ({
+  children,
+  headerLogo,
+  footerLogo,
+  copyright,
+  footerLinks,
+  socialLinks,
+}) => (
   <TemplateWrapperComponent>
     <div className="body-wrap boxed-container">
       <Header logo={headerLogo} />
       <main>{children}</main>
-      <Footer logo={footerLogo} copyright={copyright} links={footerLinks} social={socialLinks} />
+      <Footer
+        logo={footerLogo}
+        copyright={copyright}
+        links={footerLinks}
+        social={socialLinks}
+      />
     </div>
   </TemplateWrapperComponent>
 )

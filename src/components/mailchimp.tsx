@@ -20,8 +20,12 @@ const Mailchimp = () => (
   <section id="newsletter-signup" className="section">
     <div className="container">
       <div className="section-inner">
-
-        <p style={{maxWidth: 800, margin: '0 auto 10px auto'}}>We're working hard to make <strong>Courier</strong> available to everyone. If you'd like to join the next group of customers, enter your email below and we'll let you know when its time for another visit.</p>
+        <p style={{ maxWidth: 800, margin: '0 auto 10px auto' }}>
+          We're working hard to make <strong>Courier</strong> available to
+          everyone. If you'd like to join the next group of customers, enter
+          your email below and we'll let you know when its time for another
+          visit.
+        </p>
 
         <form
           action={mailchimpUrl}
@@ -31,11 +35,7 @@ const Mailchimp = () => (
           noValidate={true}
         >
           <MailchimpFakeField name={mailchimpFakeId} />
-          <input
-            type="email"
-            name="EMAIL"
-            placeholder={placeholder}
-          />
+          <input type="email" name="EMAIL" placeholder={placeholder} />
           <input
             type="submit"
             value="Join waitlist!"

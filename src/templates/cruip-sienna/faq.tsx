@@ -16,10 +16,9 @@ const FAQComponent: React.FunctionComponent<FAQParams> = ({ faqs }) => {
       <div className="container">
         <div className="pricing-inner section-inner">
           <h2 className="section-title mt-0 text-center">FAQ</h2>
-          
+
           <div className="pricing-faqs container-sm">
             <ul className="accordion">
-
               {faqs.map((faq, idx) => (
                 <li key={idx}>
                   <div className="accordion-title">
@@ -29,7 +28,6 @@ const FAQComponent: React.FunctionComponent<FAQParams> = ({ faqs }) => {
                   <div className="accordion-body">{faq.answer}</div>
                 </li>
               ))}
-
             </ul>
           </div>
         </div>

@@ -12,7 +12,7 @@ const plans: PricingPlan[] = [
     features: [
       <span>10K notifications / mo.</span>,
       <span>1 user</span>,
-      <span>Courier UI Kit</span>
+      <span>Courier UI Kit</span>,
     ],
     // callToAction: <a className="button button-primary button-shadow button-block" href="/">Get started</a>
   },
@@ -27,7 +27,7 @@ const plans: PricingPlan[] = [
       <span>500K notifications / mo.</span>,
       <span>3 users</span>,
       <span>Courier UI Kit</span>,
-      <span>Dynamic Templates</span>
+      <span>Dynamic Templates</span>,
     ],
     // callToAction: <a className="button button-shadow button-block" href="/">Get started</a>
   },
@@ -44,10 +44,10 @@ const plans: PricingPlan[] = [
       <span>Courier UI Kit</span>,
       <span>Dynamic Templates</span>,
       <span>Serverless Functions</span>,
-      <span>Notification Center</span>
+      <span>Notification Center</span>,
     ],
     // callToAction: <a className="button button-primary button-shadow button-block" href="/">Get started</a>
-  }
+  },
 ]
 
 export default plans

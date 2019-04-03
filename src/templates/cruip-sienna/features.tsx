@@ -12,7 +12,11 @@ export type FeaturesParams = {
   features: Feature[]
 }
 
-const FeaturesComponent: React.FunctionComponent<FeaturesParams> = ({ title, description, features }) => (
+const FeaturesComponent: React.FunctionComponent<FeaturesParams> = ({
+  title,
+  description,
+  features,
+}) => (
   <section id="features" className="features-extended section">
     <div className="container">
       <div className="features-extended-inner section-inner has-top-divider">

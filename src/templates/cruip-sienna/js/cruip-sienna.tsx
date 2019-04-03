@@ -40,13 +40,17 @@ const setup = () => {
       viewFactor: 0.5,
     })
 
-    sr.reveal(document.querySelectorAll('.testimonial, .pricing-table'), {
-      duration: 600,
-      distance: '40px',
-      easing: 'cubic-bezier(0.5, -0.01, 0, 1.005)',
-      origin: 'bottom',
-      viewFactor: 0.5,
-    }, 1000)
+    sr.reveal(
+      document.querySelectorAll('.testimonial, .pricing-table'),
+      {
+        duration: 600,
+        distance: '40px',
+        easing: 'cubic-bezier(0.5, -0.01, 0, 1.005)',
+        origin: 'bottom',
+        viewFactor: 0.5,
+      },
+      1000
+    )
   }
 
   // Accordion component
@@ -56,7 +60,7 @@ const setup = () => {
     for (let i = 0; i < accordionEl.length; i++) {
       accordionEl[i].addEventListener('click', function(this: Element) {
         if (!this.parentNode) return
-        (this.parentNode as Element).classList.toggle('is-open')
+        ;(this.parentNode as Element).classList.toggle('is-open')
 
         const panel = this.nextElementSibling as HTMLElement
         if (!panel) return

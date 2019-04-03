@@ -7,7 +7,12 @@ type FooterParams = {
   social: React.ReactNode[]
 }
 
-const FooterComponent: React.FunctionComponent<FooterParams> = ({ logo, copyright, links, social }) => (
+const FooterComponent: React.FunctionComponent<FooterParams> = ({
+  logo,
+  copyright,
+  links,
+  social,
+}) => (
   <footer className="site-footer">
     <div className="container">
       <div className="site-footer-inner">

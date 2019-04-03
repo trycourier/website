@@ -7,9 +7,9 @@ import SvgFacebook from '../templates/cruip-sienna/svg/logos/facebook'
 import SvgTwitter from '../templates/cruip-sienna/svg/logos/twitter'
 
 type Content = {
-  headerLogoLink: React.ReactNode,
-  footerLogoLink: React.ReactNode,
-  homepageTitle: string,
+  headerLogoLink: React.ReactNode
+  footerLogoLink: React.ReactNode
+  homepageTitle: string
 
   heroTitle: React.ReactNode
   heroDescription: React.ReactNode
@@ -24,26 +24,59 @@ type Content = {
   copyright: React.ReactNode
 }
 
-const isomorphicProjection = (style: React.CSSProperties = {}): React.CSSProperties => {
+const isomorphicProjection = (
+  style: React.CSSProperties = {}
+): React.CSSProperties => {
   return {
     transform: 'rotateX(10deg) rotateZ(5deg)',
     transformStyle: 'preserve-3d',
     transition: '.3s',
-    ...style
+    ...style,
   }
 }
 
 const content: Content = {
-  headerLogoLink: <a href="/"><img src={ImgLogoBlack} style={{height: 48}} /></a>,
-  footerLogoLink: <a href="/"><img src={ImgLogoWhite} style={{height: 48}} /></a>,
+  headerLogoLink: (
+    <a href="/">
+      <img src={ImgLogoBlack} style={{ height: 48 }} />
+    </a>
+  ),
+  footerLogoLink: (
+    <a href="/">
+      <img src={ImgLogoWhite} style={{ height: 48 }} />
+    </a>
+  ),
   homepageTitle: 'Courier',
 
   heroTitle: 'Super Powered Notifications',
-  heroDescription: <span>The easiest way to add notifications to a new project or to add additional channels &mdash; like SMS, Facebook Messenger, or Slack &mdash; to your existing notification strategy.</span>,
-  heroCTA: <a className="button button-primary button-shadow" href="/#pricing">Get started for free!</a>,
-  heroScreenshot: <img src={ImgMobileDesignerScreenshot} style={isomorphicProjection({ width: 700 })} />,
+  heroDescription: (
+    <span>
+      The easiest way to add notifications to a new project or to add additional
+      channels &mdash; like SMS, Facebook Messenger, or Slack &mdash; to your
+      existing notification strategy.
+    </span>
+  ),
+  heroCTA: (
+    <a className="button button-primary button-shadow" href="/#pricing">
+      Get started for free!
+    </a>
+  ),
+  heroScreenshot: (
+    <img
+      src={ImgMobileDesignerScreenshot}
+      style={isomorphicProjection({ width: 700 })}
+    />
+  ),
 
-  featuresTitle: <span style={{fontSize: '40px'}}>Meet <img src={ImgLogoBlack} style={{height: 60, display: 'inline', position: 'relative', top: -8}} /></span>,
+  featuresTitle: (
+    <span style={{ fontSize: '40px' }}>
+      Meet{' '}
+      <img
+        src={ImgLogoBlack}
+        style={{ height: 60, display: 'inline', position: 'relative', top: -8 }}
+      />
+    </span>
+  ),
 
   footerLinks: [
     // <a href="/">Contact</a>,
@@ -59,9 +92,14 @@ const content: Content = {
     <a href="https://www.twitter.com/trycourier">
       <span className="screen-reader-text">Twitter</span>
       <SvgTwitter />
-    </a>
+    </a>,
   ],
-  copyright: <span>&copy; {new Date().getFullYear()} trycourier.com, Inc. All rights reserved.</span>
+  copyright: (
+    <span>
+      &copy; {new Date().getFullYear()} trycourier.com, Inc. All rights
+      reserved.
+    </span>
+  ),
 }
 
 export default content

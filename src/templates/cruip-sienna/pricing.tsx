@@ -15,27 +15,36 @@ export type PricingParams = {
   plans: PricingPlan[]
 }
 
-const planClass = (isPrimary: boolean) => classnames('pricing-table', 'is-revealing', {
-  'pricing-table-primary': isPrimary,
-  'text-light': isPrimary
-})
+const planClass = (isPrimary: boolean) =>
+  classnames('pricing-table', 'is-revealing', {
+    'pricing-table-primary': isPrimary,
+    'text-light': isPrimary,
+  })
 
-const PricingComponent: React.FunctionComponent<PricingParams> = ({ plans }) => (
+const PricingComponent: React.FunctionComponent<PricingParams> = ({
+  plans,
+}) => (
   <section id="pricing" className="pricing section">
     <div className="container">
       <div className="pricing-inner section-inner">
         <h2 className="section-title mt-0 text-center">Pricing</h2>
         <div className="pricing-tables-wrap">
-
           {plans.map((plan, idx) => (
             <div className={planClass(plan.isPrimary)} key={idx}>
               <div className="pricing-table-inner">
                 <div className="pricing-table-main">
                   <div className="pricing-table-header">
-                    <div className="pricing-table-title mt-12 mb-16">{plan.title}</div>
+                    <div className="pricing-table-title mt-12 mb-16">
+                      {plan.title}
+                    </div>
                     <div className="pricing-table-price pb-32">
-                      <span className="pricing-table-price-currency h3">{plan.currency}</span>
-                      <span className="pricing-table-price-amount h1">{plan.amount}</span> / {plan.frequency}
+                      <span className="pricing-table-price-currency h3">
+                        {plan.currency}
+                      </span>
+                      <span className="pricing-table-price-amount h1">
+                        {plan.amount}
+                      </span>{' '}
+                      / {plan.frequency}
                     </div>
                   </div>
                   {plan.features && plan.features.length ? (
@@ -52,7 +61,6 @@ const PricingComponent: React.FunctionComponent<PricingParams> = ({ plans }) => 
               </div>
             </div>
           ))}
-
         </div>
       </div>
     </div>
