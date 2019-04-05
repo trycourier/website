@@ -46,7 +46,7 @@ const content: Content = {
       <img src={ImgLogoWhite} style={{ height: 48 }} alt="Courier logo" />
     </a>
   ),
-  homepageTitle: 'Courier – super powered notifications',
+  homepageTitle: 'Courier – Super Powered Notifications',
 
   heroTitle: 'Super Powered Notifications',
   heroDescription: (
@@ -65,6 +65,7 @@ const content: Content = {
     <img
       src={ImgMobileDesignerScreenshot}
       style={isomorphicProjection({ width: 700 })}
+      alt="Courier's Omnichannel Visual Editor"
     />
   ),
 
