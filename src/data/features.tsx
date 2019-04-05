@@ -21,7 +21,7 @@ const features: Feature[] = [
         Email. SMS. Mobile Push. Desktop Push. Chat. Social Media.
       </p>
     ),
-    graphic: <img src={ImgHugoMessageSent} />,
+    graphic: <img src={ImgHugoMessageSent} alt="Omnichannel Delivery illustration" />,
   },
   {
     title: 'Visual Editing',
@@ -32,7 +32,7 @@ const features: Feature[] = [
         the message for each specific channel if you'd prefer.
       </p>
     ),
-    graphic: <img src={ImgHugoWaiting} />,
+    graphic: <img src={ImgHugoWaiting} alt="Visual Editing illustration" />,
   },
   {
     title: 'Fully Programmable',
@@ -44,7 +44,7 @@ const features: Feature[] = [
         <strong>dynamic template editor</strong>.
       </p>
     ),
-    graphic: <img src={ImgHugoDone} />,
+    graphic: <img src={ImgHugoDone} alt='Fully Programmable illustration' />,
   },
 ]
 

@@ -14,7 +14,7 @@ const HeaderComponent: React.FunctionComponent<HeaderParams> = ({ logo }) => (
     <div className="container">
       <div className="site-header-inner">
         <div className="brand header-brand">
-          <h1 className="m-0">{logo}</h1>
+          <div className="m-0">{logo}</div>
         </div>
       </div>
     </div>

@@ -38,15 +38,15 @@ const isomorphicProjection = (
 const content: Content = {
   headerLogoLink: (
     <a href="/">
-      <img src={ImgLogoBlack} style={{ height: 48 }} />
+      <img src={ImgLogoBlack} style={{ height: 48 }} alt="Courier logo" />
     </a>
   ),
   footerLogoLink: (
     <a href="/">
-      <img src={ImgLogoWhite} style={{ height: 48 }} />
+      <img src={ImgLogoWhite} style={{ height: 48 }} alt="Courier logo" />
     </a>
   ),
-  homepageTitle: 'Courier',
+  homepageTitle: 'Courier – super powered notifications',
 
   heroTitle: 'Super Powered Notifications',
   heroDescription: (
@@ -74,6 +74,7 @@ const content: Content = {
       <img
         src={ImgLogoBlack}
         style={{ height: 60, display: 'inline', position: 'relative', top: -8 }}
+        alt="Courier logo"
       />
     </span>
   ),

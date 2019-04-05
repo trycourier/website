@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Courier',
-    description: '',
+    description: 'Super powered notifications. Add AI powered omnichannel delivery to your app\'s notifications with a single API call.',
     author: '@trycourier'
   },
   plugins: [
