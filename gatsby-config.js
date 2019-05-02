@@ -26,9 +26,9 @@ module.exports = {
     // 'gatsby-plugin-offline',
 
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-segment',
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID
+        writeKey: process.env.SEGMENT_KEY
       }
     },
 
