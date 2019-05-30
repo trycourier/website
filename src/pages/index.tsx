@@ -18,6 +18,8 @@ import Testimonials from '../templates/cruip-sienna/testimonials'
 import Pricing from '../templates/cruip-sienna/pricing'
 import FAQ from '../templates/cruip-sienna/faq'
 
+import './index.scss'
+
 export default () => (
   <Template
     headerLogo={content.headerLogoLink}
@@ -27,6 +29,10 @@ export default () => (
     socialLinks={content.socialLinks}
   >
     <SEO title={content.homepageTitle} />
+
+    <div className="login">
+      <a href="https://www.trycourier.app">Login</a>
+    </div>
 
     <Hero screenshot={content.heroScreenshot}>
       <h1 className="hero-title mt-0">{content.heroTitle}</h1>
