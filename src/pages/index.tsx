@@ -48,7 +48,6 @@ export default () => (
       description={content.featuresDescription}
       features={features}
     />
-    <Testimonials testimonials={testimonials} />
 
     <Pricing plans={pricingPlans} />
     <Mailchimp />
