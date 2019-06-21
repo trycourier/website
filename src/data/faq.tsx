@@ -7,7 +7,7 @@ const faqs: FAQ[] = [
     question: <span>What if I need more notifications/mo. or users?</span>,
     answer: (
       <p>
-        We're happy to customize a plan that will fit your needs if you need to
+        We&lsquo;re happy to customize a plan that will fit your needs if you need to
         send more than 2M notifications per month or require more than 5 users.
         Please <a href="mailto:sales@trycourier.com">contact our sales team</a>{' '}
         for more information!
@@ -20,7 +20,7 @@ const faqs: FAQ[] = [
       <p>
         Not at all! While Courier is built with engineering teams in mind, a key
         benefit that Courier provides is empowering non-engineers with the
-        ability to configure your product's notification strategy and build or
+        ability to configure your product&lsquo;s notification strategy and build or
         customize messages across all of your channels &mdash; without needing
         an engineer to be involved.
       </p>
