@@ -14,7 +14,7 @@ const features: Feature[] = [
     description: (
       <p>
         A single REST API to publish notifications to any channel.{' '}
-        <strong>Connect your existing providers</strong> to Courier and we'll
+        <strong>Connect your existing providers</strong> to Courier and we&lsquo;ll
         route the message to the <em>best</em> provider for that user.
         <br />
         <br />
@@ -29,7 +29,7 @@ const features: Feature[] = [
       <p>
         Save time by using our <strong>Omnichannel Visual Editor</strong> to
         create a single message that is reusable across all channels, or tweak
-        the message for each specific channel if you'd prefer.
+        the message for each specific channel if you&lsquo;d prefer.
       </p>
     ),
     graphic: <img src={ImgHugoWaiting} alt="Visual Editing illustration" />,
