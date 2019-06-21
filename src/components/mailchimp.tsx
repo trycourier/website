@@ -21,9 +21,9 @@ const Mailchimp = () => (
     <div className="container">
       <div className="section-inner">
         <p style={{ maxWidth: 800, margin: '0 auto 10px auto' }}>
-          We're working hard to make <strong>Courier</strong> available to
-          everyone. If you'd like to join the next group of customers, enter
-          your email below and we'll let you know when its time for another
+          We&lsquo;re working hard to make <strong>Courier</strong> available to
+          everyone. If you&lsquo;d like to join the next group of customers, enter
+          your email below and we&lsquo;ll let you know when its time for another
           visit.
         </p>
 
