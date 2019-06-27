@@ -32,7 +32,7 @@ export default () => (
 
     <div className="login">
       <a href="https://www.trycourier.app">Login</a>
-      &bull;
+      &nbsp;&bull;&nbsp;
       <a href="https://jobs.lever.co/trycourier">We're hiring!</a>
     </div>
 
