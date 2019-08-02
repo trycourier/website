@@ -5,13 +5,13 @@
   "version": "2.0.0",
   "author": "contact@trycourier.com",
   "dependencies": {
-    "gatsby": "^2.13.45",
-    "gatsby-image": "^2.2.7",
+    "gatsby": "^2.13.50",
+    "gatsby-image": "^2.2.8",
     "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-offline": "^2.2.4",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-sharp": "^2.2.9",
-    "gatsby-source-filesystem": "^2.1.7",
+    "gatsby-source-filesystem": "^2.1.8",
     "gatsby-transformer-sharp": "^2.2.5",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -23,12 +23,14 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
+    "start": "npm run develop --scripts-prepend-node-path",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "upgrade-all": "yarn-upgrade-all"
   },
   "devDependencies": {
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "yarn-upgrade-all": "^0.5.0"
   },
   "repository": {
     "type": "git",
