@@ -1,5 +1,10 @@
+//TODO: values in here don't seem to get loaded
 module.exports = {
-  theme: {},
-  variants: {},
-  plugins: []
+  theme: {
+    extend: {
+      colors: {
+        primary: 'rebeccapurple'
+      }
+    }
+  }
 };

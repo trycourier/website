@@ -7,16 +7,21 @@
 
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import normalize from "styled-normalize";
+import tw from "tailwind.macro";
 
 import Header from "./header";
-import "./layout.css";
+
+const GlobalStyle = createGlobalStyle`
+  ${normalize}
+  body {
+    font-family: Helvetica, sans-serif;
+  }
+`;
 
 const Body = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0;
+  ${tw`mx-auto max-w-4xl px-5 py-2 pt-0`}
 `;
 
 const Layout: React.FC = ({ children }) => {
@@ -32,6 +37,7 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <>
+      <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
       <Body>
         <main>{children}</main>

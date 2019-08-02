@@ -1,27 +1,27 @@
 import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
+import tw from "tailwind.macro";
+
+import { theme } from "../../tailwind";
 
 const PurpleHeader = styled.header`
-  background: rebeccapurple;
-  margin-bottom: 1.45rem;
+  ${tw`mb-5`}
+  background-color: ${theme.extend.colors.primary};
 `;
 const OuterWrapper = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 1.45rem 1.0875rem;
+  ${tw`mx-auto max-w-4xl px-4 py-5`}
 `;
 const SiteHeader = styled.h1`
-  margin: 0;
+  ${tw`m-0`}
 `;
 const SiteHeaderLink = styled(Link)`
-  color: white;
-  text-decoration: none;
+  ${tw`text-white no-underline`}
 `;
 
 const Header: React.FC<{
   siteTitle: string;
-}> = ({ siteTitle = "" }) => (
+}> = ({ siteTitle }) => (
   <PurpleHeader>
     <OuterWrapper>
       <SiteHeader>

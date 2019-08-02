@@ -8,18 +8,22 @@ import Image from "../components/image";
 import SEO from "../components/seo";
 
 const Header = styled.h1`
-  ${tw`text-red-500`}
-  font-size: 2em;
+  ${tw`text-4xl`}
 `;
 const ImageWrapper = styled.div`
+  ${tw`mb-5`}
   max-width: 300px;
-  margin-bottom: 1.45rem;
 `;
 
 const IndexPage: React.FC = () => (
   <Layout>
     <SEO title="Home" />
     <Header>Hi people</Header>
+    <ul>
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+    </ul>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <ImageWrapper>
