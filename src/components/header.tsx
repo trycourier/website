@@ -1,5 +1,5 @@
-import { Link } from "gatsby"
-import React from "react"
+import { Link } from "gatsby";
+import React from "react";
 
 const Header: React.FC<{
   siteTitle: string;
@@ -30,6 +30,6 @@ const Header: React.FC<{
       </h1>
     </div>
   </header>
-)
+);
 
-export default Header
+export default Header;
