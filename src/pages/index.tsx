@@ -11,6 +11,10 @@ const Header = styled.h1`
   ${tw`text-red-500`}
   font-size: 2em;
 `;
+const ImageWrapper = styled.div`
+  max-width: 300px;
+  margin-bottom: 1.45rem;
+`;
 
 const IndexPage: React.FC = () => (
   <Layout>
@@ -18,9 +22,9 @@ const IndexPage: React.FC = () => (
     <Header>Hi people</Header>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+    <ImageWrapper>
       <Image />
-    </div>
+    </ImageWrapper>
     <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 );
