@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 
-type GatsbyImage = {
+export type GatsbyImage = {
   childImageSharp: {
     fluid: any;
   };

@@ -1,13 +1,12 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Container from "../components/container";
-import Image from "../components/image";
 import Footer from "../components/footer";
 
+import Glyph from "../components/home/glyph";
 import Hero from "../components/home/hero";
 import Implement from "../components/home/implement";
 import Providers from "../components/home/providers";
@@ -16,10 +15,6 @@ import Route from "../components/home/route";
 import Pricing from "../components/home/pricing";
 import Hiring from "../components/home/hiring";
 import Investors from "../components/home/investors";
-
-const Glyph = styled(Image)`
-  max-width: 150px;
-`;
 
 const IndexPage: React.FC = () => {
   const { glyph1, glyph2, glyph3, glyph4 } = useStaticQuery(graphql`
@@ -63,14 +58,14 @@ const IndexPage: React.FC = () => {
         <Hero />
       </Container>
 
-      <Container>
+      <Container dark={true}>
         <Glyph image={glyph1} />
         <Implement />
       </Container>
 
       <Providers />
 
-      <Container>
+      <Container dark={true}>
         <Glyph image={glyph2} />
         <Editor />
       </Container>
@@ -79,7 +74,7 @@ const IndexPage: React.FC = () => {
         <Route />
       </Container>
 
-      <Container>
+      <Container dark={true}>
         <Glyph image={glyph3} />
         <Pricing />
       </Container>
@@ -89,11 +84,10 @@ const IndexPage: React.FC = () => {
         <Hiring />
       </Container>
 
-      <Container>
+      <Container dark={true}>
         <Investors />
         <Footer />
       </Container>
-
     </Layout>
   );
 };
