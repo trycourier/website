@@ -1,36 +1,101 @@
 import React from "react";
-import { Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import tw from "tailwind.macro";
 
 import Layout from "../components/layout";
-import Image from "../components/image";
 import SEO from "../components/seo";
+import Container from "../components/container";
+import Image from "../components/image";
+import Footer from "../components/footer";
 
-const Header = styled.h1`
-  ${tw`text-4xl`}
-`;
-const ImageWrapper = styled.div`
-  ${tw`mb-5`}
-  max-width: 300px;
+import Hero from "../components/home/hero";
+import Implement from "../components/home/implement";
+import Providers from "../components/home/providers";
+import Editor from "../components/home/editor";
+import Route from "../components/home/route";
+import Pricing from "../components/home/pricing";
+import Hiring from "../components/home/hiring";
+import Investors from "../components/home/investors";
+
+const Glyph = styled(Image)`
+  max-width: 150px;
 `;
 
-const IndexPage: React.FC = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Header>Hi people</Header>
-    <ul>
-      <li>one</li>
-      <li>two</li>
-      <li>three</li>
-    </ul>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <ImageWrapper>
-      <Image />
-    </ImageWrapper>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-);
+const IndexPage: React.FC = () => {
+  const { glyph1, glyph2, glyph3, glyph4 } = useStaticQuery(graphql`
+    query {
+      glyph1: file(relativePath: { eq: "Separator 1@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      glyph2: file(relativePath: { eq: "Separator 2@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      glyph3: file(relativePath: { eq: "Separator 3@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      glyph4: file(relativePath: { eq: "Separator 4@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+
+      <Container>
+        <Hero />
+      </Container>
+
+      <Container>
+        <Glyph image={glyph1} />
+        <Implement />
+      </Container>
+
+      <Providers />
+
+      <Container>
+        <Glyph image={glyph2} />
+        <Editor />
+      </Container>
+
+      <Container>
+        <Route />
+      </Container>
+
+      <Container>
+        <Glyph image={glyph3} />
+        <Pricing />
+      </Container>
+
+      <Container>
+        <Glyph image={glyph4} />
+        <Hiring />
+      </Container>
+
+      <Container>
+        <Investors />
+        <Footer />
+      </Container>
+
+    </Layout>
+  );
+};
 
 export default IndexPage;
