@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'rebeccapurple'
+        gatsby: 'rebeccapurple',
+        berry: '#9D348B'
       }
     }
   }

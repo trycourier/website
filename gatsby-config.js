@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: 'Courier',
+    description: 'Super powered notifications. Add AI powered omnichannel delivery to your app\'s notifications with a single API call.',
+    author: '@trycourier'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,13 +20,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `trycourier-dot-com`,
+        short_name: `courier`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-starter/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/favicon/favicon-96x96.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
