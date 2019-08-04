@@ -29,7 +29,8 @@ const HeroContent = styled.div`
       border-right: none;
     }
     & button {
-      ${tw`border border-solid rounded-r-full px-4 py-2 text-white text-sm`}
+      ${tw`border border-solid rounded-r-full px-4 py-2 text-white text-sm relative`}
+      top: -1px;
       height: 40px;
       background-color: #9d3789;
       border-color: #9d3789;

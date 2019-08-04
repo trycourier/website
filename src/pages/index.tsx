@@ -85,8 +85,9 @@ const IndexPage: React.FC = () => {
       </Container>
 
       <Container dark={true}>
-        <Investors />
-        <Footer />
+        <Footer>
+          <Investors />
+        </Footer>
       </Container>
     </Layout>
   );

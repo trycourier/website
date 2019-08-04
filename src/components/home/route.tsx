@@ -10,7 +10,7 @@ const Route = styled.section`
 `;
 
 const RouteText = styled.div`
-  ${tw`w-1/3`}
+  ${tw`w-1/3 pt-48`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-8`}
   }

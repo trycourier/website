@@ -3,7 +3,7 @@ import styled from "styled-components";
 import tw from "tailwind.macro";
 
 const Container = styled.div`
-  ${tw`relative mx-auto max-w-5xl py-2 pt-0`}
+  ${tw`relative mx-auto max-w-5xl`}
 `;
 
 const ContainerDark = styled.div`
