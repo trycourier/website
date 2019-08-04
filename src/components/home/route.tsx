@@ -6,21 +6,21 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Route = styled.section`
-  ${tw`flex`}
+  ${tw`flex py-24`}
 `;
 
 const RouteText = styled.div`
-  ${tw`w-1/2`}
-  & h1 {
-    ${tw`m-0 p-0 text-4xl`}
+  ${tw`w-1/3`}
+  & h2 {
+    ${tw`m-0 p-0 text-3xl mb-8`}
   }
   & p {
-    ${tw`m-0 p-0 text-sm`}
+    ${tw`m-0 p-0 text-sm mt-4`}
   }
 `;
 
 const RouteImageWrapper = styled.div`
-  ${tw`w-1/2 text-right`}
+  ${tw`w-2/3 text-right`}
 `;
 
 const RouteComponent: React.FC = () => {

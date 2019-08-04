@@ -6,8 +6,17 @@ import Navigation from "./navigation";
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
-  body {
-    font-family: Helvetica, sans-serif;
+  body, p {
+    font-family: 'Nunito Sans', Roboto, sans-serif;
+    font-weight: 100;
+    color: #344563
+    cursor: default;
+  }
+  button {
+    cursor: pointer;
+  }
+  button[disabled] {
+    cursor: default;
   }
 `;
 

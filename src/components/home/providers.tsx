@@ -1,13 +1,19 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
+import tw from "tailwind.macro";
 
 import Image from "../image";
 
 const Providers = styled.div`
+  ${tw`py-24 pb-12`}
 `;
 
 const ProvidersText = styled.div`
+  ${tw`text-center`}
+  & h2 {
+    ${tw`m-0 p-0 text-3xl`}
+  }
 `;
 
 const ProvidersImageWrapper = styled.div`

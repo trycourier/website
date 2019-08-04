@@ -1,16 +1,23 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
+import tw from "tailwind.macro";
 
 import Image from "../image";
 
 const Editor = styled.div`
+  ${tw`py-24 pb-0`}
 `;
 
 const EditorText = styled.div`
+  ${tw`text-center w-1/2 mx-auto pb-0 mb-0`}
+  & h2 {
+    ${tw`m-0 p-0 text-3xl`}
+  }
 `;
 
 const EditorImageWrapper = styled.div`
+  ${tw`w-2/3 mx-auto`}
 `;
 
 const EditorComponent: React.FC = () => {

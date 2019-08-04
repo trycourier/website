@@ -6,16 +6,16 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Implement = styled.section`
-  ${tw`flex`}
+  ${tw`flex py-24`}
 `;
 
 const ImplementText = styled.div`
   ${tw`w-1/2`}
   & h2 {
-    ${tw`m-0 p-0 text-3xl`}
+    ${tw`m-0 p-0 text-3xl mb-8`}
   }
   & p {
-    ${tw`m-0 p-0 text-sm`}
+    ${tw`m-0 p-0 text-sm mt-4`}
   }
 `;
 

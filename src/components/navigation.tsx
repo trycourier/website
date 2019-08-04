@@ -14,7 +14,7 @@ const NavigationItems = styled.ul`
 `;
 
 const NavItem = styled.li`
-  ${tw`list-none inline-block mr-4 align-top`}
+  ${tw`list-none inline-block mr-8 align-top`}
   height: 60px;
 `;
 
@@ -31,9 +31,9 @@ const NavItemLinkExternal = styled.a`
 
 const NavItemSeparator = styled.div`
   ${tw`border-solid border-0 border-r-2 align-middle`}
-  height: 30px;
+  height: 20px;
   border-color: #e9e9e9;
-  margin-top: 15px;
+  margin-top: 20px;
 `;
 
 const AccountButtons = styled.ul`
@@ -41,7 +41,7 @@ const AccountButtons = styled.ul`
 `;
 
 const AccountButton = styled.li`
-  ${tw`list-none inline-block ml-4 align-top`}
+  ${tw`list-none inline-block ml-3 align-top`}
   height: 60px;
 `;
 
