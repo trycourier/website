@@ -11,30 +11,26 @@ const NavContainer = styled.section`
   position: sticky;
   top: 0;
   z-index: 99;
-`;
 
-const Nav = styled.nav`
-  ${tw`flex justify-between mx-auto max-w-5xl mt-8`}
+  & nav {
+    ${tw`flex justify-between mx-auto max-w-5xl mt-8`}
+  }
 `;
 
 const NavigationItems = styled.ul`
   ${tw`m-0 p-0`}
-`;
-
-const NavItem = styled.li`
-  ${tw`list-none inline-block mr-8 align-top`}
-  height: 60px;
-`;
-
-const NavItemLink = styled(Link)`
-  ${tw`no-underline text-xs`}
-  color: ${colors.berry};
-  line-height: 60px;
-`;
-const NavItemLinkExternal = styled.a`
-  ${tw`no-underline text-xs`}
-  color: ${colors.berry};
-  line-height: 60px;
+  & li {
+    ${tw`list-none hidden md:inline-block mr-4 lg:mr-8 align-top`}
+    height: 60px;
+    & a {
+      ${tw`no-underline text-xs`}
+      color: ${colors.berry};
+      line-height: 60px;
+    }
+  }
+  & li.logo {
+    ${tw`inline-block`}
+  }
 `;
 
 const NavItemSeparator = styled.div`
@@ -45,36 +41,36 @@ const NavItemSeparator = styled.div`
 `;
 
 const AccountButtons = styled.ul`
-  ${tw`m-0 p-0`}
+  ${tw`m-0 p-0 mr-8 lg:mr-0`}
+  & li {
+    ${tw`list-none inline-block ml-3 align-top`}
+    height: 60px;
+  }
 `;
 
-const AccountButton = styled.li`
-  ${tw`list-none inline-block ml-3 align-top`}
-  height: 60px;
-`;
-
-const ActionButtonLink = styled.a`
+const ActionButtonLink = styled.a<{
+  primary?: boolean;
+}>`
   ${tw`no-underline text-xs border border-solid py-2 px-6 rounded-full`}
-  color: ${colors.berry};
-  line-height: 60px;
-`;
-const ActionButtonLinkPrimary = styled.a`
-  ${tw`no-underline text-xs border border-solid py-2 px-6 rounded-full`}
-  background-color: ${colors.berry};
-  color: white;
+  color: ${props => props.primary ? "white": colors.berry};
+  background-color: ${props => props.primary ? colors.berry : "white"};
   line-height: 60px;
 `;
 
 type GatsbyImage = {
-  base64: string;
-  aspectRatio: number;
-  src: string;
-  srcSet: string;
-  sizes: string;
+  childImageSharp: {
+    fluid: {
+      base64: string;
+      aspectRatio: number;
+      src: string;
+      srcSet: string;
+      sizes: string;
+    }
+  }
 };
 
 const NavigationComponent: React.FC = () => {
-  const data = useStaticQuery(graphql`
+  const { logo }: { logo: GatsbyImage } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "Logo@2x.png" }) {
         childImageSharp {
@@ -86,51 +82,49 @@ const NavigationComponent: React.FC = () => {
     }
   `);
 
-  const logo: GatsbyImage = data.logo.childImageSharp.fluid;
-
   return (
     <NavContainer>
-      <Nav>
+      <nav>
         <NavigationItems>
-          <NavItem>
+          <li className="logo">
             <Link to="/">
-              <img src={logo.src} srcSet={logo.srcSet} width={150} />
+              <img src={logo.childImageSharp.fluid.src} srcSet={logo.childImageSharp.fluid.srcSet} width={150} />
             </Link>
-          </NavItem>
-          <NavItem>
-            <NavItemLink to="/">Home</NavItemLink>
-          </NavItem>
-          <NavItem>
-            <NavItemLink to="/#pricing">Pricing</NavItemLink>
-          </NavItem>
-          <NavItem>
-            <NavItemLink to="/#company">Company</NavItemLink>
-          </NavItem>
-          <NavItem>
+          </li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/#pricing">Pricing</Link>
+          </li>
+          <li>
+            <Link to="/#company">Company</Link>
+          </li>
+          <li>
             <NavItemSeparator />
-          </NavItem>
-          <NavItem>
-            <NavItemLink to="/">Blog</NavItemLink>
-          </NavItem>
-          <NavItem>
-            <NavItemLinkExternal href="https://docs.trycourier.com/" target="_blank">
+          </li>
+          <li>
+            <Link to="/">Blog</Link>
+          </li>
+          <li>
+            <a href="https://docs.trycourier.com/" target="_blank">
               Documentation
-            </NavItemLinkExternal>
-          </NavItem>
+            </a>
+          </li>
         </NavigationItems>
         <AccountButtons>
-          <AccountButton>
+          <li>
             <ActionButtonLink href="https://www.trycourier.app/login">
               Login
             </ActionButtonLink>
-          </AccountButton>
-          <AccountButton>
-            <ActionButtonLinkPrimary href="https://www.trycourier.app/register">
+          </li>
+          <li>
+            <ActionButtonLink href="https://www.trycourier.app/register" primary={true}>
               Sign Up
-            </ActionButtonLinkPrimary>
-          </AccountButton>
+            </ActionButtonLink>
+          </li>
         </AccountButtons>
-      </Nav>
+      </nav>
     </NavContainer>
   );
 };

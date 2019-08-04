@@ -14,11 +14,11 @@ const Investors = styled.section`
 `;
 
 const InvestorLogos = styled.ul`
-  ${tw`m-0 p-0 list-none flex mx-auto w-2/3`}
+  ${tw`m-0 p-0 list-none md:flex mx-auto md:w-2/3`}
 `;
 
 const Logo = styled.li`
-  ${tw`m-0 p-0 inline w-1/2`}
+  ${tw`m-0 p-0 inline md:w-1/2`}
 `;
 
 const InvestorsComponent: React.FC = () => {

@@ -46,19 +46,19 @@ const pricing: Array<PricingPlan> = [
 ]
 
 const Pricing = styled.section`
-  ${tw`py-24 w-3/4 mx-auto`}
+  ${tw`py-24 lg:w-3/4 mx-auto`}
 `;
 
 const Plans = styled.section`
-  ${tw`flex`}
+  ${tw`md:flex`}
 `;
 
 const PlanColumn = styled.div`
-  ${tw`w-1/3 p-4`}
+  ${tw`md:w-1/3 p-4`}
 `;
 
 const PricingCardEl = styled.div`
-  ${tw`border border-solid border-white shadow-xl p-6 relative`}
+  ${tw`border border-solid border-transparent shadow-xl p-6 relative`}
   top: ${(props: PricingCardProps) => props.plan.featured ? "-10px" : "0"};
   min-height: ${(props: PricingCardProps) => props.plan.featured ? "220px" : "200px"};
   background-color: ${(props: PricingCardProps) => props.plan.featured ? "#9d3789" : "white"};
@@ -84,7 +84,7 @@ const PricingCardEl = styled.div`
 `;
 
 const EnterprisePlan = styled.aside`
-  ${tw`border border-solid border-white shadow-xl p-6 text-center w-2/3 mx-auto`}
+  ${tw`border border-solid border-white shadow-xl p-6 text-center w-2/3 mx-auto bg-white`}
   border-radius: 1rem;
   & h3 {
     ${tw`m-0 p-0 text-xl`}

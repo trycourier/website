@@ -6,11 +6,11 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Implement = styled.section`
-  ${tw`flex py-24`}
+  ${tw`md:flex py-24`}
 `;
 
 const ImplementText = styled.div`
-  ${tw`w-1/2`}
+  ${tw`md:w-1/2`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-8`}
   }
@@ -20,7 +20,7 @@ const ImplementText = styled.div`
 `;
 
 const ImplementImageWrapper = styled.div`
-  ${tw`w-1/2 text-right`}
+  ${tw`md:w-1/2 text-right`}
 `;
 
 const ImplementComponent: React.FC = () => {

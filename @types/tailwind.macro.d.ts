@@ -4,10 +4,14 @@ declare module "tailwind.macro" {
 
   export default function tw(
     templateString: TemplateStringsArray
-  ): Interpolation<
-    ThemedStyledProps<
-      DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-      any // lol no idea
-    >
-  >;
+  ): any; // wat
+
+  // export default function tw(
+  //   templateString: TemplateStringsArray
+  // ): Interpolation<
+  //   ThemedStyledProps<
+  //     DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+  //     any // lol no idea
+  //   >
+  // >;
 }

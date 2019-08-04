@@ -10,14 +10,14 @@ const Editor = styled.div`
 `;
 
 const EditorText = styled.div`
-  ${tw`text-center w-1/2 mx-auto pb-0 mb-0`}
+  ${tw`text-center md:w-1/2 mx-auto pb-0 mb-0`}
   & h2 {
     ${tw`m-0 p-0 text-3xl`}
   }
 `;
 
 const EditorImageWrapper = styled.div`
-  ${tw`w-2/3 mx-auto`}
+  ${tw`md:w-2/3 mx-auto`}
 `;
 
 const EditorComponent: React.FC = () => {
