@@ -7,7 +7,7 @@ declare module "tailwind.macro" {
   ): Interpolation<
     ThemedStyledProps<
       DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-      void // lol no idea
+      any // lol no idea
     >
   >;
 }
