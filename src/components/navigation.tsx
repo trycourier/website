@@ -5,6 +5,14 @@ import tw from "tailwind.macro";
 
 import colors from "../colors";
 
+const NavContainer = styled.section`
+  ${tw`bg-white`}
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+`;
+
 const Nav = styled.nav`
   ${tw`flex justify-between mx-auto max-w-5xl mt-8`}
 `;
@@ -65,7 +73,7 @@ type GatsbyImage = {
   sizes: string;
 };
 
-const HeaderComponent: React.FC = () => {
+const NavigationComponent: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "Logo@2x.png" }) {
@@ -81,48 +89,50 @@ const HeaderComponent: React.FC = () => {
   const logo: GatsbyImage = data.logo.childImageSharp.fluid;
 
   return (
-    <Nav>
-      <NavigationItems>
-        <NavItem>
-          <Link to="/">
-            <img src={logo.src} srcSet={logo.srcSet} width={150} />
-          </Link>
-        </NavItem>
-        <NavItem>
-          <NavItemLink to="/">Home</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemLink to="/#pricing">Pricing</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemLink to="/#company">Company</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemSeparator />
-        </NavItem>
-        <NavItem>
-          <NavItemLink to="/">Blog</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemLinkExternal href="https://docs.trycourier.com/" target="_blank">
-            Documentation
-          </NavItemLinkExternal>
-        </NavItem>
-      </NavigationItems>
-      <AccountButtons>
-        <AccountButton>
-          <ActionButtonLink href="https://www.trycourier.app/login">
-            Login
-          </ActionButtonLink>
-        </AccountButton>
-        <AccountButton>
-          <ActionButtonLinkPrimary href="https://www.trycourier.app/register">
-            Sign Up
-          </ActionButtonLinkPrimary>
-        </AccountButton>
-      </AccountButtons>
-    </Nav>
+    <NavContainer>
+      <Nav>
+        <NavigationItems>
+          <NavItem>
+            <Link to="/">
+              <img src={logo.src} srcSet={logo.srcSet} width={150} />
+            </Link>
+          </NavItem>
+          <NavItem>
+            <NavItemLink to="/">Home</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemLink to="/#pricing">Pricing</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemLink to="/#company">Company</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemSeparator />
+          </NavItem>
+          <NavItem>
+            <NavItemLink to="/">Blog</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemLinkExternal href="https://docs.trycourier.com/" target="_blank">
+              Documentation
+            </NavItemLinkExternal>
+          </NavItem>
+        </NavigationItems>
+        <AccountButtons>
+          <AccountButton>
+            <ActionButtonLink href="https://www.trycourier.app/login">
+              Login
+            </ActionButtonLink>
+          </AccountButton>
+          <AccountButton>
+            <ActionButtonLinkPrimary href="https://www.trycourier.app/register">
+              Sign Up
+            </ActionButtonLinkPrimary>
+          </AccountButton>
+        </AccountButtons>
+      </Nav>
+    </NavContainer>
   );
 };
 
-export default HeaderComponent;
+export default NavigationComponent;

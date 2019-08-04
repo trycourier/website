@@ -74,12 +74,12 @@ const IndexPage: React.FC = () => {
         <Route />
       </Container>
 
-      <Container dark={true}>
+      <Container dark={true} id="pricing">
         <Glyph image={glyph3} />
         <Pricing />
       </Container>
 
-      <Container>
+      <Container id="company">
         <Glyph image={glyph4} />
         <Hiring />
       </Container>
@@ -89,6 +89,7 @@ const IndexPage: React.FC = () => {
           <Investors />
         </Footer>
       </Container>
+
     </Layout>
   );
 };

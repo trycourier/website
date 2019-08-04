@@ -11,16 +11,17 @@ const ContainerDark = styled.div`
 `;
 
 const ContainerComponent: React.FC<{
+  id?: string;
   dark?: boolean;
-}> = ({ dark, children }) => {
+}> = ({ id, dark, children }) => {
   if (dark) {
     return (
       <ContainerDark>
-        <Container>{children}</Container>
+        <Container id={id}>{children}</Container>
       </ContainerDark>
     );
   } else {
-    return <Container>{children}</Container>;
+    return <Container id={id}>{children}</Container>;
   }
 };
 
