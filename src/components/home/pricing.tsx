@@ -91,10 +91,11 @@ const EnterprisePlan = styled.aside`
     color: #2f3e5a;
   }
   & p {
+    ${tw`text-sm`}
     color: #969696;
   }
   & a {
-    ${tw`no-underline text-xs border border-solid py-2 px-6 rounded-full`}
+    ${tw`no-underline text-sm border border-solid py-3 px-8 rounded-full`}
     background-color: ${colors.berry};
     color: white;
     line-height: 60px;

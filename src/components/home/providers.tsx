@@ -13,6 +13,7 @@ const ProvidersText = styled.div`
   ${tw`text-center`}
   & h2 {
     ${tw`m-0 p-0 text-3xl`}
+    color: #2f3e5a;
   }
 `;
 

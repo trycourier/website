@@ -104,7 +104,7 @@ const HeaderComponent: React.FC = () => {
           <NavItemLink to="/">Blog</NavItemLink>
         </NavItem>
         <NavItem>
-          <NavItemLinkExternal href="https://docs.trycourier.com/">
+          <NavItemLinkExternal href="https://docs.trycourier.com/" target="_blank">
             Documentation
           </NavItemLinkExternal>
         </NavItem>
