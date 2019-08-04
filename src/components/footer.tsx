@@ -1,17 +1,28 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import BackgroundImage from 'gatsby-background-image';
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
 import Image from "./image";
 
 const Footer = styled.footer`
-  > .gatsby-image-wrapper {
-    ${tw`pb-16`}
-  }
+  ${tw`relative`}
+  z-index: 2;
   & p {
     ${tw`text-xs`}
+  }
+`;
+
+const Bg = styled.div`
+  ${tw`absolute`}
+  height: 300px;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+  > .gatsby-image-wrapper {
+    ${tw`mx-auto`}
+    width: 900px;
   }
 `;
 
@@ -40,16 +51,14 @@ const FooterComponent: React.FC = ({ children }) => {
   `);
 
   return (
-    <Footer>
-      <BackgroundImage fluid={bg.childImageSharp.fluid} style={{
-        backgroundSize: '900px',
-        backgroundPosition: 'bottom 175% center'
-      }}>
+    <>
+      <Footer>
         {children}
         <Logo><Image image={logo} /></Logo>
         <p>{new Date().getFullYear()} trycourier.com, Inc. All rights reserved.</p>
-      </BackgroundImage>
-    </Footer>
+      </Footer>
+      <Bg><Image image={bg} /></Bg>
+    </>
   );
 };
 
