@@ -1,59 +1,96 @@
-import React from 'react'
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 
-import content from '../data/content'
-import clients from '../data/clients'
-import features from '../data/features'
-import testimonials from '../data/testimonials'
-import pricingPlans from '../data/pricing'
-import faqs from '../data/faq'
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Container from "../components/container";
+import Footer from "../components/footer";
 
-import SEO from '../components/seo'
-import Mailchimp from '../components/mailchimp'
+import Glyph from "../components/home/glyph";
+import Hero from "../components/home/hero";
+import Implement from "../components/home/implement";
+import Providers from "../components/home/providers";
+import Editor from "../components/home/editor";
+import Route from "../components/home/route";
+import Pricing from "../components/home/pricing";
+import Hiring from "../components/home/hiring";
+import Investors from "../components/home/investors";
 
-import Template from '../templates/cruip-sienna'
-import Hero from '../templates/cruip-sienna/hero'
-import Clients from '../templates/cruip-sienna/clients'
-import Features from '../templates/cruip-sienna/features'
-import Testimonials from '../templates/cruip-sienna/testimonials'
-import Pricing from '../templates/cruip-sienna/pricing'
-import FAQ from '../templates/cruip-sienna/faq'
+const IndexPage: React.FC = () => {
+  const { glyph1, glyph2, glyph3, glyph4 } = useStaticQuery(graphql`
+    query {
+      glyph1: file(relativePath: { eq: "Separator 1@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      glyph2: file(relativePath: { eq: "Separator 2@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      glyph3: file(relativePath: { eq: "Separator 3@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      glyph4: file(relativePath: { eq: "Separator 4@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
 
-import './index.scss'
+  return (
+    <Layout>
+      <SEO title="Home" />
 
-export default () => (
-  <Template
-    headerLogo={content.headerLogoLink}
-    footerLogo={content.footerLogoLink}
-    copyright={content.copyright}
-    footerLinks={content.footerLinks}
-    socialLinks={content.socialLinks}
-  >
-    <SEO title={content.homepageTitle} />
+      <Container>
+        <Hero />
+      </Container>
 
-    <div className="login">
-      <a href="https://www.trycourier.app">Login</a>
-      &nbsp;&bull;&nbsp;
-      <a href="https://jobs.lever.co/trycourier">We're hiring!</a>
-    </div>
+      <Container dark={true}>
+        <Glyph image={glyph1} />
+        <Implement />
+      </Container>
 
-    <Hero screenshot={content.heroScreenshot}>
-      <h1 className="hero-title mt-0">{content.heroTitle}</h1>
-      <p className="hero-paragraph">{content.heroDescription}</p>
-      <p className="hero-cta" style={{ position: 'relative', zIndex: 99 }}>
-        {content.heroCTA}
-      </p>
-    </Hero>
+      <Providers />
 
-    <Clients clients={clients} />
-    <Features
-      title={content.featuresTitle}
-      description={content.featuresDescription}
-      features={features}
-    />
+      <Container dark={true}>
+        <Glyph image={glyph2} />
+        <Editor />
+      </Container>
 
-    <Pricing plans={pricingPlans} />
-    <Mailchimp />
+      <Container>
+        <Route />
+      </Container>
 
-    <FAQ faqs={faqs} />
-  </Template>
-)
+      <Container dark={true} id="pricing">
+        <Glyph image={glyph3} />
+        <Pricing />
+      </Container>
+
+      <Container id="company">
+        <Glyph image={glyph4} />
+        <Hiring />
+      </Container>
+
+      <Container dark={true}>
+        <Footer>
+          <Investors />
+        </Footer>
+      </Container>
+    </Layout>
+  );
+};
+
+export default IndexPage;

@@ -10,13 +10,6 @@ The easiest way to add notifications to a new project or to add additional chann
 
 [https://www.trycourier.com](https://www.trycourier.com)
 
-## Website Attributions
-
-* Using the **Sienna** theme from [Cruip](https://cruip.com/)
-* Illustrations by [Ouch!](https://icons8.com/ouch)
-* [Mailchimp](https://mailchimp.com/)
-* [Intercom for Early Stage](https://www.intercom.com/early-stage)
-
 ## License
 
 [MIT](LICENSE)

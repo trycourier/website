@@ -1,17 +1,23 @@
 {
-  "include": ["./src/**/*"],
   "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "jsx": "preserve",
     "lib": ["dom", "es2017"],
-    // "allowJs": true,
-    // "checkJs": true,
-    "jsx": "react",
-    "strict": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "noEmit": true,
-    "skipLibCheck": true
-  }
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "pretty": true,
+    "removeComments": false,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext"
+  },
+  "include": ["src/**/*", "@types/**/*"],
+  "exclude": ["node_modules", ".cache", "public"]
 }
