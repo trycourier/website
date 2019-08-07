@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Courier',
-    description: 'Super powered notifications. Add AI powered omnichannel delivery to your app\'s notifications with a single API call.',
+    description: 'Courier sends your product\'s user notifications to the best channel for each user. Add any notification channel – like SMS, push, Slack, and WhatsApp – to your app with just a single API call.',
     author: '@trycourier'
   },
   plugins: [
