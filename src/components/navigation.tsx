@@ -1,5 +1,5 @@
 import { Link, useStaticQuery, graphql } from "gatsby";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
@@ -11,10 +11,27 @@ const NavContainer = styled.section`
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 99;
+  z-index: 98;
 
   & nav {
     ${tw`flex justify-between mx-auto max-w-5xl lg:mt-8 py-4`}
+  }
+`;
+
+const MobileNavMenu = styled.ul`
+  ${tw`fixed top-0 left-0 m-0 p-0 w-full h-full list-none`}
+  z-index: 99;
+  background-color: #9d3789;
+  & li {
+    ${tw`pt-8 px-8 text-2xl`}
+    & a {
+      ${tw`text-white no-underline`}
+    }
+  }
+  & li.close {
+    ${tw`text-right text-sm relative`}
+    top: -8px;
+    left: 7px;
   }
 `;
 
@@ -50,7 +67,7 @@ const AccountButtons = styled.ul`
     height: 30px;
   }
   & li.hamburger {
-    ${tw`inline-block md:hidden`}
+    ${tw`inline-block md:hidden cursor-pointer`}
     width: 30px;
     height: 30px;
   }
@@ -66,6 +83,8 @@ const ActionButtonLink = styled.a<{
 `;
 
 const NavigationComponent: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+
   const { hamburger, logo } = useStaticQuery(graphql`
     query {
       hamburger: file(relativePath: { eq: "hamburger@2x.png" }) {
@@ -85,14 +104,69 @@ const NavigationComponent: React.FC = () => {
     }
   `);
 
+  const toggleMenu = (ev: React.SyntheticEvent) => {
+    ev.preventDefault();
+    setShowModal(!showModal);
+  }
+
+  const hideMenu = (ev: React.SyntheticEvent) => {
+    setShowModal(false);
+  }
+
   return (
-    <NavContainer>
-      <nav>
-        <NavigationItems>
-          <li className="logo">
-            <Link to="/">
-              <Image image={logo} />
-            </Link>
+    <>
+      <NavContainer>
+        <nav>
+          <NavigationItems>
+            <li className="logo">
+              <Link to="/">
+                <Image image={logo} />
+              </Link>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/#pricing">Pricing</Link>
+            </li>
+            <li>
+              <Link to="/#company">Company</Link>
+            </li>
+            <li>
+              <NavItemSeparator />
+            </li>
+            <li>
+              <Link to="/">Blog</Link>
+            </li>
+            <li>
+              <a href="https://docs.trycourier.com/" target="_blank">
+                Documentation
+              </a>
+            </li>
+          </NavigationItems>
+          <AccountButtons>
+            <li>
+              <ActionButtonLink href="https://www.trycourier.app/login">
+                Login
+              </ActionButtonLink>
+            </li>
+            <li>
+              <ActionButtonLink href="https://www.trycourier.app/register" primary={true}>
+                Sign Up
+              </ActionButtonLink>
+            </li>
+            <li className="hamburger">
+              <a href="/" onClick={toggleMenu}>
+                <Image image={hamburger} />
+              </a>
+            </li>
+          </AccountButtons>
+        </nav>
+      </NavContainer>
+      {showModal ? (
+        <MobileNavMenu onClick={hideMenu}>
+          <li className="close">
+            <a href="/" onClick={toggleMenu}>close X</a>
           </li>
           <li>
             <Link to="/">Home</Link>
@@ -104,9 +178,6 @@ const NavigationComponent: React.FC = () => {
             <Link to="/#company">Company</Link>
           </li>
           <li>
-            <NavItemSeparator />
-          </li>
-          <li>
             <Link to="/">Blog</Link>
           </li>
           <li>
@@ -114,26 +185,19 @@ const NavigationComponent: React.FC = () => {
               Documentation
             </a>
           </li>
-        </NavigationItems>
-        <AccountButtons>
           <li>
-            <ActionButtonLink href="https://www.trycourier.app/login">
+            <a href="https://www.trycourier.app/login" target="_blank">
               Login
-            </ActionButtonLink>
+            </a>
           </li>
           <li>
-            <ActionButtonLink href="https://www.trycourier.app/register" primary={true}>
+            <a href="https://www.trycourier.app/register" target="_blank">
               Sign Up
-            </ActionButtonLink>
+            </a>
           </li>
-          <li className="hamburger">
-            <Link to="/">
-              <Image image={hamburger} />
-            </Link>
-          </li>
-        </AccountButtons>
-      </nav>
-    </NavContainer>
+        </MobileNavMenu>
+      ) : null}
+    </>
   );
 };
 
