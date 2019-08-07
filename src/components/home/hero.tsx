@@ -22,7 +22,7 @@ const HeroContent = styled.div`
   & form {
     ${tw`m-0 p-0 mt-6 lg:mt-16`}
     & input {
-      ${tw`border border-solid rounded-l-full px-6 py-1 text-sm w-24 xl:w-64`}
+      ${tw`border border-solid rounded-l-full px-6 py-1 text-sm w-24 md:w-32 lg:w-64`}
       height: 30px;
       border-color: #d5d5d5;
       border-right: none;
