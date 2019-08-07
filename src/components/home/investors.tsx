@@ -6,7 +6,7 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Investors = styled.section`
-  ${tw`py-24 text-center`}
+  ${tw`py-24 pb-48 text-center`}
   & h2 {
     ${tw`m-0 p-0 text-3xl`}
     color: #2f3e5a;

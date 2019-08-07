@@ -33,7 +33,7 @@ const Logo = styled.div`
 const FooterComponent: React.FC = ({ children }) => {
   const { logo, bg } = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { eq: "Logo@2x.png" }) {
+      logo: file(relativePath: { eq: "Courier Logo@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid

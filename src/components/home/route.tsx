@@ -10,7 +10,7 @@ const Route = styled.section`
 `;
 
 const RouteText = styled.div`
-  ${tw`md:w-1/3 pt-48`}
+  ${tw`md:w-1/3`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-8`}
   }
@@ -26,7 +26,7 @@ const RouteImageWrapper = styled.div`
 const RouteComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "Illustration 2@2x.png" }) {
+      img: file(relativePath: { eq: "route-illustration@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
             ...GatsbyImageSharpFluid

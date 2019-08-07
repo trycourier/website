@@ -10,7 +10,7 @@ const Implement = styled.section`
 `;
 
 const ImplementText = styled.div`
-  ${tw`md:w-1/2`}
+  ${tw`md:w-1/2 md:pr-8`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-8`}
   }
@@ -26,7 +26,7 @@ const ImplementImageWrapper = styled.div`
 const ImplementComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "Code Block@2x.png" }) {
+      img: file(relativePath: { eq: "code-block@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid

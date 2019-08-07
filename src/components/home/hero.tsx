@@ -6,11 +6,11 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Hero = styled.section`
-  ${tw`md:flex py-8 md:py-24`}
+  ${tw`md:flex py-8 md:py-12 md:pt-24`}
 `;
 
 const HeroContent = styled.div`
-  ${tw`md:w-1/2 px-8`}
+  ${tw`md:w-1/2 pr-16`}
   & h1 {
     ${tw`m-0 p-0 text-4xl`}
     font-weight: 600;
@@ -20,7 +20,7 @@ const HeroContent = styled.div`
     ${tw`m-0 p-0 text-sm mt-6`}
   }
   & form {
-    ${tw`m-0 p-0 mt-6 md:mt-16 text-center`}
+    ${tw`m-0 p-0 mt-6 md:mt-16`}
     & input {
       ${tw`border border-solid rounded-l-full px-6 py-1 text-sm w-24 xl:w-64`}
       height: 30px;
@@ -44,7 +44,7 @@ const HeroImageWrapper = styled.div`
 const HeroComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "Illustration 1@2x.png" }) {
+      img: file(relativePath: { eq: "Illustration@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
             ...GatsbyImageSharpFluid
