@@ -30,7 +30,7 @@ const NavigationItems = styled.ul`
     }
   }
   & li.logo {
-    ${tw`inline-block pl-4 md:pl-0`}
+    ${tw`inline-block pl-4 md:pl-4 lg:pl-0`}
     width: 110px;
     height: 30px;
   }

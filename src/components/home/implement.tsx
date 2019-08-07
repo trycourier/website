@@ -6,7 +6,7 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Implement = styled.section`
-  ${tw`md:flex pt-24 pb-8 md:py-24 px-4 md:px-0`}
+  ${tw`md:flex pt-24 pb-8 md:py-24 px-4 lg:px-0`}
 `;
 
 const ImplementText = styled.div`

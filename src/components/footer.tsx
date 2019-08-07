@@ -9,7 +9,7 @@ const Footer = styled.footer`
   ${tw`relative`}
   z-index: 2;
   & p {
-    ${tw`ml-4 pb-4 md:ml-0 md:pb-0 text-xs`}
+    ${tw`ml-4 pb-4 lg:ml-0 text-xs`}
   }
 `;
 
@@ -27,7 +27,7 @@ const Bg = styled.div`
 `;
 
 const Logo = styled.div`
-  ${tw`ml-4 md:ml-0`}
+  ${tw`ml-4 lg:ml-0`}
   max-width: 100px;
 `;
 

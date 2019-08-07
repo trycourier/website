@@ -17,7 +17,7 @@ const EditorText = styled.div`
   & ul {
     ${tw`m-0 p-0 list-none`}
     & li {
-      ${tw`inline-block px-2 md:px-4`}
+      ${tw`inline-block px-2 lg:px-4`}
       & > div {
         ${tw`cursor-default`}
         & span.icon {

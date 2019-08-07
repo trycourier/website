@@ -6,7 +6,7 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Route = styled.section`
-  ${tw`md:flex py-8 pb-16 md:py-24 px-4 md:px-0`}
+  ${tw`md:flex py-8 pb-16 md:py-24 px-4 lg:px-0`}
 `;
 
 const RouteText = styled.div`
