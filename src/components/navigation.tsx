@@ -77,8 +77,8 @@ const ActionButtonLink = styled.a<{
   primary?: boolean;
 }>`
   ${tw`no-underline text-xs border border-solid py-2 px-6 rounded-full`}
-  color: ${props => props.primary ? "white": colors.berry};
-  background-color: ${props => props.primary ? colors.berry : "white"};
+  color: ${props => (props.primary ? "white" : colors.berry)};
+  background-color: ${props => (props.primary ? colors.berry : "white")};
   line-height: 30px;
 `;
 
@@ -107,11 +107,11 @@ const NavigationComponent: React.FC = () => {
   const toggleMenu = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
     setShowModal(!showModal);
-  }
+  };
 
   const hideMenu = () => {
     setShowModal(false);
-  }
+  };
 
   return (
     <>
@@ -143,12 +143,19 @@ const NavigationComponent: React.FC = () => {
           </NavigationItems>
           <AccountButtons>
             <li>
-              <ActionButtonLink href="https://www.trycourier.app/login" target="_blank">
+              <ActionButtonLink
+                href="https://www.trycourier.app/login"
+                target="_blank"
+              >
                 Login
               </ActionButtonLink>
             </li>
             <li>
-              <ActionButtonLink href="https://www.trycourier.app/register" target="_blank" primary={true}>
+              <ActionButtonLink
+                href="https://www.trycourier.app/register"
+                target="_blank"
+                primary={true}
+              >
                 Sign Up
               </ActionButtonLink>
             </li>
@@ -163,7 +170,9 @@ const NavigationComponent: React.FC = () => {
       {showModal ? (
         <MobileNavMenu onClick={hideMenu}>
           <li className="close">
-            <a href="/" onClick={toggleMenu}>close X</a>
+            <a href="/" onClick={toggleMenu}>
+              close X
+            </a>
           </li>
           <li>
             <Link to="/">Home</Link>

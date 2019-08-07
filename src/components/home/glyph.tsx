@@ -17,7 +17,13 @@ const GlyphInnerWrapper = styled.div`
 const GlyphComponent: React.FC<{
   image: GatsbyImage;
 }> = ({ image }) => {
-  return <GlyphOuterWrapper><GlyphInnerWrapper><Image image={image} /></GlyphInnerWrapper></GlyphOuterWrapper>;
-}
+  return (
+    <GlyphOuterWrapper>
+      <GlyphInnerWrapper>
+        <Image image={image} />
+      </GlyphInnerWrapper>
+    </GlyphOuterWrapper>
+  );
+};
 
 export default GlyphComponent;

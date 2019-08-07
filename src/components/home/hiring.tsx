@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
-import BackgroundImage from 'gatsby-background-image';
+import BackgroundImage from "gatsby-background-image";
 
 import colors from "../../colors";
 
@@ -37,19 +37,26 @@ const HiringComponent: React.FC = () => {
   `);
 
   const bgStyle = {
-    backgroundSize: '320px 235px',
-    backgroundPosition: 'center right'
+    backgroundSize: "320px 235px",
+    backgroundPosition: "center right",
   };
 
   return (
     <Hiring>
       <BackgroundImage fluid={img.childImageSharp.fluid} style={bgStyle}>
         <h2>We're hiring!</h2>
-        <p>We're all in this together. We believe in honesty, figuring things out as a team, and placing high standards on ourselves. We're headquartered in the heart of San Francisco, with easy acccess to BART, CalTrain, and Muni.</p>
-        <a target="_blank" href="https://jobs.lever.co/trycourier">I'm intrigued!</a>
+        <p>
+          We're all in this together. We believe in honesty, figuring things out
+          as a team, and placing high standards on ourselves. We're
+          headquartered in the heart of San Francisco, with easy acccess to
+          BART, CalTrain, and Muni.
+        </p>
+        <a target="_blank" href="https://jobs.lever.co/trycourier">
+          I'm intrigued!
+        </a>
       </BackgroundImage>
     </Hiring>
   );
-}
+};
 
 export default HiringComponent;

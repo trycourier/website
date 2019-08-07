@@ -17,8 +17,7 @@ const ProvidersText = styled.div`
   }
 `;
 
-const ProvidersImageWrapper = styled.div`
-`;
+const ProvidersImageWrapper = styled.div``;
 
 const ProvidersComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`

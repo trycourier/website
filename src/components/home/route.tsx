@@ -40,7 +40,11 @@ const RouteComponent: React.FC = () => {
     <Route>
       <RouteText>
         <h2>Route with data</h2>
-        <p>Courier automatically upgrades each notification to use the best channel available for each user. Use our visual rules designer to customize your delivery strategy or let Courier decide for you.</p>
+        <p>
+          Courier automatically upgrades each notification to use the best
+          channel available for each user. Use our visual rules designer to
+          customize your delivery strategy or let Courier decide for you.
+        </p>
       </RouteText>
       <RouteImageWrapper>
         <Image image={img} />

@@ -55,10 +55,16 @@ const FooterComponent: React.FC = ({ children }) => {
     <>
       <Footer>
         {children}
-        <Logo><Image image={logo} /></Logo>
-        <p>{new Date().getFullYear()} trycourier.com, Inc. All rights reserved.</p>
+        <Logo>
+          <Image image={logo} />
+        </Logo>
+        <p>
+          {new Date().getFullYear()} trycourier.com, Inc. All rights reserved.
+        </p>
       </Footer>
-      <Bg><Image image={bg} /></Bg>
+      <Bg>
+        <Image image={bg} />
+      </Bg>
     </>
   );
 };

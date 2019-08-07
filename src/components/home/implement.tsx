@@ -40,8 +40,15 @@ const ImplementComponent: React.FC = () => {
     <Implement>
       <ImplementText>
         <h2>Implement in Seconds</h2>
-        <p>Our simple REST API takes only seconds to integrate, or you can leverage our Segment connector to automatically wire up existing events without writing any code.</p>
-        <p>Even better: Courier’s Visual Editor lets you move the templates for all of your channels out of your codebase, so maintenance is a breeze!</p>
+        <p>
+          Our simple REST API takes only seconds to integrate, or you can
+          leverage our Segment connector to automatically wire up existing
+          events without writing any code.
+        </p>
+        <p>
+          Even better: Courier’s Visual Editor lets you move the templates for
+          all of your channels out of your codebase, so maintenance is a breeze!
+        </p>
       </ImplementText>
       <ImplementImageWrapper>
         <Image image={img} />

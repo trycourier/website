@@ -89,7 +89,6 @@ const IndexPage: React.FC = () => {
           <Investors />
         </Footer>
       </Container>
-
     </Layout>
   );
 };

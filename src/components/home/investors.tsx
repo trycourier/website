@@ -45,11 +45,19 @@ const InvestorsComponent: React.FC = () => {
     <Investors>
       <h2>Our investors</h2>
       <InvestorLogos>
-        <Logo><a href="https://www.matrixpartners.com/" target="_blank"><Image image={matrix} /></a></Logo>
-        <Logo><a href="https://www.ycombinator.com/" target="_blank"><Image image={yc} /></a></Logo>
+        <Logo>
+          <a href="https://www.matrixpartners.com/" target="_blank">
+            <Image image={matrix} />
+          </a>
+        </Logo>
+        <Logo>
+          <a href="https://www.ycombinator.com/" target="_blank">
+            <Image image={yc} />
+          </a>
+        </Logo>
       </InvestorLogos>
     </Investors>
   );
-}
+};
 
 export default InvestorsComponent;

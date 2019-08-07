@@ -9,20 +9,17 @@ type PricingPlan = {
   price: number;
   details: Array<string>;
   featured?: boolean;
-}
+};
 
 type PricingCardProps = {
   plan: PricingPlan;
-}
+};
 
 const pricing: Array<PricingPlan> = [
   {
     name: "Free Forever",
     price: 0,
-    details: [
-      "10k notifications / mo.",
-      "Unlimited users"
-    ]
+    details: ["10k notifications / mo.", "Unlimited users"],
   },
   {
     name: "Team",
@@ -30,9 +27,9 @@ const pricing: Array<PricingPlan> = [
     details: [
       "500k notifications / mo.",
       "Unlimited users",
-      "Role Based Access Control"
+      "Role Based Access Control",
     ],
-    featured: true
+    featured: true,
   },
   {
     name: "Business",
@@ -40,10 +37,10 @@ const pricing: Array<PricingPlan> = [
     details: [
       "2MM notifications / mo.",
       "Unlimited users",
-      "Role Based Access Control"
-    ]
-  }
-]
+      "Role Based Access Control",
+    ],
+  },
+];
 
 const Pricing = styled.section`
   ${tw`py-24 lg:w-3/4 mx-auto`}
@@ -59,20 +56,25 @@ const PlanColumn = styled.div`
 
 const PricingCardEl = styled.div`
   ${tw`border border-solid border-transparent shadow-xl p-6 md:relative`}
-  top: ${(props: PricingCardProps) => props.plan.featured ? "-10px" : "0"};
-  min-height: ${(props: PricingCardProps) => props.plan.featured ? "220px" : "200px"};
-  background-color: ${(props: PricingCardProps) => props.plan.featured ? "#9d3789" : "white"};
-  color: ${(props: PricingCardProps) => props.plan.featured ? "white" : "#969696"};
+  top: ${(props: PricingCardProps) => (props.plan.featured ? "-10px" : "0")};
+  min-height: ${(props: PricingCardProps) =>
+    props.plan.featured ? "220px" : "200px"};
+  background-color: ${(props: PricingCardProps) =>
+    props.plan.featured ? "#9d3789" : "white"};
+  color: ${(props: PricingCardProps) =>
+    props.plan.featured ? "white" : "#969696"};
   border-radius: 1rem;
   & h3 {
     ${tw`m-0 p-0 text-xl`}
-    color: ${(props: PricingCardProps) => props.plan.featured ? "white" : "#2f3e5a"};
+    color: ${(props: PricingCardProps) =>
+      props.plan.featured ? "white" : "#2f3e5a"};
   }
   & .price {
     ${tw`mt-4 mb-6 text-xl`}
     & .amount {
       ${tw`text-5xl font-bold px-1`}
-      color: ${(props: PricingCardProps) => props.plan.featured ? "white" : "#344563"};
+      color: ${(props: PricingCardProps) =>
+        props.plan.featured ? "white" : "#344563"};
     }
   }
   & ul {
@@ -120,7 +122,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
       ) : null}
     </PricingCardEl>
   );
-}
+};
 
 const PricingComponent: React.FC = () => {
   return (
@@ -128,17 +130,23 @@ const PricingComponent: React.FC = () => {
       {pricing && pricing.length ? (
         <Plans>
           {pricing.map((p, idx) => (
-            <PlanColumn key={idx}><PricingCard plan={p} /></PlanColumn>
+            <PlanColumn key={idx}>
+              <PricingCard plan={p} />
+            </PlanColumn>
           ))}
         </Plans>
       ) : null}
       <EnterprisePlan>
         <h3>Enterprise</h3>
-        <p>If you are sending more volume than 2MM notifications/mo., want advanced capabilities like SAML SSO, or need help navigating your purchasing process, we'd love to chat about our Enterprise options.</p>
+        <p>
+          If you are sending more volume than 2MM notifications/mo., want
+          advanced capabilities like SAML SSO, or need help navigating your
+          purchasing process, we'd love to chat about our Enterprise options.
+        </p>
         <a href="mailto:sales@trycourier.com">Contact Sales</a>
       </EnterprisePlan>
     </Pricing>
   );
-}
+};
 
 export default PricingComponent;
