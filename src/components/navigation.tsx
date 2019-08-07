@@ -109,7 +109,7 @@ const NavigationComponent: React.FC = () => {
     setShowModal(!showModal);
   }
 
-  const hideMenu = (ev: React.SyntheticEvent) => {
+  const hideMenu = () => {
     setShowModal(false);
   }
 
@@ -136,9 +136,6 @@ const NavigationComponent: React.FC = () => {
               <NavItemSeparator />
             </li>
             <li>
-              <Link to="/">Blog</Link>
-            </li>
-            <li>
               <a href="https://docs.trycourier.com/" target="_blank">
                 Documentation
               </a>
@@ -146,12 +143,12 @@ const NavigationComponent: React.FC = () => {
           </NavigationItems>
           <AccountButtons>
             <li>
-              <ActionButtonLink href="https://www.trycourier.app/login">
+              <ActionButtonLink href="https://www.trycourier.app/login" target="_blank">
                 Login
               </ActionButtonLink>
             </li>
             <li>
-              <ActionButtonLink href="https://www.trycourier.app/register" primary={true}>
+              <ActionButtonLink href="https://www.trycourier.app/register" target="_blank" primary={true}>
                 Sign Up
               </ActionButtonLink>
             </li>
@@ -176,9 +173,6 @@ const NavigationComponent: React.FC = () => {
           </li>
           <li>
             <Link to="/#company">Company</Link>
-          </li>
-          <li>
-            <Link to="/">Blog</Link>
           </li>
           <li>
             <a href="https://docs.trycourier.com/" target="_blank">
