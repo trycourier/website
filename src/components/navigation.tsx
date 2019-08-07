@@ -14,7 +14,7 @@ const NavContainer = styled.section`
   z-index: 99;
 
   & nav {
-    ${tw`flex justify-between mx-auto max-w-5xl mt-8 py-4`}
+    ${tw`flex justify-between mx-auto max-w-5xl lg:mt-8 py-4`}
   }
 `;
 
@@ -30,7 +30,7 @@ const NavigationItems = styled.ul`
     }
   }
   & li.logo {
-    ${tw`inline-block`}
+    ${tw`inline-block pl-4 md:pl-0`}
     width: 110px;
     height: 30px;
   }
@@ -44,9 +44,14 @@ const NavItemSeparator = styled.div`
 `;
 
 const AccountButtons = styled.ul`
-  ${tw`m-0 p-0 mr-8 lg:mr-0`}
+  ${tw`m-0 p-0 mr-4 lg:mr-0`}
   & li {
-    ${tw`list-none inline-block ml-3 align-top`}
+    ${tw`list-none inline-block ml-3 align-top hidden md:inline-block`}
+    height: 30px;
+  }
+  & li.hamburger {
+    ${tw`inline-block md:hidden`}
+    width: 30px;
     height: 30px;
   }
 `;
@@ -61,8 +66,15 @@ const ActionButtonLink = styled.a<{
 `;
 
 const NavigationComponent: React.FC = () => {
-  const { logo } = useStaticQuery(graphql`
+  const { hamburger, logo } = useStaticQuery(graphql`
     query {
+      hamburger: file(relativePath: { eq: "hamburger@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 110) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       logo: file(relativePath: { eq: "Courier Logo@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 110) {
@@ -113,6 +125,11 @@ const NavigationComponent: React.FC = () => {
             <ActionButtonLink href="https://www.trycourier.app/register" primary={true}>
               Sign Up
             </ActionButtonLink>
+          </li>
+          <li className="hamburger">
+            <Link to="/">
+              <Image image={hamburger} />
+            </Link>
           </li>
         </AccountButtons>
       </nav>

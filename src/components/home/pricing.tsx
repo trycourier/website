@@ -58,7 +58,7 @@ const PlanColumn = styled.div`
 `;
 
 const PricingCardEl = styled.div`
-  ${tw`border border-solid border-transparent shadow-xl p-6 relative`}
+  ${tw`border border-solid border-transparent shadow-xl p-6 md:relative`}
   top: ${(props: PricingCardProps) => props.plan.featured ? "-10px" : "0"};
   min-height: ${(props: PricingCardProps) => props.plan.featured ? "220px" : "200px"};
   background-color: ${(props: PricingCardProps) => props.plan.featured ? "#9d3789" : "white"};
@@ -84,7 +84,7 @@ const PricingCardEl = styled.div`
 `;
 
 const EnterprisePlan = styled.aside`
-  ${tw`border border-solid border-white shadow-xl p-6 text-center w-2/3 mx-auto bg-white`}
+  ${tw`border border-solid border-white shadow-xl p-6 text-center md:w-2/3 mx-4 md:mx-auto bg-white`}
   border-radius: 1rem;
   & h3 {
     ${tw`m-0 p-0 text-xl`}

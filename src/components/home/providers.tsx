@@ -6,7 +6,7 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Providers = styled.div`
-  ${tw`py-24 pb-12`}
+  ${tw`py-8 md:py-24 md:pb-12`}
 `;
 
 const ProvidersText = styled.div`

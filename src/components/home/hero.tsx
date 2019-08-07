@@ -6,11 +6,11 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Hero = styled.section`
-  ${tw`md:flex py-8 md:py-12 md:pt-24`}
+  ${tw`md:flex py-4 md:py-12 md:pt-24 px-4`}
 `;
 
 const HeroContent = styled.div`
-  ${tw`md:w-1/2 pr-16`}
+  ${tw`md:w-1/2 md:pr-16`}
   & h1 {
     ${tw`m-0 p-0 text-4xl`}
     font-weight: 600;
@@ -38,7 +38,7 @@ const HeroContent = styled.div`
 `;
 
 const HeroImageWrapper = styled.div`
-  ${tw`md:w-1/2 text-right`}
+  ${tw`md:w-1/2 text-right p-4 pt-8 md:p-0`}
 `;
 
 const HeroComponent: React.FC = () => {

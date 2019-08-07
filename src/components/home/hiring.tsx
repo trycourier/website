@@ -7,7 +7,7 @@ import BackgroundImage from 'gatsby-background-image';
 import colors from "../../colors";
 
 const Hiring = styled.section`
-  ${tw`py-24 mx-auto text-center`}
+  ${tw`pt-24 pb-12 md:py-24 mx-auto text-center px-4 md:px-0`}
   & h2 {
     ${tw`m-0 p-0 text-3xl`}
     color: #2f3e5a;

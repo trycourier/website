@@ -6,7 +6,7 @@ import tw from "tailwind.macro";
 import Image, { GatsbyImage } from "../image";
 
 const Editor = styled.div`
-  ${tw`py-24 pb-0`}
+  ${tw`py-24 pb-0 px-2 md:px-0`}
 `;
 
 const EditorText = styled.div`
@@ -17,7 +17,7 @@ const EditorText = styled.div`
   & ul {
     ${tw`m-0 p-0 list-none`}
     & li {
-      ${tw`inline-block px-4`}
+      ${tw`inline-block px-2 md:px-4`}
       & > div {
         ${tw`cursor-default`}
         & span.icon {
@@ -70,7 +70,7 @@ const EditorText = styled.div`
 
 const EditorImageWrapper = styled.div`
   ${tw`md:w-2/3 mx-auto relative`}
-  top: -60px;
+  top: -30px;
 `;
 
 const ChannelToggle: React.FC<{
