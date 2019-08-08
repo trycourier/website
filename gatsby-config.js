@@ -28,9 +28,10 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-segment',
+      resolve: 'gatsby-plugin-segment-js',
       options: {
-        writeKey: process.env.SEGMENT_KEY
+        prodKey: process.env.SEGMENT_KEY,
+        trackPage: true
       }
     },
     {
