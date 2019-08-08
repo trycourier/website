@@ -28,6 +28,18 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: 'gatsby-plugin-segment',
+      options: {
+        writeKey: process.env.SEGMENT_KEY
+      }
+    },
+    {
+      resolve: `gatsby-plugin-intercom`,
+      options: {
+        appId: process.env.INTERCOM_KEY
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'trycourier-dot-com',
