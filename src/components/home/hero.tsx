@@ -38,7 +38,7 @@ const HeroContent = styled.div`
 `;
 
 const HeroImageWrapper = styled.div`
-  ${tw`md:w-1/2 text-right p-4 pt-8 md:p-0`}
+  ${tw`md:w-1/2 text-right p-4 pt-12 md:p-0`}
 `;
 
 const HeroComponent: React.FC = () => {
