@@ -6,13 +6,13 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 const Hero = styled.section`
-  ${tw`md:flex py-4 md:py-12 lg:pt-24 px-4 lg:px-0`}
+  ${tw`md:flex py-4 md:py-12 md:pt-4 lg:pt-24 px-4 lg:px-0`}
 `;
 
 const HeroContent = styled.div`
   ${tw`md:w-1/2 md:pr-16`}
   & h1 {
-    ${tw`m-0 p-0 text-4xl`}
+    ${tw`m-0 p-0 text-4xl mt-2 md:mt-0`}
     font-weight: 600;
     color: #2f3e5a;
   }
@@ -20,7 +20,7 @@ const HeroContent = styled.div`
     ${tw`m-0 p-0 text-sm mt-6`}
   }
   & form {
-    ${tw`m-0 p-0 mt-6 lg:mt-16`}
+    ${tw`m-0 p-0 mt-8 lg:mt-16`}
     & input {
       ${tw`border border-solid rounded-l-full px-6 py-1 text-sm w-24 md:w-32 lg:w-64`}
       height: 30px;

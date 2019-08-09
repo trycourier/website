@@ -66,6 +66,9 @@ const AccountButtons = styled.ul`
     ${tw`list-none inline-block ml-3 align-top hidden md:inline-block`}
     height: 30px;
   }
+  & li.sign-up {
+    ${tw`inline-block`}
+  }
   & li.hamburger {
     ${tw`inline-block md:hidden cursor-pointer`}
     width: 30px;
@@ -150,7 +153,7 @@ const NavigationComponent: React.FC = () => {
                 Login
               </ActionButtonLink>
             </li>
-            <li>
+            <li className="sign-up">
               <ActionButtonLink
                 href="https://www.trycourier.app/register"
                 target="_blank"
