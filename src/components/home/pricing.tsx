@@ -35,7 +35,7 @@ const pricing: Array<PricingPlan> = [
     name: "Business",
     price: 499,
     details: [
-      "2MM notifications / mo.",
+      "2.5MM notifications / mo.",
       "Unlimited users",
       "Role Based Access Control",
     ],
