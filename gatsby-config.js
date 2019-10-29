@@ -41,6 +41,13 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-plugin-sentry",
+      options: {
+        dsn: "https://4d0fad4157b14d46af354f5158e5e69c@sentry.io/1801028",
+        environment: process.env.CONTEXT || 'development'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'trycourier-dot-com',
