@@ -32,7 +32,7 @@ const Logo = styled.div`
 `;
 
 const ErrorTest = styled.div`
-  display: block;
+  display: none;
   background-color: transparent;
   color: transparent;
   width: 24px;
