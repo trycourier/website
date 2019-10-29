@@ -41,11 +41,10 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-plugin-sentry",
+      resolve: `gatsby-plugin-env-variables`,
       options: {
-        dsn: "https://4d0fad4157b14d46af354f5158e5e69c@sentry.io/1801028",
-        environment: process.env.CONTEXT || 'development'
-      }
+        whitelist: ["CONTEXT", "DEPLOY_ID"]
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',

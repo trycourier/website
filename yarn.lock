@@ -1154,7 +1154,7 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@sentry/browser@latest":
+"@sentry/browser@^5.7.1":
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-5.7.1.tgz#1f8435e2a325d7a09f830065ebce40a2b3c708a4"
   integrity sha512-K0x1XhsHS8PPdtlVOLrKZyYvi5Vexs9WApdd214bO6KaGF296gJvH1mG8XOY0+7aA5i2A7T3ttcaJNDYS49lzw==
@@ -5252,6 +5252,11 @@ gatsby-page-utils@^0.0.5:
     micromatch "^3.1.10"
     slash "^1.0.0"
 
+gatsby-plugin-env-variables@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-env-variables/-/gatsby-plugin-env-variables-1.0.1.tgz#89cdf43b03d46105521bb7d0f09d0d5b92ad83c8"
+  integrity sha512-TnXU+IjvM3iHcaNOa+alqP3Wk19+pmxvXwMyoPaUZIDKNwvpXRz8klsag2AwNlsqD17949/m8I80z8plZRyE1w==
+
 gatsby-plugin-intercom@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-intercom/-/gatsby-plugin-intercom-0.1.4.tgz#5942ba9f8588fcb736a2e31bf91618500973b40a"
@@ -5319,13 +5324,6 @@ gatsby-plugin-segment-js@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-segment-js/-/gatsby-plugin-segment-js-3.0.1.tgz#a31380515c97af2f7e7bf4be7aea071b6222f9a5"
   integrity sha512-pDGx0kE36FDd2aQAwMr4mrY93CedlIuotprvdRQKBuBrWfvQ7DMCQxwpDYPWrwatVJhdf5idnl4Xct0I4WkKRg==
-
-gatsby-plugin-sentry@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sentry/-/gatsby-plugin-sentry-1.0.1.tgz#d146e3851488c9545f2c0689cad62bf6e7d1c653"
-  integrity sha512-rKIngbFbBwwGYJi1ayUtEz34tXxpLXvSMD3WWVmdtXs0wrYrlGs30nFJ4JJIxcA7fWtx3hQ2yd5O2ZyQ832G2g==
-  dependencies:
-    "@sentry/browser" latest
 
 gatsby-plugin-sharp@^2.2.9:
   version "2.2.9"

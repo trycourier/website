@@ -2,6 +2,7 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import normalize from "styled-normalize";
 
+import ErrorBoundary from "./error-boundary";
 import Navigation from "./navigation";
 import Helmet from "react-helmet";
 
@@ -23,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <>
+    <ErrorBoundary>
       <GlobalStyle />
       <Navigation />
       {children}
@@ -34,7 +35,7 @@ const Layout: React.FC = ({ children }) => {
           </script>
         </Helmet>
       ) : null}
-    </>
+    </ErrorBoundary>
   );
 };
 

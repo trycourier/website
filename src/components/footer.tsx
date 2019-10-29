@@ -31,6 +31,21 @@ const Logo = styled.div`
   max-width: 100px;
 `;
 
+const ErrorTest = styled.div`
+  display: block;
+  background-color: transparent;
+  color: white;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  :hover {
+    background-color: red;
+  }
+`;
+
 const FooterComponent: React.FC = ({ children }) => {
   const { logo, bg } = useStaticQuery(graphql`
     query {
@@ -51,10 +66,15 @@ const FooterComponent: React.FC = ({ children }) => {
     }
   `);
 
+  const triggerException = () => {
+    throw new Error("Test Exception");
+  }
+
   return (
     <>
       <Footer>
         {children}
+        <ErrorTest onClick={triggerException}>!</ErrorTest>
         <Logo>
           <Image image={logo} />
         </Logo>
