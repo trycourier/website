@@ -44,7 +44,8 @@
     "start": "npm run develop --scripts-prepend-node-path",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "upgrade-all": "yarn-upgrade-all"
+    "upgrade-all": "yarn-upgrade-all",
+    "sentry:release": "./bin/sentry-release.sh"
   },
   "devDependencies": {
     "prettier": "^1.18.2",
