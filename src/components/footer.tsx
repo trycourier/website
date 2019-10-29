@@ -34,7 +34,7 @@ const Logo = styled.div`
 const ErrorTest = styled.div`
   display: block;
   background-color: transparent;
-  color: white;
+  color: transparent;
   width: 24px;
   height: 24px;
   line-height: 24px;
@@ -43,6 +43,7 @@ const ErrorTest = styled.div`
   cursor: pointer;
   :hover {
     background-color: red;
+    color: white;
   }
 `;
 
