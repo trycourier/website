@@ -5,6 +5,7 @@
   "version": "2.0.0",
   "author": "contact@trycourier.com",
   "dependencies": {
+    "@sentry/cli": "^1.48.0",
     "@types/node": "^12.6.9",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
