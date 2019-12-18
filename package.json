@@ -4,6 +4,9 @@
   "private": true,
   "version": "2.0.0",
   "author": "contact@trycourier.com",
+  "engines": {
+    "node": "~10.10"
+  },
   "dependencies": {
     "@sentry/browser": "^5.7.1",
     "@sentry/cli": "^1.48.0",

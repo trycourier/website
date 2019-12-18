@@ -80,7 +80,8 @@ const FooterComponent: React.FC = ({ children }) => {
           <Image image={logo} />
         </Logo>
         <p>
-          {new Date().getFullYear()} trycourier.com, Inc. All rights reserved.
+          {new Date().getFullYear()} trycourier.com, Inc. All rights reserved.<br />
+          <a href="/privacy">Privacy Policy</a>
         </p>
       </Footer>
       <Bg>
