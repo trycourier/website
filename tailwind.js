@@ -4,7 +4,8 @@ module.exports = {
     extend: {
       colors: {
         gatsby: 'rebeccapurple',
-        berry: '#9D348B'
+        berry: '#9D348B',
+        white: '#FFFFFF',
       }
     }
   }

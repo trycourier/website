@@ -7,11 +7,13 @@ import Image from "./image";
 import colors from "../colors";
 
 const NavContainer = styled.section`
-  ${tw`bg-white`}
+  background-color: ${colors.berry};
+  box-shadow: 0px 0px 12px ${colors.berry};
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 98;
+  ${tw`text-white`}
 
   & nav {
     ${tw`flex justify-between mx-auto max-w-5xl lg:mt-8 py-4`}
@@ -42,7 +44,7 @@ const NavigationItems = styled.ul`
     height: 30px;
     & a {
       ${tw`no-underline text-xs`}
-      color: ${colors.berry};
+      color: ${colors.white};
       line-height: 30px;
     }
   }
@@ -61,13 +63,16 @@ const NavItemSeparator = styled.div`
 `;
 
 const AccountButtons = styled.ul`
-  ${tw`m-0 p-0 mr-4 lg:mr-0`}
+  ${tw`m-0 p-2 flex lg:mr-0`}
+  background: rgba(0,0,0,0.25);
+  border-radius: 24px;
+  list-style: none;
   & li {
     ${tw`list-none inline-block ml-3 align-top hidden md:inline-block`}
     height: 30px;
   }
-  & li.sign-up {
-    ${tw`inline-block`}
+  & label {
+    ${tw`text-sm py-3 align-middle`}
   }
   & li.hamburger {
     ${tw`inline-block md:hidden cursor-pointer`}
@@ -126,14 +131,15 @@ const NavigationComponent: React.FC = () => {
                 <Image image={logo} />
               </Link>
             </li>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
+
             <li>
               <Link to="/#pricing">Pricing</Link>
             </li>
             <li>
               <Link to="/#company">Company</Link>
+            </li>
+            <li>
+              <Link to="/#community">Community</Link>
             </li>
             <li>
               <NavItemSeparator />
@@ -146,20 +152,30 @@ const NavigationComponent: React.FC = () => {
           </NavigationItems>
           <AccountButtons>
             <li>
+              <label>Sign Up</label>
+            </li>
+            <li>
               <ActionButtonLink
                 href="https://www.trycourier.app/login"
                 target="_blank"
               >
-                Login
+                Google
               </ActionButtonLink>
             </li>
-            <li className="sign-up">
+            <li>
               <ActionButtonLink
                 href="https://www.trycourier.app/register"
                 target="_blank"
-                primary={true}
               >
-                Sign Up
+                GitHub
+              </ActionButtonLink>
+            </li>
+            <li>
+              <ActionButtonLink
+                href="https://www.trycourier.app/register"
+                target="_blank"
+              >
+                Email
               </ActionButtonLink>
             </li>
             <li className="hamburger">

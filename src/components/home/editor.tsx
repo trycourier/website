@@ -133,7 +133,7 @@ const EditorComponent: React.FC = () => {
   return (
     <Editor>
       <EditorText>
-        <h2>Notifcation Design Studio</h2>
+        <h2>Notification Design Studio</h2>
         <p>
           Save time by using our Visual Editor to create a single message that
           is reusable across all channels, or tweak the message for each

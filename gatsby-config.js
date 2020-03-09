@@ -12,7 +12,10 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: 'Nunito Sans'
+            family: 'Bebas Neue', 
+          },
+          {
+            family: 'Proxima Nova'
           }
         ]
       }

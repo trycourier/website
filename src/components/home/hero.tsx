@@ -12,27 +12,31 @@ const Hero = styled.section`
 const HeroContent = styled.div`
   ${tw`md:w-1/2 md:pr-16`}
   & h1 {
-    ${tw`m-0 p-0 text-4xl mt-2 md:mt-0`}
-    font-weight: 600;
-    color: #2f3e5a;
+    ${tw`m-0 p-0 text-5xl mt-2 md:mt-0`}
+    font-family: "Bebas Neue", sans-serif;
   }
   & p {
-    ${tw`m-0 p-0 text-sm mt-6`}
+    ${tw`m-0 p-0 text-lg mb-6`}
+    font-weight: 100;
+  }
+  & label {
+    ${tw`text-sm mt-8 mb-2 lg:mt-16`}
+    & strong {
+      font-weight: 600;
+    }
   }
   & form {
-    ${tw`m-0 p-0 mt-8 lg:mt-16`}
-    & input {
-      ${tw`border border-solid rounded-l-full px-6 py-1 text-sm w-24 md:w-32 lg:w-64 text-xs md:text-sm`}
-      height: 30px;
-      border-color: #d5d5d5;
-      border-right: none;
-    }
+    ${tw`m-0 p-3`}
+    background-color: rgba(0,0,0,0.25);
+    border-radius: 32px;
+
     & button {
-      ${tw`border border-solid rounded-r-full px-4 py-2 text-white text-sm relative`}
-      top: -1px;
-      height: 40px;
-      background-color: #9d3789;
-      border-color: #9d3789;
+      ${tw`border border-solid rounded-full mr-2 px-4 py-2 text-white text-sm relative`}
+      height: 36px;
+    }
+    & button.ghost {
+      background-color: transparent;
+      border: none;
     }
   }
 `;
@@ -60,7 +64,7 @@ const HeroComponent: React.FC = () => {
         <h1>
           The Smartest Way to
           <br />
-          Design &amp; Deliver Notificaitons
+          Design &amp; Deliver Notifications
         </h1>
         <p>
           Design once, deliver to any channel through one API
@@ -69,7 +73,7 @@ const HeroComponent: React.FC = () => {
         <form method="get" action="https://www.trycourier.app/register">
           <button>Google</button>
           <button>GitHub</button>
-          <button>or email</button>
+          <button className="ghost">or email</button>
         </form>
       </HeroContent>
       <HeroImageWrapper>

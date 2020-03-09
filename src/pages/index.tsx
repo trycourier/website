@@ -13,8 +13,10 @@ import Clients from "../components/home/clients";
 import Editor from "../components/home/editor";
 import Route from "../components/home/route";
 import Tracking from "../components/home/tracking";
-import Investors from "../components/home/investors";
+// import Investors from "../components/home/investors";
 import GettingStarted from "../components/home/getting-started";
+
+import Curve from "../components/home/curve";
 
 const IndexPage: React.FC = () => {
   const { glyph1, glyph2, glyph3, glyph4 } = useStaticQuery(graphql`
@@ -54,20 +56,21 @@ const IndexPage: React.FC = () => {
     <Layout>
       <SEO title="Home" />
 
-      <Container>
+      <Container dark={true}>
         <Hero />
       </Container>
+      <Curve />
 
-      <Investors />
+      {/* <Investors /> */}
 
       <Clients />
 
-      <Container dark={true}>
+      <Container >
         <Glyph image={glyph2} />
         <Editor />
       </Container>
 
-      <Container dark={true}>
+      <Container>
         <Glyph image={glyph1} />
         <Implement />
       </Container>
