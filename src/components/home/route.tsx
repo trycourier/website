@@ -5,6 +5,8 @@ import tw from "tailwind.macro";
 
 import Image from "../image";
 
+import NoCode from "./no-code";
+
 const Route = styled.section`
   ${tw`md:flex py-8 pb-16 md:py-24 px-4 lg:px-0`}
 `;
@@ -39,11 +41,11 @@ const RouteComponent: React.FC = () => {
   return (
     <Route>
       <RouteText>
-        <h2>Route with data</h2>
+        <NoCode />
+        <h2>Powerful Delivery Rules</h2>
         <p>
-          Courier automatically upgrades each notification to use the best
-          channel available for each user. Use our visual rules designer to
-          customize your delivery strategy or let Courier decide for you.
+          Effortlessly route each message to the right notificaiton channel using a robust rules engine.
+          Change channels without touching your code.
         </p>
       </RouteText>
       <RouteImageWrapper>

@@ -9,12 +9,12 @@ import Footer from "../components/footer";
 import Glyph from "../components/home/glyph";
 import Hero from "../components/home/hero";
 import Implement from "../components/home/implement";
-import Providers from "../components/home/providers";
+import Clients from "../components/home/clients";
 import Editor from "../components/home/editor";
 import Route from "../components/home/route";
-import Pricing from "../components/home/pricing";
-import Hiring from "../components/home/hiring";
+import Tracking from "../components/home/tracking";
 import Investors from "../components/home/investors";
+import GettingStarted from "../components/home/getting-started";
 
 const IndexPage: React.FC = () => {
   const { glyph1, glyph2, glyph3, glyph4 } = useStaticQuery(graphql`
@@ -58,35 +58,37 @@ const IndexPage: React.FC = () => {
         <Hero />
       </Container>
 
-      <Container dark={true}>
-        <Glyph image={glyph1} />
-        <Implement />
-      </Container>
+      <Investors />
 
-      <Providers />
+      <Clients />
 
       <Container dark={true}>
         <Glyph image={glyph2} />
         <Editor />
       </Container>
 
+      <Container dark={true}>
+        <Glyph image={glyph1} />
+        <Implement />
+      </Container>
+
       <Container>
-        <Route />
-      </Container>
-
-      <Container dark={true} id="pricing">
+        <Tracking />
         <Glyph image={glyph3} />
-        <Pricing />
-      </Container>
-
-      <Container id="company">
-        <Glyph image={glyph4} />
-        <Hiring />
       </Container>
 
       <Container dark={true}>
+        <Glyph image={glyph4} />
+        <Route />
+      </Container>
+
+      <Container>
+        <GettingStarted />
+      </Container>
+
+
+      <Container dark={true}>
         <Footer>
-          <Investors />
         </Footer>
       </Container>
     </Layout>

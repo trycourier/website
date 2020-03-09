@@ -82,6 +82,8 @@ const FooterComponent: React.FC = ({ children }) => {
         <p>
           {new Date().getFullYear()} trycourier.com, Inc. All rights reserved.<br />
           <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/disclosure">Responsible Disclosure Policy</a>
         </p>
       </Footer>
       <Bg>

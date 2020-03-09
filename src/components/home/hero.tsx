@@ -58,23 +58,18 @@ const HeroComponent: React.FC = () => {
     <Hero>
       <HeroContent>
         <h1>
-          Simplify your
+          The Smartest Way to
           <br />
-          notifications code
+          Design &amp; Deliver Notificaitons
         </h1>
         <p>
-          Courier automatically upgrades your outbound user notifications to use
-          the best channel for each user. Email, mobile push, in-app, SMS, or
-          chat &mdash; all from a single API.
+          Design once, deliver to any channel through one API
         </p>
+        <label>Sign up and recieve <strong>10,000 free</strong> notifications every month</label>
         <form method="get" action="https://www.trycourier.app/register">
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="Your work email"
-          />
-          <button>Get started for free!</button>
+          <button>Google</button>
+          <button>GitHub</button>
+          <button>or email</button>
         </form>
       </HeroContent>
       <HeroImageWrapper>
