@@ -64,11 +64,6 @@ const IndexPage: React.FC = () => {
     }
   `);
 
-const Section1 = styled.section`
-  background: red;
-  width: 100%;
-  height: 100vh;
-`
 const Section2 = styled.section`
     background: green;
     width: 100%;
@@ -100,13 +95,11 @@ const Section2 = styled.section`
 
       <Divider image={divider1}/>
 
-
       <Section2>
         <Container>
           <Clients />
         </Container>
       </Section2> 
-      <Section2 />
 
       {/* <Hero />
       <Curve />
@@ -136,11 +129,11 @@ const Section2 = styled.section`
       <Container>
         <GettingStarted />
       </Container>
-*/}
+
       <Container dark={true}>
         <Footer />
       </Container> 
-      
+      */}
     </Layout>
   );
 };

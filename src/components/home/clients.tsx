@@ -5,6 +5,13 @@ import tw from "tailwind.macro";
 import Container from "../container";
 import Image from "../image";
 import colors from "../../colors";
+import lattice from "../../images/clients/lattice.svg";
+import blissfully from "../../images/clients/blissfully.svg";
+import eatgeek from "../../images/clients/eatgeek.svg";
+import hutsy from "../../images/clients/hutsy.svg";
+import savvy from "../../images/clients/savvy.svg";
+import aarida from "../../images/clients/aarida.svg";
+import beacons from "../../images/clients/beacons.svg";
 
 const Clients = styled(Container)`
   ${tw`py-8 md:py-24 md:pb-12`}
@@ -36,56 +43,16 @@ const ClientQuoteImage = styled.div`
   ${tw`flex-shrink-0`}
 `;
 
-const ClientImage = styled(Image)`
+const ClientImage = styled.img`
+  position: absolute;
   opacity: 0.6;
 `
 
 const ClientsComponent: React.FC = () => {
-  const { lattice, blissfully, eatgeek, hutsy, savvy, aarida, beacons } = useStaticQuery(graphql`
+  
+  const { eric } = useStaticQuery(graphql`
     query {
-      lattice: file(relativePath: { eq: "clients/lattice@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 120) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      blissfully: file(relativePath: { eq: "clients/blissfully@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 120) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      eatgeek: file(relativePath: { eq: "clients/eatgeek@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 120) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      hutsy: file(relativePath: { eq: "clients/hutsy@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 120) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      savvy: file(relativePath: { eq: "clients/savvy@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 120) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      aarida: file(relativePath: { eq: "clients/aarida@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 120) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      beacons: file(relativePath: { eq: "clients/beacons@2x.png" }) {
+      eric: file(relativePath: { eq: "clients/eric@2x.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 120) {
             ...GatsbyImageSharpFluid
@@ -94,6 +61,59 @@ const ClientsComponent: React.FC = () => {
       }
     }
   `);
+  // const { lattice, blissfully, eatgeek, hutsy, savvy, aarida, beacons } = useStaticQuery(graphql`
+  //   query {
+  //     lattice: file(relativePath: { eq: "clients/lattice@2x.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 120) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     blissfully: file(relativePath: { eq: "clients/blissfully@2x.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 120) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     eatgeek: file(relativePath: { eq: "clients/eatgeek@2x.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 120) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     hutsy: file(relativePath: { eq: "clients/hutsy@2x.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 120) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     savvy: file(relativePath: { eq: "clients/savvy@2x.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 120) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     aarida: file(relativePath: { eq: "clients/aarida@2x.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 120) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //     beacons: file(relativePath: { eq: "clients/beacons@2x.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 120) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   return (
     <Clients>
@@ -101,13 +121,13 @@ const ClientsComponent: React.FC = () => {
         <h4>Trusted by</h4>
       </ClientsText>
       <ClientsImageWrapper>
-        <ClientImage image={lattice} />
-        <ClientImage image={blissfully} />
-        <ClientImage image={eatgeek} />
-        <ClientImage image={hutsy} />
-        <ClientImage image={savvy} />
-        <ClientImage image={aarida} />
-        <ClientImage image={beacons} />
+        <ClientImage src={lattice} />
+        <ClientImage src={blissfully} />
+        <ClientImage src={eatgeek} />
+        <ClientImage src={hutsy} />
+        <ClientImage src={savvy} />
+        <ClientImage src={aarida} />
+        <ClientImage src={beacons} />
       </ClientsImageWrapper>
       <ClientQuote>
         <ClientQuoteText>
@@ -117,7 +137,7 @@ const ClientsComponent: React.FC = () => {
           Eric Koslow, CTO & Co-Founder @ Lattice
         </ClientQuoteAuthor>
         <ClientQuoteImage>
-          <Image image={blissfully} />
+          <Image image={eric} />
         </ClientQuoteImage>
       </ClientQuote>
     </Clients>
