@@ -4,27 +4,28 @@ import styled from "styled-components";
 import tw from "tailwind.macro";
 
 import Image from "./image";
-import colors from "../colors";  
+import colors from "../colors";
 
-// background-color: ${colors.berry};
-// box-shadow: 0px 0px 12px ${colors.berry};
-// position: -webkit-sticky;
+import googleNav from "../images/google-nav.svg";
+import githubNav from "../images/github-nav.svg";
+import emailNav from "../images/email-nav.svg";
+
 const NavContainer = styled.section`
   position: fixed;
   top: 0;
   z-index: 98;
   width: 100%;
-  ${tw`text-white px-4`}
+  ${tw`text-white`}
 
   & nav {
-    ${tw`flex justify-between mx-auto max-w-5xl lg:mt-8 py-4`}
+    ${tw`flex justify-between mx-auto max-w-5xl lg:mt-4 pb-4`}
   }
 `;
 
 const MobileNavMenu = styled.ul`
   ${tw`fixed top-0 left-0 m-0 p-0 w-full h-full list-none`}
   z-index: 99;
-  background-color: #9d3789;
+  background-color: ${colors.berry};
   & li {
     ${tw`pt-8 px-8 text-xl`}
     & a {
@@ -41,48 +42,46 @@ const MobileNavMenu = styled.ul`
 const NavigationItems = styled.ul`
   ${tw`m-0 p-0`}
   & li {
-    ${tw`list-none hidden md:inline-block lg:mr-8 align-top`}
-    height: 30px;
+    ${tw`list-none hidden md:inline-block mt-1 align-top`}
+    height: 24px;
     & a {
-      ${tw`no-underline text-sm p-4`}
+      ${tw`no-underline text-sm py-6 px-8`}
       color: ${colors.white};
       font-weight: 600;
       line-height: 30px;
+      :hover{
+        border-bottom: 3px solid ${colors.lightGray};
+      }
+      }
     }
   }
   & li.logo {
-    ${tw`inline-block pl-4 md:pl-4 lg:pl-0`}
-    width: 110px;
-    height: 30px;
+    ${tw`inline-block pl-4 md:pl-4 lg:pl-0 lg:pr-8`}
+    width: 93px;
+    height: 24px;
+    margin-top: -24px;
   }
 `;
 
 const AccountButtons = styled.ul`
-  ${tw`m-0 p-2 flex mr-8`}
+  ${tw`m-0 p-2 flex`}
   background: rgba(0,0,0,0.25);
-  border-radius: 24px;
+  border-radius: 32px;
   list-style: none;
-  & li {
-    ${tw`list-none inline-block ml-3 align-top hidden md:inline-block`}
-    height: 30px;
-  }
   & label {
-    ${tw`text-sm py-3 align-middle`}
+    ${tw`text-sm pl-3 align-top`}
+    margin-top: 12px;
   }
+  & li {
+    ${tw`list-none inline-block ml-3 hidden md:inline-block`}
+    height: 36px;
+  }
+
   & li.hamburger {
     ${tw`inline-block md:hidden cursor-pointer`}
     width: 30px;
     height: 30px;
   }
-`;
-
-const ActionButtonLink = styled.a<{
-  primary?: boolean;
-}>`
-  ${tw`no-underline text-xs border border-solid py-2 px-6 rounded-full`}
-  color: ${props => (props.primary ? "white" : colors.berry)};
-  background-color: ${props => (props.primary ? colors.berry : "white")};
-  line-height: 30px;
 `;
 
 const NavigationComponent: React.FC = () => {
@@ -143,32 +142,24 @@ const NavigationComponent: React.FC = () => {
             </li>
           </NavigationItems>
           <AccountButtons>
+            <label>Sign Up</label>
             <li>
-              <label>Sign Up</label>
+              <a href="https://www.trycourier.app/login" target="_blank">
+                <img src={googleNav} title="Google SSO" />
+              </a>
             </li>
             <li>
-              <ActionButtonLink
-                href="https://www.trycourier.app/login"
-                target="_blank"
-              >
-                Google
-              </ActionButtonLink>
+              <a href="https://www.trycourier.app/login" target="_blank">
+                <img src={githubNav} title="GitHub SSO" />
+              </a>
             </li>
             <li>
-              <ActionButtonLink
+              <a
                 href="https://www.trycourier.app/register"
                 target="_blank"
               >
-                GitHub
-              </ActionButtonLink>
-            </li>
-            <li>
-              <ActionButtonLink
-                href="https://www.trycourier.app/register"
-                target="_blank"
-              >
-                Email
-              </ActionButtonLink>
+                <img src={emailNav} title="Sign Up with Email" />
+              </a>
             </li>
             <li className="hamburger">
               <a href="/" onClick={toggleMenu}>

@@ -3,10 +3,8 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import styled from "styled-components";
 import tw from "tailwind.macro";
-import colors from "../../colors";
 
 import Image from "../image";
-import BackgroundImage from "gatsby-background-image";
 
 const Abs = styled.div`
   position: absolute;
@@ -55,15 +53,8 @@ const HeroImageWrapper = styled.div`
 `;
 
 const HeroComponent: React.FC = () => {
-  const { bg, chat, chrome, email, slack, teams } = useStaticQuery(graphql`
+  const { chat, chrome, email, slack, teams } = useStaticQuery(graphql`
     query {
-      bg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       chat: file(relativePath: { eq: "parallax-chat@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
@@ -103,12 +94,7 @@ const HeroComponent: React.FC = () => {
   `);
 
   return (
-    <BackgroundImage
-      Tag="section"
-      fluid={bg.childImageSharp.fluid}
-      backgroundColor={colors.berry}
-      height={100}
-    >
+
     <Hero>
       <HeroContent>
         <h1>
@@ -146,7 +132,6 @@ const HeroComponent: React.FC = () => {
         
       </HeroImageWrapper>
     </Hero>
-    </BackgroundImage>
   );
 };
 

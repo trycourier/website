@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
+import BackgroundImage from "gatsby-background-image";
 
 import Container from "../components/container";
 import Footer from "../components/footer";
@@ -19,10 +20,19 @@ import Clients from "../components/home/clients";
 // import Tracking from "../components/home/tracking";
 // import GettingStarted from "../components/home/getting-started";
 
+import colors from "../colors";
+
 
 const IndexPage: React.FC = () => {
-  const { divider1, divider, divider3, divider4 } = useStaticQuery(graphql`
+  const { heroBg, divider1, divider, divider3, divider4 } = useStaticQuery(graphql`
     query {
+      heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1280) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       divider1: file(relativePath: { eq: "dividers/hero-white@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 1280) {
@@ -74,14 +84,22 @@ const Section2 = styled.section`
     <Layout>
       <SEO title="Home" />
         
-        
-      <Section1>
+      <BackgroundImage
+        Tag="section"
+        fluid={heroBg.childImageSharp.fluid}
+        backgroundColor={colors.berry}
+        style={{
+          backgroundPosition: "center center",
+          height: "100vh",
+        }}
+      >
         <Container dark={true}>
           <Hero />
         </Container>
+      </BackgroundImage>
 
-        <Divider image={divider1}/>
-      </Section1> 
+      <Divider image={divider1}/>
+
 
       <Section2>
         <Container>
