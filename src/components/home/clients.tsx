@@ -18,7 +18,9 @@ const ClientsText = styled.div`
   }
 `;
 
-const ClientsImageWrapper = styled.div``;
+const ClientsImageWrapper = styled.div`
+  display: flex;
+`;
 const ClientQuote = styled.div`
   ${tw`max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl`}
 `;
@@ -32,12 +34,54 @@ const ClientQuoteImage = styled.div`
   ${tw`flex-shrink-0`}
 `;
 
+const ClientImage = styled(Image)`
+  display: block;
+  width: 120px;
+  height: 40px;
+  border: 1px solid red;
+`
+
 const ClientsComponent: React.FC = () => {
-  const { img } = useStaticQuery(graphql`
+  const { lattice, blissfully, eatgeek, hutsy, savvy, aarida } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "Provider Logos@2x.png" }) {
+      lattice: file(relativePath: { eq: "clients/lattice@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 600) {
+          fluid(maxWidth: 120) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      blissfully: file(relativePath: { eq: "clients/blissfully@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 120) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      eatgeek: file(relativePath: { eq: "clients/eatgeek@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 120) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      hutsy: file(relativePath: { eq: "clients/hutsy@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 120) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      savvy: file(relativePath: { eq: "clients/savvy@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 120) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      aarida: file(relativePath: { eq: "clients/aarida@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 120) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -51,7 +95,12 @@ const ClientsComponent: React.FC = () => {
         <h2>Trusted by</h2>
       </ClientsText>
       <ClientsImageWrapper>
-        <Image image={img} />
+        <ClientImage image={lattice} />
+        <ClientImage image={blissfully} />
+        <ClientImage image={eatgeek} />
+        <ClientImage image={hutsy} />
+        <ClientImage image={savvy} />
+        <ClientImage image={aarida} />
       </ClientsImageWrapper>
       <ClientQuote>
         <ClientQuoteText>
@@ -61,7 +110,7 @@ const ClientsComponent: React.FC = () => {
           Eric Koslow, CTO & Co-Founder @ Lattice
         </ClientQuoteAuthor>
         <ClientQuoteImage>
-          <Image image={img} />
+          <Image image={blissfully} />
         </ClientQuoteImage>
       </ClientQuote>
     </Clients>

@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://www.trycourier.com`,
     title: 'Courier',
     description: 'Courier sends your product\'s user notifications to the best channel for each user. Add any notification channel – like SMS, push, Slack, and WhatsApp – to your app with just a single API call.',
     author: '@trycourier'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-sitemap`,
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-prefetch-google-fonts',

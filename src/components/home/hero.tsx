@@ -1,12 +1,21 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
+
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
 import Image from "../image";
+import BackgroundImage from "gatsby-background-image";
+
+const Abs = styled.div`
+  position: absolute;
+  width: 50%;
+`;
 
 const Hero = styled.section`
   ${tw`md:flex py-4 md:py-12 md:pt-4 lg:pt-24 px-4 lg:px-0`}
+  height: 50vh;
+  background: url("/Users/justinmichaliga/Software/courier/website/src/images/hero-top@2x.png") no-repeat;
 `;
 
 const HeroContent = styled.div`
@@ -46,8 +55,15 @@ const HeroImageWrapper = styled.div`
 `;
 
 const HeroComponent: React.FC = () => {
-  const { chat, chrome, email, slack, teams } = useStaticQuery(graphql`
+  const { bg, chat, chrome, email, slack, teams } = useStaticQuery(graphql`
     query {
+      bg: file(relativePath: { eq: "hero-top@2x.png" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       chat: file(relativePath: { eq: "parallax-chat@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
@@ -87,6 +103,11 @@ const HeroComponent: React.FC = () => {
   `);
 
   return (
+    <BackgroundImage
+      Tag="section"
+      fluid={bg}
+      backgroundColor={`#040e18`}
+    >
     <Hero>
       <HeroContent>
         <h1>
@@ -94,10 +115,11 @@ const HeroComponent: React.FC = () => {
           <br />
           Design &amp; Deliver Notifications
         </h1>
-        <p>
-          Design once, deliver to any channel through one API
-        </p>
-        <label>Sign up and recieve <strong>10,000 free</strong> notifications every month</label>
+        <p>Design once, deliver to any channel through one API</p>
+        <label>
+          Sign up and recieve <strong>10,000 free</strong> notifications every
+          month
+        </label>
         <form method="get" action="https://www.trycourier.app/register">
           <button>Google</button>
           <button>GitHub</button>
@@ -105,13 +127,25 @@ const HeroComponent: React.FC = () => {
         </form>
       </HeroContent>
       <HeroImageWrapper>
-        <Image image={chrome} />
-        <Image image={chat} />
-        <Image image={email} />
+        <Abs>
+          <Image image={chrome} />
+        </Abs>
+        <Abs>
+          <Image image={chat} />
+        </Abs>
+        <Abs>
+          <Image image={email} />
+        </Abs>
+        <Abs>
         <Image image={slack} />
-        <Image image={teams} />
+        </Abs>
+        <Abs>
+          <Image image={teams} />
+        </Abs>
+        
       </HeroImageWrapper>
     </Hero>
+    </BackgroundImage>
   );
 };
 
