@@ -2,24 +2,26 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
+import Container from "../container";
 import Image from "../image";
 import colors from "../../colors";
 
-const Clients = styled.div`
+const Clients = styled(Container)`
   ${tw`py-8 md:py-24 md:pb-12`}
   background: ${colors.white};
 `;
 
 const ClientsText = styled.div`
-  ${tw`text-center`}
-  & h2 {
+  ${tw`text-left`}
+  & h4 {
     ${tw`m-0 p-0 text-3xl`}
-    color: #2f3e5a;
+    color: ${colors.textHeader};
   }
 `;
 
 const ClientsImageWrapper = styled.div`
-  display: flex;
+  ${tw`py-8 md:py-24 md:pb-12`}
+  background: ${colors.white};
 `;
 const ClientQuote = styled.div`
   ${tw`max-w-sm mx-auto flex p-6 bg-white rounded-lg shadow-xl`}
@@ -35,14 +37,11 @@ const ClientQuoteImage = styled.div`
 `;
 
 const ClientImage = styled(Image)`
-  display: block;
-  width: 120px;
-  height: 40px;
-  border: 1px solid red;
+  opacity: 0.6;
 `
 
 const ClientsComponent: React.FC = () => {
-  const { lattice, blissfully, eatgeek, hutsy, savvy, aarida } = useStaticQuery(graphql`
+  const { lattice, blissfully, eatgeek, hutsy, savvy, aarida, beacons } = useStaticQuery(graphql`
     query {
       lattice: file(relativePath: { eq: "clients/lattice@2x.png" }) {
         childImageSharp {
@@ -86,13 +85,20 @@ const ClientsComponent: React.FC = () => {
           }
         }
       }
+      beacons: file(relativePath: { eq: "clients/beacons@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 120) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
   return (
     <Clients>
       <ClientsText>
-        <h2>Trusted by</h2>
+        <h4>Trusted by</h4>
       </ClientsText>
       <ClientsImageWrapper>
         <ClientImage image={lattice} />
@@ -101,6 +107,7 @@ const ClientsComponent: React.FC = () => {
         <ClientImage image={hutsy} />
         <ClientImage image={savvy} />
         <ClientImage image={aarida} />
+        <ClientImage image={beacons} />
       </ClientsImageWrapper>
       <ClientQuote>
         <ClientQuoteText>

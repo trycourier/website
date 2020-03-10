@@ -4,8 +4,14 @@ module.exports = {
     extend: {
       colors: {
         gatsby: 'rebeccapurple',
+        googleBlue: '#4285F4',
         berry: '#9D348B',
         white: '#FFFFFF',
+        greenMeadow: '#01C39A',
+        newMoon: '#002F48',
+        moonlight: '#344563',
+        fullMoon: '#73819B',
+        berryWhite: '#F7F6F9',
       }
     }
   }

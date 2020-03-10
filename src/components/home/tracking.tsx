@@ -26,9 +26,9 @@ const Tracking = styled.section`
 const TrackingComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "deprecated/city@2x.png" }) {
+      img: file(relativePath: { eq: "cross-channel-green-circles-lines@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 460) {
+          fluid(maxWidth: 660) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -37,7 +37,7 @@ const TrackingComponent: React.FC = () => {
   `);
 
   const bgStyle = {
-    backgroundSize: "320px 235px",
+    backgroundSize: "656px 647px",
     backgroundPosition: "center right",
   };
 

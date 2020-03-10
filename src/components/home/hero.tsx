@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import colors from "../../colors";
+import Container from "../container";
 import Image from "../image";
 import BackgroundImage from "gatsby-background-image";
 
@@ -12,13 +13,14 @@ const Abs = styled.div`
   width: 50%;
 `;
 
-const Hero = styled.section`
-  ${tw`md:flex py-4 md:py-12 md:pt-4 lg:pt-24 px-4 lg:px-0`}
+const Hero = styled(Container)`
+  ${tw`py-4 md:py-12 md:pt-4 lg:pt-24 px-4 lg:px-0`}
   height: 50vh;
+  display: flex;
 `;
 
 const HeroContent = styled.div`
-  ${tw`md:w-1/2 md:pr-16`}
+  ${tw`md:pr-16`}
   & h1 {
     ${tw`m-0 p-0 text-5xl mt-2 md:mt-0`}
     font-family: "Bebas Neue", sans-serif;
@@ -50,13 +52,13 @@ const HeroContent = styled.div`
 `;
 
 const HeroImageWrapper = styled.div`
-  ${tw`md:w-1/2 text-right p-4 pt-12 md:p-0`}
+  ${tw`p-4 pt-12 md:p-0`}
 `;
 
 const HeroComponent: React.FC = () => {
   const { bg, chat, chrome, email, slack, teams } = useStaticQuery(graphql`
     query {
-      bg: file(relativePath: { eq: "hero-top@2x.png" }) {
+      bg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid

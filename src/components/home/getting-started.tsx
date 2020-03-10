@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
+import Button from "./Button";
 const GettingStarted = styled.section`
   ${tw`md:flex pt-24 pb-8 md:py-24 px-4 lg:px-0`}
 `;
@@ -36,9 +37,9 @@ const GettingStartedComponent: React.FC = () => {
       </GettingStartedText>
       <GettingStartedCTAWrapper>
         <form>
-          <button>Google</button>
-          <button>GitHub</button>
-          <button>or email</button>
+          <Button primary>Google</Button>
+          <Button secondary>GitHub</Button>
+          <Button ghost>or email</Button>
         </form>
       </GettingStartedCTAWrapper>
     </GettingStarted>
