@@ -50,14 +50,14 @@ const ErrorTest = styled.div`
 const FooterComponent: React.FC = ({ children }) => {
   const { logo, bg } = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { eq: "Courier Logo@2x.png" }) {
+      logo: file(relativePath: { eq: "deprecated/Courier Logo@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      bg: file(relativePath: { eq: "Footer Design@2x.png" }) {
+      bg: file(relativePath: { eq: "deprecated/Footer Design@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 900) {
             ...GatsbyImageSharpFluid

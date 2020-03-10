@@ -4,20 +4,16 @@ import styled from "styled-components";
 
 import Image from "../image";
 
-// const noCodeUrl = "src/images/General Website Assets/no-code-stamp@2x.png";
-
 const NoCode = styled.div`
-  background: rgba(0,255,0,0.5);
-  height: 30px;
+  position: absolute;
   width: 130px;
-  transform: rotate(-25deg);
 `
 const NoCodeComponent: React.FC = () => {
-  const { img } = useStaticQuery(graphql`
+  const { noCode } = useStaticQuery(graphql`
   query {
-    img: file(relativePath: { eq: "route-illustration@2x.png" }) {
+    noCode: file(relativePath: { eq: "no-code-stamp@2x.png" }) {
       childImageSharp {
-        fluid(maxWidth: 460) {
+        fluid(maxWidth: 130) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -26,7 +22,7 @@ const NoCodeComponent: React.FC = () => {
   `);
   return (
     <NoCode>
-      <Image image={img} />
+      <Image image={noCode} />
     </NoCode>
   )
 }

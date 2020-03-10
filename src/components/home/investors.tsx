@@ -24,14 +24,14 @@ const Logo = styled.li`
 const InvestorsComponent: React.FC = () => {
   const { matrix, yc } = useStaticQuery(graphql`
     query {
-      matrix: file(relativePath: { eq: "Matrix Partners Logo@2x.png" }) {
+      matrix: file(relativePath: { eq: "deprecated/Matrix Partners Logo@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 350) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      yc: file(relativePath: { eq: "Y Combinator Logo@2x.png" }) {
+      yc: file(relativePath: { eq: "deprecated/Y Combinator Logo@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 350) {
             ...GatsbyImageSharpFluid

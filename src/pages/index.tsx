@@ -21,28 +21,28 @@ import Curve from "../components/home/curve";
 const IndexPage: React.FC = () => {
   const { glyph1, glyph2, glyph3, glyph4 } = useStaticQuery(graphql`
     query {
-      glyph1: file(relativePath: { eq: "Separator 1@2x.png" }) {
+      glyph1: file(relativePath: { eq: "deprecated/Separator 1@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 150) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      glyph2: file(relativePath: { eq: "Separator 2@2x.png" }) {
+      glyph2: file(relativePath: { eq: "deprecated/Separator 2@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 150) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      glyph3: file(relativePath: { eq: "Separator 3@2x.png" }) {
+      glyph3: file(relativePath: { eq: "deprecated/Separator 3@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 150) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      glyph4: file(relativePath: { eq: "Separator 4@2x.png" }) {
+      glyph4: file(relativePath: { eq: "deprecated/Separator 4@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 150) {
             ...GatsbyImageSharpFluid

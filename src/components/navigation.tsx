@@ -95,14 +95,14 @@ const NavigationComponent: React.FC = () => {
 
   const { hamburger, logo } = useStaticQuery(graphql`
     query {
-      hamburger: file(relativePath: { eq: "hamburger@2x.png" }) {
+      hamburger: file(relativePath: { eq: "deprecated/hamburger@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 110) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      logo: file(relativePath: { eq: "Courier Logo@2x.png" }) {
+      logo: file(relativePath: { eq: "courier-logo@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 110) {
             ...GatsbyImageSharpFluid

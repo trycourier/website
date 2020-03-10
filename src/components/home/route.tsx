@@ -28,7 +28,7 @@ const RouteImageWrapper = styled.div`
 const RouteComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "route-illustration@2x.png" }) {
+      img: file(relativePath: { eq: "deprecated/route-illustration@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
             ...GatsbyImageSharpFluid

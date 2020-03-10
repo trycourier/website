@@ -22,7 +22,7 @@ const ProvidersImageWrapper = styled.div``;
 const ProvidersComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "Provider Logos@2x.png" }) {
+      img: file(relativePath: { eq: "deprecated/Provider Logos@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid

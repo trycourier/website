@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 import styled from "styled-components";
 import tw from "tailwind.macro";
-
+import colors from "../../colors";
 import Image from "../image";
 import BackgroundImage from "gatsby-background-image";
 
@@ -15,7 +15,6 @@ const Abs = styled.div`
 const Hero = styled.section`
   ${tw`md:flex py-4 md:py-12 md:pt-4 lg:pt-24 px-4 lg:px-0`}
   height: 50vh;
-  background: url("/Users/justinmichaliga/Software/courier/website/src/images/hero-top@2x.png") no-repeat;
 `;
 
 const HeroContent = styled.div`
@@ -59,7 +58,7 @@ const HeroComponent: React.FC = () => {
     query {
       bg: file(relativePath: { eq: "hero-top@2x.png" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1920) {
+          fluid(maxWidth: 1920) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -105,8 +104,8 @@ const HeroComponent: React.FC = () => {
   return (
     <BackgroundImage
       Tag="section"
-      fluid={bg}
-      backgroundColor={`#040e18`}
+      fluid={bg.childImageSharp.fluid}
+      backgroundColor={colors.berry}
     >
     <Hero>
       <HeroContent>

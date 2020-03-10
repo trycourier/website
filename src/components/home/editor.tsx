@@ -92,35 +92,35 @@ const ChannelToggle: React.FC<{
 const EditorComponent: React.FC = () => {
   const { img, email, push, sms, slack } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "Template@2x.png" }) {
+      img: file(relativePath: { eq: "deprecated/Template@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 400) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      email: file(relativePath: { eq: "pr-email@2x.png" }) {
+      email: file(relativePath: { eq: "deprecated/pr-email@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 400) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      push: file(relativePath: { eq: "pr-push-phone@2x.png" }) {
+      push: file(relativePath: { eq: "deprecated/pr-push-phone@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 400) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      sms: file(relativePath: { eq: "PR - Twilio@2x.png" }) {
+      sms: file(relativePath: { eq: "deprecated/PR - Twilio@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 400) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      slack: file(relativePath: { eq: "PR - Slack@2x.png" }) {
+      slack: file(relativePath: { eq: "deprecated/PR - Slack@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 400) {
             ...GatsbyImageSharpFluid

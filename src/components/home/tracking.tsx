@@ -26,7 +26,7 @@ const Tracking = styled.section`
 const TrackingComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "city@2x.png" }) {
+      img: file(relativePath: { eq: "deprecated/city@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
             ...GatsbyImageSharpFluid
