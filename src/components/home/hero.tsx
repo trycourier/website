@@ -46,9 +46,37 @@ const HeroImageWrapper = styled.div`
 `;
 
 const HeroComponent: React.FC = () => {
-  const { img } = useStaticQuery(graphql`
+  const { chat, chrome, email, slack, teams } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "Illustration@2x.png" }) {
+      chat: file(relativePath: { eq: "parallax-chat@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 460) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      chrome: file(relativePath: { eq: "parallax-chrome@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 460) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      email: file(relativePath: { eq: "parallax-email@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 460) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      slack: file(relativePath: { eq: "parallax-slack@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 460) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      teams: file(relativePath: { eq: "parallax-teams@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
             ...GatsbyImageSharpFluid
@@ -77,7 +105,11 @@ const HeroComponent: React.FC = () => {
         </form>
       </HeroContent>
       <HeroImageWrapper>
-        <Image image={img} />
+        <Image image={chrome} />
+        <Image image={chat} />
+        <Image image={email} />
+        <Image image={slack} />
+        <Image image={teams} />
       </HeroImageWrapper>
     </Hero>
   );
