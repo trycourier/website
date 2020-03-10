@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import colors from "../../colors";
-import Container from "../container";
+
 import Image from "../image";
 import BackgroundImage from "gatsby-background-image";
 
@@ -13,10 +13,9 @@ const Abs = styled.div`
   width: 50%;
 `;
 
-const Hero = styled(Container)`
-  ${tw`py-4 md:py-12 md:pt-4 lg:pt-24 px-4 lg:px-0`}
-  height: 50vh;
-  display: flex;
+const Hero = styled.div`
+  ${tw`flex py-4 md:py-12 md:pt-32 lg:pt-32 px-4 lg:px-0`}
+  height: 72vh;
 `;
 
 const HeroContent = styled.div`
@@ -26,7 +25,7 @@ const HeroContent = styled.div`
     font-family: "Bebas Neue", sans-serif;
   }
   & p {
-    ${tw`m-0 p-0 text-lg mb-6`}
+    ${tw`m-0 p-0 text-lg text-white mb-6`}
     font-weight: 100;
   }
   & label {
@@ -108,6 +107,7 @@ const HeroComponent: React.FC = () => {
       Tag="section"
       fluid={bg.childImageSharp.fluid}
       backgroundColor={colors.berry}
+      height={100}
     >
     <Hero>
       <HeroContent>

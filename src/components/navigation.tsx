@@ -8,12 +8,13 @@ import colors from "../colors";
 
 // background-color: ${colors.berry};
 // box-shadow: 0px 0px 12px ${colors.berry};
+// position: -webkit-sticky;
 const NavContainer = styled.section`
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 98;
-  ${tw`text-white`}
+  width: 100%;
+  ${tw`text-white px-4`}
 
   & nav {
     ${tw`flex justify-between mx-auto max-w-5xl lg:mt-8 py-4`}
@@ -57,7 +58,7 @@ const NavigationItems = styled.ul`
 `;
 
 const AccountButtons = styled.ul`
-  ${tw`m-0 p-2 flex lg:mr-0`}
+  ${tw`m-0 p-2 flex mr-8`}
   background: rgba(0,0,0,0.25);
   border-radius: 24px;
   list-style: none;

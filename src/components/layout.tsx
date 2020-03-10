@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import normalize from "styled-normalize";
 
 import ErrorBoundary from "./error-boundary";
-// import Navigation from "./navigation";
+import Navigation from "./navigation";
 
 import colors from "../colors";
 
@@ -34,7 +34,7 @@ const Layout: React.FC = ({ children }) => {
   return (
     <ErrorBoundary>
       <GlobalStyle />
-      {/* <Navigation /> */}
+      <Navigation />
       {children}
     </ErrorBoundary>
   );

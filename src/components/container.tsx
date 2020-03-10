@@ -8,7 +8,6 @@ const Container = styled.div`
 `;
 
 const ContainerDark = styled.div`
-  background-color: ${colors.berry};
   color: ${colors.white};
 `;
 
