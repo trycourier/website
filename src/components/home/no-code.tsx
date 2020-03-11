@@ -10,15 +10,15 @@ const NoCode = styled.div`
 `
 const NoCodeComponent: React.FC = () => {
   const { noCode } = useStaticQuery(graphql`
-  query {
-    noCode: file(relativePath: { eq: "no-code-stamp@2x.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 130) {
-          ...GatsbyImageSharpFluid
+    query {
+      noCode: file(relativePath: { eq: "no-code-stamp@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 130) {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
     }
-  }
   `);
   return (
     <NoCode>
