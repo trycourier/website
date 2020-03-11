@@ -147,11 +147,11 @@ const Section2 = styled.section`
         <Editor />
       </Container>
 
-      <Container >
+      <Container dark={true}>
         <Implement />
       </Container>
 
-      <Container dark={true}>
+      <Container>
         <Tracking />
       </Container>
 

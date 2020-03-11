@@ -5,21 +5,40 @@ import tw from "tailwind.macro";
 
 import NoCode from "./no-code";
 import Image from "../image";
+import colors from "../../colors";
 
-const Editor = styled.div`
-  ${tw`py-24 pb-0 px-2 md:px-0`}
+const Editor = styled.section`
+  ${tw`md:flex pt-24 pb-8 md:py-24 px-4 lg:px-0`}
 `;
 
 const EditorText = styled.div`
-  ${tw`text-center md:w-1/2 mx-auto pb-0 mb-0`}
-  & h3 {
-    ${tw`m-0 p-0 text-xl`}
+  ${tw`md:w-1/2 md:pr-8 mt-16`}
+  & h2 {
+    ${tw`m-0 p-0 text-3xl mb-2`}
+    color: ${colors.textHeader};
+  }
+  & p {
+    ${tw`m-0 p-0 text-lg`}
+    color: ${colors.textSecondary};
+  }
+
+  & ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  & li {
+    line-height: 48px;
+    &::before {
+      content: "•";
+      font-size: 32px;
+      margin-right: 12px;
+      color: ${colors.green};
+    }
   }
 `;
 
 const EditorImageWrapper = styled.div`
-  ${tw`md:w-2/3 mx-auto relative`}
-  top: -30px;
+  ${tw`md:w-1/2 text-right`}
 `;
 
 const EditorComponent: React.FC = () => {
@@ -37,9 +56,9 @@ const EditorComponent: React.FC = () => {
 
   return (
     <Editor>
+      <NoCode />
       <EditorText>
-        <NoCode />
-        <h3>Notification Design Studio</h3>
+        <h2>Notification Design Studio</h2>
         <p>
           Empower every team member to build beautiful notifications.
         </p>

@@ -13,7 +13,6 @@ const DividerWrapper = styled.div`
   ${tw`absolute`}
   bottom: -4px;
   width: 100%;
-  ${props => props.style}
 `;
 
 const DividerComponent: React.FC<{
