@@ -5,36 +5,14 @@ import styled from "styled-components";
 import tw from "tailwind.macro";
 
 import Image from "../image";
-import googleLogo from "../../images/google-logo-white.svg";
-import githubLogo from "../../images/github-logo-white.svg";
+
 import channelsGroup from "../../images/channels-group.svg";
-import colors from "../../colors";
+import RegisterationCTA from "./registeration-cta";
 
 const Abs = styled.div`
   position: absolute;
   width: 50%;
 `;
-
-const Button = styled.button`
-  ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm align-middle`}
-  background: ${colors.googleBlue};
-  border-color: ${colors.googleBlue};
-  height: 36px;
-  line-height: 24px;
-  &.github {
-    background: ${colors.berry};
-    border-color: ${colors.berry};
-  }
-  & img {
-    position: relative;
-    top: -1px;
-  }
-  & label {
-    position: relative;
-    left: 6px;
-    top: -7px;
-  }
-`
 
 const Hero = styled.div`
   ${tw`flex py-4 md:py-12 md:pt-32 lg:pt-32 px-4 lg:px-0`}
@@ -55,22 +33,6 @@ const HeroContent = styled.div`
     ${tw`text-sm mt-8 mb-2 pb-2 lg:mt-16`}
     & strong {
       font-weight: 600;
-    }
-  }
-  & form {
-    ${tw`my-2 p-3`}
-    background-color: rgba(0,0,0,0.25);
-    border-radius: 32px;
-
-    & button {
-      ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm relative`}
-      height: 36px;
-      width: 170px;
-    }
-    & button.ghost {
-      background-color: transparent;
-      border: none;
-      width: 90px;
     }
   }
 `;
@@ -133,17 +95,7 @@ const HeroComponent: React.FC = () => {
           Sign up and recieve <strong>10,000 free</strong> notifications every
           month
         </label>
-        <form method="get" action="https://www.trycourier.app/register">
-          <Button>
-            <img src={googleLogo} /> 
-            <label>Google</label>
-          </Button>
-          <Button className="github">
-            <img src={githubLogo} />
-            <label>GitHub</label>
-          </Button>
-          <button className="ghost">or email</button>
-        </form>
+        <RegisterationCTA />
       </HeroContent>
       <HeroImageWrapper>
         <Abs>
@@ -164,7 +116,6 @@ const HeroComponent: React.FC = () => {
         <Abs>
           <Image image={teams} />
         </Abs>
-        
       </HeroImageWrapper>
     </Hero>
   );

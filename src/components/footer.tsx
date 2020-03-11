@@ -13,42 +13,13 @@ const Footer = styled.footer`
   }
 `;
 
-const Bg = styled.div`
-  ${tw`absolute`}
-  height: 300px;
-  overflow: hidden;
-  bottom: 0;
-  width: 100%;
-  z-index: 1;
-  > .gatsby-image-wrapper {
-    ${tw`mx-auto`}
-    width: 900px;
-  }
-`;
-
 const Logo = styled.div`
   ${tw`ml-4 lg:ml-0`}
   max-width: 100px;
 `;
 
-const ErrorTest = styled.div`
-  display: none;
-  background-color: transparent;
-  color: transparent;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-  margin-bottom: 10px;
-  cursor: pointer;
-  :hover {
-    background-color: red;
-    color: white;
-  }
-`;
-
 const FooterComponent: React.FC = ({ children }) => {
-  const { logo, bg } = useStaticQuery(graphql`
+  const { logo } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "deprecated/Courier Logo@2x.png" }) {
         childImageSharp {
@@ -57,25 +28,13 @@ const FooterComponent: React.FC = ({ children }) => {
           }
         }
       }
-      bg: file(relativePath: { eq: "deprecated/Footer Design@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `);
-
-  const triggerException = () => {
-    throw new Error("Test Exception");
-  }
 
   return (
     <>
       <Footer>
         {children}
-        <ErrorTest onClick={triggerException}>!</ErrorTest>
         <Logo>
           <Image image={logo} />
         </Logo>
@@ -86,9 +45,6 @@ const FooterComponent: React.FC = ({ children }) => {
           <a href="/disclosure">Responsible Disclosure Policy</a>
         </p>
       </Footer>
-      <Bg>
-        <Image image={bg} />
-      </Bg>
     </>
   );
 };

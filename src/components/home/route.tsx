@@ -6,15 +6,18 @@ import tw from "tailwind.macro";
 import Image from "../image";
 
 import NoCode from "./no-code";
+import colors from "../../colors";
 
 const Route = styled.section`
   ${tw`md:flex py-8 pb-16 md:py-24 px-4 lg:px-0`}
+  background: "red";
 `;
 
 const RouteText = styled.div`
   ${tw`md:w-1/3`}
   & h2 {
     ${tw`m-0 p-0 text-3xl md:mb-8`}
+    color: ${colors.textHeader};
   }
   & p {
     ${tw`m-0 p-0 text-sm mt-4`}

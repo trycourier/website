@@ -13,20 +13,28 @@ import Footer from "../components/footer";
 
 import Divider from "../components/home/divider";
 import Hero from "../components/home/hero";
-// import Implement from "../components/home/implement";
+import Implement from "../components/home/implement";
 import Clients from "../components/home/clients";
-// import Editor from "../components/home/editor";
-// import Route from "../components/home/route";
-// import Tracking from "../components/home/tracking";
-// import GettingStarted from "../components/home/getting-started";
+import Editor from "../components/home/editor";
+import Route from "../components/home/route";
+import Tracking from "../components/home/tracking";
+import GettingStarted from "../components/home/getting-started";
 
 import colors from "../colors";
+import QuoteComponent from "../components/home/client-quote";
 
 
 const IndexPage: React.FC = () => {
-  const { heroBg, divider1, divider, divider3, divider4 } = useStaticQuery(graphql`
+  const { heroBg, apiBg, divider1, divider2, divider3, divider4 } = useStaticQuery(graphql`
     query {
       heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1280) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      apiBg: file(relativePath: { eq: "bgs/api@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 1280) {
             ...GatsbyImageSharpFluid
@@ -40,7 +48,7 @@ const IndexPage: React.FC = () => {
           }
         }
       }
-      divider2: file(relativePath: { eq: "dividers/api-white-bottom@2x.png" }) {
+      divider2: file(relativePath: { eq: "dividers/quote-white-top@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
@@ -64,21 +72,37 @@ const IndexPage: React.FC = () => {
     }
   `);
 
-const Section2 = styled.section`
-    background: green;
-    width: 100%;
-    height: 20vh;
- `
- const Section3 = styled.section`
-  background: blue;
+const Section = styled.section`
+  position: relative;
   width: 100%;
-  height: 75vh;
+  background: ${colors.white};
+`;
+
+const Divide = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100px;
+`;
+
+const TopDivider = styled(Divide)`
+  top: 0px;
+`
+
+const BotDivider = styled(Divide)`
+  bottom: 0px;
+`;
+
+const Section2 = styled.section`
+  position: relative;
+  top: -100px;
+  width: 100%;
 `
 
   return (
     <Layout>
       <SEO title="Home" />
         
+      <Section>
       <BackgroundImage
         Tag="section"
         fluid={heroBg.childImageSharp.fluid}
@@ -92,37 +116,46 @@ const Section2 = styled.section`
           <Hero />
         </Container>
       </BackgroundImage>
-
-      <Divider image={divider1}/>
+        <Divider image={divider1} />
+      </Section>
 
       <Section2>
+        <BotDivider style={{bottom: -50}}>
+          <Divider image={divider2} />
+        </BotDivider>
         <Container>
           <Clients />
         </Container>
       </Section2> 
 
-      {/* <Hero />
-      <Curve />
-
-      <Clients />
+      <BackgroundImage
+        Tag="section"
+        fluid={apiBg.childImageSharp.fluid}
+        backgroundColor={colors.textHeader}
+        style={{
+          backgroundPosition: "center center",
+          height: "50vh",
+        }}
+      >
+        <TopDivider />
+        <Container dark={true}>
+          <QuoteComponent />
+        </Container>
+      </BackgroundImage>
 
       <Container >
-        <Glyph image={glyph2} />
         <Editor />
       </Container>
 
-      <Container>
-        <Glyph image={glyph1} />
+      <Container >
         <Implement />
       </Container>
 
-      <Container>
+      <Container dark={true}>
         <Tracking />
-        <Glyph image={glyph3} />
       </Container>
 
       <Container dark={true}>
-        <Glyph image={glyph4} />
         <Route />
       </Container>
 
@@ -133,7 +166,7 @@ const Section2 = styled.section`
       <Container dark={true}>
         <Footer />
       </Container> 
-      */}
+
     </Layout>
   );
 };

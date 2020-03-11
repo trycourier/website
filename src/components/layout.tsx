@@ -19,8 +19,11 @@ const GlobalStyle = createGlobalStyle`
     cursor: default;
     color: ${colors.textSecondary};
   }
-  h1, h2, h3, h4 {
+  h1, h2, h3{
     font-family: 'Bebas Neue', 'Helvetica Neue', sans-serif;
+  }
+  h4, h5, h6{
+    font-family: 'Proxima Nova', 'Nunito Sans', Roboto, sans-serif;
   }
   button {
     cursor: pointer;
