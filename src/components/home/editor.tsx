@@ -6,7 +6,7 @@ import tw from "tailwind.macro";
 import NoCode from "./no-code";
 import Image from "../image";
 import colors from "../../colors";
-import { listStyles } from "./styles";
+import { listStyles } from "../styles";
 
 const Editor = styled.section`
   ${tw`md:flex pt-24 pb-8 md:py-24 px-4 lg:px-0`}

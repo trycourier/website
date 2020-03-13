@@ -20,7 +20,6 @@ const ContainerComponent: React.FC<{
   id?: string;
   bg?: string;
 }> = ({ id, bg, children }) => {
-  console.log("Container>, ", bg);
   if (bg) {
     return (
       <ContainerDark bg={bg}>

@@ -5,7 +5,7 @@ import tw from "tailwind.macro";
 import BackgroundImage from "gatsby-background-image";
 
 import colors from "../../colors";
-import { listStyles } from "./styles";
+import { listStyles } from "../styles";
 const Tracking = styled.section`
   ${tw`pt-24 pb-12 md:py-24 mx-auto text-left px-4 md:px-0`}
   & h2 {

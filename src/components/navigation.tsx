@@ -18,8 +18,9 @@ const NavContainer = styled.section`
   ${tw`text-white`}
 
   & nav {
-    ${tw`flex justify-between mx-auto max-w-5xl lg:mt-4 pb-4`}
+    ${tw`flex justify-between lg:p-4`}
   }
+
 `;
 
 const MobileNavMenu = styled.ul`
@@ -40,9 +41,9 @@ const MobileNavMenu = styled.ul`
 `;
 
 const NavigationItems = styled.ul`
-  ${tw`m-0 p-0`}
+  ${tw`mt-0 p-0`}
   & li {
-    ${tw`list-none hidden md:inline-block mt-1 align-top`}
+    ${tw`list-none hidden md:inline-block mt-2 align-top`}
     height: 24px;
     & a {
       ${tw`no-underline text-sm py-6 px-8`}
@@ -59,7 +60,7 @@ const NavigationItems = styled.ul`
     ${tw`inline-block pl-4 md:pl-4 lg:pl-0 lg:pr-8`}
     width: 93px;
     height: 24px;
-    margin-top: -24px;
+    margin-top: -16px;
   }
 `;
 
@@ -68,9 +69,10 @@ const AccountButtons = styled.ul`
   background: rgba(0,0,0,0.25);
   border-radius: 32px;
   list-style: none;
+  height: 36px;
   & label {
     ${tw`text-sm pl-3 align-top`}
-    margin-top: 12px;
+    margin-top: 10px;
   }
   & li {
     ${tw`list-none inline-block ml-3 hidden md:inline-block`}
