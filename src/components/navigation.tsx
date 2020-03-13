@@ -41,7 +41,7 @@ const MobileNavMenu = styled.ul`
 `;
 
 const NavigationItems = styled.ul`
-  ${tw`mt-0 p-0`}
+  ${tw`mt-1 p-0`}
   & li {
     ${tw`list-none hidden md:inline-block mt-2 align-top`}
     height: 24px;
@@ -50,9 +50,9 @@ const NavigationItems = styled.ul`
       color: ${colors.white};
       font-weight: 600;
       line-height: 30px;
+      border-radius: 9999px;
       :hover{
-        border-bottom: 3px solid ${colors.lightGray};
-      }
+        background: rgba(255,255,255,0.1);
       }
     }
   }
@@ -60,7 +60,12 @@ const NavigationItems = styled.ul`
     ${tw`inline-block pl-4 md:pl-4 lg:pl-0 lg:pr-8`}
     width: 93px;
     height: 24px;
-    margin-top: -16px;
+    margin-top: -20px;
+    & a {
+      :hover{
+        background: transparent;
+      }
+    }
   }
 `;
 

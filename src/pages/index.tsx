@@ -69,7 +69,7 @@ const IndexPage: React.FC = () => {
           }
         }
       }
-      footerBg: file(relativePath: { eq: "dividers/footer-bg@2x.svg"}) { 
+      footerBg: file(relativePath: { eq: "dividers/footer-bg@2x.png"}) { 
         childImageSharp {
           fluid(maxWidth: 1280) {
             ...GatsbyImageSharpFluid
@@ -85,57 +85,60 @@ const Section = styled.section`
   background: ${colors.white};
 `;
 
-const Divide = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100px;
-`;
+// const Divide = styled.div`
+//   position: absolute;
+//   width: 100%;
+//   height: 100px;
+// `;
 
-const TopDivider = styled(Divide)`
-  top: 0px;
-`
+// const TopDivider = styled(Divide)`
+//   top: 0px;
+// `
 
-const BotDivider = styled(Divide)`
-  bottom: 0px;
-`;
+// const BotDivider = styled(Divide)`
+//   bottom: 0px;
+// `;
 
-const Section2 = styled.section`
-  position: relative;
-  background: ${colors.textPrimary};
-  width: 100%;
-`
+// const Section2 = styled.section`
+//   position: relative;
+//   background: ${colors.textPrimary};
+//   width: 100%;
+// `
 
   return (
     <Layout>
       <SEO title="Home" />
         
       <Section>
-      <BackgroundImage
-        Tag="section"
-        fluid={heroBg.childImageSharp.fluid}
-        backgroundColor={colors.berry}
-        style={{
-          backgroundPosition: "center center",
-          height: "100vh",
-        }}
-      >
-        <Container>
-          <Hero />
-        </Container>
-      </BackgroundImage>
+        <BackgroundImage
+          Tag="section"
+          fluid={heroBg.childImageSharp.fluid}
+          backgroundColor={colors.berry}
+          style={{
+            backgroundPosition: "center center",
+            height: "100vh",
+          }}
+        >
+          <Container>
+            <Hero />
+          </Container>
+        </BackgroundImage>
         <Divider image={divider1} />
       </Section>
-
+      
+      {/* 
       <Section2>
         <BotDivider style={{bottom: -50}}>
           <Divider image={divider2} />
-        </BotDivider>
-        <Container>
-          <Clients />
-        </Container>
+        </BotDivider> 
       </Section2> 
+      */}
 
-      <BackgroundImage
+      <Container>
+        <Clients />
+      </Container>
+
+      {/* <BackgroundImage
         Tag="section"
         fluid={apiBg.childImageSharp.fluid}
         backgroundColor={colors.textPrimary}
@@ -145,10 +148,12 @@ const Section2 = styled.section`
         }}
       >
         <TopDivider />
-        <Container>
-          <QuoteComponent />
-        </Container>
-      </BackgroundImage>
+
+      </BackgroundImage> */}
+
+      <Container bg="textPrimary">
+        <QuoteComponent />
+      </Container>
 
       <Container >
         <Editor />
@@ -171,10 +176,9 @@ const Section2 = styled.section`
       </Container>
 
       <Container bg="berry">
-        <Divider image={footerBg} />
         <Footer />
       </Container> 
-
+   
     </Layout>
   );
 };

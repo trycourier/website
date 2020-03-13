@@ -1,29 +1,107 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { Link, useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
+import colors from "../colors";
 import Image from "./image";
 
 const Footer = styled.footer`
-  ${tw`relative`}
-  z-index: 2;
-  & p {
-    ${tw`ml-4 pb-4 lg:ml-0 text-xs`}
-  }
+  ${tw`md:flex text-white py-8`}
 `;
 
+const LogoSection = styled.div`
+  ${tw`md:w-1/4 md:pr-8`}
+`
 const Logo = styled.div`
-  ${tw`ml-4 lg:ml-0`}
+  ${tw`mt-4`}
   max-width: 100px;
 `;
 
-const FooterComponent: React.FC = ({ children }) => {
-  const { logo } = useStaticQuery(graphql`
+const LinkSection = styled.div`
+  ${tw`md:w-3/4`}
+`;
+const NavLinks = styled.div`
+  ${tw`flex`}
+`;
+
+const NavigationItems = styled.ul`
+  ${tw`mt-1 p-0`}
+  & li {
+    ${tw`list-none hidden md:inline-block mt-2 align-top`}
+    height: 24px;
+    & a {
+      ${tw`no-underline text-sm py-6 px-8`}
+      color: ${colors.white};
+      font-weight: 600;
+      line-height: 30px;
+      border-radius: 9999px;
+      :hover{
+        background: rgba(255,255,255,0.1);
+      }
+    }
+  }
+  & li.logo {
+    ${tw`inline-block pl-4 md:pl-4 lg:pl-0 lg:pr-8`}
+    width: 93px;
+    height: 24px;
+    margin-top: -20px;
+    & a {
+      :hover{
+        background: transparent;
+      }
+    }
+  }
+`;
+
+const SocialLinks = styled.div`
+  ${tw`flex ml-4`}
+  a {
+    ${tw`inline-block p-4`}
+    width: 24px;
+    height: 24px;
+  }
+`;
+const DetailLinks = styled.div`
+  a {
+    ${tw`no-underline text-white text-sm py-6 px-8`}
+  }
+`;
+
+const FooterComponent: React.FC = () => {
+  const { logo, twitter, linkedIn, fb, instagram } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { eq: "courier-logo@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      twitter: file(relativePath: { eq: "social-twitter@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 40) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      linkedIn: file(relativePath: { eq: "social-linkedIn@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 40) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      fb: file(relativePath: { eq: "social-fb@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 40) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      instagram: file(relativePath: { eq: "social-instagram@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 40) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -34,16 +112,53 @@ const FooterComponent: React.FC = ({ children }) => {
   return (
     <>
       <Footer>
-        {children}
-        <Logo>
-          <Image image={logo} />
-        </Logo>
-        <p>
-          {new Date().getFullYear()} trycourier.com, Inc. All rights reserved.<br />
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/disclosure">Responsible Disclosure Policy</a>
-        </p>
+        <LogoSection>
+          <Logo>
+            <Image image={logo} />
+          </Logo>
+        </LogoSection>
+        <LinkSection>
+          <NavLinks>
+            <NavigationItems>
+              <li>
+                <Link to="/#pricing">Pricing</Link>
+              </li>
+              <li>
+                <Link to="/#company">Company</Link>
+              </li>
+              <li>
+                <Link to="/#community">Community</Link>
+              </li>
+              <li>
+                <a href="https://docs.trycourier.com/" target="_blank">
+                  Documentation
+                </a>
+              </li>
+            </NavigationItems>
+          </NavLinks>
+          <SocialLinks>
+            <a href="">
+              <Image image={twitter} />
+            </a>
+            <a href="">
+              <Image image={linkedIn} />
+            </a>
+            <a href="">
+              <Image image={fb} />
+            </a>
+            <a href="">
+              <Image image={instagram} />
+            </a>
+          </SocialLinks>
+          <DetailLinks>
+            <p>
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Terms of Service</a>
+              <a href="/disclosure">Responsible Disclosure Policy</a>
+            </p>
+          </DetailLinks>
+        </LinkSection>
+
       </Footer>
     </>
   );

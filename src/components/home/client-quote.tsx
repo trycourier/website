@@ -27,8 +27,7 @@ const QuoteBox = styled.div`
 `
 
 const Quote = styled.div`
-  ${tw`ml-auto absolute w-50 p-6 bg-white rounded-lg shadow-xl`}
-  right: 64px;
+  ${tw`ml-auto w-50 my-6 p-6 bg-white rounded-lg shadow-xl`}
 `;
 
 const QuoteText = styled.div `
