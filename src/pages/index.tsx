@@ -25,7 +25,7 @@ import QuoteComponent from "../components/home/client-quote";
 
 
 const IndexPage: React.FC = () => {
-  const { heroBg, apiBg, divider1, divider2, divider3, divider4 } = useStaticQuery(graphql`
+  const { heroBg, apiBg, divider1, divider2, divider3, divider4, footerBg } = useStaticQuery(graphql`
     query {
       heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
         childImageSharp {
@@ -50,7 +50,7 @@ const IndexPage: React.FC = () => {
       }
       divider2: file(relativePath: { eq: "dividers/quote-white-top@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 1600) {
+          fluid(maxWidth: 1280) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -65,6 +65,13 @@ const IndexPage: React.FC = () => {
       divider4: file(relativePath: { eq: "deprecated/Separator 4@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      footerBg: file(relativePath: { eq: "dividers/footer-bg@2x.svg"}) { 
+        childImageSharp {
+          fluid(maxWidth: 1280) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -164,6 +171,7 @@ const Section2 = styled.section`
       </Container>
 
       <Container bg="berry">
+        <Divider image={footerBg} />
         <Footer />
       </Container> 
 
