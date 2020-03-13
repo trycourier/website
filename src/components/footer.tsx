@@ -60,11 +60,18 @@ const SocialLinks = styled.div`
     ${tw`inline-block p-4`}
     width: 24px;
     height: 24px;
+    border-radius: 9999px;
+    :hover{
+      background: rgba(255,255,255,0.1);
+    }
   }
 `;
 const DetailLinks = styled.div`
   a {
     ${tw`no-underline text-white text-sm py-6 px-8`}
+    :hover{
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
   }
 `;
 

@@ -3,31 +3,60 @@ import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import BackgroundImage from "gatsby-background-image";
-
+import Image from "../image";
 import colors from "../../colors";
 import { listStyles } from "../styles";
 const Tracking = styled.section`
   ${tw`pt-24 pb-12 md:py-24 mx-auto text-left px-4 md:px-0`}
+`;
+
+  // & h2 {
+  //   ${tw`m-0 p-0 text-3xl`}
+  //   color: #2f3e5a;
+  // }
+  // & p {
+  //   ${tw`md:w-1/2`}
+  // }
+  // & a {
+  //   ${tw`no-underline text-sm border border-solid py-3 px-8 rounded-full`}
+  //   background-color: ${colors.berry};
+  //   color: white;
+  //   line-height: 60px;
+  // }
+
+const TrackingSection = styled.div`
+  ${tw`flex`}
+`;
+
+const TrackingText = styled.div`
+  ${tw`md:w-1/2 md:pr-8 mt-16`}
   & h2 {
-    ${tw`m-0 p-0 text-3xl`}
-    color: #2f3e5a;
+    ${tw`m-0 p-0 text-3xl mb-2`}
+    color: ${colors.textPrimary};
   }
   & p {
-    ${tw`md:w-1/2`}
+    ${tw`m-0 p-0 text-lg`}
+    color: ${colors.textSecondary};
   }
-  & a {
-    ${tw`no-underline text-sm border border-solid py-3 px-8 rounded-full`}
-    background-color: ${colors.berry};
-    color: white;
-    line-height: 60px;
-  }
+
   ${listStyles}
 `;
 
+const TrackingImageWrapper = styled.div`
+  ${tw`md:w-1/2`}
+`;
+
 const TrackingComponent: React.FC = () => {
-  const { img } = useStaticQuery(graphql`
+  const { bg, img } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "cross-channel-green-circles-lines@2x.png" }) {
+      bg: file(relativePath: { eq: "cross-channel-green-circles-lines@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 660) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      img: file(relativePath: { eq: "cards@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 660) {
             ...GatsbyImageSharpFluid
@@ -44,16 +73,23 @@ const TrackingComponent: React.FC = () => {
 
   return (
     <Tracking>
-      <BackgroundImage fluid={img.childImageSharp.fluid} style={bgStyle}>
-        <h2>Cross-Channel Engagement Tracking</h2>
-        <p>
-          Get insight on your performance across all channels
-        </p>
-        <ul>
-          <li>Find the best channel for each user</li>
-          <li>Compare deliverability across multiple providers</li>
-          <li>Detailed event log for every user on every channel</li>
-        </ul>
+      <BackgroundImage fluid={bg.childImageSharp.fluid} style={bgStyle}>
+        <TrackingSection>
+          <TrackingText>
+            <h2>Cross-Channel Engagement Tracking</h2>
+            <p>
+              Get insight on your performance across all channels
+            </p>
+            <ul>
+              <li>Find the best channel for each user</li>
+              <li>Compare deliverability across multiple providers</li>
+              <li>Detailed event log for every user on every channel</li>
+            </ul>
+          </TrackingText>
+          <TrackingImageWrapper>
+            <Image image={img} />
+          </TrackingImageWrapper>
+        </TrackingSection>
       </BackgroundImage>
     </Tracking>
   );
