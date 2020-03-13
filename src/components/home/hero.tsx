@@ -11,8 +11,11 @@ import channelsGroup from "../../images/channels-group.svg";
 import RegisterationCTA from "./registeration-cta";
 
 const Abs = styled.div`
-  ${tw`absolute`}
-  width: 50%;
+  position: absolute;
+`;
+
+const StyledImage = styled(Image)`
+  background: rgba(0,0,0,0.6);
 `;
 
 const Hero = styled.div`
@@ -43,14 +46,21 @@ const HeroImageWrapper = styled.div`
 `;
 
 const HeroComponent: React.FC = () => {
-  const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
-  const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
-  const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 230}px,0)`;
-  const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`;
-  const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
-  
-  const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }));
-  
+  const calc = (x, y) => [
+    x - window.innerWidth / 2,
+    y - window.innerHeight / 2,
+  ];
+  const trans0 = (x, y) => ``;
+  // const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
+  // const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 20}px,0)`;
+  // const trans3 = (x, y) => `translate3d(${x / 6 - 50}px,${y / 6 - 20}px,0)`;
+  // const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
+
+  const [props, set] = useSpring(() => ({
+    xy: [0, 0],
+    config: { mass: 10, tension: 550, friction: 140 },
+  }));
+
   const { chat, chrome, email, slack, teams } = useStaticQuery(graphql`
     query {
       chat: file(relativePath: { eq: "parallax-chat@2x.png" }) {
@@ -106,32 +116,26 @@ const HeroComponent: React.FC = () => {
         </label>
         <RegisterationCTA />
       </HeroContent>
-      <HeroImageWrapper onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-        <animated.div style={{ transform: props.xy.interpolate(trans1) }}>
-          <Abs>
-            <Image image={chrome} />
-          </Abs>
+      <HeroImageWrapper
+        onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+      >
+        <animated.div style={{ transform: props.xy.interpolate(trans0) }}>
+          <StyledImage image={chrome} />
         </animated.div>
-        <animated.div style={{ transform: props.xy.interpolate(trans2) }}>
-          <Abs>
-            <Image image={email} />
-          </Abs>
+        <animated.div style={{ transform: props.xy.interpolate(trans0) }}>
+          <StyledImage image={email} />
         </animated.div>
-        <animated.div style={{ transform: props.xy.interpolate(trans3) }}>
-          <Abs>
-            <Image image={slack} />
-          </Abs>
+        <animated.div style={{ transform: props.xy.interpolate(trans0) }}>
+          <StyledImage image={slack} />
         </animated.div>
-        <animated.div style={{ transform: props.xy.interpolate(trans4) }}>
-          <Abs>
-            <Image image={teams} />
-          </Abs>
+        <animated.div style={{ transform: props.xy.interpolate(trans0) }}>
+          <StyledImage image={teams} />
         </animated.div>
         <Abs>
           <img src={channelsGroup} />
         </Abs>
         <Abs>
-          <Image image={chat} />
+          <StyledImage image={chat} />
         </Abs>
       </HeroImageWrapper>
     </Hero>

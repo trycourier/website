@@ -18,9 +18,16 @@ const Abs2 = styled(Abs)`
   transform: rotate(180deg);
 `;
 
+const Flex = styled.div`
+  ${tw`flex`}
+`
+
+const QuoteBox = styled.div`
+  ${tw`relative w-50`}
+`
+
 const Quote = styled.div`
-  ${tw`ml-auto absolute p-6 bg-white rounded-lg shadow-xl`}
-  width: 50%;
+  ${tw`ml-auto absolute w-50 p-6 bg-white rounded-lg shadow-xl`}
   right: 64px;
 `;
 
@@ -36,7 +43,7 @@ const QuoteAuthor = styled.div`
 `;
 
 const QuoteImage = styled.div`
-  ${tw`flex-shrink-0`}
+  width: 50%;
 `;
 
 const QuoteComponent: React.FC = () => {
@@ -54,25 +61,27 @@ const QuoteComponent: React.FC = () => {
 
   return (
     <Quote>
-      <div className="flex">
-        <div style={{position: "relative"}}>
+      <Flex>
+        <QuoteBox>
           <Abs>
             <img src={quoteImg} />
           </Abs>
           <Abs2>
             <img src={quoteImg} />
           </Abs2>
-          <div className="flex">
+          <Flex>
             <QuoteText>
               We were building out a new team to focus entirely on our notification infrastructure when we found Courier. Now we support even more channels with one line of code – and our product managers & designers can design the templates without engineering help.
               <QuoteAuthor>
                 Eric Koslow, CTO & Co-Founder @ Lattice
               </QuoteAuthor>
             </QuoteText>
-          </div>
-        </div>
-        <div style={{background: "red", width: "100px", height: "100px"}} /> 
-      </div>
+          </Flex>
+        </QuoteBox>
+        <QuoteImage>
+          <Image image={eric} />
+        </QuoteImage>
+      </Flex>
     </Quote>
   );
 };

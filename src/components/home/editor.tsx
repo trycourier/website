@@ -6,6 +6,7 @@ import tw from "tailwind.macro";
 import NoCode from "./no-code";
 import Image from "../image";
 import colors from "../../colors";
+import { listStyles } from "./styles";
 
 const Editor = styled.section`
   ${tw`md:flex pt-24 pb-8 md:py-24 px-4 lg:px-0`}
@@ -22,19 +23,7 @@ const EditorText = styled.div`
     color: ${colors.textSecondary};
   }
 
-  & ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  & li {
-    line-height: 48px;
-    &::before {
-      content: "•";
-      font-size: 32px;
-      margin-right: 12px;
-      color: ${colors.green};
-    }
-  }
+  ${listStyles}
 `;
 
 const EditorImageWrapper = styled.div`
@@ -59,9 +48,7 @@ const EditorComponent: React.FC = () => {
       <NoCode />
       <EditorText>
         <h2>Notification Design Studio</h2>
-        <p>
-          Empower every team member to build beautiful notifications.
-        </p>
+        <p>Empower every team member to build beautiful notifications.</p>
         <ul>
           <li>Drag & drop content without writing code</li>
           <li>Consistent rendering across every email client</li>

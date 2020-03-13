@@ -9,18 +9,21 @@ const Implement = styled.section`
   ${tw`md:flex mt-8pt-24 pb-8 md:py-24 px-4 lg:px-0`}
 `;
 
-const ImplementText = styled.div`
+const ImplementTable= styled.div`
   ${tw`md:w-1/2 md:pr-8`}
-  & h2 {
-    ${tw`m-0 p-0 text-3xl mb-8`}
+  & tr {
+    ${tw`m-0 p-0 text-lg mb-8`}
   }
-  & p {
+  & th {
+    ${tw`m-0 p-0 text-sm mt-4 text-left`}
+  }
+  & td {
     ${tw`m-0 p-0 text-sm mt-4`}
   }
 `;
 
 const ImplementImageWrapper = styled.div`
-  ${tw`md:w-1/2 text-right`}
+  ${tw`md:w-1/2 text-left`}
 `;
 
 const ImplementComponent: React.FC = () => {
@@ -38,21 +41,39 @@ const ImplementComponent: React.FC = () => {
 
   return (
     <Implement>
-      <ImplementText>
-        <h2>Implement in Seconds</h2>
-        <p>
-          Our simple REST API takes only seconds to integrate, or you can
-          leverage our Segment connector to automatically wire up existing
-          events without writing any code.
-        </p>
-        <p>
-          Even better: Courier’s Visual Editor lets you move the templates for
-          all of your channels out of your codebase, so maintenance is a breeze!
-        </p>
-      </ImplementText>
       <ImplementImageWrapper>
+        <h2>One API Call</h2>
         <Image image={img} />
       </ImplementImageWrapper>
+      <ImplementTable>
+        <table>
+          <tr>
+            <th>Email</th>
+            <th>SMS</th>
+            <th>Push</th>
+            <th>Direct Message</th>
+          </tr>
+          <tr>
+            <td>Postmark</td>
+            <td>MessageBird</td>
+            <td>OneSignal</td>
+            <td>FB Messenger</td>
+          </tr>
+          <tr>
+            <td>SendGrid</td>
+            <td>Twilio</td>
+            <td>Firebase</td>
+            <td>Slack</td>
+          </tr>
+          <tr>
+            <td>Mailgun</td>
+            <td>nexmo</td>
+            <td>Expo</td>
+            <td>MS Teams</td>
+          </tr>
+        </table>
+      </ImplementTable>
+
     </Implement>
   );
 };

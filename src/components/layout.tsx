@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
   h4, h5, h6{
     font-family: 'Proxima Nova', 'Nunito Sans', Roboto, sans-serif;
   }
+
   button {
     cursor: pointer;
   }

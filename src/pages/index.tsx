@@ -112,7 +112,7 @@ const Section2 = styled.section`
           height: "100vh",
         }}
       >
-        <Container dark={true}>
+        <Container>
           <Hero />
         </Container>
       </BackgroundImage>
@@ -138,7 +138,7 @@ const Section2 = styled.section`
         }}
       >
         <TopDivider />
-        <Container dark={true}>
+        <Container>
           <QuoteComponent />
         </Container>
       </BackgroundImage>
@@ -147,7 +147,7 @@ const Section2 = styled.section`
         <Editor />
       </Container>
 
-      <Container dark={true}>
+      <Container bg="moonlight">
         <Implement />
       </Container>
 
@@ -155,7 +155,7 @@ const Section2 = styled.section`
         <Tracking />
       </Container>
 
-      <Container dark={true}>
+      <Container bg="berrywhite">
         <Route />
       </Container>
 
@@ -163,7 +163,7 @@ const Section2 = styled.section`
         <GettingStarted />
       </Container>
 
-      <Container dark={true}>
+      <Container bg="berry">
         <Footer />
       </Container> 
 
