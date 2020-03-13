@@ -94,7 +94,7 @@ const BotDivider = styled(Divide)`
 
 const Section2 = styled.section`
   position: relative;
-  top: -100px;
+  background: ${colors.textPrimary};
   width: 100%;
 `
 

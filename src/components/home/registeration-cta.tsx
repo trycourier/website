@@ -65,7 +65,7 @@ const RegisterationCTA: React.FC = () => {
           <img src={githubLogo} />
           <label>GitHub</label>
         </Button>
-        <button className="ghost">or email</button>
+        <button className="ghost">or <strong>email</strong></button>
       </form>
     </Content>
   );
