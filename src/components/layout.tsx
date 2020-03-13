@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Proxima Nova', 'Nunito Sans', Roboto, sans-serif;
     font-weight: 100;
     cursor: default;
+    color: ${colors.textSecondary};
   }
   h1, h2, h3{
     font-family: 'Bebas Neue', 'Helvetica Neue', sans-serif;

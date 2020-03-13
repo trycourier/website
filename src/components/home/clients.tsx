@@ -22,7 +22,7 @@ const ClientsText = styled.div`
   ${tw`text-left`}
   & h4 {
     ${tw`mb-4 p-0 text-md`}
-    color: ${colors.textHeader};
+    color: ${colors.textPrimary};
     position: relative;
     top: -24px;
   }

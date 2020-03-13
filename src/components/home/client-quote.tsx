@@ -33,7 +33,7 @@ const Quote = styled.div`
 
 const QuoteText = styled.div `
   ${tw`text-base text-gray-600 leading-normal`}
-  color: ${colors.textHeader};
+  color: ${colors.textPrimary};
 `;
 
 const QuoteAuthor = styled.div`

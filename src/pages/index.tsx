@@ -131,7 +131,7 @@ const Section2 = styled.section`
       <BackgroundImage
         Tag="section"
         fluid={apiBg.childImageSharp.fluid}
-        backgroundColor={colors.textHeader}
+        backgroundColor={colors.textPrimary}
         style={{
           backgroundPosition: "center center",
           height: "50vh",

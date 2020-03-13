@@ -6,6 +6,7 @@ import styled from "styled-components";
 import tw from "tailwind.macro";
 
 import Image from "../image";
+import colors from "../../colors";
 
 import channelsGroup from "../../images/channels-group.svg";
 import RegisterationCTA from "./registeration-cta";
@@ -25,6 +26,7 @@ const Hero = styled.div`
 
 const HeroContent = styled.div`
   ${tw`md:pr-16`}
+  color: ${colors.white};
   & h1 {
     ${tw`m-0 p-0 text-5xl mt-2 md:mt-0`}
     font-family: "Bebas Neue", sans-serif;

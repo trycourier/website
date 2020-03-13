@@ -16,7 +16,7 @@ const EditorText = styled.div`
   ${tw`md:w-1/2 md:pr-8 mt-16`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-2`}
-    color: ${colors.textHeader};
+    color: ${colors.textPrimary};
   }
   & p {
     ${tw`m-0 p-0 text-lg`}

@@ -10,14 +10,14 @@ import colors from "../../colors";
 
 const Route = styled.section`
   ${tw`md:flex py-8 pb-16 md:py-24 px-4 lg:px-0`}
-  background: "red";
+  color: ${colors.textSecondary};
 `;
 
 const RouteText = styled.div`
   ${tw`md:w-1/3`}
   & h2 {
     ${tw`m-0 p-0 text-3xl md:mb-8`}
-    color: ${colors.textHeader};
+    color: ${colors.textPrimary};
   }
   & p {
     ${tw`m-0 p-0 text-sm mt-4`}
