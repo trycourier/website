@@ -10,20 +10,6 @@ const Tracking = styled.section`
   ${tw`pt-24 pb-12 md:py-24 mx-auto text-left px-4 md:px-0`}
 `;
 
-  // & h2 {
-  //   ${tw`m-0 p-0 text-3xl`}
-  //   color: #2f3e5a;
-  // }
-  // & p {
-  //   ${tw`md:w-1/2`}
-  // }
-  // & a {
-  //   ${tw`no-underline text-sm border border-solid py-3 px-8 rounded-full`}
-  //   background-color: ${colors.berry};
-  //   color: white;
-  //   line-height: 60px;
-  // }
-
 const TrackingSection = styled.div`
   ${tw`flex`}
 `;
