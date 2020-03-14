@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Image from "../image";
 import NoCode from "./no-code";
 
-import { Quote, Flex, QuoteBox, QuoteText } from "./client-quote";
+import { Flex, Quote, QuoteBox, QuoteText, Rel } from "./client-quote";
 
 const QuoteComponent2: React.FC = () => {
   const { segment } = useStaticQuery(graphql`
@@ -23,11 +23,18 @@ const QuoteComponent2: React.FC = () => {
       <Flex>
         <QuoteBox>
           <Flex>
-            <Image image={segment} />
-            <QuoteText>
-              Connect Segment and watch all of your events flow into Courier. Anyone can easily pick an event, add one or more notification channels, and use our Notification Design Studio to start delivering new notifications without engineers shipping any code.
+            <Rel style={{ flex: 1, marginTop: "24px" }}>
+              <Image image={segment} />
+            </Rel>
+            <QuoteText style={{ flex: 5 }}>
+              Connect Segment and watch all of your events flow into Courier.
+              Anyone can easily pick an event, add one or more notification
+              channels, and use our Notification Design Studio to start
+              delivering new notifications without engineers shipping any code.
             </QuoteText>
-            <NoCode />
+            <Rel style={{ flex: 1 }}>
+              <NoCode />
+            </Rel>
           </Flex>
         </QuoteBox>
       </Flex>

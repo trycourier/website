@@ -22,12 +22,16 @@ export const Flex = styled.div`
   ${tw`flex`}
 `
 
+export const Rel = styled.div`
+  ${tw`relative mx-4 justify-center`}
+`
+
 export const Quote = styled.div`
   ${tw`ml-auto w-50 p-6 bg-white rounded-lg shadow-xl`}
 `;
 
-export const QuoteBox = styled.div`
-  ${tw`relative w-50`}
+export const QuoteBox = styled(Rel)`
+  ${tw`relative`}
 `;
 
 export const QuoteText = styled.div `
