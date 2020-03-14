@@ -159,7 +159,7 @@ const Section = styled.section`
         <Editor />
       </Container>
 
-      <Container bg="moonlight">
+      <Container bg="newMoon">
         <Implement />
       </Container>
 
