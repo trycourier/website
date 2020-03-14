@@ -27,7 +27,8 @@ export const Rel = styled.div`
 `
 
 export const Quote = styled.div`
-  ${tw`ml-auto w-50 p-6 bg-white rounded-lg shadow-xl`}
+  ${tw`ml-auto absolute w-50 p-6 bg-white rounded-lg shadow-xl`}
+  top: -64px;
 `;
 
 export const QuoteBox = styled(Rel)`
@@ -47,6 +48,7 @@ const QuoteAuthor = styled.div`
 
 const QuoteImage = styled.div`
   width: 50%;
+  height: 100px;
 `;
 
 const QuoteComponent: React.FC = () => {
