@@ -22,6 +22,7 @@ import GettingStarted from "../components/home/getting-started";
 
 import colors from "../colors";
 import QuoteComponent from "../components/home/client-quote";
+import QuoteComponent2 from "../components/home/client-quote-2";
 
 
 const IndexPage: React.FC = () => {
@@ -161,6 +162,10 @@ const Section = styled.section`
 
       <Container bg="newMoon">
         <Implement />
+      </Container>
+
+      <Container bg="newMoon">
+        <QuoteComponent2 />
       </Container>
 
       <Container>

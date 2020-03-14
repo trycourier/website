@@ -18,19 +18,19 @@ const Abs2 = styled(Abs)`
   transform: rotate(180deg);
 `;
 
-const Flex = styled.div`
+export const Flex = styled.div`
   ${tw`flex`}
 `
 
-const QuoteBox = styled.div`
-  ${tw`relative w-50`}
-`
-
-const Quote = styled.div`
-  ${tw`ml-auto w-50 my-6 p-6 bg-white rounded-lg shadow-xl`}
+export const Quote = styled.div`
+  ${tw`ml-auto w-50 p-6 bg-white rounded-lg shadow-xl`}
 `;
 
-const QuoteText = styled.div `
+export const QuoteBox = styled.div`
+  ${tw`relative w-50`}
+`;
+
+export const QuoteText = styled.div `
   ${tw`text-base text-gray-600 leading-normal`}
   color: ${colors.textPrimary};
 `;
