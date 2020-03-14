@@ -78,7 +78,7 @@ const QuoteComponent: React.FC = () => {
             <QuoteText>
               We were building out a new team to focus entirely on our notification infrastructure when we found Courier. Now we support even more channels with one line of code – and our product managers & designers can design the templates without engineering help.
               <QuoteAuthor>
-                Eric Koslow, CTO & Co-Founder @ Lattice
+                Eric Koslow, CTO & Co-Founder @ Lattice 
               </QuoteAuthor>
             </QuoteText>
           </Flex>
