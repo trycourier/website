@@ -11,8 +11,10 @@ import colors from "../../colors";
 import channelsGroup from "../../images/channels-group.svg";
 import RegisterationCTA from "./registeration-cta";
 
-const Abs = styled.div`
+const Abs = styled(animated.div)`
   position: absolute;
+  width: 50%;
+  height: 50%;
 `;
 
 const StyledImage = styled(Image)`
@@ -22,6 +24,7 @@ const StyledImage = styled(Image)`
 const Hero = styled.div`
   ${tw`flex py-4 md:py-12 md:pt-32 lg:pt-32 px-4 lg:px-0`}
   height: 72vh;
+  overflow: hidden;
 `;
 
 const HeroContent = styled.div`
@@ -52,11 +55,11 @@ const HeroComponent: React.FC = () => {
     x - window.innerWidth / 2,
     y - window.innerHeight / 2,
   ];
-  const trans0 = (x, y) => ``;
-  // const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
-  // const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 20}px,0)`;
-  // const trans3 = (x, y) => `translate3d(${x / 6 - 50}px,${y / 6 - 20}px,0)`;
-  // const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
+
+  const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
+  const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 20}px,0)`;
+  const trans3 = (x, y) => `translate3d(${x / 6 - 50}px,${y / 6 - 20}px,0)`;
+  const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
 
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
@@ -121,24 +124,28 @@ const HeroComponent: React.FC = () => {
       <HeroImageWrapper
         onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       >
-        <animated.div style={{ transform: props.xy.interpolate(trans0) }}>
-          <StyledImage image={chrome} />
-        </animated.div>
-        <animated.div style={{ transform: props.xy.interpolate(trans0) }}>
-          <StyledImage image={email} />
-        </animated.div>
-        <animated.div style={{ transform: props.xy.interpolate(trans0) }}>
-          <StyledImage image={slack} />
-        </animated.div>
-        <animated.div style={{ transform: props.xy.interpolate(trans0) }}>
-          <StyledImage image={teams} />
-        </animated.div>
-        <Abs>
+        
+        <Abs style={{right: -50}}>
           <img src={channelsGroup} />
         </Abs>
-        <Abs>
+        <Abs style={{ transform: props.xy.interpolate(trans4), top: 0, right: 20 }}>
+          <StyledImage image={teams} />
+        </Abs>
+        <Abs style={{ transform: props.xy.interpolate(trans2) }}>
+          <StyledImage image={email} />
+        </Abs>
+        <Abs style={{ transform: props.xy.interpolate(trans3) }}>
           <StyledImage image={chat} />
         </Abs>
+        <Abs style={{ transform: props.xy.interpolate(trans1), top: -10 }}>
+          <StyledImage image={chrome} />
+        </Abs>
+        <Abs style={{ transform: props.xy.interpolate(trans3), top: 400, right: -200 }}>
+          <StyledImage image={slack} />
+        </Abs>
+
+
+
       </HeroImageWrapper>
     </Hero>
   );
