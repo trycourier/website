@@ -106,15 +106,8 @@ const MobileButtons = styled.ul`
 const NavigationComponent: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const { hamburger, logo } = useStaticQuery(graphql`
+  const { logo } = useStaticQuery(graphql`
     query {
-      hamburger: file(relativePath: { eq: "deprecated/hamburger@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 110) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       logo: file(relativePath: { eq: "courier-logo@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 110) {

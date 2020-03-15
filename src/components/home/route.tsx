@@ -6,6 +6,7 @@ import BackgroundImage from "gatsby-background-image";
 import Image from "../image";
 import NoCode from "./no-code";
 import colors from "../../colors";
+import { Desktop, Mobile } from "../container";
 
 const Route = styled.section`
   ${tw`md:flex py-8 pb-16 md:py-24 px-4 lg:px-0 mx-auto`}
@@ -17,7 +18,7 @@ const RouteSection = styled.div`
 `;
 
 const RouteText = styled.div`
-  ${tw`w-2/3 md:pr-8 mt-16`}
+  ${tw`w-full md:w-2/3 md:pr-8 mt-16`}
   line-height: 32px;
   & h2 {
     ${tw`m-0 p-0 text-3xl`}
@@ -29,11 +30,11 @@ const RouteText = styled.div`
 `;
 
 const RouteImageWrapper = styled.div`
-  ${tw`w-2/3 mr-auto`}
+  ${tw`w-full md:w-2/3 mr-auto`}
 `;
 
 const RouteComponent: React.FC = () => {
-  const { bg, img } = useStaticQuery(graphql`
+  const { bg, img, mobileImg } = useStaticQuery(graphql`
     query {      
       bg: file(relativePath: { eq: "bgs/gears@2x.png" }) {
         childImageSharp {
@@ -45,6 +46,13 @@ const RouteComponent: React.FC = () => {
       img: file(relativePath: { eq: "desktop-delivery@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      mobileImg: file(relativePath: { eq: "mobile-delivery.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 360) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -70,7 +78,12 @@ const RouteComponent: React.FC = () => {
             </p>
           </RouteText>
           <RouteImageWrapper>
-            <Image image={img} width="500"/>
+            <Desktop>
+              <Image image={img} />
+            </Desktop>
+            <Mobile>
+              <Image image={mobileImg} />
+            </Mobile>
           </RouteImageWrapper>
         </RouteSection>
       </BackgroundImage>
