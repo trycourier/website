@@ -31,7 +31,7 @@ const ImplementImageWrapper = styled.div`
 `;
 
 const ImplementInfo = styled.div`
-  ${tw`md:w-1/2 ml-8 mt-32 text-center`}
+  ${tw`md:w-1/2 md:ml-8 md:mt-24 text-center`}
   & a {
     ${tw`no-underline text-sm py-6 px-8 mt-8`}
     color: ${colors.white};
@@ -46,6 +46,7 @@ const ImplementInfo = styled.div`
 `;
 
 const ImplementTable= styled.table`
+  ${tw`mt-8`}
   display: inline-table;
   border-spacing: 0px;
   & tr {
@@ -64,7 +65,19 @@ const ImplementTable= styled.table`
   }
 `;
 
-const channels = ["Email", "SMS", "Push", "Direct Message"];
+const Desktop = styled.div`
+  display: block;
+  @media(max-width: 640px){
+    display: none;
+  }
+`;
+
+const Mobile = styled.div`
+  display: none;
+  @media(max-width: 640px){
+    display: block;
+  }
+`;
 
 const ImplementComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`
@@ -86,29 +99,72 @@ const ImplementComponent: React.FC = () => {
         <Image image={img} />
       </ImplementImageWrapper>
       <ImplementInfo>
-        <ImplementTable>
-            <tr>
-              {channels.map(c => <th>{c}</th>)}
-            </tr>
-            <tr>
+        <Desktop>
+          <ImplementTable>
+              <tr>
+                <th>Email</th>
+                <th>SMS</th>
+                <th>Push</th>
+                <th>Direct Message</th>
+              </tr>
+              <tr>
+                <td><img src={postmark} alt="Postmark" /></td>
+                <td><img src={messagebird} alt="MessageBird" /></td>
+                <td><img src={onesignal} alt="OneSignal" /></td>
+                <td><img src={fbMessenger} alt="FB Messenger" /></td>
+              </tr>
+              <tr>
+                <td><img src={sendgrid} alt="SendGrid" /></td>
+                <td><img src={twilio} alt="Twilio" /></td>
+                <td><img src={firebase} alt="Firebase" /></td>
+                <td><img src={slack} alt="Slack" /></td>
+              </tr>
+              <tr>
+                <td><img src={mailgun} alt="Mailgun" /></td>
+                <td><img src={nexmo} alt="nexmo" /></td>
+                  <td><img src={expo} alt="Expo" /></td>
+                  <td><img src={msTeams} alt="MS Teams" /></td>
+              </tr>
+          </ImplementTable>
+        </Desktop>
+        <Mobile>
+          <ImplementTable>
+              <tr>
+              <th>Email</th>
+                <th>SMS</th>
+              </tr>
+              <tr>
               <td><img src={postmark} alt="Postmark" /></td>
-              <td><img src={messagebird} alt="MessageBird" /></td>
-              <td><img src={onesignal} alt="OneSignal" /></td>
-              <td><img src={fbMessenger} alt="FB Messenger" /></td>
-            </tr>
-            <tr>
+                <td><img src={messagebird} alt="MessageBird" /></td>
+              </tr>
+              <tr>
               <td><img src={sendgrid} alt="SendGrid" /></td>
-              <td><img src={twilio} alt="Twilio" /></td>
-              <td><img src={firebase} alt="Firebase" /></td>
-              <td><img src={slack} alt="Slack" /></td>
-            </tr>
-            <tr>
+                <td><img src={twilio} alt="Twilio" /></td>
+              </tr>
+              <tr>
               <td><img src={mailgun} alt="Mailgun" /></td>
-              <td><img src={nexmo} alt="nexmo" /></td>
-              <td><img src={expo} alt="Expo" /></td>
-              <td><img src={msTeams} alt="MS Teams" /></td>
-            </tr>
-        </ImplementTable>
+                <td><img src={nexmo} alt="nexmo" /></td>
+              </tr>
+          </ImplementTable>
+          <ImplementTable>
+              <tr>
+                <th>Push</th>
+                <th>Direct Message</th>
+              </tr>
+              <tr>
+                <td><img src={onesignal} alt="OneSignal" /></td>
+                <td><img src={fbMessenger} alt="FB Messenger" /></td>
+              </tr>
+              <tr>
+                <td><img src={firebase} alt="Firebase" /></td>
+                <td><img src={slack} alt="Slack" /></td>
+              </tr>
+              <tr>
+                <td><img src={expo} alt="Expo" /></td>
+                <td><img src={msTeams} alt="MS Teams" /></td>
+              </tr>
+          </ImplementTable>
+        </Mobile>
         <div style={{marginTop: 32}}>
           <a href="#">Other Integrations</a>
         </div>
