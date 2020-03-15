@@ -27,9 +27,11 @@ export const Rel = styled.div`
 `
 
 export const Quote = styled.div`
-  ${tw`ml-auto absolute w-50 p-6 bg-white rounded-lg shadow-xl`}
+  ${tw`mx-8 sm:ml-auto absolute w-full md:w-50 p-6 bg-white rounded-lg shadow-xl`}
   top: 64px;
-  right: -150px;
+  @media(min-width: 640){
+    right: -150px;
+  }
   z-index: 2;
 `;
 
