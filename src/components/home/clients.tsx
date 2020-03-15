@@ -14,12 +14,13 @@ import aarida from "../../images/clients/aarida.svg";
 import beacons from "../../images/clients/beacons.svg";
 
 const Clients = styled(Container)`
-  ${tw`py-8 md:py-24 md:pb-12`}
+  ${tw`py-2`}
   background: ${colors.white};
 `;
 
 const ClientsText = styled.div`
   ${tw`text-left`}
+  margin-top: -100px;
   & h4 {
     ${tw`mb-4 p-0 text-md`}
     color: ${colors.textPrimary};
@@ -29,7 +30,7 @@ const ClientsText = styled.div`
 `;
 
 const ClientsImageWrapper = styled.div`
-  ${tw`py-8 md:py-24 md:pb-12`}
+  ${tw`py-12`}
 `;
 
 type BoxProps = {

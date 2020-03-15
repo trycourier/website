@@ -28,8 +28,22 @@ export const Rel = styled.div`
 
 export const Quote = styled.div`
   ${tw`ml-auto absolute w-50 p-6 bg-white rounded-lg shadow-xl`}
-  top: -64px;
+  top: 64px;
+  right: -150px;
+  z-index: 2;
 `;
+
+// Shadow Quote
+// &:before {
+//   content: " ";
+//   top: 10px;
+//   left: 40px;
+//   z-index: 1;
+//   ${tw`ml-auto absolute p-6 bg-white rounded-lg`}
+//   width: 100%;
+//   height: 140px;
+//   opacity: 0.1;
+// }
 
 export const QuoteBox = styled(Rel)`
   ${tw`relative`}
@@ -47,14 +61,20 @@ const QuoteAuthor = styled.div`
 `;
 
 const QuoteImage = styled.div`
-  width: 50%;
-  height: 100px;
+  width: 260px;
+`;
+
+const ImageBorder = styled.div`
+  border: 6px solid #FFF;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.16);
 `;
 
 const QuoteComponent: React.FC = () => {
   const { eric } = useStaticQuery(graphql`
     query {
-      eric: file(relativePath: { eq: "clients/eric@2x.jpg" }) {
+      eric: file(relativePath: { eq: "clients/eric-headshot@2x.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 120) {
             ...GatsbyImageSharpFluid
@@ -84,7 +104,9 @@ const QuoteComponent: React.FC = () => {
           </Flex>
         </QuoteBox>
         <QuoteImage>
-          <Image image={eric} />
+          <ImageBorder>
+            <Image image={eric} />
+          </ImageBorder>
         </QuoteImage>
       </Flex>
     </Quote>

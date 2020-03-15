@@ -24,9 +24,8 @@ import colors from "../colors";
 import QuoteComponent from "../components/home/client-quote";
 import QuoteComponent2 from "../components/home/client-quote-2";
 
-
 const IndexPage: React.FC = () => {
-  const { heroBg, apiBg, divider1, divider2, divider3, divider4, footerBg } = useStaticQuery(graphql`
+  const { heroBg, apiBg, quoteBg, divider1, divider2, divider3, divider4, footerBg } = useStaticQuery(graphql`
     query {
       heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
         childImageSharp {
@@ -38,6 +37,13 @@ const IndexPage: React.FC = () => {
       apiBg: file(relativePath: { eq: "bgs/api@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 1280) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      quoteBg: file(relativePath: { eq: "dividers/quote-1@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3600) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -110,22 +116,22 @@ const Section = styled.section`
     <Layout>
       <SEO title="Home" />
         
-      <Section>
-        <BackgroundImage
-          Tag="section"
-          fluid={heroBg.childImageSharp.fluid}
-          backgroundColor={colors.berry}
-          style={{
-            backgroundPosition: "center center",
-            height: "100vh",
-          }}
-        >
-          <Container>
-            <Hero />
-          </Container>
-        </BackgroundImage>
-        <Divider image={divider1} />
-      </Section>
+
+      <BackgroundImage
+        Tag="section"
+        fluid={heroBg.childImageSharp.fluid}
+        backgroundColor={colors.berry}
+        style={{
+          backgroundPosition: "center center",
+          height: "100vh",
+        }}
+      >
+        <Container>
+          <Hero />
+        </Container>
+      </BackgroundImage>
+      <Divider image={divider1} />
+
       
       {/* 
       <Section2>
@@ -138,7 +144,7 @@ const Section = styled.section`
       <Container>
         <Clients />
       </Container>
-
+      
       {/* <BackgroundImage
         Tag="section"
         fluid={apiBg.childImageSharp.fluid}
@@ -152,9 +158,19 @@ const Section = styled.section`
 
       </BackgroundImage> */}
 
-      <Container bg="textPrimary">
-        <QuoteComponent />
-      </Container>
+      <BackgroundImage
+        Tag="section"
+        fluid={quoteBg.childImageSharp.fluid}
+        backgroundColor={colors.white}
+        style={{
+          backgroundPosition: "center center",
+          height: "250px",
+        }}
+      >
+        <Container bg="textPrimary">
+          <QuoteComponent />
+        </Container>
+      </BackgroundImage>
 
       <Container >
         <Editor />
