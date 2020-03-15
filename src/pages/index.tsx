@@ -62,9 +62,9 @@ const IndexPage: React.FC = () => {
           }
         }
       }
-      divider3: file(relativePath: { eq: "deprecated/Separator 3@2x.png" }) {
+      divider3: file(relativePath: { eq: "dividers/one-api-call-top.png" }) {
         childImageSharp {
-          fluid(maxWidth: 150) {
+          fluid(maxWidth: 1280) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -92,19 +92,16 @@ const Section = styled.section`
   background: ${colors.white};
 `;
 
-// const Divide = styled.div`
-//   position: absolute;
-//   width: 100%;
-//   height: 100px;
-// `;
+const Divide = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100px;
+`;
 
-// const TopDivider = styled(Divide)`
-//   top: 0px;
-// `
-
-// const BotDivider = styled(Divide)`
-//   bottom: 0px;
-// `;
+const TopDivider = styled(Divide)`
+  top: 0px;
+  background: rgba(0,0,200,0.2);
+`
 
 // const Section2 = styled.section`
 //   position: relative;
@@ -172,33 +169,48 @@ const Section = styled.section`
         </Container>
       </BackgroundImage>
 
-      <Container >
-        <Editor />
-      </Container>
+      <Section>
+        <Container >
+          <Editor />
+        </Container>
+      </Section>
 
-      <Container bg="newMoon">
-        <Implement />
-      </Container>
+      <Section>
+        <TopDivider />
+        <Container bg="newMoon">
+          <Implement />
+        </Container>
+      </Section>
 
-      <Container bg="newMoon">
+      <Section>
+        <TopDivider />
         <QuoteComponent2 />
-      </Container>
+        <Container>
+          <Tracking />
+        </Container>
+      </Section>
 
-      <Container>
-        <Tracking />
-      </Container>
+      <Section>
+        <TopDivider />
+        <Container bg="berrywhite">
+          <Route />
+        </Container>
+      </Section>
 
-      <Container bg="berrywhite">
-        <Route />
-      </Container>
 
-      <Container>
-        <GettingStarted />
-      </Container>
+      <Section>
+        <TopDivider />
+        <Container>
+          <GettingStarted />
+        </Container>
+      </Section>
 
-      <Container bg="berry">
-        <Footer />
-      </Container> 
+      <Section>
+        <TopDivider />
+        <Container bg="berry">
+          <Footer />
+        </Container> 
+      </Section>
    
     </Layout>
   );

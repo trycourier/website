@@ -54,10 +54,10 @@ const Content = styled.div`
 `;
 
 const Desktop = styled.div`
-  display: none;
+  ${tw`hidden md:block`}
 `
 const Mobile = styled.div`
-  display: flex;
+  ${tw`block md:hidden`}
   & button.mobile {
     width: 100%;
     & label {
