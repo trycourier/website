@@ -60,7 +60,7 @@ const NavigationItems = styled.ul`
     }
   }
   & li.logo {
-    ${tw`inline-block pl-4 mt-2 md:pl-4 lg:pl-0 lg:pr-8`}
+    ${tw`inline-block pl-4 md:pl-4 lg:pl-0 lg:pr-8`}
     width: 93px;
     height: 24px;
     margin-top: -20px;
