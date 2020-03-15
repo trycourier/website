@@ -10,6 +10,8 @@ import googleNav from "../images/google-nav.svg";
 import githubNav from "../images/github-nav.svg";
 import emailNav from "../images/email-nav.svg";
 
+import mobileMenu from "../images/hamburger.svg";
+
 const NavContainer = styled.section`
   position: fixed;
   top: 0;
@@ -24,19 +26,20 @@ const NavContainer = styled.section`
 `;
 
 const MobileNavMenu = styled.ul`
-  ${tw`fixed top-0 left-0 m-0 p-0 w-full h-full list-none`}
+  ${tw`fixed top-0 left-0 m-0 p-4 w-full list-none`}
+  min-height: 100vh;
   z-index: 99;
   background-color: ${colors.berry};
   & li {
-    ${tw`pt-8 px-8 text-xl`}
+    ${tw`pt-8 px-4 text-xl`}
     & a {
       ${tw`text-white no-underline`}
     }
   }
   & li.close {
-    ${tw`text-right text-sm relative`}
-    top: -8px;
-    left: 7px;
+    ${tw`text-right text-3xl relative`}
+    top: 0px;
+    right: 16px;
   }
 `;
 
@@ -57,7 +60,7 @@ const NavigationItems = styled.ul`
     }
   }
   & li.logo {
-    ${tw`inline-block pl-4 md:pl-4 lg:pl-0 lg:pr-8`}
+    ${tw`inline-block pl-4 mt-2 md:pl-4 lg:pl-0 lg:pr-8`}
     width: 93px;
     height: 24px;
     margin-top: -20px;
@@ -70,26 +73,35 @@ const NavigationItems = styled.ul`
 `;
 
 const AccountButtons = styled.ul`
-  ${tw`m-0 p-2 flex`}
+  ${tw`m-0 p-2 flex hidden md:inline-block`}
   background: rgba(0,0,0,0.25);
   border-radius: 32px;
   list-style: none;
   height: 36px;
   & label {
-    ${tw`text-sm pl-3 align-top`}
+    ${tw`text-sm pl-3 align-top hidden sm:inline-block`}
     margin-top: 10px;
   }
   & li {
-    ${tw`list-none inline-block ml-3 hidden md:inline-block`}
+    ${tw`list-none inline-block ml-3`}
+    height: 36px;
+  }
+`;
+
+const MobileButtons = styled.ul`
+  ${tw`m-0 p-2 flex inline md:hidden`}
+  height: 36px;
+  background: none;
+  & li {
+    ${tw`list-none inline-block mr-3 mt-3 hidden md:inline-block`}
     height: 36px;
   }
 
   & li.hamburger {
     ${tw`inline-block md:hidden cursor-pointer`}
-    width: 30px;
-    height: 30px;
+
   }
-`;
+`
 
 const NavigationComponent: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -168,19 +180,21 @@ const NavigationComponent: React.FC = () => {
                 <img src={emailNav} title="Sign Up with Email" />
               </a>
             </li>
-            <li className="hamburger">
-              <a href="/" onClick={toggleMenu}>
-                <Image image={hamburger} />
-              </a>
-            </li>
           </AccountButtons>
+          <MobileButtons>
+            <li className="hamburger">
+                <a href="/" onClick={toggleMenu}>
+                  <img src={mobileMenu} />
+                </a>
+            </li>
+          </MobileButtons>
         </nav>
       </NavContainer>
       {showModal ? (
         <MobileNavMenu onClick={hideMenu}>
           <li className="close">
             <a href="/" onClick={toggleMenu}>
-              close X
+              &times;
             </a>
           </li>
           <li>

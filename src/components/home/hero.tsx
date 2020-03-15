@@ -22,13 +22,13 @@ const StyledImage = styled(Image)`
 `;
 
 const Hero = styled.div`
-  ${tw`flex py-4 md:py-12 md:pt-32 lg:pt-32 px-4 lg:px-0`}
+  ${tw`flex py-4 pt-32 md:py-12 lg:pt-32 px-4 lg:px-0`}
   height: 72vh;
   overflow: hidden;
 `;
 
 const HeroContent = styled.div`
-  ${tw`md:pr-16`}
+  ${tw`md:pr-16 mt-16 sm:mt-16`}
   color: ${colors.white};
   & h1 {
     ${tw`m-0 p-0 text-5xl mt-2 md:mt-0`}
@@ -62,7 +62,7 @@ const HeroComponent: React.FC = () => {
   const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
 
   const [props, set] = useSpring(() => ({
-    xy: [0, 0],
+    xy: [-200, 0],
     config: { mass: 10, tension: 550, friction: 140 },
   }));
 

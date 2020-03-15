@@ -5,6 +5,7 @@ import tw from "tailwind.macro";
 
 import googleLogo from "../../images/google-logo-white.svg";
 import githubLogo from "../../images/github-logo-white.svg";
+import emailLogo from "../../images/email-logo-white.svg";
 import colors from "../../colors";
 
 
@@ -52,20 +53,50 @@ const Content = styled.div`
   }
 `;
 
+const Desktop = styled.div`
+  display: none;
+`
+const Mobile = styled.div`
+  display: flex;
+  & button.mobile {
+    width: 100%;
+    & label {
+      text-align: left;
+      margin-right: 8px;
+    }
+    & img {
+      margin-left: 8px;
+    }
+    & img.email {
+      padding-bottom: 2px;
+    }
+  }
+`
+
 
 const RegisterationCTA: React.FC = () => {
   return (
     <Content footer={false}>
       <form method="get" action="https://www.trycourier.app/register">
-        <Button>
-          <img src={googleLogo} /> 
-          <label>Google</label>
-        </Button>
-        <Button className="github">
-          <img src={githubLogo} />
-          <label>GitHub</label>
-        </Button>
-        <button className="ghost">or <strong>email</strong></button>
+        <Desktop>
+          <Button>
+            <img src={googleLogo} /> 
+            <label>Google</label>
+          </Button>
+          <Button className="github">
+            <img src={githubLogo} />
+            <label>GitHub</label>
+          </Button>
+          <button className="ghost">or <strong>email</strong></button>
+        </Desktop>
+        <Mobile>
+          <Button className="mobile">
+            <label>Sign Up!</label>
+            <img src={googleLogo} /> 
+            <img src={githubLogo} />
+            <img className="email" src={emailLogo} />
+          </Button>
+        </Mobile>
       </form>
     </Content>
   );
