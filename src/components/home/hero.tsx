@@ -11,6 +11,8 @@ import colors from "../../colors";
 import channelsGroup from "../../images/channels-group.svg";
 import RegisterationCTA from "./registeration-cta";
 
+import { Desktop } from "../container";
+
 const Abs = styled(animated.div)`
   position: absolute;
   width: 50%;
@@ -121,32 +123,32 @@ const HeroComponent: React.FC = () => {
         </label>
         <RegisterationCTA />
       </HeroContent>
-      <HeroImageWrapper
-        onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-      >
-        
-        <Abs style={{right: -50}}>
-          <img src={channelsGroup} />
-        </Abs>
-        <Abs style={{ transform: props.xy.interpolate(trans4), top: 0, right: 20 }}>
-          <StyledImage image={teams} />
-        </Abs>
-        <Abs style={{ transform: props.xy.interpolate(trans2) }}>
-          <StyledImage image={email} />
-        </Abs>
-        <Abs style={{ transform: props.xy.interpolate(trans3) }}>
-          <StyledImage image={chat} />
-        </Abs>
-        <Abs style={{ transform: props.xy.interpolate(trans1), top: -10 }}>
-          <StyledImage image={chrome} />
-        </Abs>
-        <Abs style={{ transform: props.xy.interpolate(trans3), top: 400, right: -200 }}>
-          <StyledImage image={slack} />
-        </Abs>
+      <Desktop>
+        <HeroImageWrapper
+          onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+        >
+          
+          <Abs style={{right: -50}}>
+            <img src={channelsGroup} />
+          </Abs>
+          <Abs style={{ transform: props.xy.interpolate(trans4), top: 0, right: 20 }}>
+            <StyledImage image={teams} />
+          </Abs>
+          <Abs style={{ transform: props.xy.interpolate(trans2) }}>
+            <StyledImage image={email} />
+          </Abs>
+          <Abs style={{ transform: props.xy.interpolate(trans3) }}>
+            <StyledImage image={chat} />
+          </Abs>
+          <Abs style={{ transform: props.xy.interpolate(trans1), top: -10 }}>
+            <StyledImage image={chrome} />
+          </Abs>
+          <Abs style={{ transform: props.xy.interpolate(trans3), top: 400, right: -200 }}>
+            <StyledImage image={slack} />
+          </Abs>
 
-
-
-      </HeroImageWrapper>
+        </HeroImageWrapper>
+      </Desktop>
     </Hero>
   );
 };

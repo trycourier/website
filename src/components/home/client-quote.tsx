@@ -29,8 +29,9 @@ export const Rel = styled.div`
 export const Quote = styled.div`
   ${tw`mx-8 sm:ml-auto absolute w-full md:w-50 p-6 bg-white rounded-lg shadow-xl`}
   top: 64px;
-  @media(min-width: 640){
+  @media(max-width: 640px){
     right: -150px;
+    display: none;
   }
   z-index: 2;
 `;

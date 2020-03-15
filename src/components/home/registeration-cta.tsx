@@ -7,7 +7,7 @@ import googleLogo from "../../images/google-logo-white.svg";
 import githubLogo from "../../images/github-logo-white.svg";
 import emailLogo from "../../images/email-logo-white.svg";
 import colors from "../../colors";
-
+import { Desktop, Mobile } from "../container";
 
 const Button = styled.button`
   ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm align-middle`}
@@ -53,11 +53,7 @@ const Content = styled.div`
   }
 `;
 
-const Desktop = styled.div`
-  ${tw`hidden md:block`}
-`
-const Mobile = styled.div`
-  ${tw`block md:hidden`}
+const MobileContent = styled(Mobile)`
   & button.mobile {
     width: 100%;
     & label {
@@ -71,8 +67,7 @@ const Mobile = styled.div`
       padding-bottom: 2px;
     }
   }
-`
-
+`;
 
 const RegisterationCTA: React.FC = () => {
   return (
@@ -89,14 +84,14 @@ const RegisterationCTA: React.FC = () => {
           </Button>
           <button className="ghost">or <strong>email</strong></button>
         </Desktop>
-        <Mobile>
+        <MobileContent>
           <Button className="mobile">
             <label>Sign Up!</label>
             <img src={googleLogo} /> 
             <img src={githubLogo} />
             <img className="email" src={emailLogo} />
           </Button>
-        </Mobile>
+        </MobileContent>
       </form>
     </Content>
   );

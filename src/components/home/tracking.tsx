@@ -6,12 +6,14 @@ import BackgroundImage from "gatsby-background-image";
 import Image from "../image";
 import colors from "../../colors";
 import { listStyles } from "../styles";
+import { Desktop, Mobile } from "../container";
+
 const Tracking = styled.section`
   ${tw`pt-24 pb-12 md:py-24 mx-auto text-left px-4 md:px-0`}
 `;
 
 const TrackingSection = styled.div`
-  ${tw`flex`}
+  ${tw`flex flex-col md:flex-row`}
 `;
 
 const TrackingText = styled.div`
@@ -33,7 +35,7 @@ const TrackingImageWrapper = styled.div`
 `;
 
 const TrackingComponent: React.FC = () => {
-  const { bg, img } = useStaticQuery(graphql`
+  const { bg, img, mobileImg} = useStaticQuery(graphql`
     query {
       bg: file(relativePath: { eq: "cross-channel-green-circles-lines@2x.png" }) {
         childImageSharp {
@@ -45,6 +47,13 @@ const TrackingComponent: React.FC = () => {
       img: file(relativePath: { eq: "cards@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 660) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      mobileImg: file(relativePath: { eq: "tracking-mobile@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 643) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -73,7 +82,12 @@ const TrackingComponent: React.FC = () => {
             </ul>
           </TrackingText>
           <TrackingImageWrapper>
-            <Image image={img} />
+            <Desktop>
+              <Image image={img} />
+            </Desktop>
+            <Mobile>
+              <Image image={mobileImg} />
+            </Mobile>
           </TrackingImageWrapper>
         </TrackingSection>
       </BackgroundImage>

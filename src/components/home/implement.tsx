@@ -5,6 +5,7 @@ import tw from "tailwind.macro";
 
 import Image from "../image";
 import colors from "../../colors";
+import { Desktop, Mobile } from "../container";
 
 import postmark from "../../images/providers/postmark.svg";
 import messagebird from "../../images/providers/messagebird.svg";
@@ -24,7 +25,7 @@ const Implement = styled.section`
 `;
 
 const ImplementImageWrapper = styled.div`
-  ${tw`md:w-1/2 text-left`}
+  ${tw`md:w-1/2 text-left pt-16 md:pt-0`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-2`}
   }
@@ -62,20 +63,6 @@ const ImplementTable= styled.table`
     &:last-child{
       border-right: none;
     }
-  }
-`;
-
-const Desktop = styled.div`
-  display: block;
-  @media(max-width: 640px){
-    display: none;
-  }
-`;
-
-const Mobile = styled.div`
-  display: none;
-  @media(max-width: 640px){
-    display: block;
   }
 `;
 

@@ -100,7 +100,6 @@ const Divide = styled.div`
 
 const TopDivider = styled(Divide)`
   top: 0px;
-  background: rgba(0,0,200,0.2);
 `
 
 // const Section2 = styled.section`

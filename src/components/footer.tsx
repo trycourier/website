@@ -7,7 +7,7 @@ import colors from "../colors";
 import Image from "./image";
 
 const Footer = styled.footer`
-  ${tw`md:flex text-white py-8`}
+  ${tw`md:flex text-white p-8`}
 `;
 
 const LogoSection = styled.div`
@@ -55,7 +55,7 @@ const NavigationItems = styled.ul`
 `;
 
 const SocialLinks = styled.div`
-  ${tw`flex ml-4`}
+  ${tw`flex md:ml-4`}
   a {
     ${tw`inline-block p-4`}
     width: 24px;
@@ -67,8 +67,11 @@ const SocialLinks = styled.div`
   }
 `;
 const DetailLinks = styled.div`
+  p { 
+    ${tw`flex flex-col`}
+  }
   a {
-    ${tw`no-underline text-white text-sm py-6 px-8`}
+    ${tw`no-underline text-white text-sm py-3 md:py-6 md:px-8`}
     :hover{
       border-bottom: 2px solid rgba(255,255,255,0.1);
     }
@@ -159,13 +162,12 @@ const FooterComponent: React.FC = () => {
           </SocialLinks>
           <DetailLinks>
             <p>
-              <a href="/privacy">Privacy Policy</a>
-              <a href="/terms">Terms of Service</a>
-              <a href="/disclosure">Responsible Disclosure Policy</a>
+              <a href="/privacy">Privacy&nbsp;Policy</a>
+              <a href="/terms">Terms&nbsp;of&nbsp;Service</a>
+              <a href="/disclosure">Responsible&nbsp;Disclosure&nbsp;Policy</a>
             </p>
           </DetailLinks>
         </LinkSection>
-
       </Footer>
     </>
   );
