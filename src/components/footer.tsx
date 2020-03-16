@@ -13,7 +13,7 @@ import facebookLogo from "../images/social-fb.svg";
 import instagramLogo from "../images/social-instagram.svg";
 
 const Footer = styled.footer`
-  ${tw`md:flex text-white p-8`}
+  ${tw`md:flex text-white p-8 md:px-0`}
 `;
 
 const LogoSection = styled.div`
