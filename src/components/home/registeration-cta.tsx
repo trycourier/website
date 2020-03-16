@@ -1,5 +1,4 @@
 import React from "react";
-
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
@@ -28,16 +27,17 @@ const Button = styled.button`
     left: 6px;
     top: -7px;
   }
-`
+`;
 
 type CTAProps = {
   footer: boolean;
-}
+};
 
 const Content = styled.div`
   & form {
     ${tw`my-2 p-3`}
-    background-color: ${(props: CTAProps) => props.footer ? colors.berry : `rgba(0,0,0,0.25)`};
+    background-color: ${(props: CTAProps) =>
+      props.footer ? colors.berry : `rgba(0,0,0,0.25)`};
     border-radius: 32px;
 
     & button {
@@ -69,27 +69,41 @@ const MobileContent = styled(Mobile)`
   }
 `;
 
+const githubSignUpUrl =
+  "https://courier.auth.us-east-1.amazoncognito.com/oauth2/authorize?identity_provider=Github&redirect_uri=https://trycourier.app/login/callback&response_type=CODE&client_id=5f4fmec2qnuscp89qbt8nsuftj&scope=aws.cognito.signin.user.admin%20email%20openid%20profile";
+const googleSignUpUrl =
+  "https://courier.auth.us-east-1.amazoncognito.com/oauth2/authorize?identity_provider=Google&redirect_uri=https://trycourier.app/login/callback&response_type=CODE&client_id=5f4fmec2qnuscp89qbt8nsuftj&scope=aws.cognito.signin.user.admin%20email%20openid%20profile";
+const emailSignUpUrl = "https://www.trycourier.app/register/email";
+
 const RegisterationCTA: React.FC = () => {
   return (
     <Content footer={false}>
-      <form method="get" action="https://www.trycourier.app/register">
+      <form>
         <Desktop>
-          <Button>
-            <img src={googleLogo} /> 
-            <label>Google</label>
-          </Button>
-          <Button className="github">
-            <img src={githubLogo} />
-            <label>GitHub</label>
-          </Button>
-          <button className="ghost">or <strong>email</strong></button>
+          <a href={googleSignUpUrl}>
+            <Button>
+              <img src={googleLogo} />
+              <label>Google</label>
+            </Button>
+          </a>
+          <a href={githubSignUpUrl}>
+            <Button className="github">
+              <img src={githubLogo} />
+              <label>GitHub</label>
+            </Button>
+          </a>
+          <a href={emailSignUpUrl}>
+            <button className="ghost">
+              or <strong>email</strong>
+            </button>
+          </a>
         </Desktop>
         <MobileContent>
           <Button className="mobile">
             <label>Sign Up!</label>
-            <img src={googleLogo} /> 
-            <img src={githubLogo} />
-            <img className="email" src={emailLogo} />
+            <a href={googleSignUpUrl}><img src={googleLogo} /></a>
+            <a href={githubSignUpUrl}><img src={githubLogo} /></a>
+            <a href={emailSignUpUrl}><img className="email" src={emailLogo} /></a>
           </Button>
         </MobileContent>
       </form>
