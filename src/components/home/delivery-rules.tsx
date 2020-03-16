@@ -18,7 +18,7 @@ const RouteSection = styled.div`
 `;
 
 const RouteText = styled.div`
-  ${tw`w-full md:w-2/3 md:pr-8 mt-16`}
+  ${tw`w-full mt-16`}
   line-height: 32px;
   & h2 {
     ${tw`m-0 p-0 text-3xl`}
@@ -30,7 +30,7 @@ const RouteText = styled.div`
 `;
 
 const RouteImageWrapper = styled.div`
-  ${tw`w-full md:w-2/3 mx-auto`}
+  ${tw`w-full`}
 `;
 
 const RouteComponent: React.FC = () => {
@@ -45,7 +45,7 @@ const RouteComponent: React.FC = () => {
       }
       img: file(relativePath: { eq: "desktop-delivery@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 960) {
+          fluid(maxWidth: 1280) {
             ...GatsbyImageSharpFluid
           }
         }
