@@ -93,7 +93,7 @@ const MobileButtons = styled.ul`
   height: 36px;
   background: none;
   & li {
-    ${tw`list-none inline-block mr-3 mt-3 hidden md:inline-block`}
+    ${tw`list-none inline-block mr-3 mt-2 hidden md:inline-block`}
     height: 36px;
   }
 

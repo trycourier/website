@@ -59,12 +59,12 @@ const HeroComponent: React.FC = () => {
   ];
 
   const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
-  const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 20}px,0)`;
+  const trans2 = (x, y) => `translate3d(${x / 8 - 25}px,${y / 8 - 20}px,0)`;
   const trans3 = (x, y) => `translate3d(${x / 6 - 50}px,${y / 6 - 20}px,0)`;
-  const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
+  const trans4 = (x, y) => `translate3d(${x / 5}px,${y / 55}px,0)`;
 
   const [props, set] = useSpring(() => ({
-    xy: [-200, 0],
+    xy: [-400, 50],
     config: { mass: 10, tension: 550, friction: 140 },
   }));
 

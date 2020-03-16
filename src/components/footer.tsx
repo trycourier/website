@@ -28,10 +28,10 @@ const NavLinks = styled.div`
 const NavigationItems = styled.ul`
   ${tw`mt-1 p-0`}
   & li {
-    ${tw`list-none hidden md:inline-block mt-2 align-top`}
+    ${tw`list-none inline-block mt-2 align-top`}
     height: 24px;
     & a {
-      ${tw`no-underline text-sm py-6 px-8`}
+      ${tw`no-underline text-white text-md py-6 md:px-8 mr-8`}
       color: ${colors.white};
       font-weight: 600;
       line-height: 30px;
@@ -66,14 +66,16 @@ const SocialLinks = styled.div`
     }
   }
 `;
+
 const DetailLinks = styled.div`
   p { 
-    ${tw`flex flex-col`}
+    ${tw`flex flex-col md:flex-row`}
   }
   a {
     ${tw`no-underline text-white text-sm py-3 md:py-6 md:px-8`}
+    border-bottom: 2px solid transparent;
     :hover{
-      border-bottom: 2px solid rgba(255,255,255,0.1);
+      border-bottom: 2px solid ${colors.berrywhite};
     }
   }
 `;
@@ -147,16 +149,16 @@ const FooterComponent: React.FC = () => {
             </NavigationItems>
           </NavLinks>
           <SocialLinks>
-            <a href="">
+            <a href="https://www.twitter.com/trycourier" target="_blank">
               <Image image={twitter} />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/trycourier" target="_blank">
               <Image image={linkedIn} />
             </a>
-            <a href="">
+            <a href="https://www.twitter.com/trycourier" target="_blank">
               <Image image={fb} />
             </a>
-            <a href="">
+            <a href="https://www.instagram.com/trycourier" target="_blank">
               <Image image={instagram} />
             </a>
           </SocialLinks>

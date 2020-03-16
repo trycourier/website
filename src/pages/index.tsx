@@ -102,17 +102,10 @@ const TopDivider = styled(Divide)`
   top: 0px;
 `
 
-// const Section2 = styled.section`
-//   position: relative;
-//   background: ${colors.textPrimary};
-//   width: 100%;
-// `
-
   return (
     <Layout>
       <SEO title="Home" />
         
-
       <BackgroundImage
         Tag="section"
         fluid={heroBg.childImageSharp.fluid}
@@ -128,31 +121,9 @@ const TopDivider = styled(Divide)`
       </BackgroundImage>
       <Divider image={divider1} />
 
-      
-      {/* 
-      <Section2>
-        <BotDivider style={{bottom: -50}}>
-          <Divider image={divider2} />
-        </BotDivider> 
-      </Section2> 
-      */}
-
       <Container>
         <Clients />
       </Container>
-      
-      {/* <BackgroundImage
-        Tag="section"
-        fluid={apiBg.childImageSharp.fluid}
-        backgroundColor={colors.textPrimary}
-        style={{
-          backgroundPosition: "center center",
-          height: "50vh",
-        }}
-      >
-        <TopDivider />
-
-      </BackgroundImage> */}
 
       <BackgroundImage
         Tag="section"
@@ -195,7 +166,6 @@ const TopDivider = styled(Divide)`
           <Route />
         </Container>
       </Section>
-
 
       <Section>
         <TopDivider />
