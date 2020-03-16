@@ -53,7 +53,7 @@ export const QuoteBox = styled(Rel)`
 `;
 
 export const QuoteText = styled.div `
-  ${tw`text-base text-gray-600 leading-normal`}
+  ${tw`text-base text-gray-700 leading-normal`}
   color: ${colors.textPrimary};
 `;
 

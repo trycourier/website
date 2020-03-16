@@ -41,7 +41,7 @@ const HeroContent = styled.div`
   & label {
     ${tw`text-sm mt-8 mb-2 pb-2 lg:mt-16`}
     & strong {
-      font-weight: 600;
+      font-weight: 700;
     }
   }
 `;

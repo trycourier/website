@@ -17,7 +17,8 @@ module.exports = {
             family: 'Bebas Neue', 
           },
           {
-            family: 'Proxima Nova'
+            family: 'Proxima Nova',
+            variants: [`400`, `700`]
           }
         ]
       }
