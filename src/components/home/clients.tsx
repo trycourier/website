@@ -8,10 +8,10 @@ import colors from "../../colors";
 import lattice from "../../images/clients/lattice.svg";
 import blissfully from "../../images/clients/blissfully.svg";
 import eatgeek from "../../images/clients/eatgeek.svg";
-import hutsy from "../../images/clients/Hutsy.svg";
+import hutsy from "../../images/clients/hutsy.svg";
 import savvy from "../../images/clients/savvy.svg";
 import aarida from "../../images/clients/aarida.svg";
-import beacons from "../../images/clients/beacons.svg";
+// import beacons from "../../images/clients/beacons.svg";
 
 const Clients = styled(Container)`
   ${tw`py-2`}
