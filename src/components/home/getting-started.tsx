@@ -12,9 +12,10 @@ const GettingStarted = styled.section`
 const GettingStartedText = styled.div`
   ${tw`md:w-1/2 md:pr-8`}
   & h2 {
-    ${tw`m-0 p-0 text-4xl mb-4`}
+    ${tw`m-0 p-0 text-5xl mb-4`}
     font-family: "Proxima Nova", sans-serif;
     color: ${colors.textPrimary};
+    font-weight: 400;
   }
   & p {
     ${tw`m-0 p-0 text-xl mt-2`}
@@ -22,7 +23,7 @@ const GettingStartedText = styled.div`
 `;
 
 const GettingStartedCTAWrapper = styled.div`
-  ${tw`md:w-1/2 text-right`}
+  ${tw`md:w-1/2 text-right md:mt-16`}
   & form {
     background-color: ${colors.berrywhite};
     max-width: 455px;
