@@ -12,4 +12,5 @@ export default {
   green: theme.extend.colors.greenMeadow,
   lightGray: theme.extend.colors.berryWhite,
   berrywhite: theme.extend.colors.berryWhite,
+  berryglass: theme.extend.colors.berryGlass,
 };

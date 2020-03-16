@@ -31,6 +31,7 @@ const MobileNavMenu = styled.ul`
   min-height: 100vh;
   z-index: 99;
   background-color: ${colors.berry};
+  backdrop-filter: blur(6px);
   & li {
     ${tw`pt-8 px-4 text-xl`}
     & a {

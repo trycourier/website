@@ -13,6 +13,7 @@ module.exports = {
         moonlight: '#344563',
         fullMoon: '#73819B',
         berryWhite: '#F7F6F9',
+        berryGlass: 'rgba(157, 52, 139, 0.75)',
       }
     }
   }

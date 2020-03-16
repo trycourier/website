@@ -36,8 +36,8 @@ const GlobalStyle = createGlobalStyle`
 
   .sticky-active nav { 
     transition-duration: 800ms;
-    background: ${colors.berry};
-    box-shadow: 0px 4px 8px 0px ${colors.moonlight};
+    background: ${colors.berryglass};
+    backdrop-filter: blur(4px);
   }
 `;
 

@@ -25,7 +25,6 @@ import QuoteComponent from "../components/home/client-quote";
 import QuoteComponent2 from "../components/home/client-quote-2";
 
 const IndexPage: React.FC = () => {
-  // apiBg, divider2, divider3, divider4, footerBg 
   const { heroBg, quoteBg, divider1, divider3, divider4, divider5, divider6, divider7 } = useStaticQuery(graphql`
     query {
       heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
@@ -193,7 +192,6 @@ const BotDivider = styled(Divide)`
       </Section>
 
       <Section>
-
         <Container bg="newMoon">
           <OneApi />
         </Container>
@@ -203,13 +201,12 @@ const BotDivider = styled(Divide)`
         <Container>
           <QuoteComponent2 />
         </Container>
+        <BotDivider bg="white">
+          <Divider image={divider4} />
+        </BotDivider>
       </Section>
 
       <Section>
-
-        <TopDivider>
-          <Divider image={divider4} />
-        </TopDivider>
         <Container>
           <Tracking />
         </Container>
@@ -231,12 +228,13 @@ const BotDivider = styled(Divide)`
         <Container>
           <GettingStarted />
         </Container>
-        <BotDivider bg="white">
-          <Divider image={divider7} />
-        </BotDivider>
+
       </Section>
 
       <Section>
+        <TopDivider bg="white">
+          <Divider image={divider7} />
+        </TopDivider>
         <Container bg="berry">
           <Footer />
         </Container> 
