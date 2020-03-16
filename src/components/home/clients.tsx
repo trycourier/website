@@ -15,7 +15,7 @@ import aarida from "../../images/clients/aarida.svg";
 
 const Clients = styled(Container)`
   ${tw`py-2`}
-  background: ${colors.white};
+  background: transparent;
 `;
 
 const ClientsText = styled.div`

@@ -90,7 +90,6 @@ const IndexPage: React.FC = () => {
 const Section = styled.section`
   position: relative;
   width: 100%;
-  background: ${colors.white};
 `;
 
 const Divide = styled.div`
@@ -106,40 +105,46 @@ const TopDivider = styled(Divide)`
   return (
     <Layout>
       <SEO title="Home" />
-        
-      <BackgroundImage
-        Tag="section"
-        fluid={heroBg.childImageSharp.fluid}
-        backgroundColor={colors.berry}
-        style={{
-          backgroundPosition: "center center",
-          height: "700px",
-        }}
-      >
+      
+      <Section>
+        <BackgroundImage
+          Tag="section"
+          fluid={heroBg.childImageSharp.fluid}
+          backgroundColor={colors.berry}
+          style={{
+            backgroundPosition: "center center",
+            height: "100vh",
+          }}
+        >
+          <Container>
+            <Hero />
+          </Container>
+        </BackgroundImage>
+        <Divider image={divider1} />
+      </Section>
+      
+      <Section>
         <Container>
-          <Hero />
+          <Clients />
         </Container>
-      </BackgroundImage>
-      <Divider image={divider1} />
+      </Section>
 
-      <Container>
-        <Clients />
-      </Container>
-
-      <BackgroundImage
-        Tag="section"
-        fluid={quoteBg.childImageSharp.fluid}
-        backgroundColor={colors.white}
-        style={{
-          backgroundPosition: "center center",
-          height: "35vh",
-        }}
-      >
-        <Container bg="textPrimary">
-          <QuoteComponent />
-        </Container>
-      </BackgroundImage>
-
+      <Section>
+        <BackgroundImage
+          Tag="section"
+          fluid={quoteBg.childImageSharp.fluid}
+          backgroundColor={colors.white}
+          style={{
+            backgroundPosition: "center center",
+            height: "35vh",
+          }}
+        >
+          <Container bg="textPrimary">
+            <QuoteComponent />
+          </Container>
+        </BackgroundImage>
+      </Section>
+      
       <Section>
         <Container >
           <Editor />
