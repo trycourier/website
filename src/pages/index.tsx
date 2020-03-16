@@ -132,7 +132,7 @@ const TopDivider = styled(Divide)`
         backgroundColor={colors.white}
         style={{
           backgroundPosition: "center center",
-          height: "250px",
+          height: "35vh",
         }}
       >
         <Container bg="textPrimary">
