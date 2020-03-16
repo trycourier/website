@@ -51,7 +51,7 @@ const NavigationItems = styled.ul`
     & a {
       ${tw`no-underline text-sm py-6 px-8`}
       color: ${colors.white};
-      font-weight: 600;
+      font-weight: 700;
       line-height: 30px;
       border-radius: 9999px;
       :hover{
