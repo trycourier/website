@@ -78,10 +78,10 @@ const DetailLinks = styled.div`
     ${tw`flex flex-col md:flex-row`}
   }
   a {
-    ${tw`no-underline text-white text-sm py-3 md:py-6 md:px-8`}
+    ${tw`no-underline text-white text-sm py-2 md:px-8`}
     border-bottom: 2px solid transparent;
     :hover{
-      border-bottom: 2px solid ${colors.berrywhite};
+      border-bottom: 2px solid rgba(255,255,255,0.1);
     }
   }
 `;
