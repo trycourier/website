@@ -26,7 +26,7 @@ import QuoteComponent2 from "../components/home/client-quote-2";
 
 const IndexPage: React.FC = () => {
   // apiBg, divider2, divider3, divider4, footerBg 
-  const { heroBg, quoteBg, divider1 } = useStaticQuery(graphql`
+  const { heroBg, quoteBg, divider1, divider3, divider4, divider5, divider6, divider7 } = useStaticQuery(graphql`
     query {
       heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
         childImageSharp {
@@ -65,14 +65,42 @@ const IndexPage: React.FC = () => {
       }
       divider3: file(relativePath: { eq: "dividers/one-api-call-top.png" }) {
         childImageSharp {
-          fluid(maxWidth: 1280) {
+          fluid(maxWidth: 3600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      divider4: file(relativePath: { eq: "deprecated/Separator 4@2x.png" }) {
+      divider4: file(relativePath: { eq: "dividers/one-api-call-bottom.png" }) {
         childImageSharp {
-          fluid(maxWidth: 150) {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      divider5: file(relativePath: { eq: "dividers/delivery-white-top@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      divider6: file(relativePath: { eq: "dividers/delivery-white-bottom@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      divider6: file(relativePath: { eq: "dividers/delivery-white-bottom@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      divider7: file(relativePath: { eq: "dividers/footer.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -97,9 +125,18 @@ const Divide = styled.div`
   width: 100%;
   height: 100px;
 `;
+type ContainerProps = {
+  bg?: string;
+}
 
 const TopDivider = styled(Divide)`
   top: 0px;
+  background-color: ${(props: ContainerProps) => colors[props.bg]};
+`
+
+const BotDivider = styled(Divide)`
+  bottom: 0px;
+  background-color: ${(props: ContainerProps) => colors[props.bg]};
 `
 
   return (
@@ -113,6 +150,7 @@ const TopDivider = styled(Divide)`
           backgroundColor={colors.berry}
           style={{
             backgroundPosition: "center center",
+            backgroundClip: "contain",
             height: "100vh",
           }}
         >
@@ -149,10 +187,13 @@ const TopDivider = styled(Divide)`
         <Container >
           <Editor />
         </Container>
+        <BotDivider>
+          <Divider image={divider3} />
+        </BotDivider>
       </Section>
 
       <Section>
-        <TopDivider />
+
         <Container bg="newMoon">
           <OneApi />
         </Container>
@@ -165,28 +206,37 @@ const TopDivider = styled(Divide)`
       </Section>
 
       <Section>
-        <TopDivider />
+
+        <TopDivider>
+          <Divider image={divider4} />
+        </TopDivider>
         <Container>
           <Tracking />
         </Container>
       </Section>
 
       <Section>
-        <TopDivider />
+        <TopDivider bg="white">
+          <Divider image={divider5} />
+        </TopDivider>
         <Container bg="berrywhite">
           <Delivery />
         </Container>
       </Section>
 
       <Section>
-        <TopDivider />
+        <TopDivider bg="berrywhite">
+          <Divider image={divider6} />
+        </TopDivider>
         <Container>
           <GettingStarted />
         </Container>
+        <BotDivider bg="white">
+          <Divider image={divider7} />
+        </BotDivider>
       </Section>
 
       <Section>
-        <TopDivider />
         <Container bg="berry">
           <Footer />
         </Container> 

@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors: {
         gatsby: 'rebeccapurple',
+        transparent: 'transparent',
         googleBlue: '#4285F4',
         berry: '#9D348B',
         white: '#FFFFFF',
