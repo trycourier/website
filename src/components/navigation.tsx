@@ -1,4 +1,4 @@
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby"; // useStaticQuery, graphql
 import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
@@ -195,7 +195,7 @@ const NavigationComponent: React.FC = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/#pricing">Pricing</Link>
+            <Link to="/pricing">Pricing</Link>
           </li>
           <li>
             <Link to="/#company">Company</Link>

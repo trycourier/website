@@ -72,7 +72,7 @@ const ImplementComponent: React.FC = () => {
     query {
       img: file(relativePath: { eq: "code-editor@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 584) {
+          fluid(maxWidth: 720) {
             ...GatsbyImageSharpFluid
           }
         }
