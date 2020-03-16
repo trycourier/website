@@ -6,7 +6,7 @@ import colors from "../../colors";
 
 import FeatureTable from "./feature-table";
 const Plans = styled.section`
-  ${tw`md:flex pt-24 pb-8 md:py-24 px-4`}
+  ${tw`flex flex-col pt-24 pb-8 md:py-24 px-4`}
 `;
 
 const SubscriptionPlansText = styled.div`
@@ -38,11 +38,10 @@ const SubscriptionPlans: React.FC = () => {
     <Plans>
       <SubscriptionPlansText>
         <h2>
-          Getting started is easy!
-          <br/>And free!
+          Subscription Plans
         </h2>
         <p>
-         10,000 free notifications every month
+          Get started for free, or select a flexible plan.
         </p>
       </SubscriptionPlansText>
       <SubscriptionPlansWrapper>
