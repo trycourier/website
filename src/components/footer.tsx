@@ -1,10 +1,9 @@
 import React from "react";
-import { Link } from "gatsby"; // useStaticQuery, graphql
+import { Link } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
 import colors from "../colors";
-// import Image from "./image";
 
 import courierLogo from "../images/courier-logo.svg";
 import twitterLogo from "../images/social-twitter.svg";
@@ -87,52 +86,11 @@ const DetailLinks = styled.div`
 `;
 
 const FooterComponent: React.FC = () => {
-  // const { logo, twitter, linkedIn, fb, instagram } = useStaticQuery(graphql`
-  //   query {
-  //     logo: file(relativePath: { eq: "courier-logo@2x.png" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 300) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //     twitter: file(relativePath: { eq: "social-twitter@2x.png" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 40) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //     linkedIn: file(relativePath: { eq: "social-linkedIn@2x.png" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 40) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //     fb: file(relativePath: { eq: "social-fb@2x.png" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 40) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //     instagram: file(relativePath: { eq: "social-instagram@2x.png" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 40) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-
   return (
     <>
       <Footer>
         <LogoSection>
           <Logo>
-            {/* <Image image={logo} /> */}
             <img src={courierLogo} />
           </Logo>
         </LogoSection>
@@ -157,19 +115,15 @@ const FooterComponent: React.FC = () => {
           </NavLinks>
           <SocialLinks>
             <a href="https://www.twitter.com/trycourier" target="_blank">
-              {/* <Image image={twitter} /> */}
               <img src={twitterLogo} />
             </a>
             <a href="https://www.linkedin.com/trycourier" target="_blank">
-              {/* <Image image={linkedIn} /> */}
               <img src={linkedInLogo} />
             </a>
             <a href="https://www.twitter.com/trycourier" target="_blank">
-              {/* <Image image={fb} /> */}
               <img src={facebookLogo} />
             </a>
             <a href="https://www.instagram.com/trycourier" target="_blank">
-              {/* <Image image={instagram} /> */}
               <img src={instagramLogo} />
             </a>
           </SocialLinks>

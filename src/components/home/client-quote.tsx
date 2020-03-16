@@ -37,18 +37,6 @@ export const Quote = styled.div`
   z-index: 2;
 `;
 
-// Shadow Quote
-// &:before {
-//   content: " ";
-//   top: 10px;
-//   left: 40px;
-//   z-index: 1;
-//   ${tw`ml-auto absolute p-6 bg-white rounded-lg`}
-//   width: 100%;
-//   height: 140px;
-//   opacity: 0.1;
-// }
-
 export const QuoteBox = styled(Rel)`
   ${tw`relative`}
 `;

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
-// import Image from "./image";
 import colors from "../colors";
 
 import courierLogo from "../images/courier-logo.svg";
@@ -106,18 +105,6 @@ const MobileButtons = styled.ul`
 const NavigationComponent: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
 
-  // const { logo } = useStaticQuery(graphql`
-  //   query {
-  //     logo: file(relativePath: { eq: "courier-logo@2x.png" }) {
-  //       childImageSharp {
-  //         fluid(maxWidth: 110) {
-  //           ...GatsbyImageSharpFluid
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
-
   const toggleMenu = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
     setShowModal(!showModal);
@@ -134,7 +121,6 @@ const NavigationComponent: React.FC = () => {
           <NavigationItems>
             <li className="logo">
               <Link to="/">
-                {/* <Image image={logo} /> */}
                 <img src={courierLogo} alt="Courier"/>
               </Link>
             </li>

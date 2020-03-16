@@ -113,7 +113,7 @@ const TopDivider = styled(Divide)`
         backgroundColor={colors.berry}
         style={{
           backgroundPosition: "center center",
-          height: "100vh",
+          height: "700px",
         }}
       >
         <Container>
