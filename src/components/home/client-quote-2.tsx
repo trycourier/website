@@ -19,7 +19,7 @@ const QuoteComponent2: React.FC = () => {
   `);
 
   return (
-    <Quote>
+    <Quote style={{ top: "-64px" }}>
       <Flex>
         <QuoteBox>
           <Flex>

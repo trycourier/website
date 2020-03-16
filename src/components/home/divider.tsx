@@ -4,14 +4,9 @@ import tw from "tailwind.macro";
 
 import Image, { GatsbyImage } from "../image";
 
-// type DividerProps = {
-//   top?: boolean;
-// }
-//   ${(props: DividerProps) => (props.top ? `bottom: -4px;` : `top: 0px;`)}
-
 const DividerWrapper = styled.div`
   ${tw`absolute`}
-  bottom: -4px;
+  bottom: -16px;
   width: 100%;
 `;
 

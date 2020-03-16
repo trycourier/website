@@ -15,13 +15,11 @@ import { Desktop } from "../container";
 
 const Abs = styled(animated.div)`
   position: absolute;
-  width: 50%;
-  height: 50%;
+  width: 45%;
+  height: 45%;
 `;
 
-const StyledImage = styled(Image)`
-  background: rgba(0,0,0,0.6);
-`;
+const StyledImage = styled(Image)``;
 
 const Hero = styled.div`
   ${tw`flex py-4 pt-32 md:py-12 lg:pt-32 px-4 lg:px-0`}
@@ -127,7 +125,6 @@ const HeroComponent: React.FC = () => {
         <HeroImageWrapper
           onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
         >
-          
           <Abs style={{right: -50}}>
             <img src={channelsGroup} />
           </Abs>
@@ -137,16 +134,15 @@ const HeroComponent: React.FC = () => {
           <Abs style={{ transform: props.xy.interpolate(trans2) }}>
             <StyledImage image={email} />
           </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans3) }}>
+          <Abs style={{ transform: props.xy.interpolate(trans3), right: 50 }}>
             <StyledImage image={chat} />
           </Abs>
           <Abs style={{ transform: props.xy.interpolate(trans1), top: -10 }}>
             <StyledImage image={chrome} />
           </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans3), top: 400, right: -200 }}>
+          <Abs style={{ transform: props.xy.interpolate(trans3), top: 400, right: -100 }}>
             <StyledImage image={slack} />
           </Abs>
-
         </HeroImageWrapper>
       </Desktop>
     </Hero>

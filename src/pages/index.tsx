@@ -153,8 +153,13 @@ const TopDivider = styled(Divide)`
       </Section>
 
       <Section>
+        <Container>
+          <QuoteComponent2 />
+        </Container>
+      </Section>
+
+      <Section>
         <TopDivider />
-        <QuoteComponent2 />
         <Container>
           <Tracking />
         </Container>
