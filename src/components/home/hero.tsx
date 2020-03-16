@@ -59,10 +59,10 @@ const HeroComponent: React.FC = () => {
   ];
 
   const trans0 = (x, y) => ``;
-  // const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
-  // const trans2 = (x, y) => `translate3d(${x / 8 - 25}px,${y / 8 - 20}px,0)`;
-  // const trans3 = (x, y) => `translate3d(${x / 6 - 50}px,${y / 6 - 20}px,0)`;
-  // const trans4 = (x, y) => `translate3d(${x / 5}px,${y / 55}px,0)`;
+  const trans1 = (x, y) => `translate3d(${x / 50}px,${y / 50}px,0)`;
+  const trans2 = (x, y) => `translate3d(${x / 8 - 25}px,${y / 8 - 20}px,0)`;
+  const trans3 = (x, y) => `translate3d(${x / 10 - 55}px,${y / 55 - 10}px,0)`;
+  const trans4 = (x, y) => `translate3d(${x / 55}px,${y / 10}px,0)`;
 
   const [props, set] = useSpring(() => ({
     xy: [-400, 150],
@@ -128,22 +128,22 @@ const HeroComponent: React.FC = () => {
         <HeroImageWrapper
           onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
         >
-          <Abs style={{ width: 400, top: 225, right: 50}}>
+          <Abs style={{ transform: props.xy.interpolate(trans1), width: 400, top: 225, right: 50}}>
             <img src={channelsGroup} />
           </Abs>
-          <Abs style={{ top: 95, right: 50 }}>
+          <Abs style={{ transform: props.xy.interpolate(trans4), top: 95, right: 50 }}>
             <StyledImage image={teams} />
           </Abs>
-          <Abs style={{ width: 565, top: 200 }}> 
+          <Abs style={{ transform: props.xy.interpolate(trans2), width: 565, top: 200 }}> 
             <StyledImage image={email} />
           </Abs>
-          <Abs style={{ width: 380, top: 290, right: 200 }}>
+          <Abs style={{ transform: props.xy.interpolate(trans3), width: 380, top: 290, right: 200 }}>
             <StyledImage image={chat} />
           </Abs>
-          <Abs style={{ top: 75, right: -50 }}>
+          <Abs style={{ transform: props.xy.interpolate(trans2), top: 75, right: -50 }}>
             <StyledImage image={chrome} />
           </Abs>
-          <Abs style={{ top: 540, right: -120 }}>
+          <Abs style={{ transform: props.xy.interpolate(trans3), top: 540, right: -120 }}>
             <StyledImage image={slack} />
           </Abs>
         </HeroImageWrapper>
