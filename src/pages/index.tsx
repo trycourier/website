@@ -13,10 +13,10 @@ import Footer from "../components/footer";
 
 import Divider from "../components/home/divider";
 import Hero from "../components/home/hero";
-import Implement from "../components/home/implement";
+import OneApi from "../components/home/one-api-call";
 import Clients from "../components/home/clients";
 import Editor from "../components/home/editor";
-import Route from "../components/home/route";
+import Delivery from "../components/home/delivery-rules";
 import Tracking from "../components/home/tracking";
 import GettingStarted from "../components/home/getting-started";
 
@@ -25,7 +25,8 @@ import QuoteComponent from "../components/home/client-quote";
 import QuoteComponent2 from "../components/home/client-quote-2";
 
 const IndexPage: React.FC = () => {
-  const { heroBg, apiBg, quoteBg, divider1, divider2, divider3, divider4, footerBg } = useStaticQuery(graphql`
+  // apiBg, divider2, divider3, divider4, footerBg 
+  const { heroBg, quoteBg, divider1 } = useStaticQuery(graphql`
     query {
       heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
         childImageSharp {
@@ -148,7 +149,7 @@ const TopDivider = styled(Divide)`
       <Section>
         <TopDivider />
         <Container bg="newMoon">
-          <Implement />
+          <OneApi />
         </Container>
       </Section>
 
@@ -168,7 +169,7 @@ const TopDivider = styled(Divide)`
       <Section>
         <TopDivider />
         <Container bg="berrywhite">
-          <Route />
+          <Delivery />
         </Container>
       </Section>
 
