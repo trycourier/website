@@ -106,11 +106,6 @@ const FooterComponent: React.FC = () => {
               <li>
                 <Link to="/#community">Community</Link>
               </li>
-              <li>
-                <a href="https://docs.trycourier.com/" target="_blank">
-                  Documentation
-                </a>
-              </li>
             </NavigationItems>
           </NavLinks>
           <SocialLinks>

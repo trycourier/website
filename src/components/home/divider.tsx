@@ -6,7 +6,6 @@ import Image, { GatsbyImage } from "../image";
 
 const DividerWrapper = styled.div`
   ${tw`absolute`}
-  bottom: -16px;
   width: 100%;
 `;
 

@@ -20,9 +20,7 @@ const Clients = styled(Container)`
 
 const ClientsText = styled.div`
   ${tw`text-left px-4 sm:px-0`}
-  @media(min-width: 640px){
-    margin-top: -128px;
-  }
+
   & h4 {
     ${tw`mb-4 p-0 text-md`}
     color: ${colors.textPrimary};

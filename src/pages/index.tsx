@@ -122,7 +122,8 @@ const Section = styled.section`
 const Divide = styled.div`
   position: absolute;
   width: 100%;
-  height: 100px;
+  min-height: 120px;
+  max-height: 160px;
 `;
 type ContainerProps = {
   bg?: string;
@@ -130,12 +131,22 @@ type ContainerProps = {
 
 const TopDivider = styled(Divide)`
   top: 0px;
+  height: 160px;
   background-color: ${(props: ContainerProps) => colors[props.bg]};
+  &.footer {
+    height: 130px;
+  }
 `
 
 const BotDivider = styled(Divide)`
   bottom: 0px;
   background-color: ${(props: ContainerProps) => colors[props.bg]};
+  height: 120px;
+`
+
+const HeroDivider = styled(Divide)`
+  bottom: 0px;
+  height: 160px;
 `
 
   return (
@@ -150,17 +161,21 @@ const BotDivider = styled(Divide)`
           style={{
             backgroundPosition: "center center",
             backgroundClip: "contain",
-            height: "100vh",
+            height: "800px",
           }}
         >
           <Container>
             <Hero />
           </Container>
+
         </BackgroundImage>
-        <Divider image={divider1} />
+        <HeroDivider>
+          <Divider image={divider1} />
+        </HeroDivider>
       </Section>
       
       <Section>
+
         <Container>
           <Clients />
         </Container>
@@ -213,7 +228,7 @@ const BotDivider = styled(Divide)`
       </Section>
 
       <Section>
-        <TopDivider bg="white">
+        <TopDivider bg="berrywhite">
           <Divider image={divider5} />
         </TopDivider>
         <Container bg="berrywhite">
@@ -232,7 +247,7 @@ const BotDivider = styled(Divide)`
       </Section>
 
       <Section>
-        <TopDivider bg="white">
+        <TopDivider className="footer" bg="white">
           <Divider image={divider7} />
         </TopDivider>
         <Container bg="berry">
