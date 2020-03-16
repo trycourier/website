@@ -5,6 +5,8 @@ import SEO from "../components/seo";
 import Container from "../components/container";
 import Footer from "../components/footer";
 
+import colors from "../colors";
+
 const DisclosurePolicy: React.FC = () => (
   <Layout>
     <SEO title="Responsible Disclosure Policy" />
@@ -45,7 +47,7 @@ const DisclosurePolicy: React.FC = () => (
 
     </Container>
 
-    <Container dark={true}>
+    <Container bg={colors.berry}>
       <Footer>
         <br />
         <br />
