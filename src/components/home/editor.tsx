@@ -35,7 +35,7 @@ const EditorComponent: React.FC = () => {
     query {
       img: file(relativePath: { eq: "notification-design-studio@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 400) {
+          fluid(maxWidth: 640) {
             ...GatsbyImageSharpFluid
           }
         }
