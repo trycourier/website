@@ -53,6 +53,7 @@ const ImplementTable= styled.table`
   & tr {
     ${tw`m-0 p-0 text-lg mb-8`}
   }
+  
   & th {
     ${tw`m-0 p-4 text-sm mt-4 text-left`}
     border-bottom: 1px solid #425E72;
