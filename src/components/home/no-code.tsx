@@ -7,6 +7,7 @@ import Image from "../image";
 const NoCode = styled.div`
   position: absolute;
   width: 130px;
+  z-index: -1;
 `
 const NoCodeComponent: React.FC = () => {
   const { noCode } = useStaticQuery(graphql`
