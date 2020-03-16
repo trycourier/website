@@ -3,8 +3,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
-import Image from "./image";
+// import Image from "./image";
 import colors from "../colors";
+
+import courierLogo from "../images/courier-logo.svg";
 
 import googleNav from "../images/google-nav.svg";
 import githubNav from "../images/github-nav.svg";
@@ -60,10 +62,9 @@ const NavigationItems = styled.ul`
     }
   }
   & li.logo {
-    ${tw`inline-block pl-4 md:pl-4 lg:pl-0 lg:pr-8`}
+    ${tw`inline-block md:mr-8 md:pl-4 md:pr-8`}
     width: 93px;
     height: 24px;
-    margin-top: -20px;
     & a {
       :hover{
         background: transparent;
@@ -99,24 +100,23 @@ const MobileButtons = styled.ul`
 
   & li.hamburger {
     ${tw`inline-block md:hidden cursor-pointer`}
-
   }
 `
 
 const NavigationComponent: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const { logo } = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { eq: "courier-logo@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 110) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
+  // const { logo } = useStaticQuery(graphql`
+  //   query {
+  //     logo: file(relativePath: { eq: "courier-logo@2x.png" }) {
+  //       childImageSharp {
+  //         fluid(maxWidth: 110) {
+  //           ...GatsbyImageSharpFluid
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   const toggleMenu = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
@@ -134,7 +134,8 @@ const NavigationComponent: React.FC = () => {
           <NavigationItems>
             <li className="logo">
               <Link to="/">
-                <Image image={logo} />
+                {/* <Image image={logo} /> */}
+                <img src={courierLogo} alt="Courier"/>
               </Link>
             </li>
 
