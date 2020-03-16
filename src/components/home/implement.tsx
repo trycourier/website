@@ -37,7 +37,7 @@ const ImplementInfo = styled.div`
     ${tw`no-underline text-sm py-6 px-8 mt-8`}
     color: ${colors.white};
     background: rgba(255,255,255,0.1);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 30px;
     border-radius: 9999px;
     :hover{
