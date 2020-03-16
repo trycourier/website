@@ -15,16 +15,16 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   body, p {
-    font-family: 'Proxima Nova', 'Nunito Sans', Roboto, sans-serif;
+    font-family: 'Proxima Nova', 'Roboto', 'Nunito Sans', Roboto, sans-serif;
     font-weight: 100;
     cursor: default;
     color: ${colors.textSecondary};
   }
   h1, h2, h3{
-    font-family: 'Bebas Neue', 'Helvetica Neue', sans-serif;
+    font-family: 'Bebas Neue', 'Impact', 'Helvetica Neue', sans-serif;
   }
   h4, h5, h6{
-    font-family: 'Proxima Nova', 'Nunito Sans', Roboto, sans-serif;
+    font-family: 'Proxima Nova','Roboto', 'Nunito Sans', Roboto, sans-serif;
   }
 
   button {

@@ -14,10 +14,11 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: 'Bebas Neue', 
+            family: 'Bebas Neue',
+            variants: [`400`]
           },
           {
-            family: 'Proxima Nova',
+            family: 'Roboto',
             variants: [`400`, `700`]
           }
         ]
