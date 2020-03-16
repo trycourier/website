@@ -15,15 +15,17 @@ import { Desktop } from "../container";
 
 const Abs = styled(animated.div)`
   position: absolute;
-  width: 45%;
-  height: 45%;
+  width: 50%;
+  height: 50%;
 `;
 
 const StyledImage = styled(Image)``;
 
 const Hero = styled.div`
   ${tw`flex py-4 pt-32 md:py-12 lg:pt-32 px-4 lg:px-0`}
-  height: 72vh;
+  height: 700px;
+  max-height: 700px;
+  min-height: 700px;
   overflow: hidden;
 `;
 
@@ -56,13 +58,14 @@ const HeroComponent: React.FC = () => {
     y - window.innerHeight / 2,
   ];
 
-  const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
-  const trans2 = (x, y) => `translate3d(${x / 8 - 25}px,${y / 8 - 20}px,0)`;
-  const trans3 = (x, y) => `translate3d(${x / 6 - 50}px,${y / 6 - 20}px,0)`;
-  const trans4 = (x, y) => `translate3d(${x / 5}px,${y / 55}px,0)`;
+  const trans0 = (x, y) => ``;
+  // const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
+  // const trans2 = (x, y) => `translate3d(${x / 8 - 25}px,${y / 8 - 20}px,0)`;
+  // const trans3 = (x, y) => `translate3d(${x / 6 - 50}px,${y / 6 - 20}px,0)`;
+  // const trans4 = (x, y) => `translate3d(${x / 5}px,${y / 55}px,0)`;
 
   const [props, set] = useSpring(() => ({
-    xy: [-400, 50],
+    xy: [-400, 150],
     config: { mass: 10, tension: 550, friction: 140 },
   }));
 
@@ -70,35 +73,35 @@ const HeroComponent: React.FC = () => {
     query {
       chat: file(relativePath: { eq: "parallax-chat@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 460) {
+          fluid(maxWidth: 640) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       chrome: file(relativePath: { eq: "parallax-chrome@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 460) {
+          fluid(maxWidth: 640) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       email: file(relativePath: { eq: "parallax-email@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 460) {
+          fluid(maxWidth: 640) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       slack: file(relativePath: { eq: "parallax-slack@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 460) {
+          fluid(maxWidth: 640) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       teams: file(relativePath: { eq: "parallax-teams@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 460) {
+          fluid(maxWidth: 640) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -125,22 +128,22 @@ const HeroComponent: React.FC = () => {
         <HeroImageWrapper
           onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
         >
-          <Abs style={{right: -50}}>
+          <Abs style={{ width: 400, top: 225, right: 50}}>
             <img src={channelsGroup} />
           </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans4), top: 0, right: 20 }}>
+          <Abs style={{ top: 95, right: 50 }}>
             <StyledImage image={teams} />
           </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans2) }}>
+          <Abs style={{ width: 565, top: 200 }}> 
             <StyledImage image={email} />
           </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans3), right: 50 }}>
+          <Abs style={{ width: 380, top: 290, right: 200 }}>
             <StyledImage image={chat} />
           </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans1), top: -10 }}>
+          <Abs style={{ top: 75, right: -50 }}>
             <StyledImage image={chrome} />
           </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans3), top: 400, right: -100 }}>
+          <Abs style={{ top: 540, right: -120 }}>
             <StyledImage image={slack} />
           </Abs>
         </HeroImageWrapper>
