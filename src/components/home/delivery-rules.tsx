@@ -30,7 +30,7 @@ const RouteText = styled.div`
 `;
 
 const RouteImageWrapper = styled.div`
-  ${tw`w-full md:w-2/3 mr-auto`}
+  ${tw`w-full md:w-2/3 mx-auto`}
 `;
 
 const RouteComponent: React.FC = () => {
@@ -38,14 +38,14 @@ const RouteComponent: React.FC = () => {
     query {      
       bg: file(relativePath: { eq: "bgs/gears@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 660) {
+          fluid(maxWidth: 460) {
             ...GatsbyImageSharpFluid
           }
         }
       }
       img: file(relativePath: { eq: "desktop-delivery@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 460) {
+          fluid(maxWidth: 960) {
             ...GatsbyImageSharpFluid
           }
         }
