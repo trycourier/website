@@ -127,7 +127,7 @@ const NavigationComponent: React.FC = () => {
             </li>
 
             <li>
-              <Link to="/#pricing">Pricing</Link>
+              <Link to="/pricing">Pricing</Link>
             </li>
             <li>
               <Link to="/#company">Company</Link>
