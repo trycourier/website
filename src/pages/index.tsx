@@ -176,8 +176,7 @@ const HeroDivider = styled(Divide)`
         </HeroDivider>
       </Section>
       
-      <Section>
-
+      <Section style={{top: -32 }}>
         <Container>
           <Clients />
         </Container>

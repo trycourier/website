@@ -20,10 +20,10 @@ const Clients = styled(Container)`
 
 const ClientsText = styled.div`
   ${tw`text-left px-4 sm:px-0`}
-
   & h4 {
-    ${tw`mb-4 p-0 text-md`}
-    color: ${colors.textPrimary};
+    ${tw` p-0 text-md`}
+    color: ${colors.textSecondary};
+    font-weight: 400;
     position: relative;
     top: -24px;
   }
