@@ -4,7 +4,7 @@ import tw from "tailwind.macro";
 
 import colors from "../../colors";
 
-import RegisterationCTA from "./registeration-cta";
+import RegistrationCTA from "./registration-cta";
 const GettingStarted = styled.section`
   ${tw`md:flex pt-24 pb-8 md:py-24 px-4 lg:px-0`}
 `;
@@ -48,7 +48,7 @@ const GettingStartedComponent: React.FC = () => {
     
       </GettingStartedText>
       <GettingStartedCTAWrapper>
-        <RegisterationCTA />
+        <RegistrationCTA />
       </GettingStartedCTAWrapper>
     </GettingStarted>
   );

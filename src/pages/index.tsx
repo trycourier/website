@@ -122,7 +122,7 @@ const Section = styled.section`
 const Divide = styled.div`
   position: absolute;
   width: 100%;
-  min-height: 120px;
+  min-height: 115px;
   max-height: 160px;
 `;
 type ContainerProps = {
@@ -141,7 +141,7 @@ const TopDivider = styled(Divide)`
 const BotDivider = styled(Divide)`
   bottom: 0px;
   background-color: ${(props: ContainerProps) => colors[props.bg]};
-  height: 120px;
+  height: 115px;
 `
 
 const HeroDivider = styled(Divide)`

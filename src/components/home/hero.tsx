@@ -9,7 +9,7 @@ import Image from "../image";
 import colors from "../../colors";
 
 import channelsGroup from "../../images/channels-group.svg";
-import RegisterationCTA from "./registeration-cta";
+import RegistrationCTA from "./registration-cta";
 
 import { Desktop } from "../container";
 
@@ -122,7 +122,7 @@ const HeroComponent: React.FC = () => {
           Sign up and recieve <strong>10,000 free</strong> notifications every
           month
         </label>
-        <RegisterationCTA />
+        <RegistrationCTA />
       </HeroContent>
       <Desktop>
         <HeroImageWrapper
