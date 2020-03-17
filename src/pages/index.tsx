@@ -124,6 +124,7 @@ const Divide = styled.div`
   width: 100%;
   min-height: 115px;
   max-height: 160px;
+  min-width: 1520px;
 `;
 type ContainerProps = {
   bg?: string;
