@@ -19,8 +19,9 @@ const FeatureTableTable= styled.table`
   display: inline-table;
   border-spacing: 0px;
   & tbody.highlighted {
-
     background: ${colors.highlight};
+    font-weight: 600;
+    font-size: 18px;
 
     & tr:not(:last-child) {
       & td {
@@ -32,7 +33,7 @@ const FeatureTableTable= styled.table`
     ${tw`m-0 p-0`}
   }
   & th {
-    ${tw`m-0 px-16 py-8 text-xl`}
+    ${tw`m-0 px-16 py-8 text-3xl font-normal`}
     &:nth-child(2){
       ${tw `p-8`}
       background: #FFF;
@@ -43,22 +44,41 @@ const FeatureTableTable= styled.table`
     } 
   }
   & td {
-    ${tw`m-0 p-4 text-md mt-4`}
+    ${tw`m-0 px-4 text-md mt-4`}
     border-bottom: 1px solid #CCC;
+
     &:first-child{
       ${tw`text-left pr-32`}
     }
     &:nth-child(2){
-      ${tw `p-8`}
+      ${tw `py-4 px-8`}
+      height: 24px;
       background: #FFF;
-      box-shadow: 0px 3px 6px ${colors.berryglass};
-      border: 5px solid #FFF;
-    } 
+      box-shadow: 0px 4px 8px ${colors.berryglass};
+      border-left: 10px solid #FFF;
+      border-right: 10px solid #FFF;
+    }
+    &.highlighted {
+      background-color: ${colors.highlight};
+    }
+  }
+  & tfoot {
+    & td {
+      border-bottom: none;
+      &:nth-child(2){
+        border-radius: 0px 0px 20px 20px;
+      }
+    }
   }
 `;
 
 
 const features = [
+  {
+    label: "",
+    standard: "SIGN_UP",
+    enterprise: "CONTACT_SALES"
+  },
   {
     label: "Team Members",
     standard: true,
@@ -133,9 +153,108 @@ const features = [
     label: "SAMLP 2.0",
     standard: false,
     enterprise: true
-  },
+  }
 ]
 
+import googleNav from "../../images/google-logo-white.svg";
+import githubNav from "../../images/github-logo-white.svg";
+import emailNav from "../../images/email-logo-white.svg";
+
+import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl } from "../../links";
+
+
+const AccountButtons = styled.ul`
+  ${tw`m-0 p-2 flex hidden md:inline-block`}
+  list-style: none;
+  height: 36px;
+  & li {
+    ${tw`list-none inline-block ml-3`}
+    height: 24px;
+    width: 24px;
+    border-radius: 9999px;
+    padding: 6px;
+  }
+  & li.google{
+    background: ${colors.googleBlue};
+  }
+  & li.github {
+    background: #000;
+  }
+  & li.email {
+    background: ${colors.berry};
+    & img {
+      margin-top: 3px;
+    }
+  }
+  svg{
+    fill: white;
+  }
+`;
+
+const Button = styled.button`
+  ${tw`rounded-full mr-2 px-8 py-2 text-white text-md align-middle`}
+  background: ${colors.googleBlue};
+  border-color: ${colors.googleBlue};
+  height: 36px;
+  line-height: 18px;
+  cursor: pointer;
+  &.github {
+    background: ${colors.berry};
+    border-color: ${colors.berry};
+  }
+  & img {
+    position: relative;
+    top: -1px;
+  }
+  & label {
+    position: relative;
+    left: 6px;
+    top: -7px;
+    cursor: pointer;
+  }
+`;
+
+const AccountButtonComponent: React.FC = () => {
+  return (
+    <AccountButtons>
+      <li className="google">
+        <a href={googleSignUpUrl} target="_blank">
+          <img src={googleNav} title="Google SSO" />
+        </a>
+      </li>
+      <li className="github">
+        <a href={githubSignUpUrl} target="_blank">
+          <img src={githubNav} title="GitHub SSO" />
+        </a>
+      </li>
+      <li className="email">
+        <a
+          href={emailSignUpUrl}
+          target="_blank"
+        >
+          <img src={emailNav} title="Sign Up with Email" />
+        </a>
+      </li>
+    </AccountButtons>
+  )
+}
+
+const handleOnClick = () => {
+  console.log("!");
+}
+
+const displayCell = (property: any | string) => {
+  switch(property) {
+    case "SIGN_UP": 
+      return <AccountButtonComponent />;
+    case "CONTACT_SALES":
+      return <Button onClick={handleOnClick}>Contact Sales</Button>
+    case true: 
+      return <img src={checkmark} />
+    default: 
+      return property;
+  }
+}
 const FeatureTableComponent: React.FC = () => {
 
   return (
@@ -149,22 +268,29 @@ const FeatureTableComponent: React.FC = () => {
         <tbody className="highlighted">
           <tr>
             <td>Subscription Fee</td>
-            <td>Free</td>
-            <td>$5k / mo</td>
+            <td className="highlighted">Free</td>
+            <td >$5k / mo</td>
           </tr>
           <tr>
             <td>Usage Fee (free of to 10k/mo)</td>
-            <td>per notification</td>
+            <td className="highlighted">per notification</td>
             <td>per notification</td>
           </tr>
         </tbody>
         {features.map(feat => (
           <tr>
             <td>{feat.label}</td>
-            <td>{feat.standard ? <img src={checkmark} /> : " "}</td>
-            <td>{feat.enterprise ? <img src={checkmark} /> : " "}</td>
+            <td>{feat.standard ? displayCell(feat.standard) : " "}</td>
+            <td>{feat.enterprise ? displayCell(feat.enterprise) : " "}</td>
           </tr>
         ))}
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>{displayCell("SIGN_UP")}</td>
+            <td>{displayCell("CONTACT_SALES")}</td>
+          </tr>
+        </tfoot>
       </FeatureTableTable>
     </FeatureTable>
   );
