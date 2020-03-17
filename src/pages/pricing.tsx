@@ -13,8 +13,8 @@ import Footer from "../components/footer";
 
 import Divider from "../components/home/divider";
 
-import UsageBasedPricing from "../components/privacy/usage-based-pricing";
-import SubscriptionPlans from "../components/privacy/subscription-plans";
+import UsageBasedPricing from "../components/pricing/usage-based-pricing";
+import SubscriptionPlans from "../components/pricing/subscription-plans";
 
 import colors from "../colors";
 

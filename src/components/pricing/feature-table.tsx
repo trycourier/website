@@ -19,10 +19,12 @@ const FeatureTableTable= styled.table`
   display: inline-table;
   border-spacing: 0px;
   & tbody.highlighted {
-    background: #CCF;
+
+    background: ${colors.highlight};
+
     & tr:not(:last-child) {
       & td {
-        border-bottom: 1px solid blue;
+        border-bottom: 1px solid ${colors.highlightBorder};
       }
     }
   }
@@ -31,6 +33,14 @@ const FeatureTableTable= styled.table`
   }
   & th {
     ${tw`m-0 px-16 py-8 text-xl`}
+    &:nth-child(2){
+      ${tw `p-8`}
+      background: #FFF;
+      box-shadow: 0px 3px 6px ${colors.berryglass};
+      border: 5px solid #FFF;
+      border-radius: 20px 20px 0px 0px;
+      border-spacing: 0px;
+    } 
   }
   & td {
     ${tw`m-0 p-4 text-md mt-4`}
@@ -41,6 +51,8 @@ const FeatureTableTable= styled.table`
     &:nth-child(2){
       ${tw `p-8`}
       background: #FFF;
+      box-shadow: 0px 3px 6px ${colors.berryglass};
+      border: 5px solid #FFF;
     } 
   }
 `;

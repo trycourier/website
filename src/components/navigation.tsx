@@ -13,6 +13,8 @@ import emailNav from "../images/email-nav.svg";
 
 import mobileMenu from "../images/hamburger.svg";
 
+import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl } from "../links";
+
 const NavContainer = styled.section`
   position: fixed;
   top: 0;
@@ -30,7 +32,7 @@ const MobileNavMenu = styled.ul`
   ${tw`fixed top-0 left-0 m-0 p-4 w-full list-none`}
   min-height: 100vh;
   z-index: 99;
-  background-color: ${colors.berry};
+  background-color: ${colors.berryglass};
   backdrop-filter: blur(6px);
   & li {
     ${tw`pt-8 px-4 text-xl`}
@@ -145,18 +147,18 @@ const NavigationComponent: React.FC = () => {
           <AccountButtons>
             <label>Sign Up</label>
             <li>
-              <a href="https://www.trycourier.app/login" target="_blank">
+              <a href={googleSignUpUrl} target="_blank">
                 <img src={googleNav} title="Google SSO" />
               </a>
             </li>
             <li>
-              <a href="https://www.trycourier.app/login" target="_blank">
+              <a href={githubSignUpUrl} target="_blank">
                 <img src={githubNav} title="GitHub SSO" />
               </a>
             </li>
             <li>
               <a
-                href="https://www.trycourier.app/register"
+                href={emailSignUpUrl}
                 target="_blank"
               >
                 <img src={emailNav} title="Sign Up with Email" />

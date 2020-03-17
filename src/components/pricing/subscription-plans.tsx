@@ -13,7 +13,6 @@ const SubscriptionPlansText = styled.div`
   ${tw`w-full`}
   & h2 {
     ${tw`m-0 p-0 text-4xl mb-4`}
-    font-family: "Proxima Nova", sans-serif;
     color: ${colors.textPrimary};
   }
   & p {

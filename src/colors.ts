@@ -13,4 +13,6 @@ export default {
   lightGray: theme.extend.colors.berryWhite,
   berrywhite: theme.extend.colors.berryWhite,
   berryglass: theme.extend.colors.berryGlass,
+  highlight: theme.extend.colors.highlightBlue,
+  highlightBorder: theme.extend.colors.highlightBorder,
 };

@@ -8,6 +8,8 @@ import emailLogo from "../../images/email-logo-white.svg";
 import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
 
+import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl } from "../../links";
+
 const Button = styled.button`
   ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm align-middle`}
   background: ${colors.googleBlue};
@@ -59,6 +61,7 @@ const MobileContent = styled(Mobile)`
     & label {
       text-align: left;
       margin-right: 8px;
+      cursor: pointer;
     }
     & img {
       margin-left: 8px;
@@ -68,12 +71,6 @@ const MobileContent = styled(Mobile)`
     }
   }
 `;
-
-const githubSignUpUrl =
-  "https://courier.auth.us-east-1.amazoncognito.com/oauth2/authorize?identity_provider=Github&redirect_uri=https://trycourier.app/login/callback&response_type=CODE&client_id=5f4fmec2qnuscp89qbt8nsuftj&scope=aws.cognito.signin.user.admin%20email%20openid%20profile";
-const googleSignUpUrl =
-  "https://courier.auth.us-east-1.amazoncognito.com/oauth2/authorize?identity_provider=Google&redirect_uri=https://trycourier.app/login/callback&response_type=CODE&client_id=5f4fmec2qnuscp89qbt8nsuftj&scope=aws.cognito.signin.user.admin%20email%20openid%20profile";
-const emailSignUpUrl = "https://www.trycourier.app/register/email";
 
 const RegistrationCTA: React.FC = () => {
   return (
@@ -101,9 +98,15 @@ const RegistrationCTA: React.FC = () => {
         <MobileContent>
           <Button className="mobile">
             <label>Sign Up!</label>
-            <a href={googleSignUpUrl}><img src={googleLogo} /></a>
-            <a href={githubSignUpUrl}><img src={githubLogo} /></a>
-            <a href={emailSignUpUrl}><img className="email" src={emailLogo} /></a>
+            <a href={googleSignUpUrl}>
+              <img src={googleLogo} />
+            </a>
+            <a href={githubSignUpUrl}>
+              <img src={githubLogo} />
+            </a>
+            <a href={emailSignUpUrl}>
+              <img className="email" src={emailLogo} />
+            </a>
           </Button>
         </MobileContent>
       </form>
