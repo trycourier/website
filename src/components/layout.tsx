@@ -34,6 +34,15 @@ const GlobalStyle = createGlobalStyle`
     cursor: default;
   }
 
+  img { 
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+  }
+
   .sticky-active nav { 
     transition-duration: 800ms;
     background: ${colors.berryglass};

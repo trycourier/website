@@ -21,11 +21,11 @@ import expo from "../../images/providers/expo.svg";
 import msTeams from "../../images/providers/ms-teams.svg";
 
 const Implement = styled.section`
-  ${tw`md:flex mt-8pt-24 pb-8 md:py-24 px-4 lg:px-0`}
+  ${tw`md:flex pb-8 px-4 lg:px-0`}
 `;
 
 const ImplementImageWrapper = styled.div`
-  ${tw`md:w-1/2 text-left pt-16 md:pt-0`}
+  ${tw`md:w-1/2 text-left md:pt-0`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-2`}
   }

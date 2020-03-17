@@ -56,6 +56,7 @@ const NavigationItems = styled.ul`
       font-weight: 600;
       line-height: 30px;
       border-radius: 9999px;
+      transition-duration: 300ms;
       :hover{
         background: rgba(255,255,255,0.1);
       }

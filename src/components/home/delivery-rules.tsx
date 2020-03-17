@@ -18,7 +18,7 @@ const RouteSection = styled.div`
 `;
 
 const RouteText = styled.div`
-  ${tw`w-full mt-16`}
+  ${tw`w-full md:w-2/3 mt-16`}
   line-height: 32px;
   & h2 {
     ${tw`m-0 p-0 text-3xl`}

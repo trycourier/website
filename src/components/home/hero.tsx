@@ -58,11 +58,11 @@ const HeroComponent: React.FC = () => {
     y - window.innerHeight / 2,
   ];
 
-  const trans0 = (x, y) => ``;
   const trans1 = (x, y) => `translate3d(${x / 50}px,${y / 50}px,0)`;
-  const trans2 = (x, y) => `translate3d(${x / 8 - 25}px,${y / 8 - 20}px,0)`;
-  const trans3 = (x, y) => `translate3d(${x / 10 - 55}px,${y / 55 - 10}px,0)`;
+  const trans2 = (x, y) => `translate3d(${x / 15 - 5}px,${y / 15 - 10}px,0)`;
+  const trans3 = (x, y) => `translate3d(${x / 25 - 15}px,${y / 55 - 5}px,0)`;
   const trans4 = (x, y) => `translate3d(${x / 55}px,${y / 10}px,0)`;
+  const trans5 = (x, y) => `translate3d(${x / 15 + 10}px,${y / 40 + 10}px,0)`;
 
   const [props, set] = useSpring(() => ({
     xy: [-400, 150],
@@ -134,10 +134,10 @@ const HeroComponent: React.FC = () => {
           <Abs style={{ transform: props.xy.interpolate(trans4), top: 95, right: 50 }}>
             <StyledImage image={teams} />
           </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans2), width: 565, top: 200 }}> 
+          <Abs style={{ transform: props.xy.interpolate(trans5), width: 565, top: 200 }}> 
             <StyledImage image={email} />
           </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans3), width: 380, top: 290, right: 200 }}>
+          <Abs style={{ transform: props.xy.interpolate(trans2), width: 380, top: 290, right: 200 }}>
             <StyledImage image={chat} />
           </Abs>
           <Abs style={{ transform: props.xy.interpolate(trans2), top: 75, right: -50 }}>
