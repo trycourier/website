@@ -59,20 +59,19 @@ const TopDivider = styled(Divide)`
     <Layout>
       <SEO title="Home" />
         
-      <BackgroundImage
-        Tag="section"
-        fluid={heroBg.childImageSharp.fluid}
-        backgroundColor={colors.berry}
-        style={{
-          backgroundPosition: "center center",
-          height: "100vh",
-        }}
-      >
-        <Container>
-          Privacy
-        </Container>
-      </BackgroundImage>
-      <Divider image={divider1} />
+      <Section>
+        <BackgroundImage
+          Tag="section"
+          fluid={heroBg.childImageSharp.fluid}
+          backgroundColor={colors.berry}
+          style={{
+            backgroundPosition: "center center",
+            height: "100px",
+          }}
+        >
+        </BackgroundImage>
+        <Divider image={divider1} />
+      </Section>
 
       <Section>
         <TopDivider />
