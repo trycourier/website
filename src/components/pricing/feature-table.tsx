@@ -37,7 +37,7 @@ const FeatureTableTable= styled.table`
     &:nth-child(2){
       ${tw `p-8`}
       background: #FFF;
-      box-shadow: 0px 3px 6px ${colors.berryglass};
+      box-shadow: 0px 4px 8px ${colors.berryglass};
       border: 5px solid #FFF;
       border-radius: 20px 20px 0px 0px;
       border-spacing: 0px;
@@ -54,9 +54,9 @@ const FeatureTableTable= styled.table`
       ${tw `py-4 px-8`}
       height: 24px;
       background: #FFF;
-      box-shadow: 0px 4px 8px ${colors.berryglass};
-      border-left: 10px solid #FFF;
-      border-right: 10px solid #FFF;
+      box-shadow: 0px 8px 8px ${colors.berryglass};
+      border-left: 16px solid #FFF;
+      border-right: 16px solid #FFF;
     }
     &.highlighted {
       background-color: ${colors.highlight};
@@ -168,7 +168,7 @@ const AccountButtons = styled.ul`
   list-style: none;
   height: 36px;
   & li {
-    ${tw`list-none inline-block ml-3`}
+    ${tw`list-none inline-block mx-2`}
     height: 24px;
     width: 24px;
     border-radius: 9999px;
