@@ -16,6 +16,7 @@ const Button = styled.button`
   border-color: ${colors.googleBlue};
   height: 36px;
   line-height: 24px;
+  cursor: pointer;
   &.github {
     background: ${colors.berry};
     border-color: ${colors.berry};
@@ -28,6 +29,7 @@ const Button = styled.button`
     position: relative;
     left: 6px;
     top: -7px;
+    cursor: pointer;
   }
 `;
 
