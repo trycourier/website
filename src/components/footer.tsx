@@ -16,7 +16,7 @@ const Footer = styled.footer`
 `;
 
 const LogoSection = styled.div`
-  ${tw`md:w-1/5 md:pr-8`}
+  ${tw`md:w-1/8 md:pr-8`}
 `
 const Logo = styled.div`
   ${tw`mt-4`}
@@ -24,7 +24,7 @@ const Logo = styled.div`
 `;
 
 const LinkSection = styled.div`
-  ${tw`md:w-4/5`}
+  ${tw`md:w-7/8`}
 `;
 const NavLinks = styled.div`
   ${tw`flex`}
