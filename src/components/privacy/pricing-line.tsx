@@ -6,7 +6,8 @@ import tw from "tailwind.macro";
 import colors from "../../colors";
 
 const PricingLine = styled.section`
-  ${tw`md:flex mt-8pt-24 pb-8 md:py-24 px-4 lg:px-0`}
+  ${tw`md:flex`}
+  color: ${colors.textPrimary};
 `;
 
 const trackW = "35em";
@@ -57,8 +58,7 @@ const RangeStyle = `
 `
 
 const PricingLineInfo = styled.div`
-  ${tw`md:w-1/2 md:ml-8 md:mt-24 text-left`}
-  color: ${colors.textPrimary};
+  ${tw`w-full text-left`}
 `;
 
 const pricingMatrix = [

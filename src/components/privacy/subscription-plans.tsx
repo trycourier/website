@@ -6,7 +6,7 @@ import colors from "../../colors";
 
 import FeatureTable from "./feature-table";
 const Plans = styled.section`
-  ${tw`flex flex-col pt-24 pb-8 md:py-24 px-4`}
+  ${tw`flex flex-col`}
 `;
 
 const SubscriptionPlansText = styled.div`
