@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <g transform="translate(-467 -572)">
+    <g id="check" transform="translate(477.999 574.438) rotate(30)">
+      <rect width="2" height="14" transform="translate(5 0)" fill="#01c39a"/>
+      <rect width="6" height="2" transform="translate(0 12)" fill="#01c39a"/>
+    </g>
+  </g>
+</svg>
