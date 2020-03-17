@@ -62,14 +62,14 @@ const IndexPage: React.FC = () => {
           }
         }
       }
-      divider3: file(relativePath: { eq: "dividers/one-api-call-top.png" }) {
+      divider3: file(relativePath: { eq: "dividers/mod/one-api-call-top.png" }) {
         childImageSharp {
           fluid(maxWidth: 3600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      divider4: file(relativePath: { eq: "dividers/one-api-call-bottom.png" }) {
+      divider4: file(relativePath: { eq: "dividers/mod/one-api-call-bottom.png" }) {
         childImageSharp {
           fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
@@ -97,7 +97,7 @@ const IndexPage: React.FC = () => {
           }
         }
       }
-      divider7: file(relativePath: { eq: "dividers/footer.png" }) {
+      divider7: file(relativePath: { eq: "dividers/mod/footer.png" }) {
         childImageSharp {
           fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
@@ -117,6 +117,7 @@ const IndexPage: React.FC = () => {
 const Section = styled.section`
   position: relative;
   width: 100%;
+  overflow: hidden;
 `;
 
 const Divide = styled.div`
@@ -217,12 +218,12 @@ const HeroDivider = styled(Divide)`
         <Container>
           <QuoteComponent2 />
         </Container>
-        <BotDivider bg="white">
-          <Divider image={divider4} />
-        </BotDivider>
       </Section>
 
       <Section>
+      <TopDivider bg="white">
+          <Divider image={divider4} />
+        </TopDivider>
         <Container>
           <Tracking />
         </Container>

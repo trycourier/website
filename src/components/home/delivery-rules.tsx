@@ -9,7 +9,7 @@ import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
 
 const Route = styled.section`
-  ${tw`md:flex py-8 pb-16 md:py-24 px-4 lg:px-0 mx-auto`}
+  ${tw`md:flex py-8 pb-16 md:pb-0 px-4 lg:px-0 mx-auto`}
   color: ${colors.textSecondary};
 `;
 
