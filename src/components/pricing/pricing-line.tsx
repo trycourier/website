@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
 import colors from "../../colors";
 
+import ProgressBar from "./progress-bar";
+
 const trackW = "35em";
 const trackBw = ".5em";
 const trackH = "5em";
-const trackIH = ".5em";
 const trackShoBaseC = colors.white;
 
 const ThumbStyle = `
@@ -20,7 +21,7 @@ const ThumbStyle = `
   background: ${colors.white};
   box-shadow: 0 .5em .25em -1px ${colors.berryglass};
   cursor: ew-resize;
-`
+`;
 
 const TrackStyle = `
   box-sizing: border-box;
@@ -29,7 +30,7 @@ const TrackStyle = `
   height: ${trackH};
   box-shadow: 0 1px ${trackShoBaseC};
   background: #CCC, $EEE;
-`
+`;
 
 const RangeStyle = `
   input[type='range'] {
@@ -41,10 +42,21 @@ const RangeStyle = `
     outline: none;
     margin-bottom: 36px;
     width: 100%;
-    height: 5px;
-    background: ${colors.green};
+    height: 1px;
+    background: transparent;
+    border-bottom: 4px dotted #CCC;
     font-size: 1em;
     cursor: pointer;
+
+    &::before{
+      content: "";
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      height: 5px;
+      top: 0px;
+      background: ${colors.googleBlue};
+    }
 
     &::-webkit-slider-runnable-track {
       position: relative;
@@ -60,7 +72,6 @@ const RangeStyle = `
     
     &::-moz-range-progress {
       
-
     }
 
     &::-webkit-slider-thumb {
@@ -75,9 +86,8 @@ const RangeStyle = `
     &::-ms-thumb {
       ${ThumbStyle}
     }
-
   }
-`
+`;
 
 const PricingLine = styled.section`
   ${tw`md:flex`}
@@ -94,6 +104,8 @@ const PricingLine = styled.section`
       color: ${colors.textPrimary};
       font-size: 16px;
       font-weight: 600;
+      position: relative;
+      top: -16px;
     }
   }
   ${RangeStyle}
@@ -103,44 +115,44 @@ const PricingLineInfo = styled.div`
   ${tw`w-full text-left`}
 `;
 
-/*
-10,000 – FREE
-250,000 – $99/mo
-1,000,000 – $499/mo
-+$0.0006 / notification after the first million
-*/
-
 const pricingMatrix = [
   {
     perMonth: "$0",
     additional: "$0.001",
-    cummulative: "10K"
+    cummulative: "10K",
   },
   {
     perMonth: "$19",
     additional: "$0.0009",
-    cummulative: "50K"
+    cummulative: "50K",
   },
   {
     perMonth: "$99",
     additional: "$0.00075",
-    cummulative: "250K"
+    cummulative: "250K",
   },
   {
     perMonth: "$199",
     additional: "$0.0006",
-    cummulative: "750K"
+    cummulative: "750K",
   },
   {
     perMonth: "$499",
     additional: "$0.00039",
-    cummulative: "1M+"
+    cummulative: "1M+",
   },
-]
+];
 
 const PricingLineComponent: React.FC = () => {
   const [rangeIdx, setRangeIdx] = useState(3);
-  const handleRangeChange = (e:React.FormEvent) => {
+  const [width, setWidth] = useState(0);
+  const measuredRef = useCallback(n => {
+    if (n !== null) {
+      setWidth(n.getBoundingClientRect().width);
+    }
+  }, []);
+
+  const handleRangeChange = (e: React.FormEvent) => {
     if (e.currentTarget) {
       setRangeIdx(e.currentTarget.value);
     }
@@ -148,11 +160,26 @@ const PricingLineComponent: React.FC = () => {
 
   return (
     <PricingLine>
-      <PricingLineInfo>
+      <PricingLineInfo ref={measuredRef}>
         <h4>{pricingMatrix[rangeIdx - 1].perMonth} /mo</h4>
-        <h5>+ {pricingMatrix[rangeIdx - 1].additional} per additional notification *</h5>
-        <input type="range" min="1" max="5" value={rangeIdx} name="priceSection" onChange={handleRangeChange} />
-        <h5><strong>{pricingMatrix[rangeIdx - 1].cummulative} notifications/mo</strong></h5>
+        <h5>
+          + {pricingMatrix[rangeIdx - 1].additional} per additional notification
+          *
+        </h5>
+        <input
+          type="range"
+          min="1"
+          max="5"
+          value={rangeIdx}
+          name="priceSection"
+          onChange={handleRangeChange}
+        />
+        <ProgressBar px={((rangeIdx - 1) / 4) * width} />
+        <h5>
+          <strong>
+            {pricingMatrix[rangeIdx - 1].cummulative} notifications/mo
+          </strong>
+        </h5>
       </PricingLineInfo>
     </PricingLine>
   );
