@@ -10,7 +10,6 @@ import checkmark from "../../images/checkmark.svg";
 
 const FeatureTable = styled.section`
   ${tw`flex flex-row pb-8 px-4`}
-  background: ${colors.berryWhite};
   color: ${colors.textPrimary};
 `;
 
@@ -19,7 +18,6 @@ const FeatureTableTable= styled.table`
   display: inline-table;
   border-spacing: 0px;
   & tbody.highlighted {
-    background: ${colors.highlight};
     font-weight: 600;
     font-size: 18px;
 
@@ -28,6 +26,34 @@ const FeatureTableTable= styled.table`
         border-bottom: 1px solid ${colors.highlightBorder};
       }
     }
+
+    tr {
+      &:first-child {
+        & td {
+          background: ${colors.highlight};
+          &:first-child {
+            border-top-left-radius: 20px;
+          }
+          &:last-child {
+            border-top-right-radius: 20px;
+          }
+        }
+      }
+      &:last-child {
+        & td {
+          background: ${colors.highlight};
+          border-bottom: none;
+          &:first-child{
+            border-bottom-left-radius: 20px;
+          }
+          &:last-child{
+            border-bottom-right-radius: 20px;
+          }
+
+        }
+      }
+    }
+
   }
   & tr {
     ${tw`m-0 p-0`}
@@ -37,6 +63,8 @@ const FeatureTableTable= styled.table`
     &:nth-child(2){
       ${tw `p-8`}
       background: #FFF;
+      position: relative;
+      z-index: 2;
       box-shadow: 0px 4px 8px ${colors.berryGlass};
       border: 5px solid #FFF;
       border-radius: 20px 20px 0px 0px;
@@ -53,6 +81,8 @@ const FeatureTableTable= styled.table`
     &:nth-child(2){
       ${tw `py-4 px-8`}
       height: 24px;
+      position: relative;
+      z-index: 3;
       background: #FFF;
       box-shadow: 0px 8px 8px ${colors.berryGlass};
       border-left: 16px solid #FFF;
