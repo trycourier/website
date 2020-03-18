@@ -32,7 +32,7 @@ const MobileNavMenu = styled.ul`
   ${tw`fixed top-0 left-0 m-0 p-4 w-full list-none`}
   min-height: 100vh;
   z-index: 99;
-  background-color: ${colors.berryglass};
+  background-color: ${colors.berryGlass};
   backdrop-filter: blur(6px);
   & li {
     ${tw`pt-8 px-4 text-xl`}

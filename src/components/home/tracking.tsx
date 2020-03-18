@@ -9,7 +9,7 @@ import { listStyles } from "../styles";
 import { Desktop, Mobile } from "../container";
 
 const Tracking = styled.section`
-  ${tw`pt-24 pb-12 md:pb-0 md:pt-24 mx-auto text-left px-4 md:px-0`}
+  ${tw`pt-24 pb-12 md:pb-0 md:pt-32  mx-auto text-left px-4 md:px-0`}
 `;
 
 const TrackingSection = styled.div`

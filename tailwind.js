@@ -3,19 +3,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gatsby: 'rebeccapurple',
-        transparent: 'transparent',
-        googleBlue: '#4285F4',
         berry: '#9D348B',
-        white: '#FFFFFF',
-        greenMeadow: '#01C39A',
-        newMoon: '#002F48',
-        moonlight: '#344563',
-        fullMoon: '#73819B',
-        berryWhite: '#F7F6F9',
         berryGlass: 'rgba(157, 52, 139, 0.75)',
+        berryNeutral: '#24324B',
+        berryWhite: '#F7F6F9',
+        gatsby: 'rebeccapurple',
+        googleBlue: '#4285F4',
+        greenMeadow: '#01C39A',
         highlightBlue: '#EFF9FF',
         highlightBorder: '#87C5EE',
+        fullMoon: '#73819B',
+        moonlight: '#344563',
+        neutralBerry: '#24324B',
+        newMoon: '#002F48',
+        transparent: 'transparent',
+        white: '#FFFFFF',
       }
     }
   }

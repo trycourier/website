@@ -75,7 +75,7 @@ const TopDivider = styled(Divide)`
 
       <Section>
         <TopDivider />
-        <Container bg="berrywhite">
+        <Container bg="berryWhite">
           <UsageBasedPricing />
           <SubscriptionPlans />
         </Container>

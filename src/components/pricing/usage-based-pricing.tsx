@@ -23,7 +23,7 @@ const UsageBasedPricingText = styled.div`
 const UsageBasedPricingWrapper = styled.div`
   ${tw`w-full`}
   & form {
-    background-color: ${colors.berrywhite};
+    background-color: ${colors.berryWhite};
     max-width: 455px;
   }
   & button.ghost{

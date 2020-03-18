@@ -229,16 +229,16 @@ const HeroDivider = styled(Divide)`
       </Section>
 
       <Section>
-        <TopDivider bg="berrywhite">
+        <TopDivider bg="berryWhite">
           <Divider image={divider5} />
         </TopDivider>
-        <Container bg="berrywhite">
+        <Container bg="berryWhite">
           <Delivery />
         </Container>
       </Section>
 
       <Section>
-        <TopDivider bg="berrywhite">
+        <TopDivider bg="berryWhite">
           <Divider image={divider6} />
         </TopDivider>
         <Container>
