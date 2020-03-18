@@ -6,7 +6,7 @@ import colors from "../../colors";
 
 import PricingLine from "./pricing-line";
 const Pricing = styled.section`
-  ${tw`flex flex-col pt-24 pb-8 md:py-24 px-4`}
+  ${tw`flex flex-col pt-24 md:pt-0 pb-8 md:pb-24 px-4`}
 `;
 
 const UsageBasedPricingText = styled.div`

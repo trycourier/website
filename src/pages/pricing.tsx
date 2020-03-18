@@ -22,9 +22,9 @@ const IndexPage: React.FC = () => {
 
   const { heroBg, divider1 } = useStaticQuery(graphql`
     query {
-      heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
+      heroBg: file(relativePath: { eq: "bgs/header-bg@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 1280) {
+          fluid(maxWidth: 3200) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -63,10 +63,10 @@ const TopDivider = styled(Divide)`
         <BackgroundImage
           Tag="section"
           fluid={heroBg.childImageSharp.fluid}
-          backgroundColor={colors.berry}
+          backgroundColor="transparent"
           style={{
-            backgroundPosition: "center center",
-            height: "100px",
+            backgroundPosition: "center left",
+            height: "300px",
           }}
         >
         </BackgroundImage>
@@ -75,9 +75,11 @@ const TopDivider = styled(Divide)`
 
       <Section>
         <TopDivider />
-        <Container bg="berryWhite">
+        <Container bg="transparent">
+          <div style={{position: "relative", top: -100 }}>
           <UsageBasedPricing />
           <SubscriptionPlans />
+          </div>
         </Container>
       </Section>
 

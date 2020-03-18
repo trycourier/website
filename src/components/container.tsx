@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 const ContainerDark = styled.div`
-  background-color: ${(props: ContainerProps) => colors[props.bg]};
+  background-color: ${(props: ContainerProps) => colors[props.bg] ? colors[props.bg] : props.bg};
   color: ${colors.white};
 `;
 
