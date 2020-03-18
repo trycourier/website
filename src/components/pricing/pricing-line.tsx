@@ -48,16 +48,6 @@ const RangeStyle = `
     font-size: 1em;
     cursor: pointer;
 
-    &::before{
-      content: "";
-      display: inline-block;
-      position: relative;
-      width: 100%;
-      height: 5px;
-      top: 0px;
-      background: ${colors.googleBlue};
-    }
-
     &::-webkit-slider-runnable-track {
       position: relative;
       height: 5px;
