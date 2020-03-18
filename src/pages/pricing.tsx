@@ -20,18 +20,25 @@ import colors from "../colors";
 
 const IndexPage: React.FC = () => {
 
-  const { heroBg, divider1 } = useStaticQuery(graphql`
+  const { headerBg, headerDivider, footerDivider } = useStaticQuery(graphql`
     query {
-      heroBg: file(relativePath: { eq: "bgs/header-bg@2x.png" }) {
+      headerBg: file(relativePath: { eq: "bgs/header-bg@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 3200) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      divider1: file(relativePath: { eq: "dividers/hero-white@2x.png" }) {
+      headerDivider: file(relativePath: { eq: "dividers/hero-white@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 1280) {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      footerDivider: file(relativePath: { eq: "dividers/mod/footer.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -53,8 +60,12 @@ const Divide = styled.div`
 
 const TopDivider = styled(Divide)`
   top: 0px;
+  height: 160px;
+  background-color: ${(props: ContainerProps) => colors[props.bg]};
+  &.footer {
+    height: 130px;
+  }
 `
-
   return (
     <Layout>
       <SEO title="Home" />
@@ -62,7 +73,7 @@ const TopDivider = styled(Divide)`
       <Section>
         <BackgroundImage
           Tag="section"
-          fluid={heroBg.childImageSharp.fluid}
+          fluid={headerBg.childImageSharp.fluid}
           backgroundColor="transparent"
           style={{
             backgroundPosition: "center left",
@@ -70,11 +81,10 @@ const TopDivider = styled(Divide)`
           }}
         >
         </BackgroundImage>
-        <Divider image={divider1} />
+        <Divider image={headerDivider} />
       </Section>
 
       <Section>
-        <TopDivider />
         <Container bg="transparent">
           <div style={{position: "relative", top: -100 }}>
           <UsageBasedPricing />
@@ -84,7 +94,9 @@ const TopDivider = styled(Divide)`
       </Section>
 
       <Section>
-        <TopDivider />
+        <TopDivider className="footer" bg="white">
+          <Divider image={footerDivider} />
+        </TopDivider>
         <Container bg="berry">
           <Footer />
         </Container> 
