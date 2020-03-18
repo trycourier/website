@@ -13,44 +13,42 @@ const trackShoBaseC = colors.white;
 
 const ThumbStyle = `
   box-sizing: border-box;
-  border: solid 1px rgba(#626262, .32);
-  padding: .25em;
-  width: 20px; height: 20px;
-  border-radius: .5em;
-  box-shadow: 0 .5em .25em -1px rgba(#727272, .32);
+  border: solid 5px ${colors.green};
+  padding: 4px;
+  width: 28px; height: 28px;
+  border-radius: 9999px;
+  background: ${colors.white};
+  box-shadow: 0 .5em .25em -1px ${colors.berryglass};
   cursor: ew-resize;
 `
 
 const TrackStyle = `
   box-sizing: border-box;
   border: solid ${trackBw} transparent;
-  width: ${trackW}; height: ${trackH};
+  width: ${trackW}; 
+  height: ${trackH};
   box-shadow: 0 1px ${trackShoBaseC};
   background: #CCC, $EEE;
-  background-size: 100% ${trackH} - 3*${trackIH};
 `
 
-// &, 
-// &::-webkit-slider-runnable-track, 
-// &::-webkit-slider-thumb {
-//   -webkit-appearance: none;
-// }
 const RangeStyle = `
   input[type='range'] {
-    padding: 0;
+    &, 
+    &::-webkit-slider-runnable-track, 
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+    }
+    outline: none;
+    margin-bottom: 36px;
     width: 100%;
-    height: 50px;
-    opacity: .65;
-    background: $track-bg-mid-cover, $track-bg-mid-sh, $track-bg-mid-base;
-    background-repeat: repeat-x;
-    background-position: 0 50%;
-    background-size: $track-u $track-ih;
+    height: 5px;
+    background: ${colors.green};
     font-size: 1em;
     cursor: pointer;
 
     &::-webkit-slider-runnable-track {
       position: relative;
-      width: 35em; height: 5em;
+      height: 5px;
     }
     &::-moz-range-track {
       ${TrackStyle}
@@ -61,14 +59,14 @@ const RangeStyle = `
     }
     
     &::-moz-range-progress {
-      height: 5em;
-      @include fill();
+      
+
     }
 
     &::-webkit-slider-thumb {
       position: relative;
       z-index: 2;
-      margin-top: 10px;
+      top: -10px;
       ${ThumbStyle}
     }
     &::-moz-range-thumb {
@@ -98,7 +96,7 @@ const PricingLine = styled.section`
       font-weight: 600;
     }
   }
-
+  ${RangeStyle}
 `;
 
 const PricingLineInfo = styled.div`
@@ -116,27 +114,27 @@ const pricingMatrix = [
   {
     perMonth: "$0",
     additional: "$0.001",
-    cummulative: "100K+"
+    cummulative: "10K"
   },
   {
-    perMonth: "$59",
+    perMonth: "$19",
     additional: "$0.0009",
-    cummulative: "500K+"
+    cummulative: "50K"
   },
   {
     perMonth: "$99",
-    additional: "$0.0009",
-    cummulative: "1M+"
+    additional: "$0.00075",
+    cummulative: "250K"
   },
   {
     perMonth: "$199",
-    additional: "$0.00039",
-    cummulative: "2.5M+"
+    additional: "$0.0006",
+    cummulative: "750K"
   },
   {
     perMonth: "$499",
     additional: "$0.00039",
-    cummulative: "5M+"
+    cummulative: "1M+"
   },
 ]
 
