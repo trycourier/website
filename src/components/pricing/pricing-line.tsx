@@ -19,7 +19,7 @@ const ThumbStyle = `
   width: 28px; height: 28px;
   border-radius: 9999px;
   background: ${colors.white};
-  box-shadow: 0 .5em .25em -1px ${colors.berryglass};
+  box-shadow: 0 .5em .25em -1px ${colors.berryGlass};
   cursor: ew-resize;
 `;
 

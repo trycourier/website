@@ -10,7 +10,7 @@ import checkmark from "../../images/checkmark.svg";
 
 const FeatureTable = styled.section`
   ${tw`flex flex-row pb-8 px-4`}
-  background: ${colors.berrywhite};
+  background: ${colors.berryWhite};
   color: ${colors.textPrimary};
 `;
 
@@ -37,7 +37,7 @@ const FeatureTableTable= styled.table`
     &:nth-child(2){
       ${tw `p-8`}
       background: #FFF;
-      box-shadow: 0px 4px 8px ${colors.berryglass};
+      box-shadow: 0px 4px 8px ${colors.berryGlass};
       border: 5px solid #FFF;
       border-radius: 20px 20px 0px 0px;
       border-spacing: 0px;
@@ -54,7 +54,7 @@ const FeatureTableTable= styled.table`
       ${tw `py-4 px-8`}
       height: 24px;
       background: #FFF;
-      box-shadow: 0px 8px 8px ${colors.berryglass};
+      box-shadow: 0px 8px 8px ${colors.berryGlass};
       border-left: 16px solid #FFF;
       border-right: 16px solid #FFF;
     }
