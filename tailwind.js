@@ -6,7 +6,7 @@ module.exports = {
         berry: '#9D348B',
         berryGlass: 'rgba(157, 52, 139, 0.75)',
         berryNeutral: '#24324B',
-        berryNeutralGlass: 'rgb(36, 50, 75, 0.75)',
+        neutralGlass: 'rgb(36, 50, 75, 0.75)',
         berryWhite: '#F7F6F9',
         gatsby: 'rebeccapurple',
         googleBlue: '#4285F4',

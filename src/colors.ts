@@ -4,7 +4,7 @@ export default {
   berry: theme.extend.colors.berry,
   berryGlass: theme.extend.colors.berryGlass,
   berryNeutral: theme.extend.colors.berryNeutral,
-  berryNeutralGlass: theme.extend.colors.berryNeutralGlass,
+  neutralGlass: theme.extend.colors.neutralGlass,
   berryWhite: theme.extend.colors.berryWhite,
   googleBlue: theme.extend.colors.googleBlue,
   green: theme.extend.colors.greenMeadow,
