@@ -17,7 +17,7 @@ const Footer = styled.footer`
 `;
 
 const LogoSection = styled.div`
-  ${tw`md:w-1/8 ml-6 md:pr-8`}
+  ${tw`md:w-1/8 md:ml-6 md:pr-8`}
 `
 const Logo = styled.div`
   ${tw`mt-4`}
