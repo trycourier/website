@@ -99,7 +99,7 @@ const FooterComponent: React.FC = () => {
           <NavLinks>
             <NavigationItems>
               <li>
-                <Link to="/#pricing">Pricing</Link>
+                <Link to="/pricing">Pricing</Link>
               </li>
               <li>
                 <Link to="/#company">Company</Link>
@@ -111,7 +111,7 @@ const FooterComponent: React.FC = () => {
           </NavLinks>
           <SocialLinks>
             <a href="https://www.twitter.com/trycourier" target="_blank">
-              <img src={twitterLogo} style={{marginTop: 2, marginLeft: 2}} />
+              <img src={twitterLogo} style={{marginTop: 2, marginLeft: 2 }} />
             </a>
             <a href="https://www.linkedin.com/trycourier" target="_blank">
               <img src={linkedInLogo} />
