@@ -131,15 +131,15 @@ const NavigationComponent: React.FC = () => {
             <li>
               <Link to="/pricing">Pricing</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/#company">Company</Link>
             </li>
             <li>
               <Link to="/#community">Community</Link>
-            </li>
+            </li> */}
             <li>
               <a href="https://docs.trycourier.com/" target="_blank">
-                Docs
+                Documentation
               </a>
             </li>
           </NavigationItems>
@@ -186,9 +186,9 @@ const NavigationComponent: React.FC = () => {
           <li>
             <Link to="/pricing">Pricing</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/#company">Company</Link>
-          </li>
+          </li> */}
           <li>
             <a href="https://docs.trycourier.com/" target="_blank">
               Documentation
