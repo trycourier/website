@@ -149,8 +149,7 @@ const pricingMatrix = [
   },
 ];
 
-// Hook
-function useWindowSize() {
+const useWindowSize = () => {
   const isClient = typeof window === 'object';
 
   function getSize() {
@@ -173,7 +172,7 @@ function useWindowSize() {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []); // Empty array ensures that effect is only run on mount and unmount
+  }, []);
 
   return windowSize;
 }
@@ -202,7 +201,7 @@ const PricingLineComponent: React.FC = () => {
 
   return (
     <PricingLine>
-      <PricingLineInfo ref={measuredRef}>
+      <PricingLineInfo>
         <h4>
           {pricingMatrix[rangeIdx - 1].perMonth}
           <small>/mo</small>
@@ -214,6 +213,7 @@ const PricingLineComponent: React.FC = () => {
         </h5>
         <Desktop>
           <input
+            ref={measuredRef}
             type="range"
             min="1"
             max="5"

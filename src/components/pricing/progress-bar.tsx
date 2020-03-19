@@ -53,9 +53,11 @@ const Ticks = styled.div`
   height: 0px;
 `;
 
-const tickPos = [245, 466, 687];
-// const wrongTickPos = [248, 496, 744];
+// const tickPos = [245, 466, 687];
 // const deltas = [3, 30, 57]
+// const wrongTickPos = [248, 496, 744];
+// const deltas = [-8, -16, -24]
+// const rightTickPos = [237, 450, 663];
 
 const ProgressBarComponent: React.FC<{
   px?: number;
@@ -63,14 +65,18 @@ const ProgressBarComponent: React.FC<{
   fullWidth?: number;
 }> = ({ px = 0, tick = 0, fullWidth = 0 }) => {
   let ticks = [];
-  let unticks = new Array(3).fill("!");
-  // (dx * (idx + 1)) - ((idx * idx * 8) + 20),
+  let unticks = [];
   const dx = fullWidth / 4;
-
-  // console.log(">", px, dx, fullWidth);
+  // this needs to be actually solved
   for (let i = 1; i <= tick; i++) {
-    // console.log(tick, ">>>>>", i * dx);
-    ticks.push(i * dx);
+    const delta = (i % 2 === 0 ? i + i : 0)
+    const marks = i - delta + (i * dx) - 4 * (i * i) - (i - 1) * 12;
+    ticks.push(marks);
+  }
+  for (let i = 1; i <= 3; i++) {
+    const delta = (i % 2 === 0 ? i + i : 0)
+    const marks = i - delta + (i * dx) - 4 * (i * i) - (i - 1) * 12;
+    unticks.push(marks);
   }
 
   return (
@@ -82,7 +88,7 @@ const ProgressBarComponent: React.FC<{
 
       <Ticks>
         {unticks.length
-          ? tickPos.map(pos => (
+          ? unticks.map(pos => (
               <img
                 src={UnTick}
                 style={{
@@ -100,15 +106,14 @@ const ProgressBarComponent: React.FC<{
 
       <Ticks>
         {ticks.length
-          ? ticks.map((t, idx) => (
+          ? ticks.map(pos => (
               <img
                 src={Tick}
-                alt={t}
                 style={{
                   width: 20,
                   height: 20,
                   position: "relative",
-                  left: tickPos[idx],
+                  left: pos,
                   top: -12,
                   zIndex: 1,
                 }}
