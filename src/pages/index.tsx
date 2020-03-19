@@ -175,20 +175,20 @@ const HeroDivider = styled(Divide)`
         </HeroDivider>
       </Section>
       
-      <Section style={{top: -32 }}>
+      <Section style={{top: -100 }}>
         <Container>
           <Clients />
         </Container>
       </Section>
 
-      <Section>
+      <Section style={{top: -100 }}>
         <BackgroundImage
           Tag="section"
           fluid={quoteBg.childImageSharp.fluid}
           backgroundColor={colors.white}
           style={{
             backgroundPosition: "center center",
-            height: "35vh",
+            height: "280px",
           }}
         >
           <Container bg="textPrimary">
@@ -212,7 +212,7 @@ const HeroDivider = styled(Divide)`
         </Container>
       </Section>
 
-      <Section>
+      <Section style={{ top: 64 }}>
         <Container>
           <QuoteComponent2 />
         </Container>

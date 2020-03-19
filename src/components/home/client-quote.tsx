@@ -33,7 +33,7 @@ export const Quote = styled.div`
   border-radius: 20px;
   top: 64px;
   @media(max-width: 640px){
-    top: -32px;
+    top: 0px;
   }
   z-index: 5;
 `;
