@@ -117,7 +117,6 @@ const IndexPage: React.FC = () => {
 const Section = styled.section`
   position: relative;
   width: 100%;
-  overflow: hidden;
 `;
 
 const Divide = styled.div`
@@ -141,7 +140,7 @@ const TopDivider = styled(Divide)`
 `
 
 const BotDivider = styled(Divide)`
-  bottom: 0px;
+  bottom: -66px;
   background-color: ${(props: ContainerProps) => colors[props.bg]};
   height: 115px;
 `

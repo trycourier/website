@@ -32,7 +32,7 @@ const ImplementImageWrapper = styled.div`
 `;
 
 const ImplementInfo = styled.div`
-  ${tw`md:w-1/2 md:ml-8 md:mt-24 text-center`}
+  ${tw`pb-32 md:w-1/2 md:ml-8 md:mt-24 text-center`}
   & a {
     ${tw`no-underline text-sm py-6 px-8 mt-8`}
     color: ${colors.white};

@@ -9,11 +9,11 @@ import colors from "../../colors";
 import { listStyles } from "../styles";
 
 const Editor = styled.section`
-  ${tw`md:flex p-4 mb-16 md:py-0 lg:px-0`}
+  ${tw`md:flex p-4 my-16 md:py-0 lg:px-0`}
 `;
 
 const EditorText = styled.div`
-  ${tw`md:w-1/2 md:pr-8 mt-16`}
+  ${tw`w-3/4 md:w-1/2 mx-auto md:pr-8 mt-16`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-2`}
     color: ${colors.textPrimary};

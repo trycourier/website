@@ -17,7 +17,7 @@ const TrackingSection = styled.div`
 `;
 
 const TrackingText = styled.div`
-  ${tw`md:w-1/2 md:pr-8 mt-16`}
+  ${tw`w-3/4 mx-auto md:w-1/2 md:pr-8 mt-16 pt-32`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-2`}
     color: ${colors.textPrimary};
@@ -51,9 +51,9 @@ const TrackingComponent: React.FC = () => {
           }
         }
       }
-      mobileImg: file(relativePath: { eq: "tracking-mobile@2x.png" }) {
+      mobileImg: file(relativePath: { eq: "cross-engagement@3x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 643) {
+          fluid(maxWidth: 1242) {
             ...GatsbyImageSharpFluid
           }
         }

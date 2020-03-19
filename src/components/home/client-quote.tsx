@@ -6,6 +6,8 @@ import Image from "../image";
 
 import quoteImg from "../../images/quotes-start.svg";
 
+import { Desktop, Mobile } from "../container";
+
 import colors from "../../colors";
 
 const Abs = styled.div`
@@ -19,7 +21,7 @@ const Abs2 = styled(Abs)`
 `;
 
 export const Flex = styled.div`
-  ${tw`flex`}
+  ${tw`flex flex-col sm:flex-row`}
 `
 
 export const Rel = styled.div`
@@ -27,14 +29,13 @@ export const Rel = styled.div`
 `
 
 export const Quote = styled.div`
-  ${tw`mx-8 sm:ml-auto absolute w-full md:w-50 p-6 bg-white shadow-xl`}
-  top: 64px;
+  ${tw`mx-8 sm:ml-auto absolute w-3/4 md:w-full p-6 bg-white shadow-xl`}
   border-radius: 20px;
+  top: 64px;
   @media(max-width: 640px){
-    right: -150px;
-    display: none;
+    top: -32px;
   }
-  z-index: 2;
+  z-index: 5;
 `;
 
 export const QuoteBox = styled(Rel)`
@@ -54,6 +55,10 @@ const QuoteAuthor = styled.div`
 
 const QuoteImage = styled.div`
   width: 260px;
+  @media(max-width: 640px){
+    width: 100px;
+    margin: 4px auto;
+  }
 `;
 
 const ImageBorder = styled.div`
@@ -61,6 +66,7 @@ const ImageBorder = styled.div`
   overflow: hidden;
   border-radius: 24px;
   box-shadow: 0px 0px 5px rgba(0,0,0,0.16);
+
 `;
 
 const QuoteComponent: React.FC = () => {
@@ -78,7 +84,32 @@ const QuoteComponent: React.FC = () => {
 
   return (
     <Quote>
-      <Flex>
+      <Desktop>
+        <Flex>
+          <QuoteBox>
+            <Abs>
+              <img src={quoteImg} />
+            </Abs>
+            <Abs2>
+              <img src={quoteImg} />
+            </Abs2>
+            <Flex>
+              <QuoteText>
+                We were building out a new team to focus entirely on our notification infrastructure when we found Courier. Now we support even more channels with one line of code – and our product managers & designers can design the templates without engineering help.
+                <QuoteAuthor>
+                  Eric Koslow, CTO & Co-Founder @ Lattice 
+                </QuoteAuthor>
+              </QuoteText>
+            </Flex>
+          </QuoteBox>
+          <QuoteImage>
+            <ImageBorder>
+              <Image image={eric} />
+            </ImageBorder>
+          </QuoteImage>
+        </Flex>
+      </Desktop>
+      <Mobile>
         <QuoteBox>
           <Abs>
             <img src={quoteImg} />
@@ -100,7 +131,7 @@ const QuoteComponent: React.FC = () => {
             <Image image={eric} />
           </ImageBorder>
         </QuoteImage>
-      </Flex>
+      </Mobile>
     </Quote>
   );
 };

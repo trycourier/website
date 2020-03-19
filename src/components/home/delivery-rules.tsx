@@ -9,7 +9,7 @@ import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
 
 const Route = styled.section`
-  ${tw`md:flex py-8 pb-16 md:pb-0 md:pt-24 px-4 lg:px-0 mx-auto`}
+  ${tw`md:flex pt-32 px-4 md:pb-0 md:pt-24 lg:px-0 mx-auto`}
   color: ${colors.textSecondary};
 `;
 
@@ -50,9 +50,9 @@ const RouteComponent: React.FC = () => {
           }
         }
       }
-      mobileImg: file(relativePath: { eq: "mobile-delivery.png" }) {
+      mobileImg: file(relativePath: { eq: "powered@2x.png" }) {
         childImageSharp {
-          fluid(maxWidth: 360) {
+          fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
           }
         }
