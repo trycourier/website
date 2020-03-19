@@ -7,19 +7,21 @@ import colors from "../../colors";
 
 import ProgressBar from "./progress-bar";
 
-const trackW = "35em";
-const trackBw = ".5em";
-const trackH = "5em";
+const trackW = "100%";
+const trackBw = "5px";
+const trackH = "5px";
 const trackShoBaseC = colors.white;
 
 const ThumbStyle = `
   box-sizing: border-box;
   border: solid 5px ${colors.green};
   padding: 4px;
-  width: 28px; height: 28px;
+  margin-top: 2px;
+  width: 28px; 
+  height: 28px;
   border-radius: 9999px;
   background: ${colors.white};
-  box-shadow: 0 .5em .25em -1px ${colors.berryGlass};
+  box-shadow: 0 5px 8px ${colors.green};
   cursor: ew-resize;
 `;
 
@@ -164,7 +166,7 @@ const PricingLineComponent: React.FC = () => {
           name="priceSection"
           onChange={handleRangeChange}
         />
-        <ProgressBar px={((rangeIdx - 1) / 4) * width} />
+        <ProgressBar px={((rangeIdx - 1) / 4) * width} tick={rangeIdx - 1}/>
         <h5>
           <strong>
             {pricingMatrix[rangeIdx - 1].cummulative} notifications/mo
