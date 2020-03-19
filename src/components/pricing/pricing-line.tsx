@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import styled from "styled-components";
 import tw from "tailwind.macro";
@@ -149,14 +149,47 @@ const pricingMatrix = [
   },
 ];
 
+// Hook
+function useWindowSize() {
+  const isClient = typeof window === 'object';
+
+  function getSize() {
+    return {
+      width: isClient ? window.innerWidth : undefined,
+      height: isClient ? window.innerHeight : undefined
+    };
+  }
+
+  const [windowSize, setWindowSize] = useState(getSize);
+
+  useEffect(() => {
+    if (!isClient) {
+      return false;
+    }
+    
+    function handleResize() {
+      setWindowSize(getSize());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+
+  return windowSize;
+}
+
 const PricingLineComponent: React.FC = () => {
   const [rangeIdx, setRangeIdx] = useState(3);
   const [width, setWidth] = useState(0);
+  const size = useWindowSize();
+
   const measuredRef = useCallback(n => {
     if (n !== null) {
       setWidth(n.getBoundingClientRect().width);
     }
-  }, []);
+  }, [size]);
+
+  console.log("sizzze>", size);
 
   const handleRangeChange = (e: React.FormEvent) => {
     if (e.currentTarget) {
@@ -188,7 +221,7 @@ const PricingLineComponent: React.FC = () => {
             name="priceSection"
             onChange={handleRangeChange}
           />
-          <ProgressBar px={((rangeIdx - 1) / 4) * width} tick={rangeIdx - 1} />
+          <ProgressBar px={((rangeIdx - 1) / 4) * width} tick={rangeIdx - 1} fullWidth={width} />
         </Desktop>
         <Mobile>
           <select name="priceSection" value={rangeIdx} onChange={handleRangeChange}>

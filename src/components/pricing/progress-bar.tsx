@@ -7,7 +7,7 @@ import colors from "../../colors";
 import Tick from "../../images/progress-marker.svg";
 
 const ProgressBar = styled.section`
-  ${tw`md:relative`}
+  ${tw`relative`}
   top: -40px;
   &::before {
     content: "";
@@ -44,13 +44,13 @@ const Ticks = styled.div`
   height: 0px;
 `;
 
-const ProgressBarComponent: React.FC<{ px?: number; tick?: number }> = ({
+const ProgressBarComponent: React.FC<{ px?: number; tick?: number, fullWidth?: number }> = ({
   px = 0,
   tick = 0,
+  fullWidth = 0,
 }) => {
   let ticks = [];
-  const width = 992;
-  const dx = width / 4;
+  const dx = fullWidth / 4;
   if(tick - 1 > 0) {
     ticks = new Array(tick - 1).fill("!");
   }
