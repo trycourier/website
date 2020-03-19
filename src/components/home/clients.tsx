@@ -14,23 +14,26 @@ import aarida from "../../images/clients/aarida.svg";
 // import beacons from "../../images/clients/beacons.svg";
 
 const Clients = styled(Container)`
-  ${tw`py-2`}
+  ${tw`py-2 flex flex-col`}
   background: transparent;
 `;
 
 const ClientsText = styled.div`
-  ${tw`text-left px-4 sm:px-0`}
+  ${tw`text-left mx-auto px-4`}
   & h4 {
     ${tw` p-0 text-md`}
     color: ${colors.textSecondary};
     font-weight: 400;
-    position: relative;
-    top: -24px;
+    top: -30px;
   }
 `;
 
 const ClientsImageWrapper = styled.div`
-  ${tw`py-12`}
+  ${tw`w-full relative mx-auto`}
+  height: 120px;
+  @media(max-width: 640px){
+    width: 385px;
+  }
 `;
 
 type BoxProps = {
@@ -45,13 +48,17 @@ type ClientCardProps = {
 
 const ClientImage = styled.img`
   position: absolute;
-  top: ${(props: ClientCardProps) => (props.mobile ? props.mobile.top : props.desktop.top)};
-  left: ${(props: ClientCardProps) => (props.mobile ? props.mobile.left : props.desktop.left)};
-  @media(min-width: 640px){
-    top: ${(props: ClientCardProps) => (props.desktop ? props.desktop.top : props.mobile.top)};
-    left: ${(props: ClientCardProps) => (props.desktop ? props.desktop.left : props.mobile.left)};
+  top: ${(props: ClientCardProps) =>
+    props.mobile ? props.mobile.top : props.desktop.top};
+  left: ${(props: ClientCardProps) =>
+    props.mobile ? props.mobile.left : props.desktop.left};
+  @media (min-width: 640px) {
+    top: ${(props: ClientCardProps) =>
+      props.desktop ? props.desktop.top : props.mobile.top};
+    left: ${(props: ClientCardProps) =>
+      props.desktop ? props.desktop.left : props.mobile.left};
   }
-`
+`;
 
 const ClientsComponent: React.FC = () => {
   return (
@@ -60,12 +67,36 @@ const ClientsComponent: React.FC = () => {
         <h4>Trusted by</h4>
       </ClientsText>
       <ClientsImageWrapper>
-        <ClientImage src={lattice} desktop={{top: "20px", left: "10px"}} mobile={{top: "10px", left: "10px"}} />
-        <ClientImage src={blissfully} desktop={{top: "2px", left: "194px"}} mobile={{top: "10px", left: "130px"}}/>
-        <ClientImage src={eatgeek} desktop={{top: "16px", left: "380px"}} mobile={{top: "10px", left: "260px"}}/> 
-        <ClientImage src={hutsy} desktop={{top: "33px", left: "543px"}} mobile={{top: "60px", left: "10px"}}/>
-        <ClientImage src={savvy} desktop={{top: "50px", left: "730px"}} mobile={{top: "65px", left: "130px"}}/>
-        <ClientImage src={aarida} desktop={{top: "67px", left: "911px"}} mobile={{top: "50px", left: "260px"}}/>
+        <ClientImage
+          src={lattice}
+          desktop={{ top: "20px", left: "10px" }}
+          mobile={{ top: "10px", left: "10px" }}
+        />
+        <ClientImage
+          src={blissfully}
+          desktop={{ top: "2px", left: "194px" }}
+          mobile={{ top: "10px", left: "130px" }}
+        />
+        <ClientImage
+          src={eatgeek}
+          desktop={{ top: "16px", left: "380px" }}
+          mobile={{ top: "10px", left: "260px" }}
+        />
+        <ClientImage
+          src={hutsy}
+          desktop={{ top: "33px", left: "543px" }}
+          mobile={{ top: "60px", left: "10px" }}
+        />
+        <ClientImage
+          src={savvy}
+          desktop={{ top: "50px", left: "730px" }}
+          mobile={{ top: "65px", left: "130px" }}
+        />
+        <ClientImage
+          src={aarida}
+          desktop={{ top: "67px", left: "911px" }}
+          mobile={{ top: "50px", left: "260px" }}
+        />
         {/* <ClientImage src={beacons} desktop={{top: "74px", left: "10px"}} mobile={{top: "10px", left: "10px"}}/> */}
       </ClientsImageWrapper>
     </Clients>
