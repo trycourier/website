@@ -11,7 +11,7 @@ import colors from "../../colors";
 import channelsGroup from "../../images/channels-group.svg";
 import RegistrationCTA from "./registration-cta";
 
-import { Desktop } from "../container";
+import { Desktop, Mobile } from "../container";
 
 const Abs = styled(animated.div)`
   position: absolute;
@@ -22,7 +22,7 @@ const Abs = styled(animated.div)`
 const StyledImage = styled(Image)``;
 
 const Hero = styled.div`
-  ${tw`flex py-4 pt-32 md:py-12 lg:pt-32 px-4 lg:px-0`}
+  ${tw`md:flex md:flex-row py-4 pt-32 md:py-12 lg:pt-32 px-4 lg:px-0`}
   height: 700px;
   max-height: 700px;
   min-height: 700px;
@@ -30,10 +30,10 @@ const Hero = styled.div`
 `;
 
 const HeroContent = styled.div`
-  ${tw`md:pr-16 mt-16 sm:mt-16`}
+  ${tw`absolute md:relative p-4 md:pr-16 mt-16 sm:mt-16`}
   color: ${colors.white};
   z-index: 5;
-  text-shadow: 1px 1px 2px ${colors.berry};
+  text-shadow: 1px 1px 4px ${colors.berry};
   & h1 {
     ${tw`m-0 p-0 text-5xl mt-2 md:mt-0`}
     font-family: "Bebas Neue", sans-serif;
@@ -71,7 +71,7 @@ const HeroComponent: React.FC = () => {
     config: { mass: 10, tension: 550, friction: 140 },
   }));
 
-  const { chat, chrome, email, slack, teams } = useStaticQuery(graphql`
+  const { chat, chrome, email, slack, teams, mobileImg } = useStaticQuery(graphql`
     query {
       chat: file(relativePath: { eq: "parallax-chat@2x.png" }) {
         childImageSharp {
@@ -104,6 +104,13 @@ const HeroComponent: React.FC = () => {
       teams: file(relativePath: { eq: "parallax-teams@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 640) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      mobileImg: file(relativePath: { eq: "header-mobile@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 828) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -150,6 +157,11 @@ const HeroComponent: React.FC = () => {
           </Abs>
         </HeroImageWrapper>
       </Desktop>
+      <Mobile>
+        <div style={{ position: "absolute", top: "55px", zIndex: 1 }}>
+          <Image image={mobileImg} />
+        </div>
+      </Mobile>
     </Hero>
   );
 };
