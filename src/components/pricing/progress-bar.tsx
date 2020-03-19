@@ -34,9 +34,8 @@ const ProgressInActive = styled.div`
   width: 75%;
   height: 5px;
   left: 0px;
-  background: #CCC;
+  background: #ccc;
 `;
-
 
 const ProgressActive = styled.div`
   position: relative;
@@ -55,20 +54,23 @@ const Ticks = styled.div`
 `;
 
 const tickPos = [245, 466, 687];
+// const wrongTickPos = [248, 496, 744];
+// const deltas = [3, 30, 57]
 
-const ProgressBarComponent: React.FC<{ px?: number; tick?: number, fullWidth?: number }> = ({
-  px = 0,
-  tick = 0,
-  fullWidth = 0,
-}) => {
+const ProgressBarComponent: React.FC<{
+  px?: number;
+  tick?: number;
+  fullWidth?: number;
+}> = ({ px = 0, tick = 0, fullWidth = 0 }) => {
   let ticks = [];
   let unticks = new Array(3).fill("!");
   // (dx * (idx + 1)) - ((idx * idx * 8) + 20),
   const dx = fullWidth / 4;
 
-  console.log(">", dx, fullWidth);
-  if(tick - 1 > 0) {
-    ticks = new Array(tick - 1).fill("!");
+  // console.log(">", px, dx, fullWidth);
+  for (let i = 1; i <= tick; i++) {
+    // console.log(tick, ">>>>>", i * dx);
+    ticks.push(i * dx);
   }
 
   return (
@@ -79,36 +81,40 @@ const ProgressBarComponent: React.FC<{ px?: number; tick?: number, fullWidth?: n
       </ProgressTrack>
 
       <Ticks>
-        {unticks.length ? tickPos.map(pos => (
-          <img
-            src={UnTick}
-            style={{
-              width: 20,
-              height: 20,
-              position: "relative",
-              left: pos,
-              top: -12,
-              zIndex: 1
-            }}
-          />
-        )): null}
+        {unticks.length
+          ? tickPos.map(pos => (
+              <img
+                src={UnTick}
+                style={{
+                  width: 20,
+                  height: 20,
+                  position: "relative",
+                  left: pos,
+                  top: -12,
+                  zIndex: 1,
+                }}
+              />
+            ))
+          : null}
       </Ticks>
 
       <Ticks>
-        {ticks.length ? ticks.map((t, idx) => (
-          <img
-            src={Tick}
-            alt={t}
-            style={{
-              width: 20,
-              height: 20,
-              position: "relative",
-              left: tickPos[idx],
-              top: -12,
-              zIndex: 5
-            }}
-          />
-        )): null}
+        {ticks.length
+          ? ticks.map((t, idx) => (
+              <img
+                src={Tick}
+                alt={t}
+                style={{
+                  width: 20,
+                  height: 20,
+                  position: "relative",
+                  left: tickPos[idx],
+                  top: -12,
+                  zIndex: 1,
+                }}
+              />
+            ))
+          : null}
       </Ticks>
     </ProgressBar>
   );
