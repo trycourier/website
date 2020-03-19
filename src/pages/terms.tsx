@@ -15,7 +15,7 @@ import Divider from "../components/home/divider";
 
 import colors from "../colors";
 
-const PrivacyPolicy: React.FC = () => {
+const TermsOfService: React.FC = () => {
   const { headerBg, headerDivider, footerDivider } = useStaticQuery(graphql`
     query {
       headerBg: file(relativePath: { eq: "bgs/header-bg@2x.png" }) {
@@ -64,7 +64,7 @@ const PrivacyPolicy: React.FC = () => {
   `;
   return (
     <Layout>
-      <SEO title="Privacy Policy" />
+      <SEO title="Terms of Service" />
 
       <Section>
         <BackgroundImage
@@ -82,7 +82,7 @@ const PrivacyPolicy: React.FC = () => {
       <Section>
         <Container bg="transparent">
           <div style={{ position: "relative", top: -100, color: colors.textSecondary }}>
-            <h1 style={{color: colors.textPrimary}}>Privacy Policy</h1>
+            <h1 style={{color: colors.textPrimary}}>Terms of Service</h1>
             <p>
               <em>Last Updated: December 18, 2019</em>
             </p>
@@ -223,4 +223,4 @@ const PrivacyPolicy: React.FC = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default TermsOfService;

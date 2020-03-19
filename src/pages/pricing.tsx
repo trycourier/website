@@ -68,7 +68,7 @@ const TopDivider = styled(Divide)`
 `
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Pricing" />
         
       <Section>
         <BackgroundImage
