@@ -95,7 +95,7 @@ const TopDivider = styled(Divide)`
 
       <Section>
         <TopDivider className="footer" bg="white">
-          <Divider image={footerDivider} />
+          <Divider image={divider7} />
         </TopDivider>
         <Container bg="berry">
           <Footer />

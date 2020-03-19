@@ -62,6 +62,14 @@ const TermsOfService: React.FC = () => {
       height: 130px;
     }
   `;
+
+  const PageWrapper = styled.div`
+    position: relative;
+    top: -100px;
+    padding: 0px 16px;
+    color: ${colors.textSecondary};
+  `
+
   return (
     <Layout>
       <SEO title="Terms of Service" />
@@ -81,7 +89,7 @@ const TermsOfService: React.FC = () => {
 
       <Section>
         <Container bg="transparent">
-          <div style={{ position: "relative", top: -100, color: colors.textSecondary }}>
+          <PageWrapper>
             <h1 style={{color: colors.textPrimary}}>Terms of Service</h1>
             <p>
               <em>Last Updated: December 18, 2019</em>
@@ -207,7 +215,7 @@ const TermsOfService: React.FC = () => {
             </p>
 
             <br />
-          </div>
+          </PageWrapper>
         </Container>
       </Section>
 

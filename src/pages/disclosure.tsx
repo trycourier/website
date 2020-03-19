@@ -62,6 +62,13 @@ const DisclosurePolicy: React.FC = () => {
       height: 130px;
     }
   `;
+
+  const PageWrapper = styled.div`
+    position: relative;
+    top: -100px;
+    padding: 0px 16px;
+    color: ${colors.textSecondary};
+  `;
   return (
     <Layout>
       <SEO title="Responsible Disclosure Policy" />
@@ -81,13 +88,7 @@ const DisclosurePolicy: React.FC = () => {
 
       <Section>
         <Container bg="transparent">
-          <div
-            style={{
-              position: "relative",
-              top: -100,
-              color: colors.textSecondary,
-            }}
-          >
+          <PageWrapper>
             <h1 style={{ color: colors.textPrimary }}>
               Courier Responsible Disclosure Policy
             </h1>
@@ -168,7 +169,7 @@ const DisclosurePolicy: React.FC = () => {
             <p>
               It is the CEO’s responsibility to see this policy is enforced.
             </p>
-          </div>
+          </PageWrapper>
         </Container>
       </Section>
 
