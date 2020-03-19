@@ -20,11 +20,12 @@ import nexmo from "../../images/providers/nexmo.svg";
 import expo from "../../images/providers/expo.svg";
 import msTeams from "../../images/providers/ms-teams.svg";
 
-const Implement = styled.section`
+const OneApi = styled.section`
   ${tw`md:flex pb-8 px-4 lg:px-0`}
+  margin-top: 64px;
 `;
 
-const ImplementImageWrapper = styled.div`
+const OneApiImageWrapper = styled.div`
   ${tw`md:w-1/2 text-left pt-0`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-2`}
@@ -33,9 +34,10 @@ const ImplementImageWrapper = styled.div`
 
 const StyledImage = styled(Image)`
   top: -96px;
+  display: none;
 `
 
-const ImplementInfo = styled.div`
+const OneApiInfo = styled.div`
   ${tw`pb-32 md:w-1/2 md:ml-8 md:mt-24 text-center`}
   & a {
     ${tw`no-underline text-sm py-6 px-8 mt-8`}
@@ -50,10 +52,11 @@ const ImplementInfo = styled.div`
   }
 `;
 
-const ImplementTable= styled.table`
+const OneApiTable= styled.table`
   ${tw`mt-8`}
   display: inline-table;
   border-spacing: 0px;
+  
   & tr {
     ${tw`m-0 p-0 text-lg mb-8`}
   }
@@ -62,6 +65,7 @@ const ImplementTable= styled.table`
     ${tw`m-0 p-4 text-sm mt-4 text-left`}
     border-bottom: 1px solid #425E72;
   }
+
   & td {
     ${tw`m-0 p-4 text-sm mt-4`}
     border-right: 1px solid #425E72;
@@ -71,7 +75,7 @@ const ImplementTable= styled.table`
   }
 `;
 
-const ImplementComponent: React.FC = () => {
+const OneApiComponent: React.FC = () => {
   const { img } = useStaticQuery(graphql`
     query {
       img: file(relativePath: { eq: "code-editor@2x.png" }) {
@@ -85,85 +89,85 @@ const ImplementComponent: React.FC = () => {
   `);
 
   return (
-    <Implement>
-      <ImplementImageWrapper>
+    <OneApi>
+      <OneApiImageWrapper>
         <h2>One API Call</h2>
-        <StyledImage image={img} style={{top: -96}}/>
-      </ImplementImageWrapper>
-      <ImplementInfo>
+        <StyledImage image={img} />
+      </OneApiImageWrapper>
+      <OneApiInfo>
         <Desktop>
-          <ImplementTable>
-              <tr>
-                <th>Email</th>
-                <th>SMS</th>
-                <th>Push</th>
-                <th>Direct Message</th>
-              </tr>
-              <tr>
-                <td><img src={postmark} alt="Postmark" /></td>
-                <td><img src={messagebird} alt="MessageBird" /></td>
-                <td><img src={onesignal} alt="OneSignal" /></td>
-                <td><img src={fbMessenger} alt="FB Messenger" /></td>
-              </tr>
-              <tr>
-                <td><img src={sendgrid} alt="SendGrid" /></td>
-                <td><img src={twilio} alt="Twilio" /></td>
-                <td><img src={firebase} alt="Firebase" /></td>
-                <td><img src={slack} alt="Slack" /></td>
-              </tr>
-              <tr>
-                <td><img src={mailgun} alt="Mailgun" /></td>
-                <td><img src={nexmo} alt="nexmo" /></td>
-                  <td><img src={expo} alt="Expo" /></td>
-                  <td><img src={msTeams} alt="MS Teams" /></td>
-              </tr>
-          </ImplementTable>
+          <OneApiTable>
+            <tr>
+              <th>Email</th>
+              <th>SMS</th>
+              <th>Push</th>
+              <th>Direct Message</th>
+            </tr>
+            <tr>
+              <td><img src={postmark} alt="Postmark" /></td>
+              <td><img src={messagebird} alt="MessageBird" /></td>
+              <td><img src={onesignal} alt="OneSignal" /></td>
+              <td><img src={fbMessenger} alt="FB Messenger" /></td>
+            </tr>
+            <tr>
+              <td><img src={sendgrid} alt="SendGrid" /></td>
+              <td><img src={twilio} alt="Twilio" /></td>
+              <td><img src={firebase} alt="Firebase" /></td>
+              <td><img src={slack} alt="Slack" /></td>
+            </tr>
+            <tr>
+              <td><img src={mailgun} alt="Mailgun" /></td>
+              <td><img src={nexmo} alt="nexmo" /></td>
+              <td><img src={expo} alt="Expo" /></td>
+              <td><img src={msTeams} alt="MS Teams" /></td>
+            </tr>
+          </OneApiTable>
         </Desktop>
         <Mobile>
-          <ImplementTable>
-              <tr>
+          <OneApiTable>
+            <tr>
               <th>Email</th>
-                <th>SMS</th>
-              </tr>
-              <tr>
+              <th>SMS</th>
+            </tr>
+            <tr>
               <td><img src={postmark} alt="Postmark" /></td>
-                <td><img src={messagebird} alt="MessageBird" /></td>
-              </tr>
-              <tr>
+              <td><img src={messagebird} alt="MessageBird" /></td>
+            </tr>
+            <tr>
               <td><img src={sendgrid} alt="SendGrid" /></td>
-                <td><img src={twilio} alt="Twilio" /></td>
-              </tr>
-              <tr>
+              <td><img src={twilio} alt="Twilio" /></td>
+            </tr>
+            <tr>
               <td><img src={mailgun} alt="Mailgun" /></td>
-                <td><img src={nexmo} alt="nexmo" /></td>
-              </tr>
-          </ImplementTable>
-          <ImplementTable>
-              <tr>
-                <th>Push</th>
-                <th>Direct Message</th>
-              </tr>
-              <tr>
-                <td><img src={onesignal} alt="OneSignal" /></td>
-                <td><img src={fbMessenger} alt="FB Messenger" /></td>
-              </tr>
-              <tr>
-                <td><img src={firebase} alt="Firebase" /></td>
-                <td><img src={slack} alt="Slack" /></td>
-              </tr>
-              <tr>
-                <td><img src={expo} alt="Expo" /></td>
-                <td><img src={msTeams} alt="MS Teams" /></td>
-              </tr>
-          </ImplementTable>
+              <td><img src={nexmo} alt="nexmo" /></td>
+            </tr>
+          </OneApiTable>
+          <OneApiTable>
+            <tr>
+              <th>Push</th>
+              <th>Direct Message</th>
+            </tr>
+            <tr>
+              <td><img src={onesignal} alt="OneSignal" /></td>
+              <td><img src={fbMessenger} alt="FB Messenger" /></td>
+            </tr>
+            <tr>
+              <td><img src={firebase} alt="Firebase" /></td>
+              <td><img src={slack} alt="Slack" /></td>
+            </tr>
+            <tr>
+              <td><img src={expo} alt="Expo" /></td>
+              <td><img src={msTeams} alt="MS Teams" /></td>
+            </tr>
+          </OneApiTable>
         </Mobile>
         <div style={{marginTop: 32}}>
           <a href="#">Other Integrations</a>
         </div>
-      </ImplementInfo>
+      </OneApiInfo>
 
-    </Implement>
+    </OneApi>
   );
 };
 
-export default ImplementComponent;
+export default OneApiComponent;

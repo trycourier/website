@@ -62,6 +62,7 @@ const NavigationItems = styled.ul`
 
 const SocialLinks = styled.div`
   ${tw`flex md:ml-4`}
+  margin-left: -16px;
   a {
     ${tw`inline-block p-4`}
     width: 24px;

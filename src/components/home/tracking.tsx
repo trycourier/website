@@ -17,7 +17,7 @@ const TrackingSection = styled.div`
 `;
 
 const TrackingText = styled.div`
-  ${tw`w-3/4 mx-auto md:w-1/2 md:pr-8 mt-32 md:mt-0 pt-32`}
+  ${tw`w-3/4 mx-auto md:w-1/2 md:pr-8 mt-16 md:mt-0 pt-16`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-2`}
     color: ${colors.textPrimary};
@@ -83,9 +83,7 @@ const TrackingComponent: React.FC = () => {
               </ul>
             </TrackingText>
             <TrackingImageWrapper>
-
-                <Image image={img} />
-
+              <Image image={img} />
             </TrackingImageWrapper>
           </TrackingSection>
         </BackgroundImage>

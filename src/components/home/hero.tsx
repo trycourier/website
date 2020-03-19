@@ -23,8 +23,8 @@ const StyledImage = styled(Image)``;
 
 const Hero = styled.div`
   ${tw`md:flex md:flex-row py-4 pt-32 md:py-12 lg:pt-32 px-4 lg:px-0`}
-  height: 700px;
-  max-height: 700px;
+  height: 100%;
+  max-height: 800px;
   min-height: 700px;
   overflow: hidden;
 `;

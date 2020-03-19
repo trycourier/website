@@ -8,14 +8,17 @@ import { Desktop, Mobile } from "../container";
 import { Flex, Quote, QuoteBox, QuoteText, Rel } from "./client-quote";
 
 const StyledQuote = styled(Quote)`
-  top: -128px;
+  top: -32px;
+  @media (max-width: 640px){
+    top: -128px;
+  }
 `
 const ClientImage = styled(Rel)`
   flex: 1;
   margin-top: 24px;
   @media (max-width: 640px){
     width: 160px;
-    margin: 24px auto;
+    margin: 0px auto 24px auto;
   }
 `
 
