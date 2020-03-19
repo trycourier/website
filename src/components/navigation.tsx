@@ -23,7 +23,7 @@ const NavContainer = styled.section`
   ${tw`text-white`}
 
   & nav {
-    ${tw`flex justify-between lg:p-4`}
+    ${tw`flex justify-between md:py-4`}
   }
 
 `;
@@ -48,12 +48,12 @@ const MobileNavMenu = styled.ul`
 `;
 
 const NavigationItems = styled.ul`
-  ${tw`mt-1 p-0`}
+  ${tw`mt-1 p-0 whitespace-no-wrap`}
   & li {
     ${tw`list-none hidden md:inline-block mt-2 align-top`}
     height: 24px;
     & a {
-      ${tw`no-underline text-md py-6 px-8`}
+      ${tw`no-underline text-md py-6 px-6`}
       color: ${colors.white};
       font-weight: 600;
       line-height: 30px;
@@ -65,7 +65,7 @@ const NavigationItems = styled.ul`
     }
   }
   & li.logo {
-    ${tw`inline-block md:mr-8 md:pl-4 md:pr-8`}
+    ${tw`inline-block md:mr-8 md:pr-8`}
     width: 93px;
     height: 24px;
     & a {
@@ -77,7 +77,7 @@ const NavigationItems = styled.ul`
 `;
 
 const AccountButtons = styled.ul`
-  ${tw`m-0 p-2 flex hidden md:inline-block`}
+  ${tw`m-0 p-2 flex hidden md:inline-block whitespace-no-wrap`}
   background: rgba(0,0,0,0.25);
   border-radius: 32px;
   list-style: none;
@@ -128,7 +128,6 @@ const NavigationComponent: React.FC = () => {
                 <img src={courierLogo} alt="Courier"/>
               </Link>
             </li>
-
             <li>
               <Link to="/pricing">Pricing</Link>
             </li>
@@ -140,7 +139,7 @@ const NavigationComponent: React.FC = () => {
             </li>
             <li>
               <a href="https://docs.trycourier.com/" target="_blank">
-                Documentation
+                Docs
               </a>
             </li>
           </NavigationItems>

@@ -32,6 +32,8 @@ const Hero = styled.div`
 const HeroContent = styled.div`
   ${tw`md:pr-16 mt-16 sm:mt-16`}
   color: ${colors.white};
+  z-index: 5;
+  text-shadow: 1px 1px 2px ${colors.berry};
   & h1 {
     ${tw`m-0 p-0 text-5xl mt-2 md:mt-0`}
     font-family: "Bebas Neue", sans-serif;

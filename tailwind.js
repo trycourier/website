@@ -18,7 +18,13 @@ module.exports = {
         newMoon: '#002F48',
         transparent: 'transparent',
         white: '#FFFFFF',
-      }
-    }
+      },
+    },
+    screens: {
+      sm: '640px',
+      md: '813px',
+      lg: '1024px',
+      xl: '1280px',
+    },
   }
 };
