@@ -116,7 +116,7 @@ const FooterComponent: React.FC = () => {
             <a href="https://www.linkedin.com/trycourier" target="_blank">
               <img src={linkedInLogo} />
             </a>
-            <a href="https://www.twitter.com/trycourier" target="_blank">
+            <a href="https://www.facebook.com/trycourier" target="_blank">
               <img src={facebookLogo} />
             </a>
             <a href="https://www.instagram.com/trycourier" target="_blank">
