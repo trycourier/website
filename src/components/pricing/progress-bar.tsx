@@ -67,6 +67,7 @@ const ProgressBarComponent: React.FC<{
   let ticks = [];
   let unticks = [];
   const dx = fullWidth / 4;
+  
   // this needs to be actually solved
   for (let i = 1; i <= tick; i++) {
     const delta = (i % 2 === 0 ? i + i : 0)

@@ -40,6 +40,7 @@ export const Divide = styled.div`
   position: absolute;
   width: 100%;
   height: 100px;
+  overflow: hidden;
 `;
 
 export const TopDivider = styled(Divide)`
@@ -48,6 +49,7 @@ export const TopDivider = styled(Divide)`
   background-color: ${(props: ContainerProps) => colors[props.bg]};
   &.footer {
     height: 130px;
+    min-width: 1822px;
   }
 `;
 
@@ -55,6 +57,7 @@ export const PageWrapper = styled.div`
   position: relative;
   top: -100px;
   padding: 0px 16px;
+  overflow: hidden;
   color: ${colors.textSecondary};
   & h1 {
     color: ${colors.textPrimary};

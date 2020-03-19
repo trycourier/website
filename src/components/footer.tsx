@@ -13,6 +13,7 @@ import instagramLogo from "../images/social-instagram.svg";
 
 const Footer = styled.footer`
   ${tw`md:flex text-white p-8 md:px-0 md:pt-16`}
+  overflow: hidden;
 `;
 
 const LogoSection = styled.div`

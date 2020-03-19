@@ -188,8 +188,6 @@ const PricingLineComponent: React.FC = () => {
     }
   }, [size]);
 
-  console.log("lineSize>", size);
-
   const handleRangeChange = (e: React.FormEvent) => {
     if (e.currentTarget) {
       const val = e.currentTarget.value;

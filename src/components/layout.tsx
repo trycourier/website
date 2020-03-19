@@ -14,6 +14,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  body {
+    overflow-x: hidden;
+  }
   body, p {
     font-family: 'Proxima Nova', 'Roboto', 'Nunito Sans', Roboto, sans-serif;
     font-weight: 100;
