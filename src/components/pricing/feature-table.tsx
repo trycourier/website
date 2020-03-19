@@ -14,7 +14,7 @@ const FeatureTable = styled.section`
 `;
 
 const FeatureTableTable= styled.table`
-  ${tw`mt-8 text-center`}
+  ${tw`mt-8 w-full text-center`}
   display: inline-table;
   border-spacing: 0px;
   & tbody.highlighted {

@@ -7,6 +7,8 @@ import colors from "../../colors";
 
 import ProgressBar from "./progress-bar";
 
+import { Desktop, Mobile } from "../container";
+
 const trackW = "100%";
 const trackBw = "5px";
 const trackH = "5px";
@@ -81,6 +83,17 @@ const RangeStyle = `
   }
 `;
 
+const SelectStyle = `
+  select {
+    padding: 8px;
+    margin: 16px 0px;
+    font-size: 16px;
+    border: 1px solid ${colors.berry};
+    position: relative;
+    top: -16px;
+  }
+`
+
 const PricingLine = styled.section`
   ${tw`md:flex`}
   color: ${colors.textPrimary};
@@ -88,6 +101,9 @@ const PricingLine = styled.section`
     font-size: 48px;
     padding-bottom: 0px;
     margin-bottom: 0px;
+    & small {
+      font-size: 50%;
+    }
   }
   & h5 {
     color: ${colors.textSecondary};
@@ -101,6 +117,7 @@ const PricingLine = styled.section`
     }
   }
   ${RangeStyle}
+  ${SelectStyle}
 `;
 
 const PricingLineInfo = styled.div`
@@ -110,28 +127,25 @@ const PricingLineInfo = styled.div`
 const pricingMatrix = [
   {
     perMonth: "$0",
-    additional: "$0.001",
-    cummulative: "10K",
+    cummulative: "10k",
   },
   {
-    perMonth: "$19",
-    additional: "$0.0009",
-    cummulative: "50K",
+    perMonth: "$0",
+    cummulative: "10k",
   },
   {
     perMonth: "$99",
-    additional: "$0.00075",
-    cummulative: "250K",
-  },
-  {
-    perMonth: "$199",
-    additional: "$0.0006",
-    cummulative: "750K",
+    cummulative: "500k",
   },
   {
     perMonth: "$499",
     additional: "$0.00039",
-    cummulative: "1M+",
+    cummulative: "2.5M+",
+  },
+  {
+    perMonth: "$499",
+    additional: "$0.00039",
+    cummulative: "2.5M+",
   },
 ];
 
@@ -146,27 +160,43 @@ const PricingLineComponent: React.FC = () => {
 
   const handleRangeChange = (e: React.FormEvent) => {
     if (e.currentTarget) {
-      setRangeIdx(e.currentTarget.value);
+      const val = e.currentTarget.value;
+      if (val > 1 && val < 5) {
+        setRangeIdx(val);
+      }
     }
   };
 
   return (
     <PricingLine>
       <PricingLineInfo ref={measuredRef}>
-        <h4>{pricingMatrix[rangeIdx - 1].perMonth} /mo</h4>
+        <h4>
+          {pricingMatrix[rangeIdx - 1].perMonth}
+          <small>/mo</small>
+        </h4>
         <h5>
-          + {pricingMatrix[rangeIdx - 1].additional} per additional notification
-          *
+          {pricingMatrix[rangeIdx - 1].additional
+            ? `+ ${pricingMatrix[rangeIdx - 1].additional}per additional notification`
+            : ` `}
         </h5>
-        <input
-          type="range"
-          min="1"
-          max="5"
-          value={rangeIdx}
-          name="priceSection"
-          onChange={handleRangeChange}
-        />
-        <ProgressBar px={((rangeIdx - 1) / 4) * width} tick={rangeIdx - 1}/>
+        <Desktop>
+          <input
+            type="range"
+            min="1"
+            max="5"
+            value={rangeIdx}
+            name="priceSection"
+            onChange={handleRangeChange}
+          />
+          <ProgressBar px={((rangeIdx - 1) / 4) * width} tick={rangeIdx - 1} />
+        </Desktop>
+        <Mobile>
+          <select name="priceSection" value={rangeIdx} onChange={handleRangeChange}>
+            <option value="2">Small</option>
+            <option value="3">Medium</option>
+            <option value="4">Large</option>
+          </select>
+        </Mobile>
         <h5>
           <strong>
             {pricingMatrix[rangeIdx - 1].cummulative} notifications/mo
