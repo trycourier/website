@@ -30,6 +30,37 @@ export const Mobile = styled.div`
   }
 `;
 
+export const Section = styled.section`
+  position: relative;
+  width: 100%;
+  background: ${colors.white};
+`;
+
+export const Divide = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100px;
+`;
+
+export const TopDivider = styled(Divide)`
+  top: 0px;
+  height: 160px;
+  background-color: ${(props: ContainerProps) => colors[props.bg]};
+  &.footer {
+    height: 130px;
+  }
+`;
+
+export const PageWrapper = styled.div`
+  position: relative;
+  top: -100px;
+  padding: 0px 16px;
+  color: ${colors.textSecondary};
+  & h1 {
+    color: ${colors.textPrimary};
+  }
+`;
+
 const ContainerComponent: React.FC<{
   id?: string;
   bg?: string;

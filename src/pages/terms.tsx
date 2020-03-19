@@ -1,19 +1,15 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import styled from "styled-components";
-
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 import BackgroundImage from "gatsby-background-image";
 
-import Container from "../components/container";
+import Container, { Section, TopDivider, PageWrapper } from "../components/container";
 import Footer from "../components/footer";
 
 import Divider from "../components/home/divider";
-
-import colors from "../colors";
 
 const TermsOfService: React.FC = () => {
   const { headerBg, headerDivider, footerDivider } = useStaticQuery(graphql`
@@ -42,34 +38,6 @@ const TermsOfService: React.FC = () => {
     }
   `);
 
-  const Section = styled.section`
-    position: relative;
-    width: 100%;
-    background: ${colors.white};
-  `;
-
-  const Divide = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100px;
-  `;
-
-  const TopDivider = styled(Divide)`
-    top: 0px;
-    height: 160px;
-    background-color: ${(props: ContainerProps) => colors[props.bg]};
-    &.footer {
-      height: 130px;
-    }
-  `;
-
-  const PageWrapper = styled.div`
-    position: relative;
-    top: -100px;
-    padding: 0px 16px;
-    color: ${colors.textSecondary};
-  `
-
   return (
     <Layout>
       <SEO title="Terms of Service" />
@@ -90,7 +58,7 @@ const TermsOfService: React.FC = () => {
       <Section>
         <Container bg="transparent">
           <PageWrapper>
-            <h1 style={{color: colors.textPrimary}}>Terms of Service</h1>
+            <h1>Terms of Service</h1>
             <p>
               <em>Last Updated: December 18, 2019</em>
             </p>
