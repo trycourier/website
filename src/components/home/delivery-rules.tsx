@@ -30,7 +30,7 @@ const RouteText = styled.div`
 `;
 
 const RouteImageWrapper = styled.div`
-  ${tw`w-full`}
+  ${tw`w-1/2 mx-auto md:w-full`}
 `;
 
 const RouteComponent: React.FC = () => {

@@ -17,7 +17,7 @@ const TrackingSection = styled.div`
 `;
 
 const TrackingText = styled.div`
-  ${tw`w-3/4 mx-auto md:w-1/2 md:pr-8 mt-16 pt-32`}
+  ${tw`w-3/4 mx-auto md:w-1/2 md:pr-8 mt-32 md:mt-0 pt-32`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-2`}
     color: ${colors.textPrimary};
@@ -51,7 +51,7 @@ const TrackingComponent: React.FC = () => {
           }
         }
       }
-      mobileImg: file(relativePath: { eq: "cross-engagement@3x.png" }) {
+      mobileImg: file(relativePath: { eq: "morgan@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 1242) {
             ...GatsbyImageSharpFluid
@@ -68,8 +68,30 @@ const TrackingComponent: React.FC = () => {
 
   return (
     <Tracking>
-      <BackgroundImage fluid={bg.childImageSharp.fluid} style={bgStyle}>
-        <TrackingSection>
+      <Desktop>
+        <BackgroundImage fluid={bg.childImageSharp.fluid} style={bgStyle}>
+          <TrackingSection>
+            <TrackingText>
+              <h2>Cross-Channel Engagement Tracking</h2>
+              <p>
+                Get insight on your performance across all channels
+              </p>
+              <ul>
+                <li>Find the best channel for each user</li>
+                <li>Compare deliverability across multiple providers</li>
+                <li>Detailed event log for every user on every channel</li>
+              </ul>
+            </TrackingText>
+            <TrackingImageWrapper>
+
+                <Image image={img} />
+
+            </TrackingImageWrapper>
+          </TrackingSection>
+        </BackgroundImage>
+      </Desktop>
+      <Mobile>
+       <TrackingSection>
           <TrackingText>
             <h2>Cross-Channel Engagement Tracking</h2>
             <p>
@@ -82,15 +104,10 @@ const TrackingComponent: React.FC = () => {
             </ul>
           </TrackingText>
           <TrackingImageWrapper>
-            <Desktop>
-              <Image image={img} />
-            </Desktop>
-            <Mobile>
               <Image image={mobileImg} />
-            </Mobile>
           </TrackingImageWrapper>
         </TrackingSection>
-      </BackgroundImage>
+      </Mobile>      
     </Tracking>
   );
 };

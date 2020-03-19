@@ -4,7 +4,6 @@ import Image from "../image";
 import NoCode from "./no-code";
 
 import styled from "styled-components";
-import tw from "tailwind.macro";
 import { Desktop, Mobile } from "../container";
 import { Flex, Quote, QuoteBox, QuoteText, Rel } from "./client-quote";
 
@@ -15,8 +14,8 @@ const ClientImage = styled(Rel)`
   flex: 1;
   margin-top: 24px;
   @media (max-width: 640px){
-    width: 240px;
-    margin: 8px auto;
+    width: 160px;
+    margin: 24px auto;
   }
 `
 

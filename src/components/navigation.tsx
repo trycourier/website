@@ -53,7 +53,7 @@ const NavigationItems = styled.ul`
     ${tw`list-none hidden md:inline-block mt-2 align-top`}
     height: 24px;
     & a {
-      ${tw`no-underline text-md py-6 px-6`}
+      ${tw`no-underline text-md py-4 px-6`}
       color: ${colors.white};
       font-weight: 600;
       line-height: 30px;

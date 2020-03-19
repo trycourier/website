@@ -25,11 +25,15 @@ const Implement = styled.section`
 `;
 
 const ImplementImageWrapper = styled.div`
-  ${tw`md:w-1/2 text-left md:pt-0`}
+  ${tw`md:w-1/2 text-left pt-0`}
   & h2 {
     ${tw`m-0 p-0 text-3xl mb-2`}
   }
 `;
+
+const StyledImage = styled(Image)`
+  top: -96px;
+`
 
 const ImplementInfo = styled.div`
   ${tw`pb-32 md:w-1/2 md:ml-8 md:mt-24 text-center`}
@@ -84,7 +88,7 @@ const ImplementComponent: React.FC = () => {
     <Implement>
       <ImplementImageWrapper>
         <h2>One API Call</h2>
-        <Image image={img} />
+        <StyledImage image={img} style={{top: -96}}/>
       </ImplementImageWrapper>
       <ImplementInfo>
         <Desktop>
