@@ -23,7 +23,7 @@ const NavContainer = styled.section`
   ${tw`text-white`}
 
   & nav {
-    ${tw`flex justify-between md:py-4`}
+    ${tw`flex justify-between md:py-4 md:pr-4`}
   }
 
 `;
