@@ -22,19 +22,16 @@ const Abs = styled(animated.div)`
 const StyledImage = styled(Image)``;
 
 const Hero = styled.div`
-  ${tw`flex flex-row p-4 pt-16 md:pt-32 md:py-12 lg:pt-32 lg:px-0`}
+  ${tw`md:flex md:flex-row py-4 md:pt-32 md:py-12 lg:pt-32 px-4 lg:px-0`}
   height: 100%;
-  color: ${colors.white};
   max-height: 800px;
   min-height: 700px;
   overflow: hidden;
-  & p {
-    color: ${colors.white};
-  }
 `;
 
 const HeroContent = styled.div`
-  ${tw`relative p-4 md:pr-16 mt-16 sm:mt-16`}
+  ${tw`absolute md:relative p-4 md:pr-16 mt-16 sm:mt-16`}
+  color: ${colors.white};
   z-index: 5;
   text-shadow: 1px 1px 4px ${colors.berry};
   & h1 {
@@ -42,8 +39,9 @@ const HeroContent = styled.div`
     font-family: "Bebas Neue", sans-serif;
   }
   & p {
-    ${tw`m-0 p-0 text-lg text-white mb-6`}
+    ${tw`m-0 p-0 text-lg text-white my-6`}
     font-weight: 100;
+    line-height: 14px;
   }
   & label {
     ${tw`text-sm mt-8 mb-2 pb-2 lg:mt-16`}
@@ -59,10 +57,8 @@ const HeroImageWrapper = styled.div`
 
 const MobileHeroContent = styled.div`
   ${tw`relative`}
-  & h1 {
-    ${tw`text-5xl`}
-    font-family: "Bebas Neue", sans-serif;
-  }
+  top: 320px;
+  color: ${colors.white};
 `
 const MobileImageWrapper = styled.div`
   background: transparent;
@@ -144,20 +140,23 @@ const HeroComponent: React.FC = () => {
 
   return (
     <Hero>
-      <Desktop>
-        <HeroContent>
-          <h1>
-            The Smartest Way to
-            <br />
-            Design &amp; Deliver Notifications
-          </h1>
-          <p>Design once, deliver to any channel through one API</p>
+      
+      <HeroContent>
+        <h1>
+          The Smartest Way to
+          <br />
+          Design &amp; Deliver Notifications
+        </h1>
+        <p>Design once, deliver to any channel<Mobile><br/></Mobile> through one API</p>
+        <Desktop>
           <label>
             Sign up and recieve <strong>10,000 free</strong> notifications every
             month
           </label>
           <RegistrationCTA />
-        </HeroContent>
+        </Desktop>
+      </HeroContent>
+      <Desktop>
         <HeroImageWrapper
           onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
         >
@@ -183,12 +182,6 @@ const HeroComponent: React.FC = () => {
       </Desktop>
       <Mobile>
         <MobileHeroContent>
-          <h1>
-            The Smartest Way to
-            <br />
-            Design &amp; Deliver Notifications
-          </h1>
-          <p>Design once, deliver to any channel<br />through one API</p>
           <MobileImageWrapper>
             <Image image={mobileImg} />
           </MobileImageWrapper>
