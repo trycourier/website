@@ -57,12 +57,13 @@ const HeroImageWrapper = styled.div`
 const MobileImageWrapper = styled.div`
   position: absolute;
   width: 75vw;
-  bottom: 100px;
+  bottom: 124px;
   right: -16px;
 `;
 
 const HeroCTA = styled.div`
-  ${tw`text-center mt-48 md:mt-16 md:text-left`}
+  ${tw`text-center md:mt-16 md:text-left`}
+  margin-top: 33%;
 `;
 
 const HeroComponent: React.FC = () => {
