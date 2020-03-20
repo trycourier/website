@@ -32,6 +32,7 @@ const TrackingText = styled.div`
 
 const TrackingImageWrapper = styled.div`
   ${tw`md:w-1/2`}
+  margin: -16px;
 `;
 
 const TrackingComponent: React.FC = () => {
