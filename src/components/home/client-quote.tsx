@@ -29,9 +29,10 @@ export const Rel = styled.div`
 `
 
 export const Quote = styled.div`
-  ${tw`mx-8 sm:ml-auto absolute w-3/4 md:w-full p-6 bg-white shadow-xl`}
+  ${tw`absolute w-3/4 p-6 bg-white shadow-xl`}
   border-radius: 20px;
   top: 64px;
+  right: 16px;
   @media(max-width: 640px){
     top: 0px;
   }

@@ -56,8 +56,8 @@ const HeroImageWrapper = styled.div`
 
 const MobileImageWrapper = styled.div`
   position: absolute;
-  width: 75%;
-  bottom: 128px;
+  width: 75vw;
+  bottom: 100px;
   right: -16px;
 `;
 
