@@ -30,7 +30,7 @@ const Hero = styled.div`
 `;
 
 const HeroContent = styled.div`
-  ${tw`absolute md:relative p-4 md:pr-16 mt-16 sm:mt-16`}
+  ${tw`absolute md:relative py-4 md:pr-16 mt-16 sm:mt-16`}
   color: ${colors.white};
   z-index: 5;
   text-shadow: 1px 1px 4px ${colors.berry};
@@ -66,13 +66,12 @@ const MobileImageWrapper = styled.div`
   position: absolute;
   width: 75%;
   height: 200px;
-  bottom: -100px;
+  bottom: -80px;
   right: -16px;
 `;
 
 const HeroCTA = styled.div`
-  position: relative;
-  top: 190px;
+  ${tw`text-center mt-48 md:mt-16 md:text-left`}
 `;
 
 const HeroComponent: React.FC = () => {
