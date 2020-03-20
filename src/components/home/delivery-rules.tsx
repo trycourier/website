@@ -61,8 +61,8 @@ const RouteComponent: React.FC = () => {
   `);
 
   const bgStyle = {
-    backgroundSize: "360px 240px",
-    backgroundPosition: "center center",
+    backgroundSize: "360px 360px",
+    backgroundPosition: "0% 0%",
   };
 
   return (

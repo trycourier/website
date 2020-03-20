@@ -39,7 +39,7 @@ type CTAProps = {
 
 const Content = styled.div`
   & form {
-    ${tw`my-2 p-3`}
+    ${tw`my-2 p-3 mx-auto`}
     background-color: ${(props: CTAProps) =>
       props.footer ? colors.berry : `rgba(0,0,0,0.25)`};
     border-radius: 32px;
@@ -74,28 +74,34 @@ const MobileContent = styled(Mobile)`
   }
 `;
 
+const Flex = styled.div`
+  display: flex;
+`
+
 const RegistrationCTA: React.FC = () => {
   return (
     <Content footer={false}>
       <form>
         <Desktop>
-          <a href={googleSignUpUrl}>
-            <Button>
-              <img src={googleLogo} />
-              <label>Google</label>
-            </Button>
-          </a>
-          <a href={githubSignUpUrl}>
-            <Button className="github">
-              <img src={githubLogo} />
-              <label>GitHub</label>
-            </Button>
-          </a>
-          <a href={emailSignUpUrl}>
-            <button className="ghost">
-              or <strong>email</strong>
-            </button>
-          </a>
+          <Flex>
+            <a href={googleSignUpUrl}>
+              <Button>
+                <img src={googleLogo} />
+                <label>Google</label>
+              </Button>
+            </a>
+            <a href={githubSignUpUrl}>
+              <Button className="github">
+                <img src={githubLogo} />
+                <label>GitHub</label>
+              </Button>
+            </a>
+            <a href={emailSignUpUrl}>
+              <button className="ghost">
+                or <strong>email</strong>
+              </button>
+            </a>
+          </Flex>
         </Desktop>
         <MobileContent>
           <Button className="mobile">
