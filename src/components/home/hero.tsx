@@ -12,6 +12,7 @@ import channelsGroup from "../../images/channels-group.svg";
 import RegistrationCTA from "./registration-cta";
 
 import { Desktop, Mobile } from "../container";
+import { BrowserView, MobileView } from "react-device-detect";
 
 const Abs = styled(animated.div)`
   position: absolute;
@@ -136,6 +137,11 @@ const HeroComponent: React.FC = () => {
           <Image image={mobileImg} />
         </MobileImageWrapper>
       </Mobile>
+      <MobileView>
+        <MobileImageWrapper>
+          <Image image={mobileImg} />
+        </MobileImageWrapper>
+      </MobileView>
 
       <HeroContent>
         <h1>
@@ -153,30 +159,32 @@ const HeroComponent: React.FC = () => {
         </HeroCTA>
       </HeroContent>
 
-      <Desktop>
-        <HeroImageWrapper
-          onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-        >
-          <Abs style={{ transform: props.xy.interpolate(trans1), width: 400, top: 225, right: 50}}>
-            <img src={channelsGroup} />
-          </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans4), top: 95, right: 50 }}>
-            <Image image={teams} />
-          </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans5), width: 565, top: 200 }}> 
-            <Image image={email} />
-          </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans2), width: 380, top: 290, right: 200 }}>
-            <Image image={chat} />
-          </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans2), top: 75, right: -50 }}>
-            <Image image={chrome} />
-          </Abs>
-          <Abs style={{ transform: props.xy.interpolate(trans3), top: 540, right: -120 }}>
-            <Image image={slack} />
-          </Abs>
-        </HeroImageWrapper>
-      </Desktop>
+      <BrowserView>
+        <Desktop>
+          <HeroImageWrapper
+            onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+          >
+            <Abs style={{ transform: props.xy.interpolate(trans1), width: 400, top: 225, right: 50}}>
+              <img src={channelsGroup} />
+            </Abs>
+            <Abs style={{ transform: props.xy.interpolate(trans4), top: 95, right: 50 }}>
+              <Image image={teams} />
+            </Abs>
+            <Abs style={{ transform: props.xy.interpolate(trans5), width: 565, top: 200 }}> 
+              <Image image={email} />
+            </Abs>
+            <Abs style={{ transform: props.xy.interpolate(trans2), width: 380, top: 290, right: 200 }}>
+              <Image image={chat} />
+            </Abs>
+            <Abs style={{ transform: props.xy.interpolate(trans2), top: 75, right: -50 }}>
+              <Image image={chrome} />
+            </Abs>
+            <Abs style={{ transform: props.xy.interpolate(trans3), top: 540, right: -120 }}>
+              <Image image={slack} />
+            </Abs>
+          </HeroImageWrapper>
+        </Desktop>
+      </BrowserView>
     </Hero>
   );
 };

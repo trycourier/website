@@ -10,7 +10,7 @@ import { Flex, Quote, QuoteBox, QuoteText, Rel } from "./client-quote";
 const StyledQuote = styled(Quote)`
   top: -32px;
   @media (max-width: 640px){
-    top: -128px;
+    top: -96px;
   }
 `
 const ClientImage = styled(Rel)`
