@@ -131,7 +131,7 @@ type ContainerProps = {
 }
 
 const TopDivider = styled(Divide)`
-  top: 0px;
+  top: -4px;
   height: 160px;
   background-color: ${(props: ContainerProps) => colors[props.bg]};
   &.footer {

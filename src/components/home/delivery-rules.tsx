@@ -7,6 +7,7 @@ import Image from "../image";
 import NoCode from "./no-code";
 import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
+import { isMobile } from "react-device-detect";
 
 const Route = styled.section`
   ${tw`md:flex pt-32 px-4 md:pb-0 md:pt-24 lg:px-0 mx-auto`}
@@ -61,7 +62,7 @@ const RouteComponent: React.FC = () => {
   `);
 
   const bgStyle = {
-    backgroundSize: "360px 360px",
+    backgroundSize: !isMobile ? "360px 360px" : "0px 0px",
     backgroundPosition: "0% 0%",
   };
 

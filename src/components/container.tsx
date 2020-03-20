@@ -38,7 +38,7 @@ export const Divide = styled.div`
 `;
 
 export const TopDivider = styled(Divide)`
-  top: -14px;
+  top: 0px;
   height: 160px;
   background-color: ${(props: ContainerProps) => colors[props.bg]};
   &.footer {
