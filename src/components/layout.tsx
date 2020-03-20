@@ -25,8 +25,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  body {
+  html, body {
     overflow-x: hidden;
+    max-width: 100%;
     -webkit-font-smoothing: antialiased;
   }
 
