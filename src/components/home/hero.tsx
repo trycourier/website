@@ -11,7 +11,7 @@ import colors from "../../colors";
 import channelsGroup from "../../images/channels-group.svg";
 import RegistrationCTA from "./registration-cta";
 
-// import { Desktop, Mobile } from "../container";
+import { Desktop, Mobile } from "../container";
 
 const Abs = styled(animated.div)`
   position: absolute;
@@ -53,20 +53,12 @@ const HeroImageWrapper = styled.div`
   ${tw`p-4 pt-12 md:p-0`}
 `;
 
-// const MobileHeroContent = styled.div`
-//   ${tw`absolute`}
-//   right: 0px;
-//   width: 100%;
-//   height: auto;
-//   color: ${colors.white};
-// `;
-
-// const MobileImageWrapper = styled.div`
-//   position: absolute;
-//   width: 75%;
-//   bottom: 16px;
-//   right: -16px;
-// `;
+const MobileImageWrapper = styled.div`
+  position: absolute;
+  width: 75%;
+  bottom: 96px;
+  right: -16px;
+`;
 
 const HeroCTA = styled.div`
   ${tw`text-center mt-48 md:mt-16 md:text-left`}
@@ -139,22 +131,29 @@ const HeroComponent: React.FC = () => {
   return (
     <Hero>
       
-        <HeroContent>
-          <h1>
-            The Smartest Way to
-            <br />
-            Design &amp; Deliver Notifications
-          </h1>
-          <p>Design once, deliver to any channel through one API</p>
-          <HeroCTA>
-            <label>
-              Sign up and recieve <strong>10,000 free</strong> notifications every
-              month
-            </label>
-            <RegistrationCTA />
-          </HeroCTA>
-        </HeroContent>
+      <Mobile>
+        <MobileImageWrapper>
+          <Image image={mobileImg} />
+        </MobileImageWrapper>
+      </Mobile>
 
+      <HeroContent>
+        <h1>
+          The Smartest Way to
+          <br />
+          Design &amp; Deliver Notifications
+        </h1>
+        <p>Design once, deliver to any channel<Mobile><br/></Mobile>through one API</p>
+        <HeroCTA>
+          <label>
+            Sign up and recieve <strong>10,000 free</strong> notifications every
+            month
+          </label>
+          <RegistrationCTA />
+        </HeroCTA>
+      </HeroContent>
+
+      <Desktop>
         <HeroImageWrapper
           onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
         >
@@ -177,14 +176,7 @@ const HeroComponent: React.FC = () => {
             <Image image={slack} />
           </Abs>
         </HeroImageWrapper>
-
-      {/* <Mobile>
-        <MobileHeroContent>
-          <MobileImageWrapper>
-            <Image image={mobileImg} />
-          </MobileImageWrapper>
-        </MobileHeroContent>
-      </Mobile> */}
+      </Desktop>
     </Hero>
   );
 };
