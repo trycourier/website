@@ -89,12 +89,12 @@ const ClientsComponent: React.FC = () => {
         />
         <ClientImage
           src={savvy}
-          desktop={{ top: "50px", left: "730px" }}
+          desktop={{ top: "50px", left: "685px" }}
           mobile={{ top: "65px", left: "130px" }}
         />
         <ClientImage
           src={aarida}
-          desktop={{ top: "67px", left: "911px" }}
+          desktop={{ top: "67px", left: "825px" }}
           mobile={{ top: "50px", left: "260px" }}
         />
         {/* <ClientImage src={beacons} desktop={{top: "74px", left: "10px"}} mobile={{top: "10px", left: "10px"}}/> */}

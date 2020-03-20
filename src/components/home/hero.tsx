@@ -43,7 +43,7 @@ const HeroContent = styled.div`
     line-height: 24px;
   }
   & label {
-    ${tw`text-sm mt-8 mb-2 pb-2 lg:mt-16`}
+    ${tw`text-sm mt-8 mb-2 pb-2 lg:mt-16 whitespace-no-wrap`}
     & strong {
       font-weight: 700;
     }
@@ -57,7 +57,7 @@ const HeroImageWrapper = styled.div`
 const MobileImageWrapper = styled.div`
   position: absolute;
   width: 75%;
-  bottom: 96px;
+  bottom: 128px;
   right: -16px;
 `;
 
