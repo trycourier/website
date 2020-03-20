@@ -17,17 +17,11 @@ const ContainerDark = styled.div`
 `;
 
 export const Desktop = styled.div`
-  display: block;
-  @media(max-width: 640px){
-    display: none;
-  }
+  ${tw`hidden md:block`}
 `;
 
 export const Mobile = styled.div`
-  display: none;
-  @media(max-width: 640px){
-    display: block;
-  }
+  ${tw`block md:hidden`}
 `;
 
 export const Section = styled.section`
