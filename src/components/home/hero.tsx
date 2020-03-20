@@ -37,9 +37,9 @@ const HeroContent = styled.div`
     font-family: "Bebas Neue", sans-serif;
   }
   & p {
-    ${tw`m-0 p-0 text-lg text-white my-6`}
+    ${tw`m-0 p-0 text-lg text-white my-6 mr-32 md:mr-0`}
     font-weight: 100;
-    line-height: 14px;
+    line-height: 24px;
   }
   & label {
     ${tw`text-sm mt-8 mb-2 pb-2 lg:mt-16`}
