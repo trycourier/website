@@ -15,7 +15,8 @@ const StyledQuote = styled(Quote)`
 `
 const ClientImage = styled(Rel)`
   flex: 1;
-  margin-top: 24px;
+  max-width: 160px;
+  margin: 24px auto;
   @media (max-width: 640px){
     width: 160px;
     margin: 0px auto 24px auto;

@@ -21,7 +21,7 @@ const Abs = styled(animated.div)`
 `;
 
 const Hero = styled.div`
-  ${tw`md:flex md:flex-row p-4 md:pt-32 md:py-12 lg:pt-32 lg:px-0`}
+  ${tw`text-white md:flex md:flex-row p-4 md:pt-32 md:py-12 lg:pt-32 lg:px-0`}
   height: 100%;
   max-height: 800px;
   min-height: 700px;

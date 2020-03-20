@@ -55,10 +55,10 @@ const QuoteAuthor = styled.div`
 `;
 
 const QuoteImage = styled.div`
-  width: 260px;
+  width: 25%;
+  margin: 24px auto;
   @media(max-width: 640px){
     width: 100px;
-    margin: 4px auto;
   }
 `;
 
