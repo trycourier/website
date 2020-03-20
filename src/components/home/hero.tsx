@@ -143,7 +143,7 @@ const HeroComponent: React.FC = () => {
           <br />
           Design &amp; Deliver Notifications
         </h1>
-        <p>Design once, deliver to any channel<Mobile><br/></Mobile>through one API</p>
+        <p>Design once, deliver to any channel through one API</p>
         <HeroCTA>
           <label>
             Sign up and recieve <strong>10,000 free</strong> notifications every
