@@ -40,7 +40,7 @@ const StyledImage = styled(Image)`
 const OneApiInfo = styled.div`
   ${tw`pb-32 md:w-1/2 md:ml-8 md:mt-8 text-center`}
   & a {
-    ${tw`no-underline text-sm py-6 px-8 mt-8`}
+    ${tw`no-underline text-sm py-2 px-8 mt-8`}
     color: ${colors.white};
     background: rgba(255,255,255,0.1);
     font-weight: 700;

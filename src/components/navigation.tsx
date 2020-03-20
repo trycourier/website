@@ -91,7 +91,7 @@ const AccountButtons = styled.ul`
 `;
 
 const MobileButtons = styled.ul`
-  ${tw`m-0 p-2 flex inline md:hidden`}
+  ${tw`m-0 p-2 flex inline ml-auto md:hidden`}
   height: 36px;
   background: none;
   & li {
@@ -168,14 +168,14 @@ const NavigationComponent: React.FC = () => {
                   </a>
                 </li>
               </AccountButtons>
+                <MobileButtons>
+                  <li className="hamburger">
+                      <a href="/" onClick={toggleMenu}>
+                        <img src={mobileMenu} />
+                      </a>
+                  </li>
+                </MobileButtons>
               </Flex>
-              <MobileButtons>
-                <li className="hamburger">
-                    <a href="/" onClick={toggleMenu}>
-                      <img src={mobileMenu} />
-                    </a>
-                </li>
-              </MobileButtons>
             </Container>
           </nav>
 
