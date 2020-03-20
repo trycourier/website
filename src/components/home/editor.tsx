@@ -9,7 +9,7 @@ import colors from "../../colors";
 import { listStyles } from "../styles";
 
 const Editor = styled.section`
-  ${tw`md:flex px-4 pt-16 mt-4 md:mt-32 md:my-0 md:py-0 lg:px-0`}
+  ${tw`md:flex px-4 pt-16 mt-4 md:mt-32 md:my-0 md:pb-16 lg:px-0`}
 `;
 
 const EditorText = styled.div`
