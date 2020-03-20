@@ -8,7 +8,7 @@ type ContainerProps = {
 }
 
 const Container = styled.div`
-  ${tw`relative mx-auto min-w-5xl max-w-5xl`}
+  ${tw`relative w-full mx-auto min-w-5xl max-w-5xl`}
 `;
 
 const ContainerDark = styled.div`

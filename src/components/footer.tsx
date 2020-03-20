@@ -37,7 +37,7 @@ const NavigationItems = styled.ul`
     ${tw`list-none inline-block mt-2 align-top`}
     height: 24px;
     & a {
-      ${tw`no-underline text-white text-md py-4 md:px-8 mr-4`}
+      ${tw`no-underline text-white text-md py-2 md:px-8 mr-4`}
       color: ${colors.white};
       font-weight: 700;
       line-height: 30px;
@@ -61,10 +61,9 @@ const NavigationItems = styled.ul`
 `;
 
 const SocialLinks = styled.div`
-  ${tw`flex md:ml-4`}
-  margin-left: -16px;
+  ${tw`flex md:ml-6`}
   a {
-    ${tw`inline-block p-4`}
+    ${tw`inline-block p-2`}
     width: 24px;
     height: 24px;
     border-radius: 9999px;
@@ -80,9 +79,9 @@ const DetailLinks = styled.div`
   }
   a {
     ${tw`no-underline text-white text-sm py-2 md:px-8`}
-    border-bottom: 2px solid transparent;
+    border-radius: 9999px;
     :hover{
-      border-bottom: 2px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.1);
     }
   }
 `;
@@ -117,7 +116,7 @@ const FooterComponent: React.FC = () => {
           </NavLinks>
           <SocialLinks>
             <a href="https://www.twitter.com/trycourier" target="_blank">
-              <img src={twitterLogo} style={{marginTop: 2, marginLeft: 2 }} />
+              <img src={twitterLogo} style={{marginTop: 2 }} />
             </a>
             <a href="https://www.linkedin.com/trycourier" target="_blank">
               <img src={linkedInLogo} />
