@@ -38,7 +38,7 @@ const StyledImage = styled(Image)`
 `
 
 const OneApiInfo = styled.div`
-  ${tw`pb-32 md:w-1/2 md:ml-8 md:mt-24 text-center`}
+  ${tw`pb-32 md:w-1/2 md:ml-8 md:mt-8 text-center`}
   & a {
     ${tw`no-underline text-sm py-6 px-8 mt-8`}
     color: ${colors.white};
@@ -92,7 +92,9 @@ const OneApiComponent: React.FC = () => {
     <OneApi>
       <OneApiImageWrapper>
         <h2>One API Call</h2>
-        <StyledImage image={img} />
+        <div style={{ marginTop: -64 }}>
+          <StyledImage image={img} />
+        </div>
       </OneApiImageWrapper>
       <OneApiInfo>
         <Desktop>

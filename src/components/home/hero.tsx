@@ -22,16 +22,19 @@ const Abs = styled(animated.div)`
 const StyledImage = styled(Image)``;
 
 const Hero = styled.div`
-  ${tw`md:flex md:flex-row py-4 pt-32 md:py-12 lg:pt-32 px-4 lg:px-0`}
+  ${tw`flex flex-row p-4 pt-16 md:pt-32 md:py-12 lg:pt-32 lg:px-0`}
   height: 100%;
+  color: ${colors.white};
   max-height: 800px;
   min-height: 700px;
   overflow: hidden;
+  & p {
+    color: ${colors.white};
+  }
 `;
 
 const HeroContent = styled.div`
-  ${tw`absolute md:relative p-4 md:pr-16 mt-16 sm:mt-16`}
-  color: ${colors.white};
+  ${tw`relative p-4 md:pr-16 mt-16 sm:mt-16`}
   z-index: 5;
   text-shadow: 1px 1px 4px ${colors.berry};
   & h1 {
@@ -53,6 +56,27 @@ const HeroContent = styled.div`
 const HeroImageWrapper = styled.div`
   ${tw`p-4 pt-12 md:p-0`}
 `;
+
+const MobileHeroContent = styled.div`
+  ${tw`relative`}
+  & h1 {
+    ${tw`text-5xl`}
+    font-family: "Bebas Neue", sans-serif;
+  }
+`
+const MobileImageWrapper = styled.div`
+  background: transparent;
+  position: absolute;
+  width: 75%;
+  height: 200px;
+  bottom: 0px;
+  right: -16px;
+`
+
+const MobileCTA = styled.div`
+  position: relative;
+  top: 190px;
+`
 
 const HeroComponent: React.FC = () => {
   const calc = (x, y) => [
@@ -120,20 +144,20 @@ const HeroComponent: React.FC = () => {
 
   return (
     <Hero>
-      <HeroContent>
-        <h1>
-          The Smartest Way to
-          <br />
-          Design &amp; Deliver Notifications
-        </h1>
-        <p>Design once, deliver to any channel through one API</p>
-        <label>
-          Sign up and recieve <strong>10,000 free</strong> notifications every
-          month
-        </label>
-        <RegistrationCTA />
-      </HeroContent>
       <Desktop>
+        <HeroContent>
+          <h1>
+            The Smartest Way to
+            <br />
+            Design &amp; Deliver Notifications
+          </h1>
+          <p>Design once, deliver to any channel through one API</p>
+          <label>
+            Sign up and recieve <strong>10,000 free</strong> notifications every
+            month
+          </label>
+          <RegistrationCTA />
+        </HeroContent>
         <HeroImageWrapper
           onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
         >
@@ -158,9 +182,24 @@ const HeroComponent: React.FC = () => {
         </HeroImageWrapper>
       </Desktop>
       <Mobile>
-        <div style={{ position: "absolute", top: "55px", zIndex: 1 }}>
-          <Image image={mobileImg} />
-        </div>
+        <MobileHeroContent>
+          <h1>
+            The Smartest Way to
+            <br />
+            Design &amp; Deliver Notifications
+          </h1>
+          <p>Design once, deliver to any channel<br />through one API</p>
+          <MobileImageWrapper>
+            <Image image={mobileImg} />
+          </MobileImageWrapper>
+          <MobileCTA>
+            <label>
+              Sign up and recieve <strong>10,000 free</strong> notifications every month
+            </label>
+            <RegistrationCTA />
+          </MobileCTA>
+        </MobileHeroContent>
+
       </Mobile>
     </Hero>
   );
