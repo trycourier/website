@@ -24,6 +24,20 @@ export const Mobile = styled.div`
   ${tw`block md:hidden`}
 `;
 
+export const MobileLandscape = styled.div`
+  display: none;
+  @media(screen && max-width: 812px){
+    display: block;
+  }
+`
+
+export const NotMobileLandscape = styled.div`
+  display: block;
+  @media(screen && max-width: 812px){
+    display: none;
+  }
+`
+
 export const Section = styled.section`
   position: relative;
   width: 100%;

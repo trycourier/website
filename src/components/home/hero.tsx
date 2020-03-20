@@ -11,7 +11,7 @@ import colors from "../../colors";
 import channelsGroup from "../../images/channels-group.svg";
 import RegistrationCTA from "./registration-cta";
 
-import { Desktop, Mobile } from "../container";
+import { Desktop, Mobile, MobileLandscape, NotMobileLandscape } from "../container";
 import { BrowserView, MobileView } from "react-device-detect";
 
 const Abs = styled(animated.div)`
@@ -36,11 +36,13 @@ const HeroContent = styled.div`
   & h1 {
     ${tw`m-0 p-0 text-5xl mt-2 md:mt-0`}
     font-family: "Bebas Neue", sans-serif;
+    color: ${colors.white};
   }
   & p {
     ${tw`m-0 p-0 text-lg text-white my-6 mr-32 md:mr-0`}
     font-weight: 100;
     line-height: 24px;
+    color: ${colors.white};
   }
   & label {
     ${tw`text-sm mt-8 mb-2 pb-2 lg:mt-16 whitespace-no-wrap`}
@@ -63,7 +65,7 @@ const MobileImageWrapper = styled.div`
 
 const HeroCTA = styled.div`
   ${tw`text-center md:mt-16 md:text-left`}
-  margin-top: 33%;
+  margin-top: 35vw;
 `;
 
 const HeroComponent: React.FC = () => {
@@ -144,6 +146,12 @@ const HeroComponent: React.FC = () => {
         </MobileImageWrapper>
       </MobileView>
 
+      <MobileLandscape>
+        <MobileImageWrapper>
+          <Image image={mobileImg} />
+        </MobileImageWrapper>
+      </MobileLandscape>
+
       <HeroContent>
         <h1>
           The Smartest Way to
@@ -160,30 +168,33 @@ const HeroComponent: React.FC = () => {
         </HeroCTA>
       </HeroContent>
 
+
       <BrowserView>
         <Desktop>
-          <HeroImageWrapper
-            onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-          >
-            <Abs style={{ transform: props.xy.interpolate(trans1), width: 400, top: 225, right: 50}}>
-              <img src={channelsGroup} />
-            </Abs>
-            <Abs style={{ transform: props.xy.interpolate(trans4), top: 95, right: 50 }}>
-              <Image image={teams} />
-            </Abs>
-            <Abs style={{ transform: props.xy.interpolate(trans5), width: 565, top: 200 }}> 
-              <Image image={email} />
-            </Abs>
-            <Abs style={{ transform: props.xy.interpolate(trans2), width: 380, top: 290, right: 200 }}>
-              <Image image={chat} />
-            </Abs>
-            <Abs style={{ transform: props.xy.interpolate(trans2), top: 75, right: -50 }}>
-              <Image image={chrome} />
-            </Abs>
-            <Abs style={{ transform: props.xy.interpolate(trans3), top: 540, right: -120 }}>
-              <Image image={slack} />
-            </Abs>
-          </HeroImageWrapper>
+          <NotMobileLandscape>
+            <HeroImageWrapper
+              onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
+            >
+              <Abs style={{ transform: props.xy.interpolate(trans1), width: 400, top: 225, right: 50}}>
+                <img src={channelsGroup} />
+              </Abs>
+              <Abs style={{ transform: props.xy.interpolate(trans4), top: 95, right: 50 }}>
+                <Image image={teams} />
+              </Abs>
+              <Abs style={{ transform: props.xy.interpolate(trans5), width: 565, top: 200 }}> 
+                <Image image={email} />
+              </Abs>
+              <Abs style={{ transform: props.xy.interpolate(trans2), width: 380, top: 290, right: 200 }}>
+                <Image image={chat} />
+              </Abs>
+              <Abs style={{ transform: props.xy.interpolate(trans2), top: 75, right: -50 }}>
+                <Image image={chrome} />
+              </Abs>
+              <Abs style={{ transform: props.xy.interpolate(trans3), top: 540, right: -120 }}>
+                <Image image={slack} />
+              </Abs>
+            </HeroImageWrapper>
+          </NotMobileLandscape>
         </Desktop>
       </BrowserView>
     </Hero>
