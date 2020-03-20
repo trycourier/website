@@ -22,7 +22,7 @@ const Abs = styled(animated.div)`
 const StyledImage = styled(Image)``;
 
 const Hero = styled.div`
-  ${tw`md:flex md:flex-row py-4 md:pt-32 md:py-12 lg:pt-32 px-4 lg:px-0`}
+  ${tw`md:flex md:flex-row p-4 md:pt-32 md:py-12 lg:pt-32 lg:px-0`}
   height: 100%;
   max-height: 800px;
   min-height: 700px;
@@ -54,9 +54,6 @@ const HeroContent = styled.div`
 const HeroImageWrapper = styled.div`
   ${tw`p-4 pt-12 md:p-0`}
 `;
-const DesktopOnly = styled(Desktop)`
-  ${tw`hidden md:block`}
-`;
 
 const MobileHeroContent = styled.div`
   ${tw`relative`}
@@ -69,11 +66,11 @@ const MobileImageWrapper = styled.div`
   position: absolute;
   width: 75%;
   height: 200px;
-  bottom: 0px;
+  bottom: -100px;
   right: -16px;
 `;
 
-const MobileCTA = styled.div`
+const HeroCTA = styled.div`
   position: relative;
   top: 190px;
 `;
@@ -152,13 +149,13 @@ const HeroComponent: React.FC = () => {
           Design &amp; Deliver Notifications
         </h1>
         <p>Design once, deliver to any channel<Mobile><br/></Mobile> through one API</p>
-        <DesktopOnly>
+        <HeroCTA>
           <label>
             Sign up and recieve <strong>10,000 free</strong> notifications every
             month
           </label>
           <RegistrationCTA />
-        </DesktopOnly>
+        </HeroCTA>
       </HeroContent>
       <Desktop>
         <HeroImageWrapper
@@ -189,12 +186,6 @@ const HeroComponent: React.FC = () => {
           <MobileImageWrapper>
             <Image image={mobileImg} />
           </MobileImageWrapper>
-          <MobileCTA>
-            <label>
-              Sign up and recieve <strong>10,000 free</strong> notifications every month
-            </label>
-            <RegistrationCTA />
-          </MobileCTA>
         </MobileHeroContent>
       </Mobile>
     </Hero>
