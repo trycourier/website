@@ -54,12 +54,16 @@ const HeroContent = styled.div`
 const HeroImageWrapper = styled.div`
   ${tw`p-4 pt-12 md:p-0`}
 `;
+const DesktopOnly = styled(Desktop)`
+  ${tw`hidden md:block`}
+`;
 
 const MobileHeroContent = styled.div`
   ${tw`relative`}
   top: 320px;
   color: ${colors.white};
-`
+`;
+
 const MobileImageWrapper = styled.div`
   background: transparent;
   position: absolute;
@@ -67,12 +71,12 @@ const MobileImageWrapper = styled.div`
   height: 200px;
   bottom: 0px;
   right: -16px;
-`
+`;
 
 const MobileCTA = styled.div`
   position: relative;
   top: 190px;
-`
+`;
 
 const HeroComponent: React.FC = () => {
   const calc = (x, y) => [
@@ -148,13 +152,13 @@ const HeroComponent: React.FC = () => {
           Design &amp; Deliver Notifications
         </h1>
         <p>Design once, deliver to any channel<Mobile><br/></Mobile> through one API</p>
-        <Desktop>
+        <DesktopOnly>
           <label>
             Sign up and recieve <strong>10,000 free</strong> notifications every
             month
           </label>
           <RegistrationCTA />
-        </Desktop>
+        </DesktopOnly>
       </HeroContent>
       <Desktop>
         <HeroImageWrapper
@@ -192,7 +196,6 @@ const HeroComponent: React.FC = () => {
             <RegistrationCTA />
           </MobileCTA>
         </MobileHeroContent>
-
       </Mobile>
     </Hero>
   );

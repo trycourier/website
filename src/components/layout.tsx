@@ -10,6 +10,16 @@ import colors from "../colors";
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
+
+  @media
+	only screen and (-webkit-min-device-pixel-ratio: 1.25),
+	only screen and ( min-device-pixel-ratio: 1.25),
+	only screen and ( min-resolution: 200dpi),
+	only screen and ( min-resolution: 1.25dppx)
+	{
+		-webkit-font-smoothing: subpixel-antialiased;
+	}
+
   div {
     margin: 0;
     padding: 0;
@@ -17,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
   body, p {
