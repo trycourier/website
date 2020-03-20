@@ -30,7 +30,7 @@ const Hero = styled.div`
 `;
 
 const HeroContent = styled.div`
-  ${tw`absolute md:relative py-4 md:pr-16 mt-16 sm:mt-16`}
+  ${tw`relative py-4 md:pr-16 mt-16 sm:mt-16`}
   color: ${colors.white};
   z-index: 5;
   text-shadow: 1px 1px 4px ${colors.berry};
@@ -56,17 +56,17 @@ const HeroImageWrapper = styled.div`
 `;
 
 const MobileHeroContent = styled.div`
-  ${tw`relative`}
-  top: 320px;
+  ${tw`absolute`}
+  right: 0px;
+  width: 100%;
+  height: auto;
   color: ${colors.white};
 `;
 
 const MobileImageWrapper = styled.div`
-  background: transparent;
   position: absolute;
   width: 75%;
-  height: 200px;
-  bottom: -80px;
+  bottom: 16px;
   right: -16px;
 `;
 
