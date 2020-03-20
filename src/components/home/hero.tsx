@@ -11,15 +11,13 @@ import colors from "../../colors";
 import channelsGroup from "../../images/channels-group.svg";
 import RegistrationCTA from "./registration-cta";
 
-import { Desktop, Mobile } from "../container";
+// import { Desktop, Mobile } from "../container";
 
 const Abs = styled(animated.div)`
   position: absolute;
   width: 50%;
   height: 50%;
 `;
-
-const StyledImage = styled(Image)``;
 
 const Hero = styled.div`
   ${tw`md:flex md:flex-row p-4 md:pt-32 md:py-12 lg:pt-32 lg:px-0`}
@@ -55,20 +53,20 @@ const HeroImageWrapper = styled.div`
   ${tw`p-4 pt-12 md:p-0`}
 `;
 
-const MobileHeroContent = styled.div`
-  ${tw`absolute`}
-  right: 0px;
-  width: 100%;
-  height: auto;
-  color: ${colors.white};
-`;
+// const MobileHeroContent = styled.div`
+//   ${tw`absolute`}
+//   right: 0px;
+//   width: 100%;
+//   height: auto;
+//   color: ${colors.white};
+// `;
 
-const MobileImageWrapper = styled.div`
-  position: absolute;
-  width: 75%;
-  bottom: 16px;
-  right: -16px;
-`;
+// const MobileImageWrapper = styled.div`
+//   position: absolute;
+//   width: 75%;
+//   bottom: 16px;
+//   right: -16px;
+// `;
 
 const HeroCTA = styled.div`
   ${tw`text-center mt-48 md:mt-16 md:text-left`}
@@ -141,22 +139,22 @@ const HeroComponent: React.FC = () => {
   return (
     <Hero>
       
-      <HeroContent>
-        <h1>
-          The Smartest Way to
-          <br />
-          Design &amp; Deliver Notifications
-        </h1>
-        <p>Design once, deliver to any channel<Mobile><br/></Mobile> through one API</p>
-        <HeroCTA>
-          <label>
-            Sign up and recieve <strong>10,000 free</strong> notifications every
-            month
-          </label>
-          <RegistrationCTA />
-        </HeroCTA>
-      </HeroContent>
-      <Desktop>
+        <HeroContent>
+          <h1>
+            The Smartest Way to
+            <br />
+            Design &amp; Deliver Notifications
+          </h1>
+          <p>Design once, deliver to any channel through one API</p>
+          <HeroCTA>
+            <label>
+              Sign up and recieve <strong>10,000 free</strong> notifications every
+              month
+            </label>
+            <RegistrationCTA />
+          </HeroCTA>
+        </HeroContent>
+
         <HeroImageWrapper
           onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
         >
@@ -164,29 +162,29 @@ const HeroComponent: React.FC = () => {
             <img src={channelsGroup} />
           </Abs>
           <Abs style={{ transform: props.xy.interpolate(trans4), top: 95, right: 50 }}>
-            <StyledImage image={teams} />
+            <Image image={teams} />
           </Abs>
           <Abs style={{ transform: props.xy.interpolate(trans5), width: 565, top: 200 }}> 
-            <StyledImage image={email} />
+            <Image image={email} />
           </Abs>
           <Abs style={{ transform: props.xy.interpolate(trans2), width: 380, top: 290, right: 200 }}>
-            <StyledImage image={chat} />
+            <Image image={chat} />
           </Abs>
           <Abs style={{ transform: props.xy.interpolate(trans2), top: 75, right: -50 }}>
-            <StyledImage image={chrome} />
+            <Image image={chrome} />
           </Abs>
           <Abs style={{ transform: props.xy.interpolate(trans3), top: 540, right: -120 }}>
-            <StyledImage image={slack} />
+            <Image image={slack} />
           </Abs>
         </HeroImageWrapper>
-      </Desktop>
-      <Mobile>
+
+      {/* <Mobile>
         <MobileHeroContent>
           <MobileImageWrapper>
             <Image image={mobileImg} />
           </MobileImageWrapper>
         </MobileHeroContent>
-      </Mobile>
+      </Mobile> */}
     </Hero>
   );
 };
