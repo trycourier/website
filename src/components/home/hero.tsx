@@ -54,13 +54,13 @@ const HeroImageWrapper = styled.div`
 `;
 
 const MobileImageWrapper = styled.div`
-  ${tw`block md:hidden`}
-  width: 50vw;
-  bottom: 120px;
-  right: -16px;
+  ${tw`absolute block md:hidden`}
+  width: 50%;
+  bottom: 25%;
+  right: 0px;
   @media (max-width: 640px){
-    width: 300px;
-    bottom: 140px;
+    width: 270px;
+    bottom: 130px;
   }
 `;
 
