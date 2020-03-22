@@ -271,6 +271,7 @@ const AccountButtonComponent: React.FC = () => {
 
 const handleOnClick = () => {
   console.log("!");
+  window.location("mailto:sales@trycourier.com");
 }
 
 const displayCell = (property: any | string) => {
