@@ -52,7 +52,7 @@ const OneApiInfo = styled.div`
 `;
 
 const OneApiTable = styled.table`
-  ${tw`mt-8 md:mt-20`}
+  ${tw`mt-8 md:mt-24`}
   display: inline-table;
   border-spacing: 0px;
 
@@ -61,7 +61,7 @@ const OneApiTable = styled.table`
   }
 
   & th {
-    ${tw`m-0 p-4 text-sm mt-4 text-left`}
+    ${tw`m-0 pt-8 pb-4 pl-6 text-sm mt-4 text-left`}
     border-bottom: 1px solid #425E72;
   }
 
