@@ -108,6 +108,7 @@ const PricingLine = styled.section`
   & h5 {
     color: ${colors.textSecondary};
     margin-top: 0px;
+    margin-bottom: 8px;
     & strong {
       color: ${colors.textPrimary};
       font-size: 16px;
@@ -178,7 +179,7 @@ const useWindowSize = () => {
 };
 
 const PricingLineComponent: React.FC = () => {
-  const [rangeIdx, setRangeIdx] = useState(1);
+  const [rangeIdx, setRangeIdx] = useState(2);
   const [width, setWidth] = useState(0);
   const size = useWindowSize();
 
@@ -215,7 +216,7 @@ const PricingLineComponent: React.FC = () => {
           {pricingMatrix[rangeIdx - 1].additional
             ? `+ ${
                 pricingMatrix[rangeIdx - 1].additional
-              }per additional notification`
+              }per additional notification *`
             : ` `}
         </h5>
         <Desktop>

@@ -17,7 +17,17 @@ const ProgressBar = styled.section`
     background: ${colors.green};
     width: 5px;
     height: 15px;
-    left: -10px;
+    left: 0px;
+    top: -5px;
+  }
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: white;
+    width: 5px;
+    height: 15px;
+    left: 5px;
     top: -5px;
   }
 `;
