@@ -2,12 +2,10 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
-import BackgroundImage from "gatsby-background-image";
 import Image from "../image";
 import NoCode from "./no-code";
 import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
-import { isMobile } from "react-device-detect";
 
 const Route = styled.section`
   ${tw`md:flex pt-32 px-4 md:pb-0 md:pt-24 lg:px-0 mx-auto`}
@@ -35,22 +33,8 @@ const RouteImageWrapper = styled.div`
 `;
 
 const RouteComponent: React.FC = () => {
-  const { bg, bg2, img, mobileImg } = useStaticQuery(graphql`
+  const { img, mobileImg } = useStaticQuery(graphql`
     query {
-      bg: file(relativePath: { eq: "bgs/gears@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 460) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      bg2: file(relativePath: { eq: "bgs/gears2@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 764) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       img: file(relativePath: { eq: "desktop-delivery@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 1280) {
@@ -68,40 +52,27 @@ const RouteComponent: React.FC = () => {
     }
   `);
 
-  const bgStyle = {
-    backgroundSize: !isMobile ? "360px 360px" : "0px 0px",
-    backgroundPosition: "0% 75%",
-  };
-  const bg2Style = {
-    backgroundSize: !isMobile ? "382px " : "0px 0px",
-    backgroundPosition: "100% 75%",
-  };
-
   return (
     <Route>
-      <BackgroundImage fluid={bg.childImageSharp.fluid} style={bgStyle}>
-        <BackgroundImage fluid={bg2.childImageSharp.fluid} style={bg2Style}>
-          <RouteSection>
-            <NoCode />
-            <RouteText>
-              <h2>Powerful Delivery Rules</h2>
-              <p>
-                Effortlessly route each message to the right notification channel
-                using a robust rules engine. Change channels without touching your
-                code.
-              </p>
-            </RouteText>
-            <RouteImageWrapper>
-              <Desktop>
-                <Image image={img} />
-              </Desktop>
-              <Mobile>
-                <Image image={mobileImg} />
-              </Mobile>
-            </RouteImageWrapper>
-          </RouteSection>
-        </BackgroundImage>
-      </BackgroundImage>
+      <RouteSection>
+        <NoCode />
+        <RouteText>
+          <h2>Powerful Delivery Rules</h2>
+          <p>
+            Effortlessly route each message to the right notification channel
+            using a robust rules engine. Change channels without touching your
+            code.
+          </p>
+        </RouteText>
+        <RouteImageWrapper>
+          <Desktop>
+            <Image image={img} />
+          </Desktop>
+          <Mobile>
+            <Image image={mobileImg} />
+          </Mobile>
+        </RouteImageWrapper>
+      </RouteSection>
     </Route>
   );
 };
