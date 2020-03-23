@@ -206,9 +206,15 @@ const AccountButtons = styled.ul`
   }
   & li.google{
     background: ${colors.googleBlue};
+    & a > img {
+      margin-top: 2px;
+    }
   }
   & li.github {
     background: #000;
+    & img {
+      margin-top: 1px;
+    }
   }
   & li.email {
     background: ${colors.berry};
@@ -271,7 +277,7 @@ const AccountButtonComponent: React.FC = () => {
 
 const handleOnClick = () => {
   console.log("!");
-  window.location("mailto:sales@trycourier.com");
+  window.location = "mailto:sales@trycourier.com";
 }
 
 const displayCell = (property: any | string) => {
