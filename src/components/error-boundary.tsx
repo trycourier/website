@@ -16,13 +16,13 @@ interface IErrorBoundaryState {
 }
 
 const DefaultErrorComponent: React.FC = () => {
-  return (
-    <div>An error has occurred.</div>
-  );
+  return <div>An error has occurred.</div>;
 };
 
-export default class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
-  
+export default class ErrorBoundary extends React.Component<
+  IErrorBoundaryProps,
+  IErrorBoundaryState
+> {
   constructor(props: IErrorBoundaryProps) {
     super(props);
     this.state = { error: null };

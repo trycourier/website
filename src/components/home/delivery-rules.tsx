@@ -36,7 +36,7 @@ const RouteImageWrapper = styled.div`
 
 const RouteComponent: React.FC = () => {
   const { bg, img, mobileImg } = useStaticQuery(graphql`
-    query {      
+    query {
       bg: file(relativePath: { eq: "bgs/gears@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
@@ -74,8 +74,9 @@ const RouteComponent: React.FC = () => {
           <RouteText>
             <h2>Powerful Delivery Rules</h2>
             <p>
-              Effortlessly route each message to the right notification channel using a robust rules engine.
-              Change channels without touching your code.
+              Effortlessly route each message to the right notification channel
+              using a robust rules engine. Change channels without touching your
+              code.
             </p>
           </RouteText>
           <RouteImageWrapper>

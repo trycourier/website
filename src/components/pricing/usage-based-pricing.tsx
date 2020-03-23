@@ -26,19 +26,19 @@ const UsageBasedPricingWrapper = styled.div`
     background-color: ${colors.berryWhite};
     max-width: 455px;
   }
-  & button.ghost{
+  & button.ghost {
     color: ${colors.textPrimary};
   }
 `;
 
 const UsageBasedPricing: React.FC = () => {
-
   return (
     <Pricing>
       <UsageBasedPricingText>
         <h2>Usage Based Pricing</h2>
         <p>
-        Get started for free, or select a flexible plan based on your sending needs.
+          Get started for free, or select a flexible plan based on your sending
+          needs.
         </p>
       </UsageBasedPricingText>
       <UsageBasedPricingWrapper>

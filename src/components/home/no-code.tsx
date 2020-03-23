@@ -8,7 +8,7 @@ const NoCode = styled.div`
   position: absolute;
   width: 130px;
   z-index: -1;
-`
+`;
 const NoCodeComponent: React.FC = () => {
   const { noCode } = useStaticQuery(graphql`
     query {
@@ -25,7 +25,7 @@ const NoCodeComponent: React.FC = () => {
     <NoCode>
       <Image image={noCode} />
     </NoCode>
-  )
-}
+  );
+};
 
-export default NoCodeComponent
+export default NoCodeComponent;

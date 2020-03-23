@@ -101,11 +101,11 @@ const MobileButtons = styled.ul`
   & li.hamburger {
     ${tw`inline-block md:hidden cursor-pointer`}
   }
-`
+`;
 
 export const Flex = styled.div`
   ${tw`flex`}
-`
+`;
 
 const NavigationComponent: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -122,32 +122,31 @@ const NavigationComponent: React.FC = () => {
   return (
     <>
       <NavContainer>
-
-          <nav>
-            <Container>
-              <Flex>
-                <NavigationItems>
-                  <li className="logo">
-                    <Link to="/">
-                      <img src={courierLogo} alt="Courier"/>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/pricing">Pricing</Link>
-                  </li>
-                  {/* <li>
+        <nav>
+          <Container>
+            <Flex>
+              <NavigationItems>
+                <li className="logo">
+                  <Link to="/">
+                    <img src={courierLogo} alt="Courier" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/pricing">Pricing</Link>
+                </li>
+                {/* <li>
                     <Link to="/#company">Company</Link>
                   </li>
                   <li>
                     <Link to="/#community">Community</Link>
                   </li> */}
-                  <li>
-                    <a href="https://docs.trycourier.com/" target="_blank">
-                      Documentation
-                    </a>
-                  </li>
-                </NavigationItems>
-                <AccountButtons>
+                <li>
+                  <a href="https://docs.trycourier.com/" target="_blank">
+                    Documentation
+                  </a>
+                </li>
+              </NavigationItems>
+              <AccountButtons>
                 <label>Sign Up</label>
                 <li>
                   <a href={googleSignUpUrl} target="_blank">
@@ -160,25 +159,21 @@ const NavigationComponent: React.FC = () => {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href={emailSignUpUrl}
-                    target="_blank"
-                  >
+                  <a href={emailSignUpUrl} target="_blank">
                     <img src={emailNav} title="Sign Up with Email" />
                   </a>
                 </li>
               </AccountButtons>
-                <MobileButtons>
-                  <li className="hamburger">
-                      <a href="/" onClick={toggleMenu}>
-                        <img src={mobileMenu} />
-                      </a>
-                  </li>
-                </MobileButtons>
-              </Flex>
-            </Container>
-          </nav>
-
+              <MobileButtons>
+                <li className="hamburger">
+                  <a href="/" onClick={toggleMenu}>
+                    <img src={mobileMenu} />
+                  </a>
+                </li>
+              </MobileButtons>
+            </Flex>
+          </Container>
+        </nav>
       </NavContainer>
       {showModal ? (
         <MobileNavMenu onClick={hideMenu}>

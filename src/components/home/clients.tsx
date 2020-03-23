@@ -31,7 +31,7 @@ const ClientsText = styled.div`
 const ClientsImageWrapper = styled.div`
   ${tw`w-full relative mx-auto`}
   height: 120px;
-  @media(max-width: 640px){
+  @media (max-width: 640px) {
     width: 385px;
   }
 `;

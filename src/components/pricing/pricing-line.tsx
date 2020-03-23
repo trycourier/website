@@ -92,7 +92,7 @@ const SelectStyle = `
     position: relative;
     top: -16px;
   }
-`
+`;
 
 const PricingLine = styled.section`
   ${tw`md:flex`}
@@ -150,12 +150,12 @@ const pricingMatrix = [
 ];
 
 const useWindowSize = () => {
-  const isClient = typeof window === 'object';
+  const isClient = typeof window === "object";
 
   function getSize() {
     return {
       width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined
+      height: isClient ? window.innerHeight : undefined,
     };
   }
 
@@ -165,28 +165,31 @@ const useWindowSize = () => {
     if (!isClient) {
       return false;
     }
-    
+
     function handleResize() {
       setWindowSize(getSize());
     }
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return windowSize;
-}
+};
 
 const PricingLineComponent: React.FC = () => {
   const [rangeIdx, setRangeIdx] = useState(3);
   const [width, setWidth] = useState(0);
   const size = useWindowSize();
 
-  const measuredRef = useCallback(n => {
-    if (n !== null) {
-      setWidth(n.getBoundingClientRect().width);
-    }
-  }, [size]);
+  const measuredRef = useCallback(
+    n => {
+      if (n !== null) {
+        setWidth(n.getBoundingClientRect().width);
+      }
+    },
+    [size]
+  );
 
   const handleRangeChange = (e: React.FormEvent) => {
     if (e.currentTarget) {
@@ -206,7 +209,9 @@ const PricingLineComponent: React.FC = () => {
         </h4>
         <h5>
           {pricingMatrix[rangeIdx - 1].additional
-            ? `+ ${pricingMatrix[rangeIdx - 1].additional}per additional notification`
+            ? `+ ${
+                pricingMatrix[rangeIdx - 1].additional
+              }per additional notification`
             : ` `}
         </h5>
         <Desktop>
@@ -219,10 +224,18 @@ const PricingLineComponent: React.FC = () => {
             name="priceSection"
             onChange={handleRangeChange}
           />
-          <ProgressBar px={((rangeIdx - 1) / 4) * width} tick={rangeIdx - 1} fullWidth={width} />
+          <ProgressBar
+            px={((rangeIdx - 1) / 4) * width}
+            tick={rangeIdx - 1}
+            fullWidth={width}
+          />
         </Desktop>
         <Mobile>
-          <select name="priceSection" value={rangeIdx} onChange={handleRangeChange}>
+          <select
+            name="priceSection"
+            value={rangeIdx}
+            onChange={handleRangeChange}
+          >
             <option value="2">Small</option>
             <option value="3">Medium</option>
             <option value="4">Large</option>

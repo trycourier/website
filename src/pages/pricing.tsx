@@ -6,7 +6,11 @@ import SEO from "../components/seo";
 
 import BackgroundImage from "gatsby-background-image";
 
-import Container, { Section, TopDivider, PageWrapper } from "../components/container";
+import Container, {
+  Section,
+  TopDivider,
+  PageWrapper,
+} from "../components/container";
 import Footer from "../components/footer";
 
 import Divider from "../components/home/divider";
@@ -15,7 +19,6 @@ import UsageBasedPricing from "../components/pricing/usage-based-pricing";
 import SubscriptionPlans from "../components/pricing/subscription-plans";
 
 const IndexPage: React.FC = () => {
-
   const { headerBg, headerDivider, footerDivider } = useStaticQuery(graphql`
     query {
       headerBg: file(relativePath: { eq: "bgs/header-bg@2x.png" }) {
@@ -45,7 +48,7 @@ const IndexPage: React.FC = () => {
   return (
     <Layout>
       <SEO title="Pricing" />
-        
+
       <Section>
         <BackgroundImage
           Tag="section"
@@ -55,8 +58,7 @@ const IndexPage: React.FC = () => {
             backgroundPosition: "center left",
             height: "300px",
           }}
-        >
-        </BackgroundImage>
+        ></BackgroundImage>
         <Divider image={headerDivider} />
       </Section>
 
@@ -75,9 +77,8 @@ const IndexPage: React.FC = () => {
         </TopDivider>
         <Container bg="berry">
           <Footer />
-        </Container> 
+        </Container>
       </Section>
-   
     </Layout>
   );
 };

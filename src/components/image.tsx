@@ -9,7 +9,7 @@ export type GatsbyImage = {
 
 const Image: React.FC<{
   image: GatsbyImage;
-  title?: string
+  title?: string;
 }> = ({ image, title }) => {
   return <Img fluid={image.childImageSharp.fluid} title={title} />;
 };

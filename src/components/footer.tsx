@@ -18,7 +18,7 @@ const Footer = styled.footer`
 
 const LogoSection = styled.div`
   ${tw`md:w-1/8 md:ml-6 md:pr-8`}
-`
+`;
 const Logo = styled.div`
   ${tw`mt-4`}
   max-width: 100px;
@@ -67,21 +67,21 @@ const SocialLinks = styled.div`
     width: 24px;
     height: 24px;
     border-radius: 9999px;
-    :hover{
-      background: rgba(255,255,255,0.1);
+    :hover {
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 `;
 
 const DetailLinks = styled.div`
-  p { 
+  p {
     ${tw`flex flex-col md:flex-row`}
   }
   a {
     ${tw`no-underline text-white text-sm py-2 md:px-8`}
     border-radius: 9999px;
-    :hover{
-      background: rgba(255,255,255,0.1);
+    :hover {
+      background: rgba(255, 255, 255, 0.1);
     }
   }
 `;
@@ -116,7 +116,7 @@ const FooterComponent: React.FC = () => {
           </NavLinks>
           <SocialLinks>
             <a href="https://www.twitter.com/trycourier" target="_blank">
-              <img src={twitterLogo} style={{marginTop: 2 }} />
+              <img src={twitterLogo} style={{ marginTop: 2 }} />
             </a>
             <a href="https://www.linkedin.com/trycourier" target="_blank">
               <img src={linkedInLogo} />

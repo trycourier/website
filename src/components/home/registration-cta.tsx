@@ -76,7 +76,7 @@ const MobileContent = styled(Mobile)`
 
 const Flex = styled.div`
   display: flex;
-`
+`;
 
 const RegistrationCTA: React.FC = () => {
   return (

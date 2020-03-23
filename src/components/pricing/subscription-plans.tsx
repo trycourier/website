@@ -27,22 +27,17 @@ const SubscriptionPlansWrapper = styled.div`
     background-color: ${colors.berryWhite};
     max-width: 455px;
   }
-  & button.ghost{
+  & button.ghost {
     color: ${colors.textPrimary};
   }
 `;
 
 const SubscriptionPlans: React.FC = () => {
-
   return (
     <Plans>
       <SubscriptionPlansText>
-        <h2>
-          Subscription Plans
-        </h2>
-        <p>
-          Get started for free, or select a flexible plan.
-        </p>
+        <h2>Subscription Plans</h2>
+        <p>Get started for free, or select a flexible plan.</p>
       </SubscriptionPlansText>
       <SubscriptionPlansWrapper>
         <FeatureTable />

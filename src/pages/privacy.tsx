@@ -6,7 +6,11 @@ import SEO from "../components/seo";
 
 import BackgroundImage from "gatsby-background-image";
 
-import Container, { Section, TopDivider, PageWrapper } from "../components/container";
+import Container, {
+  Section,
+  TopDivider,
+  PageWrapper,
+} from "../components/container";
 import Footer from "../components/footer";
 
 import Divider from "../components/home/divider";
@@ -193,7 +197,7 @@ const PrivacyPolicy: React.FC = () => {
         </TopDivider>
         <Container bg="berry">
           <Footer />
-        </Container> 
+        </Container>
       </Section>
     </Layout>
   );

@@ -34,7 +34,7 @@ const OneApiImageWrapper = styled.div`
 
 const StyledImage = styled(Image)`
   display: none;
-`
+`;
 
 const OneApiInfo = styled.div`
   ${tw`pb-8 md:w-1/2 md:ml-8 md:mt-0 text-center`}
@@ -51,15 +51,15 @@ const OneApiInfo = styled.div`
   }
 `;
 
-const OneApiTable= styled.table`
+const OneApiTable = styled.table`
   ${tw`mt-8`}
   display: inline-table;
   border-spacing: 0px;
-  
+
   & tr {
     ${tw`m-0 p-0 text-lg mb-8`}
   }
-  
+
   & th {
     ${tw`m-0 p-4 text-sm mt-4 text-left`}
     border-bottom: 1px solid #425E72;
@@ -68,7 +68,7 @@ const OneApiTable= styled.table`
   & td {
     ${tw`m-0 p-4 text-sm mt-4`}
     border-right: 1px solid #425E72;
-    &:last-child{
+    &:last-child {
       border-right: none;
     }
   }
@@ -105,22 +105,46 @@ const OneApiComponent: React.FC = () => {
               <th>Direct Message</th>
             </tr>
             <tr>
-              <td><img src={postmark} alt="Postmark" /></td>
-              <td><img src={messagebird} alt="MessageBird" /></td>
-              <td><img src={onesignal} alt="OneSignal" /></td>
-              <td><img src={fbMessenger} alt="FB Messenger" /></td>
+              <td>
+                <img src={postmark} alt="Postmark" />
+              </td>
+              <td>
+                <img src={messagebird} alt="MessageBird" />
+              </td>
+              <td>
+                <img src={onesignal} alt="OneSignal" />
+              </td>
+              <td>
+                <img src={fbMessenger} alt="FB Messenger" />
+              </td>
             </tr>
             <tr>
-              <td><img src={sendgrid} alt="SendGrid" /></td>
-              <td><img src={twilio} alt="Twilio" /></td>
-              <td><img src={firebase} alt="Firebase" /></td>
-              <td><img src={slack} alt="Slack" /></td>
+              <td>
+                <img src={sendgrid} alt="SendGrid" />
+              </td>
+              <td>
+                <img src={twilio} alt="Twilio" />
+              </td>
+              <td>
+                <img src={firebase} alt="Firebase" />
+              </td>
+              <td>
+                <img src={slack} alt="Slack" />
+              </td>
             </tr>
             <tr>
-              <td><img src={mailgun} alt="Mailgun" /></td>
-              <td><img src={nexmo} alt="nexmo" /></td>
-              <td><img src={expo} alt="Expo" /></td>
-              <td><img src={msTeams} alt="MS Teams" /></td>
+              <td>
+                <img src={mailgun} alt="Mailgun" />
+              </td>
+              <td>
+                <img src={nexmo} alt="nexmo" />
+              </td>
+              <td>
+                <img src={expo} alt="Expo" />
+              </td>
+              <td>
+                <img src={msTeams} alt="MS Teams" />
+              </td>
             </tr>
           </OneApiTable>
         </Desktop>
@@ -131,16 +155,28 @@ const OneApiComponent: React.FC = () => {
               <th>SMS</th>
             </tr>
             <tr>
-              <td><img src={postmark} alt="Postmark" /></td>
-              <td><img src={messagebird} alt="MessageBird" /></td>
+              <td>
+                <img src={postmark} alt="Postmark" />
+              </td>
+              <td>
+                <img src={messagebird} alt="MessageBird" />
+              </td>
             </tr>
             <tr>
-              <td><img src={sendgrid} alt="SendGrid" /></td>
-              <td><img src={twilio} alt="Twilio" /></td>
+              <td>
+                <img src={sendgrid} alt="SendGrid" />
+              </td>
+              <td>
+                <img src={twilio} alt="Twilio" />
+              </td>
             </tr>
             <tr>
-              <td><img src={mailgun} alt="Mailgun" /></td>
-              <td><img src={nexmo} alt="nexmo" /></td>
+              <td>
+                <img src={mailgun} alt="Mailgun" />
+              </td>
+              <td>
+                <img src={nexmo} alt="nexmo" />
+              </td>
             </tr>
           </OneApiTable>
           <OneApiTable>
@@ -149,24 +185,35 @@ const OneApiComponent: React.FC = () => {
               <th>Direct Message</th>
             </tr>
             <tr>
-              <td><img src={onesignal} alt="OneSignal" /></td>
-              <td><img src={fbMessenger} alt="FB Messenger" /></td>
+              <td>
+                <img src={onesignal} alt="OneSignal" />
+              </td>
+              <td>
+                <img src={fbMessenger} alt="FB Messenger" />
+              </td>
             </tr>
             <tr>
-              <td><img src={firebase} alt="Firebase" /></td>
-              <td><img src={slack} alt="Slack" /></td>
+              <td>
+                <img src={firebase} alt="Firebase" />
+              </td>
+              <td>
+                <img src={slack} alt="Slack" />
+              </td>
             </tr>
             <tr>
-              <td><img src={expo} alt="Expo" /></td>
-              <td><img src={msTeams} alt="MS Teams" /></td>
+              <td>
+                <img src={expo} alt="Expo" />
+              </td>
+              <td>
+                <img src={msTeams} alt="MS Teams" />
+              </td>
             </tr>
           </OneApiTable>
         </Mobile>
-        <div style={{marginTop: 32}}>
+        <div style={{ marginTop: 32 }}>
           <a href="#">Other Integrations</a>
         </div>
       </OneApiInfo>
-
     </OneApi>
   );
 };

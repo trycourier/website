@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import normalize from "styled-normalize";
 
 import ErrorBoundary from "./error-boundary";
-import Sticky from 'react-stickynode';
+import Sticky from "react-stickynode";
 import Navigation from "./navigation";
 
 import colors from "../colors";

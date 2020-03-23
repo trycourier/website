@@ -36,9 +36,11 @@ const TrackingImageWrapper = styled.div`
 `;
 
 const TrackingComponent: React.FC = () => {
-  const { bg, img, mobileImg} = useStaticQuery(graphql`
+  const { bg, img, mobileImg } = useStaticQuery(graphql`
     query {
-      bg: file(relativePath: { eq: "cross-channel-green-circles-lines@2x.png" }) {
+      bg: file(
+        relativePath: { eq: "cross-channel-green-circles-lines@2x.png" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 660) {
             ...GatsbyImageSharpFluid
@@ -74,9 +76,7 @@ const TrackingComponent: React.FC = () => {
           <TrackingSection>
             <TrackingText>
               <h2>Cross-Channel Engagement Tracking</h2>
-              <p>
-                Get insight on your performance across all channels
-              </p>
+              <p>Get insight on your performance across all channels</p>
               <ul>
                 <li>Find the best channel for each user</li>
                 <li>Compare deliverability across multiple providers</li>
@@ -90,12 +90,10 @@ const TrackingComponent: React.FC = () => {
         </BackgroundImage>
       </Desktop>
       <Mobile>
-       <TrackingSection>
+        <TrackingSection>
           <TrackingText>
             <h2>Cross-Channel Engagement Tracking</h2>
-            <p>
-              Get insight on your performance across all channels
-            </p>
+            <p>Get insight on your performance across all channels</p>
             <ul>
               <li>Find the best channel for each user</li>
               <li>Compare deliverability across multiple providers</li>
@@ -103,10 +101,10 @@ const TrackingComponent: React.FC = () => {
             </ul>
           </TrackingText>
           <TrackingImageWrapper>
-              <Image image={mobileImg} />
+            <Image image={mobileImg} />
           </TrackingImageWrapper>
         </TrackingSection>
-      </Mobile>      
+      </Mobile>
     </Tracking>
   );
 };

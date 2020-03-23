@@ -22,18 +22,18 @@ const Abs2 = styled(Abs)`
 
 export const Flex = styled.div`
   ${tw`flex flex-col sm:flex-row`}
-`
+`;
 
 export const Rel = styled.div`
   ${tw`relative mx-4 justify-center`}
-`
+`;
 
 export const Quote = styled.div`
   ${tw`absolute w-3/4 p-6 bg-white shadow-xl`}
   border-radius: 20px;
   top: 64px;
   right: 16px;
-  @media(max-width: 640px){
+  @media (max-width: 640px) {
     top: 0px;
   }
   z-index: 5;
@@ -43,7 +43,7 @@ export const QuoteBox = styled(Rel)`
   ${tw`relative`}
 `;
 
-export const QuoteText = styled.div `
+export const QuoteText = styled.div`
   ${tw`text-base text-gray-700 leading-normal`}
   color: ${colors.textPrimary};
 `;
@@ -51,23 +51,22 @@ export const QuoteText = styled.div `
 const QuoteAuthor = styled.div`
   ${tw`mt-3`}
   text-align: right;
-  color: #73819B;
+  color: #73819b;
 `;
 
 const QuoteImage = styled.div`
   width: 25%;
   margin: 24px auto;
-  @media(max-width: 640px){
+  @media (max-width: 640px) {
     width: 100px;
   }
 `;
 
 const ImageBorder = styled.div`
-  border: 6px solid #FFF;
+  border: 6px solid #fff;
   overflow: hidden;
   border-radius: 24px;
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.16);
-
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.16);
 `;
 
 const QuoteComponent: React.FC = () => {
@@ -96,9 +95,13 @@ const QuoteComponent: React.FC = () => {
             </Abs2>
             <Flex>
               <QuoteText>
-                We were building out a new team to focus entirely on our notification infrastructure when we found Courier. Now we support even more channels with one line of code – and our product managers & designers can design the templates without engineering help.
+                We were building out a new team to focus entirely on our
+                notification infrastructure when we found Courier. Now we
+                support even more channels with one line of code – and our
+                product managers & designers can design the templates without
+                engineering help.
                 <QuoteAuthor>
-                  Eric Koslow, CTO & Co-Founder @ Lattice 
+                  Eric Koslow, CTO & Co-Founder @ Lattice
                 </QuoteAuthor>
               </QuoteText>
             </Flex>
@@ -120,10 +123,12 @@ const QuoteComponent: React.FC = () => {
           </Abs2>
           <Flex>
             <QuoteText>
-              We were building out a new team to focus entirely on our notification infrastructure when we found Courier. Now we support even more channels with one line of code – and our product managers & designers can design the templates without engineering help.
-              <QuoteAuthor>
-                Eric Koslow, CTO & Co-Founder @ Lattice 
-              </QuoteAuthor>
+              We were building out a new team to focus entirely on our
+              notification infrastructure when we found Courier. Now we support
+              even more channels with one line of code – and our product
+              managers & designers can design the templates without engineering
+              help.
+              <QuoteAuthor>Eric Koslow, CTO & Co-Founder @ Lattice</QuoteAuthor>
             </QuoteText>
           </Flex>
         </QuoteBox>

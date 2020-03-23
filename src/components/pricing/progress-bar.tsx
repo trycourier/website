@@ -67,16 +67,16 @@ const ProgressBarComponent: React.FC<{
   let ticks = [];
   let unticks = [];
   const dx = fullWidth / 4;
-  
+
   // this needs to be actually solved
   for (let i = 1; i <= tick; i++) {
-    const delta = (i % 2 === 0 ? i + i : 0)
-    const marks = i - delta + (i * dx) - 4 * (i * i) - (i - 1) * 12;
+    const delta = i % 2 === 0 ? i + i : 0;
+    const marks = i - delta + i * dx - 4 * (i * i) - (i - 1) * 12;
     ticks.push(marks);
   }
   for (let i = 1; i <= 3; i++) {
-    const delta = (i % 2 === 0 ? i + i : 0)
-    const marks = i - delta + (i * dx) - 4 * (i * i) - (i - 1) * 12;
+    const delta = i % 2 === 0 ? i + i : 0;
+    const marks = i - delta + i * dx - 4 * (i * i) - (i - 1) * 12;
     unticks.push(marks);
   }
 

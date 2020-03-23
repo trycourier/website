@@ -28,24 +28,21 @@ const GettingStartedCTAWrapper = styled.div`
     background-color: ${colors.berryWhite};
     max-width: 455px;
   }
-  & button.ghost{
+  & button.ghost {
     color: ${colors.textPrimary};
   }
 `;
 
 const GettingStartedComponent: React.FC = () => {
-
   return (
     <GettingStarted>
       <GettingStartedText>
         <h2>
           Getting started is easy!
-          <br/>And free!
+          <br />
+          And free!
         </h2>
-        <p>
-         10,000 free notifications every month
-        </p>
-    
+        <p>10,000 free notifications every month</p>
       </GettingStartedText>
       <GettingStartedCTAWrapper>
         <RegistrationCTA />

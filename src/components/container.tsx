@@ -5,14 +5,15 @@ import colors from "../colors";
 
 type ContainerProps = {
   bg?: string;
-}
+};
 
 const Container = styled.div`
   ${tw`relative w-full mx-auto min-w-5xl max-w-5xl`}
 `;
 
 const ContainerDark = styled.div`
-  background-color: ${(props: ContainerProps) => colors[props.bg] ? colors[props.bg] : props.bg};
+  background-color: ${(props: ContainerProps) =>
+    colors[props.bg] ? colors[props.bg] : props.bg};
   color: ${colors.white};
 `;
 
@@ -26,17 +27,17 @@ export const Mobile = styled.div`
 
 export const MobileLandscape = styled.div`
   display: none;
-  @media(screen && max-width: 812px){
+  @media (screen && max-width: 812px) {
     display: block;
   }
-`
+`;
 
 export const NotMobileLandscape = styled.div`
   display: block;
-  @media(screen && max-width: 812px){
+  @media (screen && max-width: 812px) {
     display: none;
   }
-`
+`;
 
 export const Section = styled.section`
   position: relative;

@@ -6,7 +6,11 @@ import SEO from "../components/seo";
 
 import BackgroundImage from "gatsby-background-image";
 
-import Container, { Section, TopDivider, PageWrapper } from "../components/container";
+import Container, {
+  Section,
+  TopDivider,
+  PageWrapper,
+} from "../components/container";
 import Footer from "../components/footer";
 
 import Divider from "../components/home/divider";
@@ -58,9 +62,7 @@ const DisclosurePolicy: React.FC = () => {
       <Section>
         <Container bg="transparent">
           <PageWrapper>
-            <h1>
-              Courier Responsible Disclosure Policy
-            </h1>
+            <h1>Courier Responsible Disclosure Policy</h1>
             <p>
               <em>Last Updated: February 11, 2020</em>
             </p>

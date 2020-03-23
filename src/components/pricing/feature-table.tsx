@@ -13,7 +13,7 @@ const FeatureTable = styled.section`
   color: ${colors.textPrimary};
 `;
 
-const FeatureTableTable= styled.table`
+const FeatureTableTable = styled.table`
   ${tw`mt-8 w-full text-center`}
   display: inline-table;
   border-spacing: 0px;
@@ -43,50 +43,48 @@ const FeatureTableTable= styled.table`
         & td {
           background: ${colors.highlight};
           border-bottom: none;
-          &:first-child{
+          &:first-child {
             border-bottom-left-radius: 20px;
           }
-          &:last-child{
+          &:last-child {
             border-bottom-right-radius: 20px;
           }
-
         }
       }
     }
-
   }
   & tr {
     ${tw`m-0 p-0`}
   }
   & th {
     ${tw`m-0 px-16 py-8 text-3xl font-normal`}
-    &:nth-child(2){
-      ${tw `p-8`}
+    &:nth-child(2) {
+      ${tw`p-8`}
       background: #FFF;
       position: relative;
       z-index: 2;
       box-shadow: 0px 4px 8px ${colors.berryGlass};
-      border: 5px solid #FFF;
+      border: 5px solid #fff;
       border-radius: 20px 20px 0px 0px;
       border-spacing: 0px;
-    } 
+    }
   }
   & td {
     ${tw`m-0 px-4 text-md mt-4`}
     border-bottom: 1px solid #CCC;
 
-    &:first-child{
+    &:first-child {
       ${tw`text-left pr-32`}
     }
-    &:nth-child(2){
-      ${tw `py-4 px-8`}
+    &:nth-child(2) {
+      ${tw`py-4 px-8`}
       height: 24px;
       position: relative;
       z-index: 3;
-      background: #FFF;
+      background: #fff;
       box-shadow: 0px 8px 8px ${colors.berryGlass};
-      border-left: 16px solid #FFF;
-      border-right: 16px solid #FFF;
+      border-left: 16px solid #fff;
+      border-right: 16px solid #fff;
     }
     &.highlighted {
       background-color: ${colors.highlight};
@@ -95,103 +93,101 @@ const FeatureTableTable= styled.table`
   & tfoot {
     & td {
       border-bottom: none;
-      &:nth-child(2){
+      &:nth-child(2) {
         border-radius: 0px 0px 20px 20px;
       }
     }
   }
 `;
 
-
 const features = [
   {
     label: "",
     standard: "SIGN_UP",
-    enterprise: "CONTACT_SALES"
+    enterprise: "CONTACT_SALES",
   },
   {
     label: "Team Members",
     standard: true,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "Unlimited Channels",
     standard: true,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "Unlimited Provider Integrations",
     standard: true,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "Unlimited Conditions",
     standard: true,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "OAuth Google / Github",
     standard: true,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "Event Log",
     standard: true,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "Customer Support",
     standard: "Advanced",
-    enterprise: "Premium"
+    enterprise: "Premium",
   },
   {
     label: "Two Factor Authentication",
     standard: false,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "Custom Roles and Permissions",
     standard: false,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "Message Retention Policy",
     standard: false,
-    enterprise: "Custom"
+    enterprise: "Custom",
   },
   {
     label: "Cross-Channel Tracking Dashboard",
     standard: false,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "HIPPA Compliance",
     standard: false,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "Custom Invoicing",
     standard: false,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "Data Export",
     standard: false,
-    enterprise: true
+    enterprise: true,
   },
   {
     label: "SAMLP 2.0",
     standard: false,
-    enterprise: true
-  }
-]
+    enterprise: true,
+  },
+];
 
 import googleNav from "../../images/google-logo-white.svg";
 import githubNav from "../../images/github-logo-white.svg";
 import emailNav from "../../images/email-logo-white.svg";
 
 import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl } from "../../links";
-
 
 const AccountButtons = styled.ul`
   ${tw`m-0 p-2 flex hidden md:inline-block`}
@@ -204,7 +200,7 @@ const AccountButtons = styled.ul`
     border-radius: 9999px;
     padding: 6px;
   }
-  & li.google{
+  & li.google {
     background: ${colors.googleBlue};
     & a > img {
       margin-top: 2px;
@@ -222,7 +218,7 @@ const AccountButtons = styled.ul`
       margin-top: 3px;
     }
   }
-  svg{
+  svg {
     fill: white;
   }
 `;
@@ -264,34 +260,31 @@ const AccountButtonComponent: React.FC = () => {
         </a>
       </li>
       <li className="email">
-        <a
-          href={emailSignUpUrl}
-          target="_blank"
-        >
+        <a href={emailSignUpUrl} target="_blank">
           <img src={emailNav} title="Sign Up with Email" />
         </a>
       </li>
     </AccountButtons>
-  )
-}
+  );
+};
 
 const handleOnClick = () => {
   console.log("!");
   window.location = "mailto:sales@trycourier.com";
-}
+};
 
 const displayCell = (property: any | string) => {
-  switch(property) {
-    case "SIGN_UP": 
+  switch (property) {
+    case "SIGN_UP":
       return <AccountButtonComponent />;
     case "CONTACT_SALES":
-      return <Button onClick={handleOnClick}>Contact Sales</Button>
-    case true: 
-      return <img src={checkmark} />
-    default: 
+      return <Button onClick={handleOnClick}>Contact Sales</Button>;
+    case true:
+      return <img src={checkmark} />;
+    default:
       return property;
   }
-}
+};
 const FeatureTableComponent: React.FC = () => {
   return (
     <FeatureTable>
@@ -305,7 +298,7 @@ const FeatureTableComponent: React.FC = () => {
           <tr>
             <td>Subscription Fee</td>
             <td className="highlighted">Free</td>
-            <td >$5k / mo</td>
+            <td>$5k / mo</td>
           </tr>
           <tr>
             <td>Usage Fee (free of to 10k/mo)</td>
