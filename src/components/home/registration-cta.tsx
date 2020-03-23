@@ -48,6 +48,9 @@ const Content = styled.div`
       ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm relative`}
       height: 36px;
       width: 170px;
+      & :hover {
+        filter: brightness(90%);
+      }
     }
     & button.ghost {
       background-color: transparent;

@@ -87,6 +87,9 @@ const AccountButtons = styled.ul`
   & li {
     ${tw`list-none inline-block ml-3`}
     height: 36px;
+    & :hover {
+      filter: brightness(90%);
+    }
   }
 `;
 
@@ -97,6 +100,9 @@ const MobileButtons = styled.ul`
   & li {
     ${tw`list-none inline-block mr-3 mt-2 hidden md:inline-block`}
     height: 36px;
+    & :hover {
+      filter: brightness(90%);
+    }
   }
   & li.hamburger {
     ${tw`inline-block md:hidden cursor-pointer`}
