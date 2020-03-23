@@ -219,7 +219,7 @@ const HeroDivider = styled(Divide)`
       </Section>
 
       <Section>
-      <TopDivider bg="white">
+        <TopDivider bg="white">
           <Divider image={divider4} />
         </TopDivider>
         <Container>
@@ -243,7 +243,6 @@ const HeroDivider = styled(Divide)`
         <Container>
           <GettingStarted />
         </Container>
-
       </Section>
 
       <Section>
