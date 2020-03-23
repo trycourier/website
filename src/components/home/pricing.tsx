@@ -86,7 +86,8 @@ const PricingCardEl = styled.div`
   & a {
     ${tw`inline-block no-underline text-xs border border-solid py-2 px-6 rounded-full mt-3 lg:mt-6`}
     color: ${props => (props.plan.featured ? colors.berry : "white")};
-    background-color: ${props => (props.plan.featured ? "white" : colors.berry)};
+    background-color: ${props =>
+      props.plan.featured ? "white" : colors.berry};
     line-height: 20px;
   }
 `;
@@ -126,7 +127,9 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
           ))}
         </ul>
       ) : null}
-      <a href="https://www.trycourier.app/register" target="_blank">Sign Up</a>
+      <a href="https://www.trycourier.app/register" target="_blank">
+        Sign Up
+      </a>
     </PricingCardEl>
   );
 };

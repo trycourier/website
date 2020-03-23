@@ -1,11 +1,11 @@
 import React from "react";
 import * as Sentry from "@sentry/browser";
 
-Sentry.init({
-  dsn: 'https://4d0fad4157b14d46af354f5158e5e69c@sentry.io/1801028',
-  environment: process.env.CONTEXT || 'development', // from netlify
-  release: process.env.DEPLOY_ID // from netlify
-});
+// Sentry.init({
+//   dsn: 'https://4d0fad4157b14d46af354f5158e5e69c@sentry.io/1801028',
+//   environment: process.env.CONTEXT || 'development', // from netlify
+//   release: process.env.DEPLOY_ID // from netlify
+// });
 
 interface IErrorBoundaryProps {
   fallback?: React.ReactNode;
@@ -16,13 +16,13 @@ interface IErrorBoundaryState {
 }
 
 const DefaultErrorComponent: React.FC = () => {
-  return (
-    <div>An error has occurred.</div>
-  );
+  return <div>An error has occurred.</div>;
 };
 
-export default class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
-  
+export default class ErrorBoundary extends React.Component<
+  IErrorBoundaryProps,
+  IErrorBoundaryState
+> {
   constructor(props: IErrorBoundaryProps) {
     super(props);
     this.state = { error: null };
@@ -31,13 +31,14 @@ export default class ErrorBoundary extends React.Component<IErrorBoundaryProps, 
   componentDidCatch(error: Error | null, errorInfo: object) {
     this.setState({ error });
 
-    Sentry.withScope(scope => {
-      Object.keys(errorInfo).forEach(key => {
-        scope.setExtra(key, (errorInfo as any)[key]);
-      });
+    console.warn("ErrInfo:", errorInfo);
+    // Sentry.withScope(scope => {
+    //   Object.keys(errorInfo).forEach(key => {
+    //     scope.setExtra(key, (errorInfo as any)[key]);
+    //   });
 
-      Sentry.captureException(error);
-    });
+    //   Sentry.captureException(error);
+    // });
   }
 
   render() {

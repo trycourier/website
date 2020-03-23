@@ -1,92 +1,142 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
-import Image from "./image";
+import colors from "../colors";
+
+import courierLogo from "../images/courier-logo.svg";
+import twitterLogo from "../images/social-twitter.svg";
+import linkedInLogo from "../images/social-linkedin.svg";
+import facebookLogo from "../images/social-fb.svg";
+import instagramLogo from "../images/social-instagram.svg";
 
 const Footer = styled.footer`
-  ${tw`relative`}
-  z-index: 2;
-  & p {
-    ${tw`ml-4 pb-4 lg:ml-0 text-xs`}
-  }
-`;
-
-const Bg = styled.div`
-  ${tw`absolute`}
-  height: 300px;
+  ${tw`md:flex text-white p-4 md:px-0 pt-16`}
   overflow: hidden;
-  bottom: 0;
-  width: 100%;
-  z-index: 1;
-  > .gatsby-image-wrapper {
-    ${tw`mx-auto`}
-    width: 900px;
-  }
 `;
 
+const LogoSection = styled.div`
+  ${tw`md:w-1/8 md:ml-6 md:pr-8`}
+`;
 const Logo = styled.div`
-  ${tw`ml-4 lg:ml-0`}
+  ${tw`mt-4`}
   max-width: 100px;
 `;
 
-const ErrorTest = styled.div`
-  display: none;
-  background-color: transparent;
-  color: transparent;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  text-align: center;
-  margin-bottom: 10px;
-  cursor: pointer;
-  :hover {
-    background-color: red;
-    color: white;
+const LinkSection = styled.div`
+  ${tw`md:w-7/8`}
+`;
+const NavLinks = styled.div`
+  ${tw`flex`}
+`;
+
+const NavigationItems = styled.ul`
+  ${tw`mt-1 p-0`}
+  & li {
+    ${tw`list-none inline-block mt-2 align-top`}
+    height: 24px;
+    & a {
+      ${tw`no-underline text-white text-md py-2 md:px-8 mr-4`}
+      color: ${colors.white};
+      font-weight: 700;
+      line-height: 30px;
+      border-radius: 9999px;
+      :hover{
+        background: rgba(255,255,255,0.1);
+      }
+    }
+  }
+  & li.logo {
+    ${tw`inline-block pl-4 md:pl-4 lg:pl-0 lg:pr-8`}
+    width: 93px;
+    height: 24px;
+    margin-top: -20px;
+    & a {
+      :hover{
+        background: transparent;
+      }
+    }
   }
 `;
 
-const FooterComponent: React.FC = ({ children }) => {
-  const { logo, bg } = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { eq: "Courier Logo@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      bg: file(relativePath: { eq: "Footer Design@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
+const SocialLinks = styled.div`
+  ${tw`flex md:ml-6`}
+  a {
+    ${tw`inline-block p-2`}
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    :hover {
+      background: rgba(255, 255, 255, 0.1);
     }
-  `);
-
-  const triggerException = () => {
-    throw new Error("Test Exception");
   }
+`;
 
+const DetailLinks = styled.div`
+  p {
+    ${tw`flex flex-col md:flex-row`}
+  }
+  a {
+    ${tw`no-underline text-white text-sm py-2 md:px-8`}
+    border-radius: 9999px;
+    :hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+`;
+
+const FooterComponent: React.FC = () => {
   return (
     <>
       <Footer>
-        {children}
-        <ErrorTest onClick={triggerException}>!</ErrorTest>
-        <Logo>
-          <Image image={logo} />
-        </Logo>
-        <p>
-          {new Date().getFullYear()} trycourier.com, Inc. All rights reserved.<br />
-          <a href="/privacy">Privacy Policy</a>
-        </p>
+        <LogoSection>
+          <Logo>
+            <img src={courierLogo} />
+          </Logo>
+        </LogoSection>
+        <LinkSection>
+          <NavLinks>
+            <NavigationItems>
+              <li>
+                <Link to="/pricing">Pricing</Link>
+              </li>
+              {/* <li>
+                <Link to="/#company">Company</Link>
+              </li>
+              <li>
+                <Link to="/#community">Community</Link>
+              </li> */}
+              <li>
+                <a href="https://docs.trycourier.com/" target="_blank">
+                  Documentation
+                </a>
+              </li>
+            </NavigationItems>
+          </NavLinks>
+          <SocialLinks>
+            <a href="https://www.twitter.com/trycourier" target="_blank">
+              <img src={twitterLogo} style={{ marginTop: 2 }} />
+            </a>
+            <a href="https://www.linkedin.com/trycourier" target="_blank">
+              <img src={linkedInLogo} />
+            </a>
+            <a href="https://www.facebook.com/trycourier" target="_blank">
+              <img src={facebookLogo} />
+            </a>
+            <a href="https://www.instagram.com/trycourier" target="_blank">
+              <img src={instagramLogo} />
+            </a>
+          </SocialLinks>
+          <DetailLinks>
+            <p>
+              <a href="/privacy">Privacy&nbsp;Policy</a>
+              {/* <a href="/terms">Terms&nbsp;of&nbsp;Service</a> */}
+              <a href="/disclosure">Responsible&nbsp;Disclosure&nbsp;Policy</a>
+            </p>
+          </DetailLinks>
+        </LinkSection>
       </Footer>
-      <Bg>
-        <Image image={bg} />
-      </Bg>
     </>
   );
 };
