@@ -35,11 +35,18 @@ const RouteImageWrapper = styled.div`
 `;
 
 const RouteComponent: React.FC = () => {
-  const { bg, img, mobileImg } = useStaticQuery(graphql`
+  const { bg, bg2, img, mobileImg } = useStaticQuery(graphql`
     query {
       bg: file(relativePath: { eq: "bgs/gears@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 460) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      bg2: file(relativePath: { eq: "bgs/gears2@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 764) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -63,31 +70,37 @@ const RouteComponent: React.FC = () => {
 
   const bgStyle = {
     backgroundSize: !isMobile ? "360px 360px" : "0px 0px",
-    backgroundPosition: "0% 0%",
+    backgroundPosition: "0% 75%",
+  };
+  const bg2Style = {
+    backgroundSize: !isMobile ? "382px " : "0px 0px",
+    backgroundPosition: "100% 75%",
   };
 
   return (
     <Route>
       <BackgroundImage fluid={bg.childImageSharp.fluid} style={bgStyle}>
-        <RouteSection>
-          <NoCode />
-          <RouteText>
-            <h2>Powerful Delivery Rules</h2>
-            <p>
-              Effortlessly route each message to the right notification channel
-              using a robust rules engine. Change channels without touching your
-              code.
-            </p>
-          </RouteText>
-          <RouteImageWrapper>
-            <Desktop>
-              <Image image={img} />
-            </Desktop>
-            <Mobile>
-              <Image image={mobileImg} />
-            </Mobile>
-          </RouteImageWrapper>
-        </RouteSection>
+        <BackgroundImage fluid={bg2.childImageSharp.fluid} style={bg2Style}>
+          <RouteSection>
+            <NoCode />
+            <RouteText>
+              <h2>Powerful Delivery Rules</h2>
+              <p>
+                Effortlessly route each message to the right notification channel
+                using a robust rules engine. Change channels without touching your
+                code.
+              </p>
+            </RouteText>
+            <RouteImageWrapper>
+              <Desktop>
+                <Image image={img} />
+              </Desktop>
+              <Mobile>
+                <Image image={mobileImg} />
+              </Mobile>
+            </RouteImageWrapper>
+          </RouteSection>
+        </BackgroundImage>
       </BackgroundImage>
     </Route>
   );
