@@ -38,7 +38,7 @@ type CTAProps = {
 };
 
 const Content = styled.div`
-  & form {
+  & .form {
     ${tw`my-2 p-3 mx-auto`}
     background-color: ${(props: CTAProps) =>
       props.footer ? colors.berry : `rgba(0,0,0,0.25)`};
@@ -81,7 +81,7 @@ const Flex = styled.div`
 const RegistrationCTA: React.FC = () => {
   return (
     <Content footer={false}>
-      <form>
+      <div className="form">
         <Desktop>
           <Flex>
             <a href={googleSignUpUrl}>
@@ -117,7 +117,7 @@ const RegistrationCTA: React.FC = () => {
             </a>
           </Button>
         </MobileContent>
-      </form>
+      </div>
     </Content>
   );
 };

@@ -13,6 +13,9 @@ const FeatureTable = styled.section`
   color: ${colors.textPrimary};
 `;
 
+const shadow = `rgba(157, 52, 139, 0.25) 0px 8px 18px`;
+// const shadow = `0px 4px 8px ${colors.berryGlass}`;
+
 const FeatureTableTable = styled.table`
   ${tw`mt-8 w-full text-center`}
   display: inline-table;
@@ -63,7 +66,7 @@ const FeatureTableTable = styled.table`
       background: #FFF;
       position: relative;
       z-index: 2;
-      box-shadow: 0px 4px 8px ${colors.berryGlass};
+      box-shadow: ${shadow};
       border: 5px solid #fff;
       border-radius: 20px 20px 0px 0px;
       border-spacing: 0px;
@@ -82,7 +85,7 @@ const FeatureTableTable = styled.table`
       position: relative;
       z-index: 3;
       background: #fff;
-      box-shadow: 0px 8px 8px ${colors.berryGlass};
+      box-shadow: ${shadow};
       border-left: 16px solid #fff;
       border-right: 16px solid #fff;
     }

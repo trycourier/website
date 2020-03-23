@@ -16,7 +16,7 @@ const StyledQuote = styled(Quote)`
 const ClientImage = styled(Rel)`
   flex: 1;
   max-width: 160px;
-  margin: 24px auto;
+  margin: 32px auto;
   @media (max-width: 640px) {
     width: 160px;
     margin: 0px auto 24px auto;
@@ -45,7 +45,7 @@ const QuoteComponent2: React.FC = () => {
               <ClientImage>
                 <Image image={segment} />
               </ClientImage>
-              <QuoteText style={{ flex: 5 }}>
+              <QuoteText style={{ marginLeft: 16, flex: 5 }}>
                 Connect Segment and watch all of your events flow into Courier.
                 Anyone can easily pick an event, add one or more notification
                 channels, and use our Notification Design Studio to start
