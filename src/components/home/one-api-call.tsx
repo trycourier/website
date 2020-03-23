@@ -156,18 +156,18 @@ const OneApiComponent: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <img src={postmark} alt="Postmark" />
-              </td>
-              <td>
-                <img src={messagebird} alt="MessageBird" />
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <img src={sendgrid} alt="SendGrid" />
               </td>
               <td>
                 <img src={twilio} alt="Twilio" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src={postmark} alt="Postmark" />
+              </td>
+              <td>
+                <img src={messagebird} alt="MessageBird" />
               </td>
             </tr>
             <tr>
@@ -186,18 +186,18 @@ const OneApiComponent: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <img src={onesignal} alt="OneSignal" />
-              </td>
-              <td>
-                <img src={fbMessenger} alt="FB Messenger" />
-              </td>
-            </tr>
-            <tr>
-              <td>
                 <img src={firebase} alt="Firebase" />
               </td>
               <td>
                 <img src={slack} alt="Slack" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src={onesignal} alt="OneSignal" />
+              </td>
+              <td>
+                <img src={fbMessenger} alt="FB Messenger" />
               </td>
             </tr>
             <tr>
