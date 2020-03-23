@@ -216,7 +216,7 @@ const PricingLineComponent: React.FC = () => {
           {pricingMatrix[rangeIdx - 1].additional
             ? `+ ${
                 pricingMatrix[rangeIdx - 1].additional
-              }per additional notification *`
+              } per additional notification *`
             : ` `}
         </h5>
         <Desktop>
