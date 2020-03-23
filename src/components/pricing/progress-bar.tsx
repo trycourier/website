@@ -53,6 +53,15 @@ const Ticks = styled.div`
   height: 0px;
 `;
 
+const Marker = styled.img`
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: -12px;
+  zindex: 1;
+`;
+
 // const tickPos = [245, 466, 687];
 // const deltas = [3, 30, 57]
 // const wrongTickPos = [248, 496, 744];
@@ -63,7 +72,8 @@ const ProgressBarComponent: React.FC<{
   px?: number;
   tick?: number;
   fullWidth?: number;
-}> = ({ px = 0, tick = 0, fullWidth = 0 }) => {
+  handleRangeClick?: any;
+}> = ({ px = 0, tick = 0, fullWidth = 0, handleRangeClick }) => {
   let ticks = [];
   let unticks = [];
   const dx = fullWidth / 4;
@@ -89,17 +99,11 @@ const ProgressBarComponent: React.FC<{
 
       <Ticks>
         {unticks.length
-          ? unticks.map(pos => (
-              <img
+          ? unticks.map((pos, idx) => (
+              <Marker
                 src={UnTick}
-                style={{
-                  width: 20,
-                  height: 20,
-                  position: "relative",
-                  left: pos,
-                  top: -12,
-                  zIndex: 1,
-                }}
+                style={{ left: pos }}
+                onClick={() => handleRangeClick(idx + 2)}
               />
             ))
           : null}
@@ -107,17 +111,11 @@ const ProgressBarComponent: React.FC<{
 
       <Ticks>
         {ticks.length
-          ? ticks.map(pos => (
-              <img
+          ? ticks.map((pos, idx) => (
+              <Marker
                 src={Tick}
-                style={{
-                  width: 20,
-                  height: 20,
-                  position: "relative",
-                  left: pos,
-                  top: -12,
-                  zIndex: 1,
-                }}
+                style={{ left: pos }}
+                onClick={() => handleRangeClick(idx + 2)}
               />
             ))
           : null}

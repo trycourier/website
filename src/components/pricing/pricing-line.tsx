@@ -178,7 +178,7 @@ const useWindowSize = () => {
 };
 
 const PricingLineComponent: React.FC = () => {
-  const [rangeIdx, setRangeIdx] = useState(3);
+  const [rangeIdx, setRangeIdx] = useState(1);
   const [width, setWidth] = useState(0);
   const size = useWindowSize();
 
@@ -198,6 +198,10 @@ const PricingLineComponent: React.FC = () => {
         setRangeIdx(val);
       }
     }
+  };
+
+  const handleRangeClick = (e: number) => {
+    setRangeIdx(e);
   };
 
   return (
@@ -228,6 +232,7 @@ const PricingLineComponent: React.FC = () => {
             px={((rangeIdx - 1) / 4) * width}
             tick={rangeIdx - 1}
             fullWidth={width}
+            handleRangeClick={handleRangeClick}
           />
         </Desktop>
         <Mobile>

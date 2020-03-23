@@ -52,7 +52,7 @@ const OneApiInfo = styled.div`
 `;
 
 const OneApiTable = styled.table`
-  ${tw`mt-8`}
+  ${tw`mt-8 md:mt-20`}
   display: inline-table;
   border-spacing: 0px;
 
@@ -106,6 +106,20 @@ const OneApiComponent: React.FC = () => {
             </tr>
             <tr>
               <td>
+                <img src={sendgrid} alt="SendGrid" />
+              </td>
+              <td>
+                <img src={twilio} alt="Twilio" />
+              </td>
+              <td>
+                <img src={firebase} alt="Firebase" /> 
+              </td>
+              <td>
+                <img src={slack} alt="Slack" />
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <img src={postmark} alt="Postmark" />
               </td>
               <td>
@@ -116,20 +130,6 @@ const OneApiComponent: React.FC = () => {
               </td>
               <td>
                 <img src={fbMessenger} alt="FB Messenger" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <img src={sendgrid} alt="SendGrid" />
-              </td>
-              <td>
-                <img src={twilio} alt="Twilio" />
-              </td>
-              <td>
-                <img src={firebase} alt="Firebase" />
-              </td>
-              <td>
-                <img src={slack} alt="Slack" />
               </td>
             </tr>
             <tr>
@@ -211,7 +211,7 @@ const OneApiComponent: React.FC = () => {
           </OneApiTable>
         </Mobile>
         <div style={{ marginTop: 32 }}>
-          <a href="#">Other Integrations</a>
+          <a href="https://docs.trycourier.com/docs" target="_blank">Other Integrations</a>
         </div>
       </OneApiInfo>
     </OneApi>
