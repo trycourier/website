@@ -22,6 +22,7 @@ const SubscriptionPlansText = styled.div`
 
 const SubscriptionPlansWrapper = styled.div`
   ${tw`w-full`}
+  overflow: scroll;
   & form {
     background-color: ${colors.berryWhite};
     max-width: 455px;

@@ -293,7 +293,6 @@ const displayCell = (property: any | string) => {
   }
 }
 const FeatureTableComponent: React.FC = () => {
-
   return (
     <FeatureTable>
       <FeatureTableTable>
