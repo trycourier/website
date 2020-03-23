@@ -131,7 +131,7 @@ const FooterComponent: React.FC = () => {
           <DetailLinks>
             <p>
               <a href="/privacy">Privacy&nbsp;Policy</a>
-              <a href="/terms">Terms&nbsp;of&nbsp;Service</a>
+              {/* <a href="/terms">Terms&nbsp;of&nbsp;Service</a> */}
               <a href="/disclosure">Responsible&nbsp;Disclosure&nbsp;Policy</a>
             </p>
           </DetailLinks>
