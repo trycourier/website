@@ -7,6 +7,11 @@ import Image from "../image";
 const NoCode = styled.div`
   ${tw`absolute`}
   width: 130px;
+  @media (max-width: 768px){
+    width: 75px;
+    top: 4px;
+    left: 48px;
+  }
 `;
 
 const NoCodeComponent: React.FC = () => {

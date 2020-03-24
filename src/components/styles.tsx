@@ -4,12 +4,13 @@ export const listStyles = `
   & ul {
     list-style: none;
     padding-left: 24px;
+    margin-top: 24px;
   }
   & li {
     line-height: 24px;
     color: ${colors.textPrimary};
     position: relative;
-    margin: 36px 0px;
+    margin: 20px 0px;
     &::before {
       content: "•";
       font-size: 40px;
