@@ -60,16 +60,17 @@ const HeroImageWrapper = styled.div`
 const MobileImageWrapper = styled.div`
   ${tw`absolute block md:hidden`}
   width: 50%;
-  bottom: 25%;
+  bottom: 50px;
   right: 0px;
   @media (max-width: 768px) {
     width: 65%;
+    bottom: 150px;
   }
 `;
 
 const HeroCTA = styled.div`
   ${tw`relative text-center md:mt-16 md:text-left`}
-  margin-top: 43vw;
+  margin-top: 40vw;
 `;
 
 const HeroComponent: React.FC = () => {
