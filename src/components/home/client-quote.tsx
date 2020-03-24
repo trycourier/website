@@ -33,7 +33,7 @@ export const Quote = styled.div`
   border-radius: 20px;
   top: 64px;
   right: 16px;
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     top: 0px;
   }
   z-index: 5;
@@ -42,7 +42,7 @@ export const Quote = styled.div`
 export const QuoteBox = styled(Rel)`
   ${tw`relative text-sm`}
   line-height: 20px;
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     flex: 6;
     font-size: 15px;
   }
@@ -60,7 +60,7 @@ const QuoteAuthor = styled.div`
 
 const QuoteImage = styled.div`
   flex: 1;
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     flex: none;
     width: 100px;
     margin: 24px;
