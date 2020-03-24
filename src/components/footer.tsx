@@ -92,7 +92,7 @@ const FooterComponent: React.FC = () => {
       <Footer>
         <LogoSection>
           <Logo>
-            <img src={courierLogo} />
+            <img src={courierLogo} alt="Courier" />
           </Logo>
         </LogoSection>
         <LinkSection>
@@ -116,16 +116,16 @@ const FooterComponent: React.FC = () => {
           </NavLinks>
           <SocialLinks>
             <a href="https://www.twitter.com/trycourier" target="_blank">
-              <img src={twitterLogo} style={{ marginTop: 2 }} />
+              <img src={twitterLogo} style={{ marginTop: 2 }} alt="twitter"/>
             </a>
             <a href="https://www.linkedin.com/trycourier" target="_blank">
-              <img src={linkedInLogo} />
+              <img src={linkedInLogo} alt="LinkedIn"/>
             </a>
             <a href="https://www.facebook.com/trycourier" target="_blank">
-              <img src={facebookLogo} />
+              <img src={facebookLogo} alt="Facebook"/>
             </a>
             <a href="https://www.instagram.com/trycourier" target="_blank">
-              <img src={instagramLogo} />
+              <img src={instagramLogo} alt="Instagram"/>
             </a>
           </SocialLinks>
           <DetailLinks>

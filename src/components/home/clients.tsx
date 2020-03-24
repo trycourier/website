@@ -69,31 +69,37 @@ const ClientsComponent: React.FC = () => {
       <ClientsImageWrapper>
         <ClientImage
           src={lattice}
+          alt="Lattice"
           desktop={{ top: "20px", left: "10px" }}
           mobile={{ top: "10px", left: "10px" }}
         />
         <ClientImage
           src={blissfully}
+          alt="Blissfully"
           desktop={{ top: "2px", left: "194px" }}
           mobile={{ top: "10px", left: "130px" }}
         />
         <ClientImage
           src={eatgeek}
+          alt="EatGeek"
           desktop={{ top: "16px", left: "380px" }}
           mobile={{ top: "10px", left: "260px" }}
         />
         <ClientImage
           src={hutsy}
+          alt="Hutsy"
           desktop={{ top: "33px", left: "543px" }}
           mobile={{ top: "60px", left: "10px" }}
         />
         <ClientImage
           src={savvy}
+          alt="Savvy"
           desktop={{ top: "50px", left: "685px" }}
           mobile={{ top: "65px", left: "130px" }}
         />
         <ClientImage
           src={aarida}
+          alt="Aarida"
           desktop={{ top: "67px", left: "825px" }}
           mobile={{ top: "50px", left: "260px" }}
         />

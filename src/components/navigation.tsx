@@ -156,24 +156,24 @@ const NavigationComponent: React.FC = () => {
                 <label>Sign Up</label>
                 <li>
                   <a href={googleSignUpUrl} target="_blank">
-                    <img src={googleNav} title="Google SSO" />
+                    <img src={googleNav} alt="Google SSO" />
                   </a>
                 </li>
                 <li>
                   <a href={githubSignUpUrl} target="_blank">
-                    <img src={githubNav} title="GitHub SSO" />
+                    <img src={githubNav} alt="GitHub SSO" />
                   </a>
                 </li>
                 <li>
                   <a href={emailSignUpUrl} target="_blank">
-                    <img src={emailNav} title="Sign Up with Email" />
+                    <img src={emailNav} alt="Sign Up with Email" />
                   </a>
                 </li>
               </AccountButtons>
               <MobileButtons>
                 <li className="hamburger">
                   <a href="/" onClick={toggleMenu}>
-                    <img src={mobileMenu} />
+                    <img src={mobileMenu} alt="+"/>
                   </a>
                 </li>
               </MobileButtons>
