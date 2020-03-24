@@ -65,8 +65,7 @@ const MobileContent = styled(Mobile)`
     width: 100%;
     & label {
       text-align: left;
-      margin-right: 8px;
-      cursor: pointer;
+      margin-right: 25%;
     }
     & img {
       margin-left: 8px;
@@ -108,16 +107,18 @@ const RegistrationCTA: React.FC = () => {
         </Desktop>
         <MobileContent>
           <Button className="mobile">
-            <label>Sign Up!</label>
-            <a href={googleSignUpUrl}>
-              <img src={googleLogo} />
-            </a>
-            <a href={githubSignUpUrl}>
-              <img src={githubLogo} />
-            </a>
-            <a href={emailSignUpUrl}>
-              <img className="email" src={emailLogo} />
-            </a>
+            <label>Sign up!</label>
+
+              <a href={googleSignUpUrl}>
+                <img src={googleLogo} />
+              </a>
+              <a href={githubSignUpUrl}>
+                <img src={githubLogo} />
+              </a>
+              <a href={emailSignUpUrl}>
+                <img className="email" src={emailLogo} />
+              </a>
+
           </Button>
         </MobileContent>
       </div>

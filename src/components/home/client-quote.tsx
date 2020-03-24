@@ -10,6 +10,8 @@ import { Desktop, Mobile } from "../container";
 
 import colors from "../../colors";
 
+const shadow = `rgba(157, 52, 139, 0.25) 0px 8px 18px`;
+
 const Abs = styled.div`
   ${tw`absolute`}
 `;
@@ -29,8 +31,9 @@ export const Rel = styled.div`
 `;
 
 export const Quote = styled.div`
-  ${tw`absolute w-3/4 p-6 bg-white shadow-xl`}
+  ${tw`absolute w-3/4 p-6 bg-white`}
   border-radius: 20px;
+  box-shadow: ${shadow};
   top: 64px;
   right: 16px;
   @media (max-width: 768px) {
