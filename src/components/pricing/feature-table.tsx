@@ -254,17 +254,17 @@ const AccountButtonComponent: React.FC = () => {
     <AccountButtons>
       <li className="google">
         <a href={googleSignUpUrl} target="_blank">
-          <img src={googleNav} title="Google SSO" />
+          <img src={googleNav} alt="Google SSO" />
         </a>
       </li>
       <li className="github">
         <a href={githubSignUpUrl} target="_blank">
-          <img src={githubNav} title="GitHub SSO" />
+          <img src={githubNav} alt="GitHub SSO" />
         </a>
       </li>
       <li className="email">
         <a href={emailSignUpUrl} target="_blank">
-          <img src={emailNav} title="Sign Up with Email" />
+          <img src={emailNav} alt="Sign Up with Email" />
         </a>
       </li>
     </AccountButtons>
@@ -289,7 +289,7 @@ const displayCell = (property: any | string) => {
     case "CONTACT_SALES":
       return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
     case true:
-      return <img src={checkmark} width="32"/>;
+      return <img src={checkmark} alt="+" width="32"/>;
     default:
       return property;
   }

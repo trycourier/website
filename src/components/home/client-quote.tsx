@@ -96,10 +96,10 @@ const QuoteComponent: React.FC = () => {
         <Flex>
           <QuoteBox>
             <Abs>
-              <img src={quoteImg} />
+              <img src={quoteImg} alt="quote"/>
             </Abs>
             <Abs2>
-              <img src={quoteImg} />
+              <img src={quoteImg} alt="endquote"/>
             </Abs2>
             <Flex>
               <QuoteText>
@@ -124,10 +124,10 @@ const QuoteComponent: React.FC = () => {
       <Mobile>
         <QuoteBox>
           <Abs>
-            <img src={quoteImg} />
+            <img src={quoteImg} alt="quote"/>
           </Abs>
           <Abs2>
-            <img src={quoteImg} />
+            <img src={quoteImg} alt="endquote"/>
           </Abs2>
           <QuoteText>
             We were building out a new team to focus entirely on our

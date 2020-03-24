@@ -113,6 +113,7 @@ const ProgressBarComponent: React.FC<{
               <Marker
                 key={idx}
                 src={UnTick}
+                alt="-"
                 style={{ left: pos }}
                 onClick={() => handleRangeClick(idx + 2)}
               />
@@ -126,6 +127,7 @@ const ProgressBarComponent: React.FC<{
               <Marker
                 key={idx}
                 src={Tick}
+                alt="+"
                 style={{ left: pos }}
                 onClick={() => handleRangeClick(idx + 2)}
               />

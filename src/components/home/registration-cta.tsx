@@ -88,13 +88,13 @@ const RegistrationCTA: React.FC = () => {
           <Flex>
             <a href={googleSignUpUrl}>
               <Button>
-                <img src={googleLogo} />
+                <img src={googleLogo} alt="Google SSO"/>
                 <label>Google</label>
               </Button>
             </a>
             <a href={githubSignUpUrl}>
               <Button className="github">
-                <img src={githubLogo} />
+                <img src={githubLogo} alt="GitHub SSO"/>
                 <label>GitHub</label>
               </Button>
             </a>
@@ -110,13 +110,13 @@ const RegistrationCTA: React.FC = () => {
             <label>Sign up!</label>
 
               <a href={googleSignUpUrl}>
-                <img src={googleLogo} />
+                <img src={googleLogo} alt="Google SSO" />
               </a>
               <a href={githubSignUpUrl}>
-                <img src={githubLogo} />
+                <img src={githubLogo} alt="GitHub SSO" />
               </a>
               <a href={emailSignUpUrl}>
-                <img className="email" src={emailLogo} />
+                <img className="email" src={emailLogo} alt="Email" />
               </a>
 
           </Button>
