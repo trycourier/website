@@ -12,10 +12,10 @@ const GettingStarted = styled.section`
 const GettingStartedText = styled.div`
   ${tw`md:w-1/2 md:pr-8`}
   & h2 {
-    ${tw`m-0 p-0 text-3xl md:text-4xlmb-5`}
+    ${tw`m-0 p-0 text-3xl md:text-4xl mb-5`}
     font-family: "Proxima Nova", sans-serif;
     color: ${colors.textPrimary};
-    font-weight: 400;
+    font-weight: 600;
   }
   & p {
     ${tw`m-0 p-0 text-xl mt-2`}

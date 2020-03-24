@@ -1,14 +1,14 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-
+import tw from "tailwind.macro";
 import Image from "../image";
 
 const NoCode = styled.div`
-  position: absolute;
+  ${tw`absolute`}
   width: 130px;
-  z-index: -1;
 `;
+
 const NoCodeComponent: React.FC = () => {
   const { noCode } = useStaticQuery(graphql`
     query {

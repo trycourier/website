@@ -28,7 +28,8 @@ const OneApi = styled.section`
 const OneApiImageWrapper = styled.div`
   ${tw`md:w-1/2 text-left pt-0`}
   & h2 {
-    ${tw`m-0 p-0 text-3xl md:text-5xl`}
+    ${tw`m-0 p-0 text-3xl md:text-4xl`}
+    font-weight: 200;
   }
 `;
 

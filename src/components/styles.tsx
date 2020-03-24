@@ -12,7 +12,7 @@ export const listStyles = `
     margin: 36px 0px;
     &::before {
       content: "•";
-      font-size: 32px;
+      font-size: 40px;
       position: absolute;
       left: -24px;
       top: -2px;
