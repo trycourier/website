@@ -14,6 +14,7 @@ const Button = styled.button`
   ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm align-middle`}
   background: ${colors.googleBlue};
   border-color: ${colors.googleBlue};
+  border: 1px solid transparent;
   height: 36px;
   line-height: 24px;
   cursor: pointer;
