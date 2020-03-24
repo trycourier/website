@@ -271,17 +271,12 @@ const AccountButtonComponent: React.FC = () => {
   );
 };
 
-const handleOnClick = () => {
-  console.log("!");
-  window.location = "mailto:sales@trycourier.com";
-};
-
 const displayCell = (property: any | string) => {
   switch (property) {
     case "SIGN_UP":
       return <AccountButtonComponent />;
     case "CONTACT_SALES":
-      return <Button onClick={handleOnClick}>Contact Sales</Button>;
+      return <a href="mailto:troy@trycourier.com"><Button>Contact Sales</Button></a>;
     case true:
       return <img src={checkmark} />;
     default:
