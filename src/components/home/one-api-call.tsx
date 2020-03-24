@@ -28,7 +28,7 @@ const OneApi = styled.section`
 const OneApiImageWrapper = styled.div`
   ${tw`md:w-1/2 text-left pt-0`}
   & h2 {
-    ${tw`m-0 p-0 text-3xl mb-2`}
+    ${tw`m-0 p-0 text-3xl md:text-5xl`}
   }
 `;
 
@@ -91,7 +91,7 @@ const OneApiComponent: React.FC = () => {
     <OneApi>
       <OneApiImageWrapper>
         <h2>One API Call</h2>
-        <div style={{ marginTop: -48 }}>
+        <div style={{ marginTop: -64 }}>
           <StyledImage image={img} />
         </div>
       </OneApiImageWrapper>

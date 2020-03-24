@@ -60,7 +60,7 @@ const FeatureTableTable = styled.table`
     ${tw`m-0 p-0`}
   }
   & th {
-    ${tw`m-0 px-16 py-8 text-3xl font-normal`}
+    ${tw`m-0 px-16 py-8 text-3xl md:text-4xl font-normal`}
     &:nth-child(2) {
       ${tw`p-8`}
       background: #FFF;

@@ -15,7 +15,7 @@ const Editor = styled.section`
 const EditorText = styled.div`
   ${tw`w-3/4 md:w-1/2 mx-auto md:pr-8 mt-16`}
   & h2 {
-    ${tw`m-0 p-0 text-3xl mb-2`}
+    ${tw`m-0 p-0 text-3xl md:text-4xl mb-2`}
     color: ${colors.textPrimary};
   }
   & p {

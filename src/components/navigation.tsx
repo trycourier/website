@@ -39,7 +39,7 @@ const MobileNavMenu = styled.ul`
     }
   }
   & li.close {
-    ${tw`text-right text-3xl relative`}
+    ${tw`text-right text-3xl md:text-4xl relative`}
     top: 0px;
     right: 16px;
   }

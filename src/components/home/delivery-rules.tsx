@@ -20,7 +20,7 @@ const RouteText = styled.div`
   ${tw`w-full md:w-2/3 mt-16`}
   line-height: 32px;
   & h2 {
-    ${tw`m-0 p-0 text-3xl`}
+    ${tw`m-0 p-0 text-3xl md:text-4xl`}
     color: ${colors.textPrimary};
   }
   & p {
