@@ -280,7 +280,6 @@ const handleContactSalesClick = () => {
   }catch(e) {
     console.warn("Intercom not enabled:", e);
   }
-
 }
 
 const displayCell = (property: any | string) => {
@@ -290,7 +289,7 @@ const displayCell = (property: any | string) => {
     case "CONTACT_SALES":
       return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
     case true:
-      return <img src={checkmark} />;
+      return <img src={checkmark} width="32"/>;
     default:
       return property;
   }
@@ -299,11 +298,13 @@ const FeatureTableComponent: React.FC = () => {
   return (
     <FeatureTable>
       <FeatureTableTable>
-        <tr>
-          <th></th>
-          <th>Standard</th>
-          <th>Enterprise</th>
-        </tr>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Standard</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
         <tbody className="highlighted">
           <tr>
             <td>Subscription Fee</td>
@@ -316,13 +317,15 @@ const FeatureTableComponent: React.FC = () => {
             <td>per notification</td>
           </tr>
         </tbody>
+        <tbody>
         {features.map(feat => (
-          <tr>
+          <tr key={feat.label}>
             <td>{feat.label}</td>
             <td>{feat.standard ? displayCell(feat.standard) : " "}</td>
             <td>{feat.enterprise ? displayCell(feat.enterprise) : " "}</td>
           </tr>
         ))}
+        </tbody>
         <tfoot>
           <tr>
             <td></td>
