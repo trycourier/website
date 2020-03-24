@@ -35,9 +35,9 @@ export const Quote = styled.div`
   border-radius: 20px;
   box-shadow: ${shadow};
   top: 64px;
-  right: 16px;
+  right: -32px;
   @media (max-width: 768px) {
-    top: 0px;
+    right: 16px;
   }
   z-index: 5;
 `;
