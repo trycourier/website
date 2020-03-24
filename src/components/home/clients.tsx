@@ -31,7 +31,7 @@ const ClientsText = styled.div`
 const ClientsImageWrapper = styled.div`
   ${tw`w-full relative mx-auto`}
   height: 120px;
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     width: 385px;
   }
 `;
@@ -52,7 +52,7 @@ const ClientImage = styled.img`
     props.mobile ? props.mobile.top : props.desktop.top};
   left: ${(props: ClientCardProps) =>
     props.mobile ? props.mobile.left : props.desktop.left};
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     top: ${(props: ClientCardProps) =>
       props.desktop ? props.desktop.top : props.mobile.top};
     left: ${(props: ClientCardProps) =>

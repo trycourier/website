@@ -30,7 +30,7 @@ const SubscriptionPlansWrapper = styled.div`
   & button.ghost {
     color: ${colors.textPrimary};
   }
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     overflow-x: scroll;
   }
 `;
