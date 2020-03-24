@@ -272,11 +272,15 @@ const AccountButtonComponent: React.FC = () => {
 };
 
 const handleContactSalesClick = () => {
-  if(window.Intercom) {
+  try {
+    if(!window.Intercom) {
+      window.location = "mailto:troy@trycourier.com";
+    }
     window.Intercom('showNewMessage', 'Thank you for interest in Courier:');
-  } else {
-    window.location = "mailto:troy@trycourier.com";
+  }catch(e) {
+    console.warn("Intercom not enabled:", e);
   }
+
 }
 
 const displayCell = (property: any | string) => {
