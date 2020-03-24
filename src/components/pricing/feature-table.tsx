@@ -271,12 +271,20 @@ const AccountButtonComponent: React.FC = () => {
   );
 };
 
+const handleContactSalesClick = () => {
+  if(window.Intercom) {
+    window.Intercom('showNewMessage', 'Thank you for interest in Courier:');
+  } else {
+    window.location = "mailto:troy@trycourier.com";
+  }
+}
+
 const displayCell = (property: any | string) => {
   switch (property) {
     case "SIGN_UP":
       return <AccountButtonComponent />;
     case "CONTACT_SALES":
-      return <a href="mailto:troy@trycourier.com"><Button>Contact Sales</Button></a>;
+      return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
     case true:
       return <img src={checkmark} />;
     default:
