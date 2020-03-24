@@ -14,7 +14,6 @@ const FeatureTable = styled.section`
 `;
 
 const shadow = `rgba(157, 52, 139, 0.25) 0px 8px 18px`;
-// const shadow = `0px 4px 8px ${colors.berryGlass}`;
 
 const FeatureTableTable = styled.table`
   ${tw`mt-8 w-full text-center`}

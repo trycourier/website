@@ -42,12 +42,12 @@ const OneApiInfo = styled.div`
   & a {
     ${tw`no-underline text-sm py-2 px-8 mt-8`}
     color: ${colors.white};
-    background: rgba(255,255,255,0.1);
+    background: transparent;
     font-weight: 700;
     line-height: 30px;
     border-radius: 9999px;
     :hover{
-      background: ${colors.berry};
+      background: rgba(255,255,255,0.1);
     }
   }
 `;

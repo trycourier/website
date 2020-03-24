@@ -42,7 +42,7 @@ const Content = styled.div`
   & .form {
     ${tw`my-2 p-3 mx-auto`}
     background-color: ${(props: CTAProps) =>
-      props.footer ? colors.berry : `rgba(0,0,0,0.25)`};
+      props.footer ? colors.berryGlass : `rgba(0,0,0,0.25)`};
     border-radius: 32px;
 
     & button {
@@ -81,21 +81,21 @@ const Flex = styled.div`
   display: flex;
 `;
 
-const RegistrationCTA: React.FC = () => {
+const RegistrationCTA: React.FC = (props) => {
   return (
-    <Content footer={false}>
+    <Content footer={props.footer}>
       <div className="form">
         <Desktop>
           <Flex>
             <a href={googleSignUpUrl}>
               <Button>
-                <img src={googleLogo} alt="Google SSO"/>
+                <img src={googleLogo} alt="Google SSO" />
                 <label>Google</label>
               </Button>
             </a>
             <a href={githubSignUpUrl}>
               <Button className="github">
-                <img src={githubLogo} alt="GitHub SSO"/>
+                <img src={githubLogo} alt="GitHub SSO" />
                 <label>GitHub</label>
               </Button>
             </a>
@@ -110,16 +110,15 @@ const RegistrationCTA: React.FC = () => {
           <Button className="mobile">
             <label>Sign up!</label>
 
-              <a href={googleSignUpUrl}>
-                <img src={googleLogo} alt="Google SSO" />
-              </a>
-              <a href={githubSignUpUrl}>
-                <img src={githubLogo} alt="GitHub SSO" />
-              </a>
-              <a href={emailSignUpUrl}>
-                <img className="email" src={emailLogo} alt="Email" />
-              </a>
-
+            <a href={googleSignUpUrl}>
+              <img src={googleLogo} alt="Google SSO" />
+            </a>
+            <a href={githubSignUpUrl}>
+              <img src={githubLogo} alt="GitHub SSO" />
+            </a>
+            <a href={emailSignUpUrl}>
+              <img className="email" src={emailLogo} alt="Email" />
+            </a>
           </Button>
         </MobileContent>
       </div>

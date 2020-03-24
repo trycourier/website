@@ -45,7 +45,7 @@ const GettingStartedComponent: React.FC = () => {
         <p>10,000 free notifications every month</p>
       </GettingStartedText>
       <GettingStartedCTAWrapper>
-        <RegistrationCTA />
+        <RegistrationCTA footer/>
       </GettingStartedCTAWrapper>
     </GettingStarted>
   );
