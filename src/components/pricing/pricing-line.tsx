@@ -18,13 +18,15 @@ const ThumbStyle = `
   box-sizing: border-box;
   border: solid 5px ${colors.green};
   padding: 4px;
-  margin-top: 2px;
   width: 28px; 
   height: 28px;
   border-radius: 9999px;
   background: ${colors.white};
   box-shadow: 0 5px 8px ${colors.green};
   cursor: ew-resize;
+  position: relative;
+  z-index: 2;
+  top: -12px;
 `;
 
 const TrackStyle = `
@@ -48,14 +50,21 @@ const RangeStyle = `
     width: 100%;
     height: 1px;
     background: transparent;
-    border-bottom: 4px dotted #CCC;
     font-size: 1em;
     cursor: pointer;
+
+    @-moz-document url-prefix() {
+      position: relative;
+      z-index: 5;
+      height: 4px;
+      background-size: 4px 4px;
+    }
 
     &::-webkit-slider-runnable-track {
       position: relative;
       height: 5px;
     }
+
     &::-moz-range-track {
       ${TrackStyle}
     }
@@ -63,22 +72,25 @@ const RangeStyle = `
       ${TrackStyle}
       color: transparent;
     }
-    
     &::-moz-range-progress {
-      
+      ${TrackStyle}
     }
 
     &::-webkit-slider-thumb {
-      position: relative;
-      z-index: 2;
-      top: -10px;
       ${ThumbStyle}
     }
     &::-moz-range-thumb {
       ${ThumbStyle}
+      position: relative;
+      top: 2px;
+      z-index: 100;
     }
     &::-ms-thumb {
       ${ThumbStyle}
+    }
+
+    &::-moz-focus-outer {
+      border: 0;
     }
   }
 `;
@@ -220,6 +232,13 @@ const PricingLineComponent: React.FC = () => {
             : ` `}
         </h5>
         <Desktop>
+
+          <ProgressBar
+            px={((rangeIdx - 1) / 4) * width}
+            tick={rangeIdx - 1}
+            fullWidth={width}
+            handleRangeClick={handleRangeClick}
+          />
           <input
             ref={measuredRef}
             type="range"
@@ -228,12 +247,6 @@ const PricingLineComponent: React.FC = () => {
             value={rangeIdx}
             name="priceSection"
             onChange={handleRangeChange}
-          />
-          <ProgressBar
-            px={((rangeIdx - 1) / 4) * width}
-            tick={rangeIdx - 1}
-            fullWidth={width}
-            handleRangeClick={handleRangeClick}
           />
         </Desktop>
         <Mobile>

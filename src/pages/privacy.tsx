@@ -54,6 +54,7 @@ const PrivacyPolicy: React.FC = () => {
           style={{
             backgroundPosition: "center left",
             height: "300px",
+            top: "-1px",
           }}
         ></BackgroundImage>
         <Divider image={headerDivider} />
