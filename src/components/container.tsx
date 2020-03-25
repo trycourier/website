@@ -67,6 +67,7 @@ export const PageWrapper = styled.div`
   top: -100px;
   padding: 0px 16px;
   overflow: hidden;
+  min-height: 40vh;
   color: ${colors.textSecondary};
   & h1 {
     color: ${colors.textPrimary};
