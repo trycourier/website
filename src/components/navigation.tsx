@@ -155,17 +155,17 @@ const NavigationComponent: React.FC = () => {
               <AccountButtons>
                 <label>Sign Up</label>
                 <li>
-                  <a href={googleSignUpUrl} target="_blank">
+                  <a href={googleSignUpUrl} rel="noreferrer" target="_blank">
                     <img src={googleNav} alt="Google SSO" />
                   </a>
                 </li>
                 <li>
-                  <a href={githubSignUpUrl} target="_blank">
+                  <a href={githubSignUpUrl} rel="noreferrer" target="_blank">
                     <img src={githubNav} alt="GitHub SSO" />
                   </a>
                 </li>
                 <li>
-                  <a href={emailSignUpUrl} target="_blank">
+                  <a href={emailSignUpUrl} rel="noreferrer" target="_blank">
                     <img src={emailNav} alt="Sign Up with Email" />
                   </a>
                 </li>
@@ -198,17 +198,17 @@ const NavigationComponent: React.FC = () => {
             <Link to="/#company">Company</Link>
           </li> */}
           <li>
-            <a href="https://docs.trycourier.com/" target="_blank">
+            <a href="https://docs.trycourier.com/" rel="noreferrer" target="_blank">
               Documentation
             </a>
           </li>
           <li>
-            <a href="https://www.trycourier.app/login" target="_blank">
+            <a href="https://www.trycourier.app/login" rel="noreferrer" target="_blank">
               Login
             </a>
           </li>
           <li>
-            <a href="https://www.trycourier.app/register" target="_blank">
+            <a href="https://www.trycourier.app/register" rel="noreferrer" target="_blank">
               Sign Up
             </a>
           </li>

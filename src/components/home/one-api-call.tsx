@@ -212,7 +212,7 @@ const OneApiComponent: React.FC = () => {
           </OneApiTable>
         </Mobile>
         <div style={{ marginTop: 32 }}>
-          <a href="https://docs.trycourier.com/docs" target="_blank">Other Integrations</a>
+          <a href="https://docs.trycourier.com/docs" rel="noreferrer" target="_blank">Other Integrations</a>
         </div>
       </OneApiInfo>
     </OneApi>
