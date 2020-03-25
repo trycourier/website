@@ -277,7 +277,7 @@ const AccountButtonComponent: React.FC = () => {
 
 const handleContactSalesClick = () => {
   try {
-    window.Intercom('showNewMessage', 'Thank you for interest in Courier:');
+    window.Intercom('showNewMessage', `I'd like to discuss Courier's Enterprise plan. Please contact me at: `);
   }catch(e) {
     console.warn("Intercom not enabled:", e);
     window.location = "mailto:sales@trycourier.com";
