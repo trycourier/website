@@ -311,7 +311,7 @@ const FeatureTableComponent: React.FC = () => {
             <td>$5k / mo</td>
           </tr>
           <tr>
-            <td>Usage Fee (free of to 10k/mo)</td>
+            <td>Usage Fee (free up to 10k/mo)</td>
             <td className="highlighted">per notification</td>
             <td>per notification</td>
           </tr>
