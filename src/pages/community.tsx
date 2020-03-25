@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
-
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
-// import colors from "../colors";
-import Simple from "./simple";
+import Simple from "../templates/simple";
 
 const EventCard = styled.div`
   ${tw`max-w-sm rounded overflow-hidden shadow-lg p-4`}
