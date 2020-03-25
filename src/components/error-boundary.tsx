@@ -32,13 +32,13 @@ export default class ErrorBoundary extends React.Component<
     this.setState({ error });
 
     console.warn("ErrInfo:", errorInfo);
-    Sentry.withScope(scope => {
-      Object.keys(errorInfo).forEach(key => {
-        scope.setExtra(key, (errorInfo as any)[key]);
-      });
+    // Sentry.withScope(scope => {
+    //   Object.keys(errorInfo).forEach(key => {
+    //     scope.setExtra(key, (errorInfo as any)[key]);
+    //   });
 
-      Sentry.captureException(error);
-    });
+    //   Sentry.captureException(error);
+    // });
   }
 
   render() {
