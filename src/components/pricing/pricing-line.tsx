@@ -56,9 +56,11 @@ const RangeStyle = `
     cursor: pointer;
 
     @-moz-document url-prefix() {
+      position: relative;
+      z-index: 5;
       height: 4px;
       border-bottom: none;
-      background-image: -moz-radial-gradient(#CCC 25%, transparent 50%);
+      background-image: transparent
       background-size: 4px 4px;
     }
 
@@ -74,7 +76,6 @@ const RangeStyle = `
       ${TrackStyle}
       color: transparent;
     }
-    
     &::-moz-range-progress {
       ${TrackStyle}
     }
@@ -84,16 +85,16 @@ const RangeStyle = `
     }
     &::-moz-range-thumb {
       ${ThumbStyle}
-      margin-top: 2px;
-      z-index: 7;
+      position: relative;
+      top: 2px;
+      z-index: 100;
+    }
+    &::-ms-thumb {
+      ${ThumbStyle}
     }
 
     &::-moz-focus-outer {
       border: 0;
-    }
-    
-    &::-ms-thumb {
-      ${ThumbStyle}
     }
   }
 `;
@@ -235,6 +236,13 @@ const PricingLineComponent: React.FC = () => {
             : ` `}
         </h5>
         <Desktop>
+
+          <ProgressBar
+            px={((rangeIdx - 1) / 4) * width}
+            tick={rangeIdx - 1}
+            fullWidth={width}
+            handleRangeClick={handleRangeClick}
+          />
           <input
             ref={measuredRef}
             type="range"
@@ -243,12 +251,6 @@ const PricingLineComponent: React.FC = () => {
             value={rangeIdx}
             name="priceSection"
             onChange={handleRangeChange}
-          />
-          <ProgressBar
-            px={((rangeIdx - 1) / 4) * width}
-            tick={rangeIdx - 1}
-            fullWidth={width}
-            handleRangeClick={handleRangeClick}
           />
         </Desktop>
         <Mobile>

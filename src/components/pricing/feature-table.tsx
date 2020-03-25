@@ -164,7 +164,7 @@ const features = [
     enterprise: true,
   },
   {
-    label: "HIPPA Compliance",
+    label: "HIPAA Compliance",
     standard: false,
     enterprise: true,
   },
@@ -179,7 +179,7 @@ const features = [
     enterprise: true,
   },
   {
-    label: "SAMLP 2.0",
+    label: "SAML 2.0",
     standard: false,
     enterprise: true,
   },
@@ -272,12 +272,10 @@ const AccountButtonComponent: React.FC = () => {
 
 const handleContactSalesClick = () => {
   try {
-    if(!window.Intercom) {
-      window.location = "mailto:troy@trycourier.com";
-    }
     window.Intercom('showNewMessage', 'Thank you for interest in Courier:');
   }catch(e) {
     console.warn("Intercom not enabled:", e);
+    window.location = "mailto:sales@trycourier.com";
   }
 }
 
