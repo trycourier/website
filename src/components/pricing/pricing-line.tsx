@@ -18,7 +18,6 @@ const ThumbStyle = `
   box-sizing: border-box;
   border: solid 5px ${colors.green};
   padding: 4px;
-  margin-top: 2px;
   width: 28px; 
   height: 28px;
   border-radius: 9999px;
@@ -27,7 +26,7 @@ const ThumbStyle = `
   cursor: ew-resize;
   position: relative;
   z-index: 2;
-  top: -10px;
+  top: -12px;
 `;
 
 const TrackStyle = `
@@ -51,7 +50,6 @@ const RangeStyle = `
     width: 100%;
     height: 1px;
     background: transparent;
-    border-bottom: 4px dotted #CCC;
     font-size: 1em;
     cursor: pointer;
 
@@ -59,8 +57,6 @@ const RangeStyle = `
       position: relative;
       z-index: 5;
       height: 4px;
-      border-bottom: none;
-      background-image: transparent
       background-size: 4px 4px;
     }
 

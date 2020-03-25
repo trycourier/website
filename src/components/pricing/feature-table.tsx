@@ -201,6 +201,9 @@ const AccountButtons = styled.ul`
     width: 24px;
     border-radius: 9999px;
     padding: 6px;
+    & :hover {
+      filter: brightness(90%);
+    }
   }
   & li.google {
     background: ${colors.googleBlue};
@@ -232,6 +235,9 @@ const Button = styled.button`
   height: 36px;
   line-height: 18px;
   cursor: pointer;
+  & :hover {
+    filter: brightness(90%);
+  }
   &.github {
     background: ${colors.berry};
   }
