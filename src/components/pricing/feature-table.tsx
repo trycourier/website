@@ -228,13 +228,12 @@ const AccountButtons = styled.ul`
 const Button = styled.button`
   ${tw`rounded-full mr-2 px-8 py-2 text-white text-md align-middle`}
   background: ${colors.googleBlue};
-  border-color: ${colors.googleBlue};
+  border: 1px solid transparent;
   height: 36px;
   line-height: 18px;
   cursor: pointer;
   &.github {
     background: ${colors.berry};
-    border-color: ${colors.berry};
   }
   & img {
     position: relative;
