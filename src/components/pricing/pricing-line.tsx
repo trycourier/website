@@ -25,6 +25,9 @@ const ThumbStyle = `
   background: ${colors.white};
   box-shadow: 0 5px 8px ${colors.green};
   cursor: ew-resize;
+  position: relative;
+  z-index: 2;
+  top: -10px;
 `;
 
 const TrackStyle = `
@@ -52,10 +55,18 @@ const RangeStyle = `
     font-size: 1em;
     cursor: pointer;
 
+    @-moz-document url-prefix() {
+      height: 4px;
+      border-bottom: none;
+      background-image: -moz-radial-gradient(#CCC 25%, transparent 50%);
+      background-size: 4px 4px;
+    }
+
     &::-webkit-slider-runnable-track {
       position: relative;
       height: 5px;
     }
+
     &::-moz-range-track {
       ${TrackStyle}
     }
@@ -65,18 +76,22 @@ const RangeStyle = `
     }
     
     &::-moz-range-progress {
-      
+      ${TrackStyle}
     }
 
     &::-webkit-slider-thumb {
-      position: relative;
-      z-index: 2;
-      top: -10px;
       ${ThumbStyle}
     }
     &::-moz-range-thumb {
       ${ThumbStyle}
+      margin-top: 2px;
+      z-index: 7;
     }
+
+    &::-moz-focus-outer {
+      border: 0;
+    }
+    
     &::-ms-thumb {
       ${ThumbStyle}
     }

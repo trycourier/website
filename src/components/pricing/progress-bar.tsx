@@ -37,6 +37,9 @@ const ProgressTrack = styled.div`
   height: 5px;
   overflow: hidden;
   background: transparent;
+  @-moz-document url-prefix() {
+    margin-top: -5px;
+  }
 `;
 
 const ProgressInActive = styled.div`
