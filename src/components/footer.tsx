@@ -108,23 +108,23 @@ const FooterComponent: React.FC = () => {
                 <Link to="/#community">Community</Link>
               </li> */}
               <li>
-                <a href="https://docs.trycourier.com/" target="_blank">
+                <a href="https://docs.trycourier.com/" rel="noreferrer" target="_blank">
                   Documentation
                 </a>
               </li>
             </NavigationItems>
           </NavLinks>
           <SocialLinks>
-            <a href="https://www.twitter.com/trycourier" target="_blank">
+            <a href="https://www.twitter.com/trycourier" rel="noreferrer" target="_blank">
               <img src={twitterLogo} style={{ marginTop: 2 }} alt="twitter"/>
             </a>
-            <a href="https://www.linkedin.com/trycourier" target="_blank">
+            <a href="https://www.linkedin.com/trycourier" rel="noreferrer" target="_blank">
               <img src={linkedInLogo} alt="LinkedIn"/>
             </a>
-            <a href="https://www.facebook.com/trycourier" target="_blank">
+            <a href="https://www.facebook.com/trycourier" rel="noreferrer" target="_blank">
               <img src={facebookLogo} alt="Facebook"/>
             </a>
-            <a href="https://www.instagram.com/trycourier" target="_blank">
+            <a href="https://www.instagram.com/trycourier" rel="noreferrer" target="_blank">
               <img src={instagramLogo} alt="Instagram"/>
             </a>
           </SocialLinks>
