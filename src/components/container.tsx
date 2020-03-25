@@ -43,6 +43,7 @@ export const Section = styled.section`
   position: relative;
   width: 100%;
   background: ${colors.white};
+  top: -1px;
 `;
 
 export const Divide = styled.div`

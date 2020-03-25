@@ -7,32 +7,30 @@ import NoCode from "./no-code";
 import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
 
-const Route = styled.section`
-  ${tw`md:flex pt-32 px-4 md:pb-0 md:pt-24 lg:px-0 mx-auto`}
+const DeliveryRules = styled.section`
+  ${tw`flex flex-col pt-32 px-4 md:pb-0 md:pt-24 lg:px-0 mx-auto`}
   color: ${colors.textSecondary};
 `;
 
-const RouteSection = styled.div`
-  ${tw`flex flex-col`}
-`;
-
-const RouteText = styled.div`
-  ${tw`w-full md:w-2/3 mt-16`}
-  line-height: 32px;
+const DeliveryRulesText = styled.div`
+  ${tw`relative w-full md:w-2/3 mt-16`}
   & h2 {
-    ${tw`m-0 p-0 text-3xl`}
+    ${tw`m-0 p-0 text-3xl md:text-4xl`}
+    font-weight: 200;
     color: ${colors.textPrimary};
   }
   & p {
-    ${tw`m-0 p-0 text-md mb-4`}
+    ${tw`m-0 p-0 my-2`}
+    font-size: 18px;
+    line-height: 22px;
   }
 `;
 
-const RouteImageWrapper = styled.div`
+const DeliveryRulesImageWrapper = styled.div`
   ${tw`w-1/2 mx-auto md:w-full`}
 `;
 
-const RouteComponent: React.FC = () => {
+const DeliveryRulesComponent: React.FC = () => {
   const { img, mobileImg } = useStaticQuery(graphql`
     query {
       img: file(relativePath: { eq: "desktop-delivery@2x.png" }) {
@@ -53,28 +51,28 @@ const RouteComponent: React.FC = () => {
   `);
 
   return (
-    <Route>
-      <RouteSection>
+    <DeliveryRules>
+      <div style={{ position: "relative", top: 25, left: -55 }}>
         <NoCode />
-        <RouteText>
-          <h2>Powerful Delivery Rules</h2>
-          <p>
-            Effortlessly route each message to the right notification channel
-            using a robust rules engine. Change channels without touching your
-            code.
-          </p>
-        </RouteText>
-        <RouteImageWrapper>
-          <Desktop>
-            <Image image={img} />
-          </Desktop>
-          <Mobile>
-            <Image image={mobileImg} />
-          </Mobile>
-        </RouteImageWrapper>
-      </RouteSection>
-    </Route>
+      </div>
+      <DeliveryRulesText>
+        <h2>Powerful Delivery Rules</h2>
+        <p>
+          Effortlessly route each message to the right notification channel
+          using a robust rules engine. Change channels without touching your
+          code.
+        </p>
+      </DeliveryRulesText>
+      <DeliveryRulesImageWrapper>
+        <Desktop>
+          <Image image={img} />
+        </Desktop>
+        <Mobile>
+          <Image image={mobileImg} />
+        </Mobile>
+      </DeliveryRulesImageWrapper>
+    </DeliveryRules>
   );
 };
 
-export default RouteComponent;
+export default DeliveryRulesComponent;

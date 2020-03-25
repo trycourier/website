@@ -9,13 +9,14 @@ import colors from "../../colors";
 import { listStyles } from "../styles";
 
 const Editor = styled.section`
-  ${tw`md:flex px-4 pt-16 mt-6 md:my-0 md:pt-0 md:pb-16 lg:px-0`}
+  ${tw`flex flex-col md:flex-row px-4 pt-0 mt-6 md:my-0 md:pb-16 lg:px-0`}
 `;
 
 const EditorText = styled.div`
-  ${tw`w-3/4 md:w-1/2 mx-auto md:pr-8 mt-16`}
+  ${tw`w-3/4 md:w-1/2 mx-auto md:pr-8 mt-8`}
   & h2 {
-    ${tw`m-0 p-0 text-3xl mb-2`}
+    ${tw`m-0 p-0 text-3xl md:text-4xl mb-2`}
+    font-weight: 200;
     color: ${colors.textPrimary};
   }
   & p {
@@ -27,7 +28,17 @@ const EditorText = styled.div`
 `;
 
 const EditorImageWrapper = styled.div`
-  ${tw`md:w-1/2 text-right`}
+  ${tw`md:w-1/2`}
+`;
+
+const NoCodeWrapper = styled.div`
+  position: relative;
+  top: -10px;
+  left: -55px; 
+  zIndex: -1;
+  @media (max-width: 768px){
+    left: 0px;
+  }
 `;
 
 const EditorComponent: React.FC = () => {
@@ -45,7 +56,9 @@ const EditorComponent: React.FC = () => {
 
   return (
     <Editor>
-      <NoCode />
+      <NoCodeWrapper>
+        <NoCode />
+      </NoCodeWrapper>
       <EditorText>
         <h2>Notification Design Studio</h2>
         <p>Empower every team member to build beautiful notifications.</p>

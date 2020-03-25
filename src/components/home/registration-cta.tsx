@@ -14,6 +14,7 @@ const Button = styled.button`
   ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm align-middle`}
   background: ${colors.googleBlue};
   border-color: ${colors.googleBlue};
+  border: 1px solid transparent;
   height: 36px;
   line-height: 24px;
   cursor: pointer;
@@ -41,7 +42,7 @@ const Content = styled.div`
   & .form {
     ${tw`my-2 p-3 mx-auto`}
     background-color: ${(props: CTAProps) =>
-      props.footer ? colors.berry : `rgba(0,0,0,0.25)`};
+      props.footer ? colors.berryGlass : `rgba(0,0,0,0.25)`};
     border-radius: 32px;
 
     & button {
@@ -65,8 +66,7 @@ const MobileContent = styled(Mobile)`
     width: 100%;
     & label {
       text-align: left;
-      margin-right: 8px;
-      cursor: pointer;
+      margin-right: 25%;
     }
     & img {
       margin-left: 8px;
@@ -81,21 +81,21 @@ const Flex = styled.div`
   display: flex;
 `;
 
-const RegistrationCTA: React.FC = () => {
+const RegistrationCTA: React.FC = (props) => {
   return (
-    <Content footer={false}>
+    <Content footer={props.footer}>
       <div className="form">
         <Desktop>
           <Flex>
             <a href={googleSignUpUrl}>
               <Button>
-                <img src={googleLogo} />
+                <img src={googleLogo} alt="Google SSO" />
                 <label>Google</label>
               </Button>
             </a>
             <a href={githubSignUpUrl}>
               <Button className="github">
-                <img src={githubLogo} />
+                <img src={githubLogo} alt="GitHub SSO" />
                 <label>GitHub</label>
               </Button>
             </a>
@@ -108,15 +108,16 @@ const RegistrationCTA: React.FC = () => {
         </Desktop>
         <MobileContent>
           <Button className="mobile">
-            <label>Sign Up!</label>
+            <label>Sign up!</label>
+
             <a href={googleSignUpUrl}>
-              <img src={googleLogo} />
+              <img src={googleLogo} alt="Google SSO" />
             </a>
             <a href={githubSignUpUrl}>
-              <img src={githubLogo} />
+              <img src={githubLogo} alt="GitHub SSO" />
             </a>
             <a href={emailSignUpUrl}>
-              <img className="email" src={emailLogo} />
+              <img className="email" src={emailLogo} alt="Email" />
             </a>
           </Button>
         </MobileContent>

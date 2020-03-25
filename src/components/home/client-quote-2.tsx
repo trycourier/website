@@ -9,16 +9,23 @@ import { Flex, Quote, QuoteBox, QuoteText, Rel } from "./client-quote";
 
 const StyledQuote = styled(Quote)`
   top: -32px;
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     top: -96px;
   }
 `;
+
+const StyledNoCode = styled(NoCode)`
+  left: 165px;
+  top: -10px;
+  transform: rotate(45deg);
+`;
+
 const ClientImage = styled(Rel)`
   flex: 1;
   max-width: 160px;
   margin: 32px auto;
-  @media (max-width: 640px) {
-    width: 160px;
+  @media (max-width: 768px) {
+    width: 100%;
     margin: 0px auto 24px auto;
   }
 `;

@@ -14,7 +14,6 @@ const FeatureTable = styled.section`
 `;
 
 const shadow = `rgba(157, 52, 139, 0.25) 0px 8px 18px`;
-// const shadow = `0px 4px 8px ${colors.berryGlass}`;
 
 const FeatureTableTable = styled.table`
   ${tw`mt-8 w-full text-center`}
@@ -60,7 +59,7 @@ const FeatureTableTable = styled.table`
     ${tw`m-0 p-0`}
   }
   & th {
-    ${tw`m-0 px-16 py-8 text-3xl font-normal`}
+    ${tw`m-0 px-16 py-8 text-3xl md:text-4xl font-normal`}
     &:nth-child(2) {
       ${tw`p-8`}
       background: #FFF;
@@ -254,36 +253,42 @@ const AccountButtonComponent: React.FC = () => {
     <AccountButtons>
       <li className="google">
         <a href={googleSignUpUrl} target="_blank">
-          <img src={googleNav} title="Google SSO" />
+          <img src={googleNav} alt="Google SSO" />
         </a>
       </li>
       <li className="github">
         <a href={githubSignUpUrl} target="_blank">
-          <img src={githubNav} title="GitHub SSO" />
+          <img src={githubNav} alt="GitHub SSO" />
         </a>
       </li>
       <li className="email">
         <a href={emailSignUpUrl} target="_blank">
-          <img src={emailNav} title="Sign Up with Email" />
+          <img src={emailNav} alt="Sign Up with Email" />
         </a>
       </li>
     </AccountButtons>
   );
 };
 
-const handleOnClick = () => {
-  console.log("!");
-  window.location = "mailto:sales@trycourier.com";
-};
+const handleContactSalesClick = () => {
+  try {
+    if(!window.Intercom) {
+      window.location = "mailto:troy@trycourier.com";
+    }
+    window.Intercom('showNewMessage', 'Thank you for interest in Courier:');
+  }catch(e) {
+    console.warn("Intercom not enabled:", e);
+  }
+}
 
 const displayCell = (property: any | string) => {
   switch (property) {
     case "SIGN_UP":
       return <AccountButtonComponent />;
     case "CONTACT_SALES":
-      return <Button onClick={handleOnClick}>Contact Sales</Button>;
+      return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
     case true:
-      return <img src={checkmark} />;
+      return <img src={checkmark} alt="+" width="32"/>;
     default:
       return property;
   }
@@ -292,11 +297,13 @@ const FeatureTableComponent: React.FC = () => {
   return (
     <FeatureTable>
       <FeatureTableTable>
-        <tr>
-          <th></th>
-          <th>Standard</th>
-          <th>Enterprise</th>
-        </tr>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Standard</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
         <tbody className="highlighted">
           <tr>
             <td>Subscription Fee</td>
@@ -309,13 +316,15 @@ const FeatureTableComponent: React.FC = () => {
             <td>per notification</td>
           </tr>
         </tbody>
+        <tbody>
         {features.map(feat => (
-          <tr>
+          <tr key={feat.label}>
             <td>{feat.label}</td>
             <td>{feat.standard ? displayCell(feat.standard) : " "}</td>
             <td>{feat.enterprise ? displayCell(feat.enterprise) : " "}</td>
           </tr>
         ))}
+        </tbody>
         <tfoot>
           <tr>
             <td></td>

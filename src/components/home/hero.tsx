@@ -31,13 +31,17 @@ const HeroContent = styled.div`
   z-index: 5;
   text-shadow: 1px 1px 4px ${colors.berry};
   & h1 {
-    ${tw`m-0 p-0 text-5xl mt-2 md:mt-0`}
+    ${tw`m-0 p-0 mt-2 md:mt-0`}
     font-family: "Bebas Neue", sans-serif;
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 200;
     color: ${colors.white};
   }
   & p {
-    ${tw`m-0 p-0 text-lg text-white my-6 mr-32 md:mr-0`}
+    ${tw`m-0 p-0 text-white my-2 mr-32 md:mr-0`}
     font-weight: 100;
+    font-size: 22px;
     line-height: 24px;
     color: ${colors.white};
   }
@@ -56,17 +60,17 @@ const HeroImageWrapper = styled.div`
 const MobileImageWrapper = styled.div`
   ${tw`absolute block md:hidden`}
   width: 50%;
-  bottom: 25%;
+  bottom: 50px;
   right: 0px;
-  @media (max-width: 640px) {
-    width: 270px;
-    bottom: 130px;
+  @media (max-width: 768px) {
+    width: 65%;
+    bottom: 150px;
   }
 `;
 
 const HeroCTA = styled.div`
   ${tw`relative text-center md:mt-16 md:text-left`}
-  margin-top: 35vw;
+  margin-top: 40vw;
 `;
 
 const HeroComponent: React.FC = () => {

@@ -13,6 +13,7 @@ const SubscriptionPlansText = styled.div`
   ${tw`w-full`}
   & h2 {
     ${tw`m-0 p-0 text-4xl mb-4`}
+    font-weight: 200;
     color: ${colors.textPrimary};
   }
   & p {
@@ -29,7 +30,7 @@ const SubscriptionPlansWrapper = styled.div`
   & button.ghost {
     color: ${colors.textPrimary};
   }
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     overflow-x: scroll;
   }
 `;

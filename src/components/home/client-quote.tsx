@@ -10,6 +10,8 @@ import { Desktop, Mobile } from "../container";
 
 import colors from "../../colors";
 
+const shadow = `rgba(157, 52, 139, 0.25) 0px 8px 18px`;
+
 const Abs = styled.div`
   ${tw`absolute`}
 `;
@@ -21,7 +23,7 @@ const Abs2 = styled(Abs)`
 `;
 
 export const Flex = styled.div`
-  ${tw`flex flex-col sm:flex-row`}
+  ${tw`flex flex-row`}
 `;
 
 export const Rel = styled.div`
@@ -29,36 +31,42 @@ export const Rel = styled.div`
 `;
 
 export const Quote = styled.div`
-  ${tw`absolute w-3/4 p-6 bg-white shadow-xl`}
+  ${tw`absolute w-3/4 p-6 bg-white`}
   border-radius: 20px;
+  box-shadow: ${shadow};
   top: 64px;
-  right: 16px;
-  @media (max-width: 640px) {
-    top: 0px;
+  right: -32px;
+  @media (max-width: 768px) {
+    right: 16px;
   }
   z-index: 5;
 `;
 
 export const QuoteBox = styled(Rel)`
-  ${tw`relative`}
+  ${tw`relative text-sm`}
+  line-height: 20px;
+  @media (min-width: 768px) {
+    flex: 6;
+    font-size: 15px;
+  }
 `;
 
 export const QuoteText = styled.div`
-  ${tw`text-base text-gray-700 leading-normal`}
+  ${tw`md:px-4`}
   color: ${colors.textPrimary};
 `;
 
 const QuoteAuthor = styled.div`
-  ${tw`mt-3`}
-  text-align: right;
+  ${tw`mt-3 text-left py-8 md:py-0 md:text-right`}
   color: #73819b;
 `;
 
 const QuoteImage = styled.div`
-  width: 25%;
-  margin: 24px auto;
-  @media (max-width: 640px) {
+  flex: 1;
+  @media (max-width: 768px) {
+    flex: none;
     width: 100px;
+    margin: 24px;
   }
 `;
 
@@ -88,10 +96,10 @@ const QuoteComponent: React.FC = () => {
         <Flex>
           <QuoteBox>
             <Abs>
-              <img src={quoteImg} />
+              <img src={quoteImg} alt="quote"/>
             </Abs>
             <Abs2>
-              <img src={quoteImg} />
+              <img src={quoteImg} alt="endquote"/>
             </Abs2>
             <Flex>
               <QuoteText>
@@ -101,7 +109,7 @@ const QuoteComponent: React.FC = () => {
                 product managers & designers can design the templates without
                 engineering help.
                 <QuoteAuthor>
-                  Eric Koslow, CTO & Co-Founder @ Lattice
+                  Eric Koslow, CTO &amp; Co-Founder @ Lattice
                 </QuoteAuthor>
               </QuoteText>
             </Flex>
@@ -116,27 +124,28 @@ const QuoteComponent: React.FC = () => {
       <Mobile>
         <QuoteBox>
           <Abs>
-            <img src={quoteImg} />
+            <img src={quoteImg} alt="quote"/>
           </Abs>
           <Abs2>
-            <img src={quoteImg} />
+            <img src={quoteImg} alt="endquote"/>
           </Abs2>
-          <Flex>
-            <QuoteText>
-              We were building out a new team to focus entirely on our
-              notification infrastructure when we found Courier. Now we support
-              even more channels with one line of code – and our product
-              managers & designers can design the templates without engineering
-              help.
-              <QuoteAuthor>Eric Koslow, CTO & Co-Founder @ Lattice</QuoteAuthor>
-            </QuoteText>
-          </Flex>
+          <QuoteText>
+            We were building out a new team to focus entirely on our
+            notification infrastructure when we found Courier. Now we support
+            even more channels with one line of code – and our product
+            managers & designers can design the templates without engineering
+            help.
+          </QuoteText>
+
         </QuoteBox>
-        <QuoteImage>
-          <ImageBorder>
-            <Image image={eric} />
-          </ImageBorder>
-        </QuoteImage>
+        <Flex>
+          <QuoteImage>
+            <ImageBorder>
+              <Image image={eric} />
+            </ImageBorder>
+          </QuoteImage>
+          <QuoteAuthor>Eric Koslow,<br/>CTO &amp; Co-Founder<br/>@ Lattice</QuoteAuthor>
+        </Flex>
       </Mobile>
     </Quote>
   );

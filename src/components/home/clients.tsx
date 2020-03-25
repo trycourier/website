@@ -31,7 +31,7 @@ const ClientsText = styled.div`
 const ClientsImageWrapper = styled.div`
   ${tw`w-full relative mx-auto`}
   height: 120px;
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     width: 385px;
   }
 `;
@@ -52,7 +52,7 @@ const ClientImage = styled.img`
     props.mobile ? props.mobile.top : props.desktop.top};
   left: ${(props: ClientCardProps) =>
     props.mobile ? props.mobile.left : props.desktop.left};
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     top: ${(props: ClientCardProps) =>
       props.desktop ? props.desktop.top : props.mobile.top};
     left: ${(props: ClientCardProps) =>
@@ -69,31 +69,37 @@ const ClientsComponent: React.FC = () => {
       <ClientsImageWrapper>
         <ClientImage
           src={lattice}
+          alt="Lattice"
           desktop={{ top: "20px", left: "10px" }}
           mobile={{ top: "10px", left: "10px" }}
         />
         <ClientImage
           src={blissfully}
+          alt="Blissfully"
           desktop={{ top: "2px", left: "194px" }}
           mobile={{ top: "10px", left: "130px" }}
         />
         <ClientImage
           src={eatgeek}
+          alt="EatGeek"
           desktop={{ top: "16px", left: "380px" }}
           mobile={{ top: "10px", left: "260px" }}
         />
         <ClientImage
           src={hutsy}
+          alt="Hutsy"
           desktop={{ top: "33px", left: "543px" }}
           mobile={{ top: "60px", left: "10px" }}
         />
         <ClientImage
           src={savvy}
+          alt="Savvy"
           desktop={{ top: "50px", left: "685px" }}
           mobile={{ top: "65px", left: "130px" }}
         />
         <ClientImage
           src={aarida}
+          alt="Aarida"
           desktop={{ top: "67px", left: "825px" }}
           mobile={{ top: "50px", left: "260px" }}
         />
