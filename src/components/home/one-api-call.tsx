@@ -28,7 +28,8 @@ const OneApi = styled.section`
 const OneApiImageWrapper = styled.div`
   ${tw`md:w-1/2 text-left pt-0`}
   & h2 {
-    ${tw`m-0 p-0 text-3xl mb-2`}
+    ${tw`m-0 p-0 text-3xl md:text-4xl`}
+    font-weight: 200;
   }
 `;
 
@@ -41,12 +42,12 @@ const OneApiInfo = styled.div`
   & a {
     ${tw`no-underline text-sm py-2 px-8 mt-8`}
     color: ${colors.white};
-    background: rgba(255,255,255,0.1);
+    background: transparent;
     font-weight: 700;
     line-height: 30px;
     border-radius: 9999px;
     :hover{
-      background: ${colors.berry};
+      background: rgba(255,255,255,0.1);
     }
   }
 `;
@@ -91,7 +92,7 @@ const OneApiComponent: React.FC = () => {
     <OneApi>
       <OneApiImageWrapper>
         <h2>One API Call</h2>
-        <div style={{ marginTop: -48 }}>
+        <div style={{ marginTop: -64 }}>
           <StyledImage image={img} />
         </div>
       </OneApiImageWrapper>

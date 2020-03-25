@@ -20,7 +20,7 @@ const LogoSection = styled.div`
   ${tw`md:w-1/8 md:ml-6 md:pr-8`}
 `;
 const Logo = styled.div`
-  ${tw`mt-4`}
+  ${tw`mt-4 ml-2`}
   max-width: 100px;
 `;
 
@@ -37,7 +37,7 @@ const NavigationItems = styled.ul`
     ${tw`list-none inline-block mt-2 align-top`}
     height: 24px;
     & a {
-      ${tw`no-underline text-white text-md py-2 md:px-8 mr-4`}
+      ${tw`no-underline text-white text-md p-2 md:px-8 mr-4`}
       color: ${colors.white};
       font-weight: 700;
       line-height: 30px;
@@ -78,7 +78,7 @@ const DetailLinks = styled.div`
     ${tw`flex flex-col md:flex-row`}
   }
   a {
-    ${tw`no-underline text-white text-sm py-2 md:px-8`}
+    ${tw`no-underline inline-block text-white text-sm p-2 md:px-8`}
     border-radius: 9999px;
     :hover {
       background: rgba(255, 255, 255, 0.1);
@@ -92,7 +92,7 @@ const FooterComponent: React.FC = () => {
       <Footer>
         <LogoSection>
           <Logo>
-            <img src={courierLogo} />
+            <img src={courierLogo} alt="Courier" />
           </Logo>
         </LogoSection>
         <LinkSection>
@@ -116,16 +116,16 @@ const FooterComponent: React.FC = () => {
           </NavLinks>
           <SocialLinks>
             <a href="https://www.twitter.com/trycourier" target="_blank">
-              <img src={twitterLogo} style={{ marginTop: 2 }} />
+              <img src={twitterLogo} style={{ marginTop: 2 }} alt="twitter"/>
             </a>
             <a href="https://www.linkedin.com/trycourier" target="_blank">
-              <img src={linkedInLogo} />
+              <img src={linkedInLogo} alt="LinkedIn"/>
             </a>
             <a href="https://www.facebook.com/trycourier" target="_blank">
-              <img src={facebookLogo} />
+              <img src={facebookLogo} alt="Facebook"/>
             </a>
             <a href="https://www.instagram.com/trycourier" target="_blank">
-              <img src={instagramLogo} />
+              <img src={instagramLogo} alt="Instagram"/>
             </a>
           </SocialLinks>
           <DetailLinks>
