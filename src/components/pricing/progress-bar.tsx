@@ -9,7 +9,8 @@ import UnTick from "../../images/progress-potential.svg";
 
 const ProgressBar = styled.section`
   ${tw`relative`}
-  top: -40px;
+  top: 15px;
+  z-index: 0;
   &::before {
     content: "";
     display: block;
@@ -30,6 +31,11 @@ const ProgressBar = styled.section`
     left: 5px;
     top: -5px;
   }
+
+  @-moz-document url-prefix() {
+    z-index: 1;
+    top: 4px;
+  }
 `;
 
 const ProgressTrack = styled.div`
@@ -37,6 +43,15 @@ const ProgressTrack = styled.div`
   height: 5px;
   overflow: hidden;
   background: transparent;
+`;
+
+const ProgressFuture = styled.div`
+  position: absolute;
+  width: 75%;
+  height: 5px;
+  top: -5px;
+  right: 0px;
+  border-bottom: 4px dotted #CCC;
 `;
 
 const ProgressInActive = styled.div`
@@ -69,7 +84,10 @@ const Marker = styled.img`
   height: 20px;
   position: relative;
   top: -12px;
-  zindex: 1;
+  z-index: 1;
+  @-moz-document url-prefix() {
+    z-index: 1;
+  }
 `;
 
 // const tickPos = [245, 466, 687];
@@ -103,6 +121,7 @@ const ProgressBarComponent: React.FC<{
   return (
     <ProgressBar>
       <ProgressTrack>
+        <ProgressFuture />
         <ProgressInActive />
         <ProgressActive px={px} />
       </ProgressTrack>

@@ -164,7 +164,7 @@ const features = [
     enterprise: true,
   },
   {
-    label: "HIPPA Compliance",
+    label: "HIPAA Compliance",
     standard: false,
     enterprise: true,
   },
@@ -179,7 +179,7 @@ const features = [
     enterprise: true,
   },
   {
-    label: "SAMLP 2.0",
+    label: "SAML 2.0",
     standard: false,
     enterprise: true,
   },
@@ -201,6 +201,9 @@ const AccountButtons = styled.ul`
     width: 24px;
     border-radius: 9999px;
     padding: 6px;
+    & :hover {
+      filter: brightness(90%);
+    }
   }
   & li.google {
     background: ${colors.googleBlue};
@@ -228,13 +231,15 @@ const AccountButtons = styled.ul`
 const Button = styled.button`
   ${tw`rounded-full mr-2 px-8 py-2 text-white text-md align-middle`}
   background: ${colors.googleBlue};
-  border-color: ${colors.googleBlue};
+  border: 1px solid transparent;
   height: 36px;
   line-height: 18px;
   cursor: pointer;
+  & :hover {
+    filter: brightness(90%);
+  }
   &.github {
     background: ${colors.berry};
-    border-color: ${colors.berry};
   }
   & img {
     position: relative;
@@ -272,12 +277,10 @@ const AccountButtonComponent: React.FC = () => {
 
 const handleContactSalesClick = () => {
   try {
-    if(!window.Intercom) {
-      window.location = "mailto:troy@trycourier.com";
-    }
     window.Intercom('showNewMessage', 'Thank you for interest in Courier:');
   }catch(e) {
     console.warn("Intercom not enabled:", e);
+    window.location = "mailto:sales@trycourier.com";
   }
 }
 
@@ -311,7 +314,7 @@ const FeatureTableComponent: React.FC = () => {
             <td>$5k / mo</td>
           </tr>
           <tr>
-            <td>Usage Fee (free of to 10k/mo)</td>
+            <td>Usage Fee (free up to 10k/mo)</td>
             <td className="highlighted">per notification</td>
             <td>per notification</td>
           </tr>
