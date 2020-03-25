@@ -1,5 +1,6 @@
 import React from "react";
-import Simple from "./simple";
+import Simple from "../templates/simple";
+
 import UsageBasedPricing from "../components/pricing/usage-based-pricing";
 import SubscriptionPlans from "../components/pricing/subscription-plans";
 

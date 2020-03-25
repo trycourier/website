@@ -1,5 +1,5 @@
 import React from "react";
-import Simple from "./simple";
+import Simple from "../templates/simple";
 
 const PrivacyPolicy: React.FC = () => {
   return (

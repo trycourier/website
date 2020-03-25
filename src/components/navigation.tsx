@@ -147,7 +147,7 @@ const NavigationComponent: React.FC = () => {
                   <Link to="/community">Community</Link>
                 </li>
                 <li>
-                  <a href="https://docs.trycourier.com/" target="_blank">
+                  <a href="https://docs.trycourier.com/" rel="noreferrer" target="_blank">
                     Documentation
                   </a>
                 </li>
