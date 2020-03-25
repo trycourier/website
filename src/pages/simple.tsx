@@ -1,9 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import TermsContent from "../data/terms";
 
 import BackgroundImage from "gatsby-background-image";
 
@@ -16,10 +14,41 @@ import Footer from "../components/footer";
 
 import Divider from "../components/home/divider";
 
-const TermsOfService: React.FC = () => {
+type PageProps = {
+  children: any;
+  title: string;
+};
+
+const SimplePage: React.FC<PageProps> = ({ children, title }) => {
+  const { headerBg, headerDivider, footerDivider } = useStaticQuery(graphql`
+    query {
+      headerBg: file(relativePath: { eq: "bgs/header-bg@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      headerDivider: file(relativePath: { eq: "dividers/hero-white@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      footerDivider: file(relativePath: { eq: "dividers/mod/footer.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Layout>
-      <SEO title="Terms of Service" />
+      <SEO title={title} />
 
       <Section>
         <BackgroundImage
@@ -37,9 +66,7 @@ const TermsOfService: React.FC = () => {
 
       <Section>
         <Container bg="transparent">
-          <PageWrapper>
-            <TermsContent />
-          </PageWrapper>
+          <PageWrapper>{children}</PageWrapper>
         </Container>
       </Section>
 
@@ -55,4 +82,4 @@ const TermsOfService: React.FC = () => {
   );
 };
 
-export default TermsOfService;
+export default SimplePage;
