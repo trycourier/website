@@ -11,7 +11,7 @@ export const ArticleList = styled.div`
 `;
 
 export const ArticleSearch = styled.div`
-  ${tw`w-1/4`}
+  ${tw`w-1/4 mt-8`}
 `;
 
 export const ArticleCard = styled.div`
