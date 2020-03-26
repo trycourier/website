@@ -50,7 +50,7 @@ const articles = [
   },
   {
     image: {
-      src: "http://www.fillmurray.com/220/160",
+      src: "https://www.fillmurray.com/220/160",
       desc: "Sunset in the mountains",
     },
     title: "Notification Design Studio",
