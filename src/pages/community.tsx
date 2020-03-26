@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import Simple from "../templates/simple";
 
 import {
@@ -11,6 +11,18 @@ import {
 } from "../components/community/articles";
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
+
+const placeholder = {
+  image: {
+    src: "https://placekeanu.com/220/160",
+    desc: "Sunset in the mountains",
+  },
+  title:
+    "How we organize our jobs for our new customers and how we satisfy them.",
+  author: "Name of Person",
+  published: "February 2md, 2021",
+  html: `Ut auctor ligula id aliquam sollicitudin. Maecenas tincidunt nisl et dignissim dapibus. Etiam eget varius neque. Donec et dapibus diam, aliquam egestas quam. Curabitur condimentum nibh non augue facilisis, vitae pharetra metus consequat. Donec ac urna ac mauris commodo pharetra ut ac mi. `,
+};
 
 const articles = [
   {
@@ -30,7 +42,8 @@ const articles = [
       src: "https://placekeanu.com/220/160",
       desc: "Sunset in the mountains",
     },
-    title: "How we organize our jobs for our new customers and how we satisfy them.",
+    title:
+      "How we organize our jobs for our new customers and how we satisfy them.",
     author: "Name of Person",
     published: "February 2md, 2021",
     html: `Ut auctor ligula id aliquam sollicitudin. Maecenas tincidunt nisl et dignissim dapibus. Etiam eget varius neque. Donec et dapibus diam, aliquam egestas quam. Curabitur condimentum nibh non augue facilisis, vitae pharetra metus consequat. Donec ac urna ac mauris commodo pharetra ut ac mi. `,
@@ -51,13 +64,65 @@ const articles = [
 
 const tags = [{ label: "Long Tag" }, { label: "Tag" }];
 
-const Community: React.FC = () => {
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+            thumbnail
+            tags
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`;
+
+const Community: React.FC = ({ data }) => {
   return (
     <Simple title="Community">
       <h1>All Articles</h1>
       <p>Feel free to share our content.</p>
       <ArticleScreen>
         <ArticleList>
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <ArticleCard key={node.id}>
+              <Link to={node.fields.slug}>
+                <ArticleImage
+                  src={node.frontmatter.thumbnail}
+                  alt={placeholder.image.desc}
+                />
+              </Link>
+
+              <div className="px-4">
+                <h4 className="font-bold text-xl py-0 mt-0 mb-2">
+                  {node.frontmatter.title}
+                </h4>
+                <div className="posted">
+                  Posted by <strong>{placeholder.author}</strong> on{" "}
+                  <strong>{node.frontmatter.date}</strong>
+                </div>
+                <p className="excerpt">{node.excerpt}</p>
+                <div>
+                  {node.frontmatter.tags.map((tag: string) => (
+                    <span style={{ marginRight: 8 }}>
+                      <Tag>{tag}</Tag>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </ArticleCard>
+          ))}
+
           {articles.map(article => (
             <ArticleCard>
               <ArticleImage src={article.image.src} alt={article.image.desc} />

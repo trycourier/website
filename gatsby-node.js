@@ -7,6 +7,39 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+// Customize Schema
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = [
+    "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
+    schema.buildObjectType({
+      name: "Frontmatter",
+      fields: {
+        thumbnail: {
+          type: "String",
+          resolve(source, args, context, info) {
+            return source || "http://www.fillmurray.com/220/160"
+          }
+        },
+        tags: {
+          type: "[String!]",
+          resolve(source, args, context, info) {
+            // For a more generic solution, you could pick the field value from
+            // `source[info.fieldName]`
+            const { tags } = source
+            if (source.tags == null || (Array.isArray(tags) && !tags.length)) {
+              return ["uncategorized"]
+            }
+            return tags
+          },
+        },
+      },
+    }),
+  ]
+  createTypes(typeDefs)
+}
+
+// Create Pages
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
@@ -18,7 +51,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
   }
 }
-
 exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     query {
