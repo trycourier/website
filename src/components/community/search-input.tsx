@@ -8,9 +8,14 @@ const SearchInput = styled.div`
   ${tw`flex items-center justify-between rounded-full`}
   border: 1px solid #CBD5E0;
 
+
   & input[type=text]{
     ${tw`ml-3 text-sm`}
     border: none;
+    outline: none;
+    &::focus{
+      outline: none;
+    }
   }
 
   & img.search {

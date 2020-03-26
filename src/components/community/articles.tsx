@@ -1,3 +1,7 @@
+import styled from "styled-components";
+import tw from "tailwind.macro";
+import colors from "../../colors";
+
 export const ArticleScreen = styled.div`
   ${tw`flex`}
 `;
