@@ -18,7 +18,8 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         thumbnail: {
           type: "String",
           resolve(source, args, context, info) {
-            return source || "http://www.fillmurray.com/220/160"
+            const { thumbnail } = source
+            return thumbnail || "http://www.fillmurray.com/220/160"
           }
         },
         tags: {

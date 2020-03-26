@@ -87,14 +87,14 @@ export const query = graphql`
   }
 `;
 
-const Community: React.FC = ({ data }) => {
+const Community: React.FC = ({ data }:any) => {
   return (
     <Simple title="Community">
       <h1>All Articles</h1>
       <p>Feel free to share our content.</p>
       <ArticleScreen>
         <ArticleList>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
+          {data.allMarkdownRemark.edges.map(({ node }:any) => (
             <ArticleCard key={node.id}>
               <Link to={node.fields.slug}>
                 <ArticleImage
