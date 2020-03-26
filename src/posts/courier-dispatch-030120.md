@@ -1,7 +1,7 @@
 ---
 title: "Courier Dispatch"
 date: "2020-03-03"
-thumbnail: "http://www.fillmurray.com/220/160"
+thumbnail: "https://www.fillmurray.com/220/160"
 tags:
   - Tag
   - Long Tag
