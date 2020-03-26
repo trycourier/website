@@ -28,6 +28,42 @@ const BackLink = styled(Link)`
   }
 `;
 
+const BlogContent = styled.div`
+  ${tw`mt-8`}
+`;
+
+const BlogHeader = styled.div`
+  ${tw`text-center`}
+  h1 {
+    font-weight: 400;
+    font-size: 40px;
+    margin-bottom: 2px;
+  }
+  p.posted {
+    ${tw`pt-0`}
+    font-size: 16px;
+    & strong {
+      color: ${colors.textPrimary};
+    }
+  }
+`;
+
+const BlogBody = styled.div`
+  ${tw`mt-8`}
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    color: ${colors.textPrimary};
+    & img {
+      text-align: center;
+      margin: 16px auto;
+    }
+  }
+
+
+`;
+
+
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -35,8 +71,9 @@ export const query = graphql`
       rawMarkdownBody
       frontmatter {
         title
-        date(formatString: "DD MMMM, YYYY")
-        thumbnail
+        date(formatString: "MMMM Do, YYYY")
+        author
+        headerImage
         tags
       }
     }
@@ -55,20 +92,22 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
         <span><BackImg src={IconBack} alt="Back" /> View all Articles</span>
       </BackLink>
 
-      <div style={{ marginTop: 32 }}>
-        <img src="https://placekeanu.com/1000/450" style={{ borderRadius: 10 }}/>
-        <h1>{post.frontmatter.title}</h1>
-        <span>Posted by on {post.frontmatter.date}</span>
-        <div>
-          {post.frontmatter.tags.map((tag: string, idx: number) => (
-            <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
-              <Tag>{tag}</Tag>
-            </span>
-          ))}
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <BlogContent>
+        <img src={post.frontmatter.headerImage} style={{ borderRadius: 10 }}/>
+        <BlogHeader>
+          <h1>{post.frontmatter.title}</h1>
+          <p class="posted">Posted by <strong>{post.frontmatter.author}</strong> on <strong>{post.frontmatter.date}</strong></p>
+          <div>
+            {post.frontmatter.tags.map((tag: string, idx: number) => (
+              <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
+                <Tag>{tag}</Tag>
+              </span>
+            ))}
+          </div>
+        </BlogHeader>
+        <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} />
         {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
-      </div>
+      </BlogContent>
     </Simple>
   );
 };

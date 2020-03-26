@@ -15,6 +15,20 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     schema.buildObjectType({
       name: "Frontmatter",
       fields: {
+        author: {
+          type: "String",
+          resolve(source, args, context, info) {
+            const { author } = source
+            return author || "Courier"
+          }
+        },
+        headerImage: {
+          type: "String",
+          resolve(source, args, context, info) {
+            const { headerImage } = source
+            return headerImage || "http://www.fillmurray.com/220/160"
+          }
+        },
         thumbnail: {
           type: "String",
           resolve(source, args, context, info) {
