@@ -5,6 +5,24 @@ module.exports = {
     description:
       "Courier sends your product's user notifications to the best channel for each user. Add any notification channel – like SMS, push, Slack, and WhatsApp – to your app with just a single API call.",
     author: "@trycourier",
+    social: [
+      {
+        name: `Facebook`,
+        url: `https://facebook.com/trycourier`,
+      },
+      {
+        name: `Instagram`,
+        url: `https://instagram.com/trycourier`,
+      },
+      {
+        name: `Twitter`,
+        url: `https://twitter.com/trycourier`,
+      },
+      {
+        name: `GitHub`,
+        url: `https://github.com/trycourier`,
+      },
+    ],
   },
   plugins: [
     "gatsby-plugin-react-helmet",
