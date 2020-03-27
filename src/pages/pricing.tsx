@@ -49,7 +49,7 @@ const IndexPage: React.FC = () => {
     <Layout>
       <SEO title="Pricing" />
 
-      <Section>
+      <Section style={{ top: -1 }}>
         <BackgroundImage
           Tag="section"
           fluid={headerBg.childImageSharp.fluid}
