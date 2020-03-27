@@ -69,6 +69,7 @@ module.exports = {
       resolve: "gatsby-plugin-tags",
       options: {
         templatePath: `${__dirname}/src/templates/tag.tsx`,
+        prefix: "blog/tags",
       },
     },
     "gatsby-transformer-remark",
