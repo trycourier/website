@@ -32,6 +32,7 @@ export const ArticleCard = styled.div`
   & p.excerpt {
     font-size: 14px;
     color: ${colors.textPrimary};
+    margin-bottom: 10px;
   }
 `;
 

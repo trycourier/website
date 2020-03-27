@@ -43,7 +43,7 @@ const NavigationItems = styled.ul`
       line-height: 30px;
       border-radius: 9999px;
       :hover{
-        background: rgba(255,255,255,0.1);
+        background: rgba(255, 255, 255, 0.1);
       }
     }
   }
@@ -103,10 +103,10 @@ const FooterComponent: React.FC = () => {
               </li>
               {/* <li>
                 <Link to="/#company">Company</Link>
-              </li>
+              </li>*/}
               <li>
                 <Link to="/#community">Community</Link>
-              </li> */}
+              </li>
               <li>
                 <a href="https://docs.trycourier.com/" rel="noreferrer" target="_blank">
                   Documentation
