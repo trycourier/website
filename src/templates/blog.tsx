@@ -41,7 +41,7 @@ const BlogHeader = styled.div`
   }
   p.posted {
     ${tw`pt-0`}
-    font-size: 16px;
+    font-size: 14px;
     & strong {
       color: ${colors.textPrimary};
     }
@@ -59,10 +59,18 @@ const BlogBody = styled.div`
       margin: 16px auto;
     }
   }
-
-
 `;
 
+const BlogFooter = styled.div`
+  ${tw`flex justify-between mt-4`}
+`;
+
+const AuthorCard = styled.div`
+  ${tw`flex`}
+  & strong {
+    color: ${colors.textPrimary};
+  }
+`;
 
 export const query = graphql`
   query($slug: String!) {
@@ -96,7 +104,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
         <img src={post.frontmatter.headerImage} style={{ borderRadius: 10 }}/>
         <BlogHeader>
           <h1>{post.frontmatter.title}</h1>
-          <p class="posted">Posted by <strong>{post.frontmatter.author}</strong> on <strong>{post.frontmatter.date}</strong></p>
+          <p className="posted">Posted by <strong>{post.frontmatter.author}</strong> on <strong>{post.frontmatter.date}</strong></p>
           <div>
             {post.frontmatter.tags.map((tag: string, idx: number) => (
               <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
@@ -106,6 +114,22 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
           </div>
         </BlogHeader>
         <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} />
+        <BlogFooter>
+          <div style={{ borderTop: "1px solid #DDD", paddingTop: 16 }}>
+            <AuthorCard>
+              <img src="https://placekeanu.com/60/60" width="60" height="60" style={{ borderRadius: 60, marginRight: 16 }} />
+              <p>Author<br/><strong>{post.frontmatter.author}</strong></p>
+            </AuthorCard>
+          </div>
+
+
+          <div>
+            <BackLink to="community">
+              <span><BackImg src={IconBack} alt="Back" /> View all Articles</span>
+            </BackLink>
+          </div>
+
+        </BlogFooter>
         {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
       </BlogContent>
     </Simple>
