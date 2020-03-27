@@ -3,19 +3,19 @@ import tw from "tailwind.macro";
 import colors from "../../colors";
 
 export const ArticleScreen = styled.div`
-  ${tw`flex`}
+  ${tw`flex flex-col md:flex-row`}
 `;
 
 export const ArticleList = styled.div`
-  ${tw`w-3/4 mr-16`}
+  ${tw`w-full md:w-3/4 md:mr-16`}
 `;
 
 export const ArticleSearch = styled.div`
-  ${tw`w-1/4 mt-8`}
+  ${tw`w-full md:w-1/4 mt-8`}
 `;
 
 export const ArticleCard = styled.div`
-  ${tw`w-full flex my-8`}
+  ${tw`w-full flex flex-col md:flex-row my-8`}
   & h4 {
     font-size: 22px;
     font-weight: 400;
@@ -36,8 +36,12 @@ export const ArticleCard = styled.div`
   }
 `;
 
+export const ArticlePreview = styled.div`
+  ${tw`px-4 mt-4 md:mt-0`}
+`;
+
 export const ArticleImage = styled.img`
-  ${tw`w-1/6 flex mr-4`}
+  ${tw`w-full md:w-1/6 flex mr-4`}
   border-radius: 10px;
   min-width: 220px;
 `;

@@ -9,7 +9,7 @@ import colors from "../../colors";
 import { listStyles } from "../styles";
 
 const Editor = styled.section`
-  ${tw`flex flex-col md:flex-row px-4 pt-0 mt-6 md:my-0 md:pb-16 lg:px-0`}
+  ${tw`flex flex-col md:flex-row px-4 pt-0 mt-8 md:my-0 md:pb-16 lg:px-0`}
 `;
 
 const EditorText = styled.div`
@@ -37,7 +37,9 @@ const NoCodeWrapper = styled.div`
   left: -55px; 
   zIndex: -1;
   @media (max-width: 768px){
-    left: 0px;
+    left: -40px;
+    top: 10px;
+    z-index: -1;
   }
 `;
 

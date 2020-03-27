@@ -115,14 +115,12 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
         </BlogHeader>
         <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} />
         <BlogFooter>
-          <div style={{ borderTop: "1px solid #DDD", paddingTop: 16 }}>
+          <div style={{ borderTop: `1px solid ${colors.lightGray}`, paddingTop: 16 }}>
             <AuthorCard>
               <img src="https://placekeanu.com/60/60" width="60" height="60" style={{ borderRadius: 60, marginRight: 16 }} />
               <p>Author<br/><strong>{post.frontmatter.author}</strong></p>
             </AuthorCard>
           </div>
-
-
           <div>
             <BackLink to="blog">
               <span><BackImg src={IconBack} alt="Back" /> View all Articles</span>

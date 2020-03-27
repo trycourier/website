@@ -11,6 +11,7 @@ import {
   ArticleList,
   ArticleScreen,
   ArticleSearch,
+  ArticlePreview,
 } from "../components/community/articles";
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
@@ -79,7 +80,7 @@ const Community: React.FC = ({ data }: any) => {
                 />
               </Link>
 
-              <div className="px-4">
+              <ArticlePreview>
                 <HeaderLink to={node.fields.slug}>
                   <h4 className="font-bold text-xl py-0 mt-0 mb-2">
                     {node.frontmatter.title}
@@ -97,7 +98,7 @@ const Community: React.FC = ({ data }: any) => {
                     </span>
                   ))}
                 </div>
-              </div>
+              </ArticlePreview>
             </ArticleCard>
           ))}
         </ArticleList>
