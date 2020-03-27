@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, graphql } from "gatsby";
-import styled from "styled-components";
-import tw from "tailwind.macro";
 
 import Simple from "../templates/simple";
+import SEO from "../components/seo";
 
 import {
   ArticleCard,
+  ArticleHeaderLink,
   ArticleImage,
   ArticleList,
   ArticleScreen,
@@ -16,19 +16,13 @@ import {
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
 
-const HeaderLink = styled(Link)`
-  ${tw`no-underline`}
-  & :hover {
-    text-decoration: underline;
-  }
-`;
-
 const placeholder = {
   image: {
     src: "https://placekeanu.com/220/160",
     desc: "Sunset in the mountains",
   },
-  title: "How we organize our jobs for our new customers and how we satisfy them.",
+  title:
+    "How we organize our jobs for our new customers and how we satisfy them.",
   author: "Name of Person",
   published: "February 2nd, 2021",
   html: `Ut auctor ligula id aliquam sollicitudin. Maecenas tincidunt nisl et dignissim dapibus. Etiam eget varius neque. Donec et dapibus diam, aliquam egestas quam. Curabitur condimentum nibh non augue facilisis, vitae pharetra metus consequat. Donec ac urna ac mauris commodo pharetra ut ac mi. `,
@@ -73,7 +67,7 @@ const Blog: React.FC = ({ data }: any) => {
   };
 
   return (
-    <Simple title="Blog">
+    <Simple title="Courier Blog">
       <h1 style={{ marginBottom: 0 }}>All Articles</h1>
       <p style={{ marginTop: 0 }}>Feel free to share our content.</p>
       <ArticleScreen>
@@ -91,11 +85,9 @@ const Blog: React.FC = ({ data }: any) => {
                   />
                 </Link>
                 <ArticlePreview>
-                  <HeaderLink to={node.fields.slug}>
-                    <h4 className="font-bold text-xl py-0 mt-0 mb-2">
-                      {node.frontmatter.title}
-                    </h4>
-                  </HeaderLink>
+                  <ArticleHeaderLink to={node.fields.slug}>
+                    <h4>{node.frontmatter.title}</h4>
+                  </ArticleHeaderLink>
                   <div className="posted">
                     Posted by <strong>{placeholder.author}</strong> on{" "}
                     <strong>{node.frontmatter.date}</strong>
