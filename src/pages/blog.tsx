@@ -58,9 +58,9 @@ export const query = graphql`
   }
 `;
 
-const Community: React.FC = ({ data }: any) => {
+const Blog: React.FC = ({ data }: any) => {
   return (
-    <Simple title="Community">
+    <Simple title="Blog">
       <h1 style={{ marginBottom: 0 }}>All Articles</h1>
       <p style={{ marginTop: 0 }}>Feel free to share our content.</p>
       <ArticleScreen>
@@ -111,4 +111,4 @@ const Community: React.FC = ({ data }: any) => {
   );
 };
 
-export default Community;
+export default Blog;
