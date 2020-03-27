@@ -6,7 +6,7 @@ import colors from "../../colors";
 
 import PricingLine from "./pricing-line";
 const Pricing = styled.section`
-  ${tw`flex flex-col pt-24 md:pt-0 pb-8 md:pb-24 px-4`}
+  ${tw`flex flex-col pb-8 md:pb-24`}
 `;
 
 const UsageBasedPricingText = styled.div`
@@ -38,8 +38,7 @@ const UsageBasedPricing: React.FC = () => {
       <UsageBasedPricingText>
         <h2>Usage Based Pricing</h2>
         <p>
-          Get started for free, or select a flexible plan based on your sending
-          needs.
+          Get started for free, or select a plan that scales to your needs.
         </p>
       </UsageBasedPricingText>
       <UsageBasedPricingWrapper>

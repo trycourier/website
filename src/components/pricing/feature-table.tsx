@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
+import { features } from "../../data/pricing";
 import colors from "../../colors";
 // import { Desktop, Mobile } from "../container";
 
@@ -30,6 +31,14 @@ const FeatureTableTable = styled.table`
     }
 
     tr {
+      & td {
+        background: ${colors.highlight};
+        aside {
+          font-weight: normal;
+          font-size: 10px;
+
+        }
+      }
       &:first-child {
         & td {
           background: ${colors.highlight};
@@ -101,89 +110,6 @@ const FeatureTableTable = styled.table`
     }
   }
 `;
-
-const features = [
-  {
-    label: "",
-    standard: "SIGN_UP",
-    enterprise: "CONTACT_SALES",
-  },
-  {
-    label: "Team Members",
-    standard: true,
-    enterprise: true,
-  },
-  {
-    label: "Unlimited Channels",
-    standard: true,
-    enterprise: true,
-  },
-  {
-    label: "Unlimited Provider Integrations",
-    standard: true,
-    enterprise: true,
-  },
-  {
-    label: "Unlimited Conditions",
-    standard: true,
-    enterprise: true,
-  },
-  {
-    label: "OAuth Google / Github",
-    standard: true,
-    enterprise: true,
-  },
-  {
-    label: "Event Log",
-    standard: true,
-    enterprise: true,
-  },
-  {
-    label: "Customer Support",
-    standard: "Advanced",
-    enterprise: "Premium",
-  },
-  {
-    label: "Two Factor Authentication",
-    standard: false,
-    enterprise: true,
-  },
-  {
-    label: "Custom Roles and Permissions",
-    standard: false,
-    enterprise: true,
-  },
-  {
-    label: "Message Retention Policy",
-    standard: false,
-    enterprise: "Custom",
-  },
-  {
-    label: "Cross-Channel Tracking Dashboard",
-    standard: false,
-    enterprise: true,
-  },
-  {
-    label: "HIPAA Compliance",
-    standard: false,
-    enterprise: true,
-  },
-  {
-    label: "Custom Invoicing",
-    standard: false,
-    enterprise: true,
-  },
-  {
-    label: "Data Export",
-    standard: false,
-    enterprise: true,
-  },
-  {
-    label: "SAML 2.0",
-    standard: false,
-    enterprise: true,
-  },
-];
 
 import googleNav from "../../images/google-logo-white.svg";
 import githubNav from "../../images/github-logo-white.svg";
@@ -310,13 +236,24 @@ const FeatureTableComponent: React.FC = () => {
         <tbody className="highlighted">
           <tr>
             <td>Subscription Fee</td>
-            <td className="highlighted">Free</td>
-            <td>$5k / mo</td>
+            <td className="highlighted">$0</td>
+            <td>$5,000/mo</td>
           </tr>
           <tr>
-            <td>Usage Fee (free up to 10k/mo)</td>
-            <td className="highlighted">per notification</td>
-            <td>per notification</td>
+            <td>Included Usage</td>
+            <td className="highlighted">10,000 notifications/mo</td>
+            <td>10,000 notifications/mo</td>
+          </tr>
+          <tr>
+            <td>Usage Fee</td>
+            <td className="highlighted">
+              <span>Pricing Varies</span>
+              <aside>See <strong>Usage Based Pricing</strong> above</aside>
+            </td>
+            <td>
+              <span>Pricing Varies</span>
+              <aside>See <strong>Usage Based Pricing</strong> above</aside>
+            </td>
           </tr>
         </tbody>
         <tbody>
