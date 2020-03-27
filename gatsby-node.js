@@ -43,7 +43,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             // `source[info.fieldName]`
             const { tags } = source
             if (source.tags == null || (Array.isArray(tags) && !tags.length)) {
-              return ["uncategorized"]
+              return ["Uncategorized"]
             }
             return tags
           },
@@ -83,7 +83,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     actions.createPage({
       path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog.tsx`),
+      component: path.resolve(`./src/templates/blog-post.tsx`),
       context: {
         slug: node.fields.slug,
       },

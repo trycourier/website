@@ -49,8 +49,7 @@ const SimplePage: React.FC<PageProps> = ({ children, title }) => {
   return (
     <Layout>
       <SEO title={title} />
-
-      <Section>
+      <Section style={{ top: -1 }}>
         <BackgroundImage
           Tag="section"
           fluid={headerBg.childImageSharp.fluid}
@@ -58,7 +57,6 @@ const SimplePage: React.FC<PageProps> = ({ children, title }) => {
           style={{
             backgroundPosition: "center left",
             height: "300px",
-            top: "-1px",
           }}
         ></BackgroundImage>
         <Divider image={headerDivider} />

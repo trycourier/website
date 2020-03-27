@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "gatsby";
 import tw from "tailwind.macro";
 import colors from "../../colors";
 
@@ -12,6 +13,16 @@ export const ArticleList = styled.div`
 
 export const ArticleSearch = styled.div`
   ${tw`w-full md:w-1/4 mt-8`}
+`;
+
+export const ArticleHeaderLink = styled(Link)`
+${tw`no-underline`}
+& :hover {
+  text-decoration: underline;
+}
+& h4 {
+  ${tw`text-xl py-0 mt-0 mb-2`}
+}
 `;
 
 export const ArticleCard = styled.div`
