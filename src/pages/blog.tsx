@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
@@ -60,44 +60,60 @@ export const query = graphql`
 `;
 
 const Blog: React.FC = ({ data }: any) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchInput = e => {
+    setSearchTerm(e.currentTarget.value.toLowerCase());
+  };
+
+  const searchContent = value => {
+    const val = value.toLowerCase();
+    const regex = val.search(searchTerm);
+    return regex !== -1;
+  };
+
   return (
     <Simple title="Blog">
       <h1 style={{ marginBottom: 0 }}>All Articles</h1>
       <p style={{ marginTop: 0 }}>Feel free to share our content.</p>
       <ArticleScreen>
         <ArticleList>
-          {data.allMarkdownRemark.edges.map(({ node }: any) => (
-            <ArticleCard key={node.id}>
-              <Link to={node.fields.slug}>
-                <ArticleImage
-                  src={node.frontmatter.thumbnail}
-                  alt={placeholder.image.desc}
-                />
-              </Link>
-              <ArticlePreview>
-                <HeaderLink to={node.fields.slug}>
-                  <h4 className="font-bold text-xl py-0 mt-0 mb-2">
-                    {node.frontmatter.title}
-                  </h4>
-                </HeaderLink>
-                <div className="posted">
-                  Posted by <strong>{placeholder.author}</strong> on{" "}
-                  <strong>{node.frontmatter.date}</strong>
-                </div>
-                <p className="excerpt">{node.excerpt}</p>
-                <div>
-                  {node.frontmatter.tags.map((tag: string) => (
-                    <span style={{ marginRight: 8 }}>
-                      <Tag label={tag} />
-                    </span>
-                  ))}
-                </div>
-              </ArticlePreview>
-            </ArticleCard>
-          ))}
+          {data.allMarkdownRemark.edges
+            .filter(({ node }) => {
+              return searchContent(node.frontmatter.title);
+            })
+            .map(({ node }: any) => (
+              <ArticleCard key={node.id}>
+                <Link to={node.fields.slug}>
+                  <ArticleImage
+                    src={node.frontmatter.thumbnail}
+                    alt={placeholder.image.desc}
+                  />
+                </Link>
+                <ArticlePreview>
+                  <HeaderLink to={node.fields.slug}>
+                    <h4 className="font-bold text-xl py-0 mt-0 mb-2">
+                      {node.frontmatter.title}
+                    </h4>
+                  </HeaderLink>
+                  <div className="posted">
+                    Posted by <strong>{placeholder.author}</strong> on{" "}
+                    <strong>{node.frontmatter.date}</strong>
+                  </div>
+                  <p className="excerpt">{node.excerpt}</p>
+                  <div>
+                    {node.frontmatter.tags.map((tag: string) => (
+                      <span style={{ marginRight: 8 }}>
+                        <Tag label={tag} />
+                      </span>
+                    ))}
+                  </div>
+                </ArticlePreview>
+              </ArticleCard>
+            ))}
         </ArticleList>
         <ArticleSearch>
-          <SearchInput />
+          <SearchInput onSearch={handleSearchInput} />
           {tags.map(tag => (
             <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}

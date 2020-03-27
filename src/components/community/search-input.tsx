@@ -8,12 +8,11 @@ const SearchInput = styled.div`
   ${tw`flex items-center justify-between rounded-full`}
   border: 1px solid #CBD5E0;
 
-
-  & input[type=text]{
+  & input[type="text"] {
     ${tw`ml-3 text-sm`}
     border: none;
     outline: none;
-    &::focus{
+    &::focus {
       outline: none;
     }
   }
@@ -23,10 +22,14 @@ const SearchInput = styled.div`
   }
 `;
 
-const SearchInputComponent: React.FC = () => {
+type SearchTypes = {
+  onSearch: React.FormEvent;
+}
+
+const SearchInputComponent: React.FC<SearchTypes> = ({ onSearch }) => {
   return (
     <SearchInput>
-      <input type="text" placeholder="Search" />
+      <input type="text" placeholder="Search" onChange={onSearch} />
       <img className="search" src={searchIcon} alt="Search" />
     </SearchInput>
   );
