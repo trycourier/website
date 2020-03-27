@@ -51,24 +51,22 @@ const TaggedContent = styled.div`
 
 const TaggedHeader = styled.div`
   ${tw`text-center`}
-  h1 {
+  h2 {
     font-weight: 400;
-    font-size: 40px;
     margin-bottom: 2px;
-  }
-  p.posted {
-    ${tw`pt-0`}
-    font-size: 14px;
     & strong {
-      color: ${colors.textPrimary};
+      background: #dbf1ff;
+      color: #26699e;
+      padding: 8px;
+      border-radius: 4px;
     }
   }
+
 `;
 
 const TaggedFooter = styled.div`
   ${tw`flex justify-between mt-4`}
 `;
-
 
 export const query = graphql`
   query($tag: String!) {
@@ -114,7 +112,12 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
       </BackLink>
 
       <TaggedContent>
-        <TaggedHeader>{posts.length} Posts</TaggedHeader>
+        <TaggedHeader>
+          <h2>
+            {posts.length} Post{posts.length > 1 && "s"} tagged:{" "}
+            <strong>{tag}</strong>
+          </h2>
+        </TaggedHeader>
         <ArticleScreen>
           <ArticleList>
             {posts.map(({ node }: any) => (
