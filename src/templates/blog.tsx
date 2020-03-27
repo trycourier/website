@@ -96,7 +96,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Simple title={post.frontmatter.title}>
-      <BackLink to="community">
+      <BackLink to="blog">
         <span><BackImg src={IconBack} alt="Back" /> View all Articles</span>
       </BackLink>
 
@@ -108,7 +108,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
           <div>
             {post.frontmatter.tags.map((tag: string, idx: number) => (
               <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
-                <Tag>{tag}</Tag>
+                <Tag label={tag} />
               </span>
             ))}
           </div>
@@ -124,7 +124,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
 
 
           <div>
-            <BackLink to="community">
+            <BackLink to="blog">
               <span><BackImg src={IconBack} alt="Back" /> View all Articles</span>
             </BackLink>
           </div>

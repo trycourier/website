@@ -61,8 +61,13 @@ export const query = graphql`
 const Community: React.FC = ({ data }: any) => {
   return (
     <Simple title="Community">
-      <h1 style={{ marginBottom: 0 }}>All Articles</h1>
-      <p style={{ marginTop: 0 }}>Feel free to share our content.</p>
+      <h1 style={{ marginBottom: 0 }}>Community</h1>
+      <p style={{ marginTop: 0 }}>...</p>
+
+      <h2>Events</h2>
+      <p>Coming Soon...</p>
+      
+      <h2>Articles</h2>
       <ArticleScreen>
         <ArticleList>
           {data.allMarkdownRemark.edges.map(({ node }: any) => (
@@ -88,7 +93,7 @@ const Community: React.FC = ({ data }: any) => {
                 <div>
                   {node.frontmatter.tags.map((tag: string) => (
                     <span style={{ marginRight: 8 }}>
-                      <Tag>{tag}</Tag>
+                      <Tag label={tag} />
                     </span>
                   ))}
                 </div>
@@ -102,7 +107,7 @@ const Community: React.FC = ({ data }: any) => {
             <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
             >
-              <Tag>{tag.label}</Tag>
+              <Tag label={tag.label} />
             </div>
           ))}
         </ArticleSearch>

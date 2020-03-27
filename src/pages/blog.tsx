@@ -88,7 +88,7 @@ const Blog: React.FC = ({ data }: any) => {
                 <div>
                   {node.frontmatter.tags.map((tag: string) => (
                     <span style={{ marginRight: 8 }}>
-                      <Tag>{tag}</Tag>
+                      <Tag label={tag} />
                     </span>
                   ))}
                 </div>
@@ -102,7 +102,7 @@ const Blog: React.FC = ({ data }: any) => {
             <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
             >
-              <Tag>{tag.label}</Tag>
+              <Tag label={tag.label} />
             </div>
           ))}
         </ArticleSearch>
