@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 
 const Tag = styled.div`
-  background: #DBF1FF;
-  color: #26699E;
+  background: #dbf1ff;
+  color: #26699e;
   font-size: 12px;
   border-radius: 4px;
   padding: 8px;
@@ -12,11 +13,16 @@ const Tag = styled.div`
   cursor: pointer;
 `;
 
-const TagComponent: React.FC = ({ children }) => {
+type TagType = {
+  label: string;
+}
+
+const TagComponent: React.FC<TagType> = ({ label }) => {
+  const tagRoute = label.toLowerCase().replace(" ", "-");
   return (
-    <Tag>
-      {children}
-    </Tag>
+    <Link to={`tags/${tagRoute}`}>
+      <Tag>{label}</Tag>
+    </Link>
   );
 };
 

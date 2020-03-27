@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
-    `gatsby-plugin-sitemap`,
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-typescript",
     {
       resolve: "gatsby-plugin-prefetch-google-fonts",
@@ -65,7 +65,13 @@ module.exports = {
       },
     },
     "gatsby-plugin-mdx",
-    `gatsby-transformer-remark`,
+    {
+      resolve: "gatsby-plugin-tags",
+      options: {
+        templatePath: `${__dirname}/src/templates/tag.tsx`,
+      },
+    },
+    "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     // {

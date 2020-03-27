@@ -6063,6 +6063,14 @@ gatsby-plugin-styled-components@^3.1.2:
   dependencies:
     "@babel/runtime" "^7.8.7"
 
+gatsby-plugin-tags@^2.3.7:
+  version "2.3.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-tags/-/gatsby-plugin-tags-2.3.7.tgz#1dc55b9a71c9a59a444897e2ccf33e3b72019fd2"
+  integrity sha512-L/M0938G90FBPgMrMDaxI1phNxyu10OLQU94Tfoj7RL4h9USbLxY2yAHjfW4bPRN+XsSMc5nHxVKVyj7JHd00A==
+  dependencies:
+    lodash "^4.17.15"
+    slug "^1.1.0"
+
 gatsby-plugin-typescript@^2.1.2:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.2.5.tgz#60d136ed9ce02dc05054f987934bfee1b0cca97e"
@@ -12263,6 +12271,13 @@ slice-ansi@^3.0.0:
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
 
+slug@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/slug/-/slug-1.1.0.tgz#73eef5710416f515077bdf70c683bde4915913c9"
+  integrity sha512-NuIOjDQeTMPm+/AUIHJ5636mF3jOsYLFnoEErl9Tdpt4kpt4fOrAJxscH9mUgX1LtPaEqgPCawBg7A4yhoSWRg==
+  dependencies:
+    unicode ">= 0.3.1"
+
 slugify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.4.0.tgz#c9557c653c54b0c7f7a8e786ef3431add676d2cb"
@@ -13499,6 +13514,11 @@ unicode-property-aliases-ecmascript@^1.0.4:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-1.1.0.tgz#dd57a99f6207bedff4628abefb94c50db941c8f4"
   integrity sha512-PqSoPh/pWetQ2phoj5RLiaqIk4kCNwoV3CI+LfGmWLKI3rE3kl1h59XpX2BjgDrmbxD9ARtQobPGU1SguCYuQg==
+
+"unicode@>= 0.3.1":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/unicode/-/unicode-12.1.0.tgz#7ee53a7a0ca5539b353419432823d8da58bbbf33"
+  integrity sha512-Ty6+Ew21DiYTWLYtd05RF/X4c1ekOvOgANyHbBj0h3MaXpfaGr2Rdmc0hMFuGQLyPLb9cU4ArNxl0bTF5HSzXw==
 
 unified@8.4.2, unified@^8.4.2:
   version "8.4.2"
