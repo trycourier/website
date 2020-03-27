@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
+import { pricingMatrix } from "../../data/pricing";
 import colors from "../../colors";
 
 import ProgressBar from "./progress-bar";
@@ -127,6 +128,10 @@ const PricingLine = styled.section`
       font-weight: 600;
       position: relative;
       top: -16px;
+      & em {
+        font-style: normal;
+        font-weight: 800;
+      }
     }
   }
   ${RangeStyle}
@@ -136,31 +141,6 @@ const PricingLine = styled.section`
 const PricingLineInfo = styled.div`
   ${tw`w-full text-left`}
 `;
-
-const pricingMatrix = [
-  {
-    perMonth: "$0",
-    cummulative: "10k",
-  },
-  {
-    perMonth: "$0",
-    cummulative: "10k",
-  },
-  {
-    perMonth: "$99",
-    cummulative: "500k",
-  },
-  {
-    perMonth: "$499",
-    additional: "$0.00039",
-    cummulative: "2.5M+",
-  },
-  {
-    perMonth: "$499",
-    additional: "$0.00039",
-    cummulative: "2.5M+",
-  },
-];
 
 const useWindowSize = () => {
   const isClient = typeof window === "object";
@@ -224,13 +204,6 @@ const PricingLineComponent: React.FC = () => {
           {pricingMatrix[rangeIdx - 1].perMonth}
           <small>/mo</small>
         </h4>
-        <h5>
-          {pricingMatrix[rangeIdx - 1].additional
-            ? `+ ${
-                pricingMatrix[rangeIdx - 1].additional
-              } per additional notification *`
-            : ` `}
-        </h5>
         <Desktop>
 
           <ProgressBar
@@ -262,7 +235,12 @@ const PricingLineComponent: React.FC = () => {
         </Mobile>
         <h5>
           <strong>
-            {pricingMatrix[rangeIdx - 1].cummulative} notifications/mo
+            <span>Up to <em>{pricingMatrix[rangeIdx - 1].cummulative}</em> notifications/mo</span>
+            {
+              pricingMatrix[rangeIdx - 1].additional ? (
+                <span> + <em>{pricingMatrix[rangeIdx - 1].additional}</em> per additional notification</span>
+              ) : null
+            }
           </strong>
         </h5>
       </PricingLineInfo>
