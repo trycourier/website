@@ -20,7 +20,7 @@ type TagType = {
 const TagComponent: React.FC<TagType> = ({ label }) => {
   const tagRoute = label.toLowerCase().replace(/ /gi, "-");
   return (
-    <Link to={`tags/${tagRoute}`}>
+    <Link to={`blog/tags/${tagRoute}`}>
       <Tag>{label}</Tag>
     </Link>
   );
