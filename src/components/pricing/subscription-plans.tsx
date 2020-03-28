@@ -40,7 +40,7 @@ const SubscriptionPlans: React.FC = () => {
     <Plans>
       <SubscriptionPlansText>
         <h2>Subscription Plans</h2>
-        <p>Get started for free, or select a flexible plan.</p>
+        <p>Start with our free Standard plan, or move to Enterprise for more advanced needs.</p>
       </SubscriptionPlansText>
       <SubscriptionPlansWrapper>
         <FeatureTable />
