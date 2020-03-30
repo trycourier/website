@@ -12,6 +12,7 @@ const SearchInput = styled.div`
     ${tw`ml-3 text-sm`}
     border: none;
     outline: none;
+    width: 100%;
     &::focus {
       outline: none;
     }
