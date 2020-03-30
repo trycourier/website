@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link, graphql } from "gatsby";
 
-import Simple from "../templates/simple";
-import SEO from "../components/seo";
+import Simple from "../../templates/simple";
 
 import {
   ArticleCard,
@@ -12,9 +11,9 @@ import {
   ArticleScreen,
   ArticleSearch,
   ArticlePreview,
-} from "../components/community/articles";
-import SearchInput from "../components/community/search-input";
-import Tag from "../components/community/tag";
+} from "../../components/community/articles";
+import SearchInput from "../../components/community/search-input";
+import Tag from "../../components/community/tag";
 
 const placeholder = {
   image: {
@@ -28,12 +27,14 @@ const placeholder = {
   html: `Ut auctor ligula id aliquam sollicitudin. Maecenas tincidunt nisl et dignissim dapibus. Etiam eget varius neque. Donec et dapibus diam, aliquam egestas quam. Curabitur condimentum nibh non augue facilisis, vitae pharetra metus consequat. Donec ac urna ac mauris commodo pharetra ut ac mi. `,
 };
 
-const tags = [{ label: "Long Tag" }, { label: "Tag" }];
-
 export const query = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
       edges {
         node {
           id
@@ -65,6 +66,8 @@ const Blog: React.FC = ({ data }: any) => {
     const regex = val.search(searchTerm);
     return regex !== -1;
   };
+
+  const tags = data.allMarkdownRemark.group;
 
   return (
     <Simple title="Courier Blog">
@@ -110,7 +113,7 @@ const Blog: React.FC = ({ data }: any) => {
             <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
             >
-              <Tag label={tag.label} />
+              <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
             </div>
           ))}
         </ArticleSearch>

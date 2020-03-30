@@ -64,7 +64,13 @@ module.exports = {
         path: `${__dirname}/src/posts`,
       },
     },
-    "gatsby-plugin-mdx",
+
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".md", ".mdx"]
+      }
+    },
     {
       resolve: "gatsby-plugin-tags",
       options: {
