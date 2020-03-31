@@ -15,18 +15,6 @@ import {
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
 
-const placeholder = {
-  image: {
-    src: "https://placekeanu.com/220/160",
-    desc: "Sunset in the mountains",
-  },
-  title:
-    "How we organize our jobs for our new customers and how we satisfy them.",
-  author: "Name of Person",
-  published: "February 2nd, 2021",
-  html: `Ut auctor ligula id aliquam sollicitudin. Maecenas tincidunt nisl et dignissim dapibus. Etiam eget varius neque. Donec et dapibus diam, aliquam egestas quam. Curabitur condimentum nibh non augue facilisis, vitae pharetra metus consequat. Donec ac urna ac mauris commodo pharetra ut ac mi. `,
-};
-
 const tags = ["Long Tag", "Tag", "Regular Tag", "Significantly Longer Tag"];
 
 export const query = graphql`
@@ -41,6 +29,11 @@ export const query = graphql`
             date(formatString: "MMMM Do, YYYY")
             thumbnail
             tags
+            author {
+              id
+              bio
+              twitter
+            }
           }
           fields {
             slug
@@ -86,7 +79,7 @@ const Community: React.FC = ({ data }: any) => {
               <Link to={node.fields.slug}>
                 <ArticleImage
                   src={node.frontmatter.thumbnail}
-                  alt={placeholder.image.desc}
+                  alt={node.frontmatter.title}
                 />
               </Link>
 
@@ -95,7 +88,7 @@ const Community: React.FC = ({ data }: any) => {
                   <h4>{node.frontmatter.title}</h4>
                 </ArticleHeaderLink>
                 <div className="posted">
-                  Posted by <strong>{placeholder.author}</strong> on{" "}
+                  Posted by <strong>{node.frontmatter.author.id}</strong> on{" "}
                   <strong>{node.frontmatter.date}</strong>
                 </div>
                 <p className="excerpt">{node.excerpt}</p>
