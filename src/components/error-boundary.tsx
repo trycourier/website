@@ -1,11 +1,15 @@
 import React from "react";
 import * as Sentry from "@sentry/browser";
 
-Sentry.init({
-  dsn: 'https://4d0fad4157b14d46af354f5158e5e69c@sentry.io/1801028',
-  environment: process.env.CONTEXT || 'development', // from netlify
-  release: process.env.DEPLOY_ID // from netlify
-});
+if (window.location.protocol !== "http:") {
+  Sentry.init({
+    dsn: 'https://4d0fad4157b14d46af354f5158e5e69c@sentry.io/1801028',
+    environment: process.env.CONTEXT || 'development', // from netlify
+    release: process.env.DEPLOY_ID // from netlify
+  });
+} else {
+  console.log("Development Mode.")
+}
 
 interface IErrorBoundaryProps {
   fallback?: React.ReactNode;

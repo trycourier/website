@@ -9,7 +9,7 @@ import Image from "../image";
 import colors from "../../colors";
 
 import channelsGroup from "../../images/channels-group.svg";
-import RegistrationCTA from "./registration-cta";
+import RegistrationCTA from "../shared/registration-cta";
 
 const Abs = styled(animated.div)`
   position: absolute;

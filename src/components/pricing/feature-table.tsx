@@ -6,6 +6,8 @@ import tw from "tailwind.macro";
 import { features } from "../../data/pricing";
 import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
+import GettingStartedContent from "../shared/getting-started";
+import { MobileRegistrationCTA } from "../shared/registration-cta";
 
 import checkmark from "../../images/checkmark.svg";
 
@@ -36,7 +38,6 @@ const FeatureTableTable = styled.table`
         aside {
           font-weight: normal;
           font-size: 10px;
-
         }
       }
       &:first-child {
@@ -111,9 +112,9 @@ const FeatureTableTable = styled.table`
   }
 `;
 
-import googleNav from "../../images/google-logo-white.svg";
-import githubNav from "../../images/github-logo-white.svg";
-import emailNav from "../../images/email-logo-white.svg";
+import googleLogo from "../../images/google-logo-white.svg";
+import githubLogo from "../../images/github-logo-white.svg";
+import emailLogo from "../../images/email-logo-white.svg";
 
 import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl } from "../../links";
 
@@ -155,10 +156,11 @@ const AccountButtons = styled.ul`
 `;
 
 const Button = styled.button`
-  ${tw`rounded-full mr-2 px-8 py-2 text-white text-md align-middle`}
+  ${tw`rounded-full mr-2 px-8 py-4 text-white text-md align-middle`}
   background: ${colors.googleBlue};
   border: 1px solid transparent;
-  height: 36px;
+  font-weight: 600;
+  height: 56px;
   line-height: 18px;
   cursor: pointer;
   & :hover {
@@ -174,7 +176,7 @@ const Button = styled.button`
   & label {
     position: relative;
     left: 6px;
-    top: -7px;
+    top: -4px;
     cursor: pointer;
   }
 `;
@@ -184,17 +186,17 @@ const AccountButtonComponent: React.FC = () => {
     <AccountButtons>
       <li className="google">
         <a href={googleSignUpUrl} target="_blank">
-          <img src={googleNav} alt="Google SSO" />
+          <img src={googleLogo} alt="Google SSO" />
         </a>
       </li>
       <li className="github">
         <a href={githubSignUpUrl} target="_blank">
-          <img src={githubNav} alt="GitHub SSO" />
+          <img src={githubLogo} alt="GitHub SSO" />
         </a>
       </li>
       <li className="email">
         <a href={emailSignUpUrl} target="_blank">
-          <img src={emailNav} alt="Sign Up with Email" />
+          <img src={emailLogo} alt="Sign Up with Email" />
         </a>
       </li>
     </AccountButtons>
@@ -202,27 +204,59 @@ const AccountButtonComponent: React.FC = () => {
 };
 
 const Card = styled.div`
-  ${tw`w-full p-4 m-4`}
+  ${tw`w-full p-6 m-4 mb-12`}
   box-shadow: ${shadow};
   border-radius: 20px;
-`;
-const Pricing = styled.div`
-  & h4 {
-
+  & ul { 
+    list-style: none;
+    padding: 0px;
+    & li {
+      ${tw`pb-6`}
+    }
   }
-   & p {
+`;
 
-   }
+const CardHeader = styled.div`
+  ${tw`py-4`}
+  & h3 {
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0;
+  }
+  & p {
+    margin: 0;
+  }
+`;
+
+const Pricing = styled.div`
+  ${tw`text-center`}
+  & h4 {
+    color: ${colors.green};
+    font-size: 66px;
+    padding-bottom: 0px;
+    margin: 0px;
+    & small {
+      font-size: 50%;
+    }
+  }
+  & p {
+    color: ${colors.textSecondary};
+    margin-top: 0px;
+    margin-bottom: 8px;
+  }
 `;
 
 const handleContactSalesClick = () => {
   try {
-    window.Intercom('showNewMessage', `I'd like to discuss Courier's Enterprise plan. Please contact me at: `);
-  }catch(e) {
+    window.Intercom(
+      "showNewMessage",
+      `I'd like to discuss Courier's Enterprise plan. Please contact me at: `
+    );
+  } catch (e) {
     console.warn("Intercom not enabled:", e);
     window.location = "mailto:sales@trycourier.com";
   }
-}
+};
 
 const displayCell = (property: any | string) => {
   switch (property) {
@@ -231,11 +265,12 @@ const displayCell = (property: any | string) => {
     case "CONTACT_SALES":
       return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
     case true:
-      return <img src={checkmark} alt="+" width="32"/>;
+      return <img src={checkmark} alt="+" width="32" />;
     default:
       return property;
   }
 };
+
 const FeatureTableComponent: React.FC = () => {
   return (
     <FeatureTable>
@@ -263,22 +298,26 @@ const FeatureTableComponent: React.FC = () => {
               <td>Usage Fee</td>
               <td className="highlighted">
                 <span>Pricing Varies</span>
-                <aside>See <strong>Usage Based Pricing</strong> above</aside>
+                <aside>
+                  See <strong>Usage Based Pricing</strong> above
+                </aside>
               </td>
               <td>
                 <span>Pricing Varies</span>
-                <aside>See <strong>Usage Based Pricing</strong> above</aside>
+                <aside>
+                  See <strong>Usage Based Pricing</strong> above
+                </aside>
               </td>
             </tr>
           </tbody>
           <tbody>
-          {features.map(feat => (
-            <tr key={feat.label}>
-              <td>{feat.label}</td>
-              <td>{feat.standard ? displayCell(feat.standard) : " "}</td>
-              <td>{feat.enterprise ? displayCell(feat.enterprise) : " "}</td>
-            </tr>
-          ))}
+            {features.map(feat => (
+              <tr key={feat.label}>
+                <td>{feat.label}</td>
+                <td>{feat.standard ? displayCell(feat.standard) : " "}</td>
+                <td>{feat.enterprise ? displayCell(feat.enterprise) : " "}</td>
+              </tr>
+            ))}
           </tbody>
           <tfoot>
             <tr>
@@ -291,21 +330,68 @@ const FeatureTableComponent: React.FC = () => {
       </Desktop>
       <Mobile>
         <Card>
-          <h3>Standard</h3>
-          <p>Subscription Plan</p>
+          <CardHeader>
+            <h3>Standard</h3>
+            <p>Subscription Plan</p>
+          </CardHeader>
 
           <Pricing>
-            <h4>$0/mo</h4>
+            <h4>
+              $0<small>/mo</small>
+            </h4>
             <p>plus usage</p>
           </Pricing>
           <ul>
-            {features.filter(feat => feat.standard).map(feat => (
-              <li>{feat.label}</li>
-            ))}
+            {features
+              .filter(feat => feat.standard)
+              .map(feat => (
+                <li>{feat.label}</li>
+              ))}
           </ul>
+          <MobileRegistrationCTA>
+            <Button className="mobile">
+              <label>Sign up!</label>
 
-          <AccountButtonComponent />
+              <div>
+                <a href={googleSignUpUrl}>
+                  <img src={googleLogo} alt="Google SSO" />
+                </a>
+                <a href={githubSignUpUrl}>
+                  <img src={githubLogo} alt="GitHub SSO" />
+                </a>
+                <a href={emailSignUpUrl}>
+                  <img className="email" src={emailLogo} alt="Email" />
+                </a>
+              </div>
+            </Button>
+          </MobileRegistrationCTA>
         </Card>
+
+        <Card>
+          <CardHeader>
+            <h3>Enterprise</h3>
+            <p>Subscription Plan</p>
+          </CardHeader>
+
+          <Pricing>
+            <h4>
+              $5k<small>/mo</small>
+            </h4>
+            <p>plus usage</p>
+          </Pricing>
+          <ul>
+            {features
+              .filter(feat => feat.enterprise)
+              .map(feat => (
+                <li>{feat.label}</li>
+              ))}
+          </ul>
+          <Button style={{ width: "100%" }} onClick={handleContactSalesClick}>
+            Contact Sales
+          </Button>
+        </Card>
+        
+        <GettingStartedContent />
       </Mobile>
     </FeatureTable>
   );

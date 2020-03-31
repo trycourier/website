@@ -17,7 +17,7 @@ const SubscriptionPlansText = styled.div`
     color: ${colors.textPrimary};
   }
   & p {
-    ${tw`m-0 p-0 text-xl mt-2`}
+    ${tw`hidden md:block m-0 p-0 text-xl mt-2`}
   }
 `;
 
