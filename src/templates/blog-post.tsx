@@ -80,7 +80,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM Do, YYYY")
-        author{
+        author {
           id
           bio
           twitter
@@ -101,14 +101,24 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   return (
     <Simple title={post.frontmatter.title}>
       <BackLink to="blog">
-        <span><BackImg src={IconBack} alt="Back" /> View all Articles</span>
+        <span>
+          <BackImg src={IconBack} alt="Back" /> View all Articles
+        </span>
       </BackLink>
 
       <BlogContent>
-        <img src={post.frontmatter.headerImage} style={{ borderRadius: 10 }}/>
+        <img src={post.frontmatter.headerImage} style={{ borderRadius: 10 }} />
         <BlogHeader>
           <h1>{post.frontmatter.title}</h1>
-          <p className="posted">Posted by <strong>{post.frontmatter.author.id}</strong> on <strong>{post.frontmatter.date}</strong></p>
+          <p className="posted">
+            Posted by{" "}
+            <strong>
+              <Link to={`blog/author/${post.frontmatter.author.id}`}>
+                {post.frontmatter.author.id}
+              </Link>
+            </strong>{" "}
+            on <strong>{post.frontmatter.date}</strong>
+          </p>
           <div>
             {post.frontmatter.tags.map((tag: string, idx: number) => (
               <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
@@ -119,18 +129,37 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
         </BlogHeader>
         <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} />
         <BlogFooter>
-          <div style={{ borderTop: `1px solid ${colors.lightGray}`, paddingTop: 16 }}>
+          <div
+            style={{
+              borderTop: `1px solid ${colors.lightGray}`,
+              paddingTop: 16,
+            }}
+          >
             <AuthorCard>
-              <img src="https://placekeanu.com/60/60" width="60" height="60" style={{ borderRadius: 60, marginRight: 16 }} />
-              <p>Author<br/><strong>{post.frontmatter.author.id}</strong></p>
+              <img
+                src="https://placekeanu.com/60/60"
+                width="60"
+                height="60"
+                style={{ borderRadius: 60, marginRight: 16 }}
+              />
+              <p>
+                Author
+                <br />
+                <strong>
+                  <Link to={`blog/author/${post.frontmatter.author.id}`}>
+                    {post.frontmatter.author.id}
+                  </Link>
+                </strong>
+              </p>
             </AuthorCard>
           </div>
           <div>
             <BackLink to="blog">
-              <span><BackImg src={IconBack} alt="Back" /> View all Articles</span>
+              <span>
+                <BackImg src={IconBack} alt="Back" /> View all Articles
+              </span>
             </BackLink>
           </div>
-
         </BlogFooter>
         {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
       </BlogContent>
