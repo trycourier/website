@@ -155,9 +155,10 @@ const ProgressBarComponent: React.FC<{
         <Marker
           src={Tick}
           alt="+"
-          style={{ left: "97%" }}
+          style={{ position: "absolute", right: -8 }}
         />
       </Ticks>
+
     </ProgressBar>
   );
 };
