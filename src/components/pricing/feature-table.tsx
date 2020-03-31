@@ -116,7 +116,12 @@ import googleLogo from "../../images/google-logo-white.svg";
 import githubLogo from "../../images/github-logo-white.svg";
 import emailLogo from "../../images/email-logo-white.svg";
 
-import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl } from "../../links";
+import {
+  githubSignUpUrl,
+  googleSignUpUrl,
+  emailSignUpUrl,
+  signUpUrl,
+} from "../../links";
 
 const AccountButtons = styled.ul`
   ${tw`m-0 p-2 flex hidden md:inline-block`}
@@ -257,6 +262,14 @@ const handleContactSalesClick = () => {
   }
 };
 
+const handleSignUpClick = () => {
+  try {
+    window.location = signUpUrl;
+  } catch (e) {
+    console.warn("Window not available.");
+  }
+};
+
 const displayCell = (property: any | string) => {
   switch (property) {
     case "SIGN_UP":
@@ -348,19 +361,12 @@ const FeatureTableComponent: React.FC = () => {
               ))}
           </ul>
           <MobileRegistrationCTA>
-            <Button className="mobile">
+            <Button className="mobile" onClick={handleSignUpClick}>
               <label>Sign up!</label>
-
               <div>
-                <a href={googleSignUpUrl}>
-                  <img src={googleLogo} alt="Google SSO" />
-                </a>
-                <a href={githubSignUpUrl}>
-                  <img src={githubLogo} alt="GitHub SSO" />
-                </a>
-                <a href={emailSignUpUrl}>
-                  <img className="email" src={emailLogo} alt="Email" />
-                </a>
+                <img src={googleLogo} alt="Google SSO" />
+                <img src={githubLogo} alt="GitHub SSO" />
+                <img className="email" src={emailLogo} alt="Email" />
               </div>
             </Button>
           </MobileRegistrationCTA>

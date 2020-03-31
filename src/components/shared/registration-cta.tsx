@@ -8,7 +8,7 @@ import emailLogo from "../../images/email-logo-white.svg";
 import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
 
-import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl } from "../../links";
+import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl, signUpUrl } from "../../links";
 
 const Button = styled.button`
   ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm align-middle`}
@@ -88,6 +88,15 @@ const Flex = styled.div`
   display: flex;
 `;
 
+const handleSignUpClick = () => {
+  try {
+    window.location = signUpUrl;
+  } catch (e) {
+    console.warn("Window not available.");
+  }
+};
+
+
 const RegistrationCTA: React.FC = (props) => {
   return (
     <Content footer={props.footer}>
@@ -115,19 +124,12 @@ const RegistrationCTA: React.FC = (props) => {
         </Desktop>
         <Mobile>
           <MobileRegistrationCTA>
-              <Button className="mobile">
+              <Button className="mobile" onClick={handleSignUpClick}>
                 <label>Sign up!</label>
-
                 <div>
-                  <a href={googleSignUpUrl}>
                     <img src={googleLogo} alt="Google SSO" />
-                  </a>
-                  <a href={githubSignUpUrl}>
                     <img src={githubLogo} alt="GitHub SSO" />
-                  </a>
-                  <a href={emailSignUpUrl}>
                     <img className="email" src={emailLogo} alt="Email" />
-                  </a>
                 </div>
               </Button>
             </MobileRegistrationCTA>
