@@ -24,10 +24,10 @@ module.exports = {
       },
     ],
   },
-  // mapping: {
-  //   "MarkdownRemark.frontmatter.author": `AuthorYaml`,
-  //   "Mdx.frontmatter.author": `AuthorYaml`,
-  // },
+  mapping: {
+    "MarkdownRemark.frontmatter.author": `AuthorYaml`,
+    "Mdx.frontmatter.author": `AuthorYaml`,
+  },
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
@@ -68,7 +68,13 @@ module.exports = {
         path: `${__dirname}/src/posts`,
       },
     },
-
+    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
     {
       resolve: "gatsby-plugin-mdx",
       options: {
