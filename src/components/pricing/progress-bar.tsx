@@ -51,7 +51,7 @@ const ProgressFuture = styled.div`
   height: 5px;
   top: -5px;
   right: 0px;
-  border-bottom: 4px dotted #CCC;
+  border-bottom: 4px dotted #ccc;
 `;
 
 const ProgressInActive = styled.div`
@@ -83,7 +83,7 @@ const Marker = styled.img`
   width: 20px;
   height: 20px;
   position: relative;
-  top: -12px;
+  top: -13px;
   z-index: 1;
   @-moz-document url-prefix() {
     z-index: 1;
@@ -152,6 +152,11 @@ const ProgressBarComponent: React.FC<{
               />
             ))
           : null}
+        <Marker
+          src={Tick}
+          alt="+"
+          style={{ left: "97%" }}
+        />
       </Ticks>
     </ProgressBar>
   );
