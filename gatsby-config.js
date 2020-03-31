@@ -24,10 +24,10 @@ module.exports = {
       },
     ],
   },
-  mapping: {
-    "MarkdownRemark.frontmatter.author": `AuthorYaml`,
-    "Mdx.frontmatter.author": `AuthorYaml`,
-  },
+  // mapping: {
+  //   "MarkdownRemark.frontmatter.author": `AuthorYaml`,
+  //   "Mdx.frontmatter.author": `AuthorYaml`,
+  // },
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
