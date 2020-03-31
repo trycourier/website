@@ -204,7 +204,7 @@ const AccountButtonComponent: React.FC = () => {
 };
 
 const Card = styled.div`
-  ${tw`w-full p-6 m-4 mb-12`}
+  ${tw`w-full p-6 my-4 mb-12`}
   box-shadow: ${shadow};
   border-radius: 20px;
   & ul { 
