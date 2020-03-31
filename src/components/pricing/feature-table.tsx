@@ -156,11 +156,10 @@ const AccountButtons = styled.ul`
 `;
 
 const Button = styled.button`
-  ${tw`rounded-full mr-2 px-8 py-4 text-white text-md align-middle`}
+  ${tw`rounded-full mr-2 px-8 py-4 md:py-2 text-white text-md align-middle`}
   background: ${colors.googleBlue};
   border: 1px solid transparent;
   font-weight: 600;
-  height: 56px;
   line-height: 18px;
   cursor: pointer;
   & :hover {
