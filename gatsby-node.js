@@ -26,14 +26,14 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
           type: "String",
           resolve(source, args, context, info) {
             const { headerImage } = source
-            return headerImage || "http://www.fillmurray.com/220/160"
+            return headerImage || "https://www.fillmurray.com/220/160"
           }
         },
         thumbnail: {
           type: "String",
           resolve(source, args, context, info) {
             const { thumbnail } = source
-            return thumbnail || "http://www.fillmurray.com/220/160"
+            return thumbnail || "https://www.fillmurray.com/220/160"
           }
         },
         tags: {
