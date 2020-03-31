@@ -85,8 +85,13 @@ const Blog: React.FC = ({ data }: any) => {
                     <h4>{node.frontmatter.title}</h4>
                   </ArticleHeaderLink>
                   <div className="posted">
-                    Posted by <strong>{node.frontmatter.author.id}</strong> on{" "}
-                    <strong>{node.frontmatter.date}</strong>
+                    Posted by{" "}
+                    <strong>
+                      <Link to={`blog/author/${node.frontmatter.author.id}`}>
+                        {node.frontmatter.author.id}
+                      </Link>
+                    </strong>{" "}
+                    on <strong>{node.frontmatter.date}</strong>
                   </div>
                   <p className="excerpt">{node.excerpt}</p>
                   <div>
