@@ -12,7 +12,7 @@ import { MobileRegistrationCTA } from "../shared/registration-cta";
 import checkmark from "../../images/checkmark.svg";
 
 const FeatureTable = styled.section`
-  ${tw`flex flex-row pb-8 px-4`}
+  ${tw`flex flex-row px-4 md:pb-8`}
   color: ${colors.textPrimary};
 `;
 
@@ -204,7 +204,7 @@ const AccountButtonComponent: React.FC = () => {
 };
 
 const Card = styled.div`
-  ${tw`w-full p-6 my-4 mb-12`}
+  ${tw`p-6 my-4 mb-12`}
   box-shadow: ${shadow};
   border-radius: 20px;
   & ul { 
@@ -328,7 +328,7 @@ const FeatureTableComponent: React.FC = () => {
           </tfoot>
         </FeatureTableTable>
       </Desktop>
-      <Mobile>
+      <Mobile style={{ width: "100%" }}>
         <Card>
           <CardHeader>
             <h3>Standard</h3>
@@ -390,7 +390,7 @@ const FeatureTableComponent: React.FC = () => {
             Contact Sales
           </Button>
         </Card>
-        
+
         <GettingStartedContent />
       </Mobile>
     </FeatureTable>
