@@ -1,7 +1,7 @@
 import React from "react";
 import * as Sentry from "@sentry/browser";
 
-if (window.location.protocol !== "http:") {
+if (window && window.location.protocol !== "http:") {
   Sentry.init({
     dsn: 'https://4d0fad4157b14d46af354f5158e5e69c@sentry.io/1801028',
     environment: process.env.CONTEXT || 'development', // from netlify
