@@ -80,7 +80,11 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM Do, YYYY")
-        author
+        author{
+          id
+          bio
+          twitter
+        }
         headerImage
         tags
       }
@@ -104,7 +108,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
         <img src={post.frontmatter.headerImage} style={{ borderRadius: 10 }}/>
         <BlogHeader>
           <h1>{post.frontmatter.title}</h1>
-          <p className="posted">Posted by <strong>{post.frontmatter.author}</strong> on <strong>{post.frontmatter.date}</strong></p>
+          <p className="posted">Posted by <strong>{post.frontmatter.author.id}</strong> on <strong>{post.frontmatter.date}</strong></p>
           <div>
             {post.frontmatter.tags.map((tag: string, idx: number) => (
               <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
@@ -118,7 +122,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
           <div style={{ borderTop: `1px solid ${colors.lightGray}`, paddingTop: 16 }}>
             <AuthorCard>
               <img src="https://placekeanu.com/60/60" width="60" height="60" style={{ borderRadius: 60, marginRight: 16 }} />
-              <p>Author<br/><strong>{post.frontmatter.author}</strong></p>
+              <p>Author<br/><strong>{post.frontmatter.author.id}</strong></p>
             </AuthorCard>
           </div>
           <div>
