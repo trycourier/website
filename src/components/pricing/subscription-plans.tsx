@@ -30,9 +30,6 @@ const SubscriptionPlansWrapper = styled.div`
   & button.ghost {
     color: ${colors.textPrimary};
   }
-  @media (max-width: 768px) {
-    overflow-x: scroll;
-  }
 `;
 
 const SubscriptionPlans: React.FC = () => {

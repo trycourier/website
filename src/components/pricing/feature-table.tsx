@@ -5,7 +5,7 @@ import tw from "tailwind.macro";
 
 import { features } from "../../data/pricing";
 import colors from "../../colors";
-// import { Desktop, Mobile } from "../container";
+import { Desktop, Mobile } from "../container";
 
 import checkmark from "../../images/checkmark.svg";
 
@@ -201,6 +201,20 @@ const AccountButtonComponent: React.FC = () => {
   );
 };
 
+const Card = styled.div`
+  ${tw`w-full p-4 m-4`}
+  box-shadow: ${shadow};
+  border-radius: 20px;
+`;
+const Pricing = styled.div`
+  & h4 {
+
+  }
+   & p {
+
+   }
+`;
+
 const handleContactSalesClick = () => {
   try {
     window.Intercom('showNewMessage', `I'd like to discuss Courier's Enterprise plan. Please contact me at: `);
@@ -225,54 +239,74 @@ const displayCell = (property: any | string) => {
 const FeatureTableComponent: React.FC = () => {
   return (
     <FeatureTable>
-      <FeatureTableTable>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Standard</th>
-            <th>Enterprise</th>
-          </tr>
-        </thead>
-        <tbody className="highlighted">
-          <tr>
-            <td>Subscription Fee</td>
-            <td className="highlighted">$0</td>
-            <td>$5,000/mo</td>
-          </tr>
-          <tr>
-            <td>Included Usage</td>
-            <td className="highlighted">10,000 notifications/mo</td>
-            <td>10,000 notifications/mo</td>
-          </tr>
-          <tr>
-            <td>Usage Fee</td>
-            <td className="highlighted">
-              <span>Pricing Varies</span>
-              <aside>See <strong>Usage Based Pricing</strong> above</aside>
-            </td>
-            <td>
-              <span>Pricing Varies</span>
-              <aside>See <strong>Usage Based Pricing</strong> above</aside>
-            </td>
-          </tr>
-        </tbody>
-        <tbody>
-        {features.map(feat => (
-          <tr key={feat.label}>
-            <td>{feat.label}</td>
-            <td>{feat.standard ? displayCell(feat.standard) : " "}</td>
-            <td>{feat.enterprise ? displayCell(feat.enterprise) : " "}</td>
-          </tr>
-        ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td></td>
-            <td>{displayCell("SIGN_UP")}</td>
-            <td>{displayCell("CONTACT_SALES")}</td>
-          </tr>
-        </tfoot>
-      </FeatureTableTable>
+      <Desktop>
+        <FeatureTableTable>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Standard</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody className="highlighted">
+            <tr>
+              <td>Subscription Fee</td>
+              <td className="highlighted">$0</td>
+              <td>$5,000/mo</td>
+            </tr>
+            <tr>
+              <td>Included Usage</td>
+              <td className="highlighted">10,000 notifications/mo</td>
+              <td>10,000 notifications/mo</td>
+            </tr>
+            <tr>
+              <td>Usage Fee</td>
+              <td className="highlighted">
+                <span>Pricing Varies</span>
+                <aside>See <strong>Usage Based Pricing</strong> above</aside>
+              </td>
+              <td>
+                <span>Pricing Varies</span>
+                <aside>See <strong>Usage Based Pricing</strong> above</aside>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+          {features.map(feat => (
+            <tr key={feat.label}>
+              <td>{feat.label}</td>
+              <td>{feat.standard ? displayCell(feat.standard) : " "}</td>
+              <td>{feat.enterprise ? displayCell(feat.enterprise) : " "}</td>
+            </tr>
+          ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td>{displayCell("SIGN_UP")}</td>
+              <td>{displayCell("CONTACT_SALES")}</td>
+            </tr>
+          </tfoot>
+        </FeatureTableTable>
+      </Desktop>
+      <Mobile>
+        <Card>
+          <h3>Standard</h3>
+          <p>Subscription Plan</p>
+
+          <Pricing>
+            <h4>$0/mo</h4>
+            <p>plus usage</p>
+          </Pricing>
+          <ul>
+            {features.filter(feat => feat.standard).map(feat => (
+              <li>{feat.label}</li>
+            ))}
+          </ul>
+
+          <AccountButtonComponent />
+        </Card>
+      </Mobile>
     </FeatureTable>
   );
 };
