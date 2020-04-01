@@ -90,7 +90,7 @@ const Flex = styled.div`
 
 const handleSignUpClick = () => {
   try {
-    window.location = signUpUrl;
+    window.open(signUpUrl, "_blank");
   } catch (e) {
     console.warn("Window not available.");
   }

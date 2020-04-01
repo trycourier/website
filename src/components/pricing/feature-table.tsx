@@ -258,13 +258,13 @@ const handleContactSalesClick = () => {
     );
   } catch (e) {
     console.warn("Intercom not enabled:", e);
-    window.location = "mailto:sales@trycourier.com";
+    window.open("mailto:sales@trycourier.com", "_blank");
   }
 };
 
 const handleSignUpClick = () => {
   try {
-    window.location = signUpUrl;
+    window.open(signUpUrl, "_blank");
   } catch (e) {
     console.warn("Window not available.");
   }
