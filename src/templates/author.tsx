@@ -45,11 +45,11 @@ const HeaderLink = styled(Link)`
   }
 `;
 
-const TaggedContent = styled.div`
+const AuthoredContent = styled.div`
   ${tw`mt-8`}
 `;
 
-const TaggedHeader = styled.div`
+const AuthoredHeader = styled.div`
   ${tw`text-center`}
   h2 {
     font-weight: 400;
@@ -61,67 +61,65 @@ const TaggedHeader = styled.div`
       border-radius: 4px;
     }
   }
-
 `;
 
-const TaggedFooter = styled.div`
+const AuthoredFooter = styled.div`
   ${tw`flex justify-between mt-4`}
 `;
 
 export const query = graphql`
-  query($tag: String!) {
+  query ($authorId: String!){
     allMarkdownRemark(
       limit: 1000
-      filter: { fields: { tags: { in: [$tag] } } }
+      filter: { frontmatter: { author: { id: { eq: $authorId } } } }
     ) {
       totalCount
       edges {
         node {
-          fields {
-            slug
-            tags
-          }
-          excerpt
-          timeToRead
           frontmatter {
             title
-            date(formatString: "MMMM Do, YYYY")
             thumbnail
             tags
+            date
             author {
               id
               name
             }
           }
+          fields {
+            slug
+          }
+          excerpt
+          timeToRead
         }
       }
     }
   }
 `;
 
-type TaggedTypes = {
+type AuthoredTypes = {
   pageContext: any;
   data: any;
 };
 
-const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
-  const { tag } = pageContext;
+const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
+  const { author, authorId } = pageContext;
   const posts = data.allMarkdownRemark.edges;
   return (
-    <Simple title={`Tagged: ${tag}`}>
+    <Simple title={`Authored: ${author.name}`}>
       <BackLink to="blog">
         <span>
           <BackImg src={IconBack} alt="Back" /> View all Articles
         </span>
       </BackLink>
 
-      <TaggedContent>
-        <TaggedHeader>
+      <AuthoredContent>
+        <AuthoredHeader>
           <h2>
-            {posts.length} Post{posts.length !== 1 && "s"} tagged:{" "}
-            <strong>{tag}</strong>
+            {posts.length} Post{posts.length !== 1 && "s"} Authored by:{" "}
+            <strong>{author.name}</strong>
           </h2>
-        </TaggedHeader>
+        </AuthoredHeader>
         <ArticleScreen>
           <ArticleList>
             {posts.map(({ node }: any) => (
@@ -161,8 +159,8 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
             ))}
           </ArticleList>
           <ArticleSearch>
-            <SearchInput />
-            {/* {tags.map(tag => (
+            {/*<SearchInput />
+             {tags.map(tag => (
               <div
                 style={{
                   width: "100%",
@@ -175,9 +173,9 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
             ))} */}
           </ArticleSearch>
         </ArticleScreen>
-        <TaggedFooter>
+        <AuthoredFooter>
           <div style={{ borderTop: "1px solid #DDD", padding: 16 }}>
-            Tagged: {tag}
+            Authored: {author.name}
           </div>
 
           <div>
@@ -187,11 +185,11 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
               </span>
             </BackLink>
           </div>
-        </TaggedFooter>
+        </AuthoredFooter>
         {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
-      </TaggedContent>
+      </AuthoredContent>
     </Simple>
   );
 };
 
-export default Tagged;
+export default Authored;

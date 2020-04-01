@@ -32,6 +32,7 @@ export const query = graphql`
             author {
               id
               bio
+              name
               twitter
             }
           }
@@ -88,9 +89,14 @@ const Community: React.FC = ({ data }: any) => {
                   <h4>{node.frontmatter.title}</h4>
                 </ArticleHeaderLink>
                 <div className="posted">
-                  Posted by <strong>{node.frontmatter.author.id}</strong> on{" "}
-                  <strong>{node.frontmatter.date}</strong>
-                </div>
+                    Posted by{" "}
+                    <strong>
+                      <Link to={`author/${node.frontmatter.author.id}`}>
+                        {node.frontmatter.author.name}
+                      </Link>
+                    </strong>{" "}
+                    on <strong>{node.frontmatter.date}</strong>
+                  </div>
                 <p className="excerpt">{node.excerpt}</p>
                 <div>
                   {node.frontmatter.tags.map((tag: string) => (

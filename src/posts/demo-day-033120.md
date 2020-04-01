@@ -2,7 +2,7 @@
 title: "Demo Day"
 date: "2020-03-31"
 thumbnail: "https://www.fillmurray.com/220/160"
-author: "Troy"
+author: troy
 tags:
   - Tag
   - Demo

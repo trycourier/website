@@ -1,37 +1,46 @@
-- id: Troy
+- id: troy
+  name: Troy
   bio: Founder @ trycourier.
-  avatar: avatars/troy.png
+  avatar: avatars/courier.png
   twitter: "@trycourier"
-- id: Kay
+- id: kay
+  name: Kay
   bio: Head of Design
-  avatar: avatars/kay.png
+  avatar: avatars/courier.png
   twitter: "@trycourier"
-- id: Riley
+- id: riley
+  name: Riley
   bio: Sr. Software Enginner
-  avatar: avatars/riley.png
+  avatar: avatars/courier.png
   twitter: "@trycourier"
-- id: Josh
+- id: josh
+  name: Josh
   bio: Software Enginner
-  avatar: avatars/josh.png
+  avatar: avatars/courier.png
   twitter: "@trycourier"
-- id: Danny
+- id: danny
+  name: Danny
   bio: Software Enginner
-  avatar: avatars/danny.png
+  avatar: avatars/courier.png
   twitter: "@trycourier"
-- id: Seth
+- id: seth
+  name: Seth
   bio: Software Enginner
-  avatar: avatars/danny.png
+  avatar: avatars/courier.png
   twitter: "@trycourier"
-- id: Aydrian
+- id: aydrian
+  name: Aydrian
   bio: Staff Devloper Advocate
-  avatar: avatars/aydrian.png
+  avatar: avatars/courier.png
   twitter: "@trycourier"
-- id: Justin
+- id: justin
+  name: Justin
   bio: Software Enginner
-  avatar: avatars/justin.png
+  avatar: avatars/courier.png
   twitter: "@jmichaliga"
-- id: Tony
+- id: tony
+  name: Tony
   bio: Software Enginner
-  avatar: avatars/danny.png
+  avatar: avatars/courier.png
   twitter: "@trycourier"
   

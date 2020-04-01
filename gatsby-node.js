@@ -71,6 +71,12 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allAuthorYaml {
+        nodes {
+          name
+          id
+        }
+      }
     }
   `)
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
@@ -79,6 +85,17 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/blog-post.tsx`),
       context: {
         slug: node.fields.slug,
+      },
+    })
+  })
+  result.data.allAuthorYaml.nodes.forEach(author => {
+    console.log('author:', author);
+    actions.createPage({
+      path: `author/${author.id}`,
+      component: path.resolve(`./src/templates/author.tsx`),
+      context: {
+        author,
+        authorId: author.id
       },
     })
   })

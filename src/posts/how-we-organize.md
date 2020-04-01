@@ -3,7 +3,7 @@ title: "How We Organize Our Jobs for Our New Customers and How We Satisfy Them."
 date: "2021-02-02"
 thumbnail: "https://placekeanu.com/220/160"
 headerImage: "https://placekeanu.com/1000/450"
-author: "Kay"
+author: kay
 tags:
   - Tag
   - Long Tag
