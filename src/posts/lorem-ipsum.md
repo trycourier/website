@@ -3,7 +3,7 @@ title: "Lorem ipsum dolor est ilit."
 date: "2020-03-27"
 thumbnail: "https://placekitten.com/220/160"
 headerImage: "https://placekitten.com/1000/450"
-author: "Kay"
+author: "kay"
 tags:
   - Tag
   - Significantly Longer Tag

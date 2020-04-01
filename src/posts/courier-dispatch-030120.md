@@ -2,7 +2,7 @@
 title: "Courier Dispatch"
 date: "2020-03-03"
 thumbnail: "https://www.fillmurray.com/220/160"
-author: "Aydrian"
+author: "aydrian"
 tags:
   - Tag
   - Long Tag

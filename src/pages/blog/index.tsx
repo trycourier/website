@@ -34,6 +34,7 @@ export const query = graphql`
             author {
               id
               bio
+              name
               twitter
             }
           }
@@ -88,7 +89,7 @@ const Blog: React.FC = ({ data }: any) => {
                     Posted by{" "}
                     <strong>
                       <Link to={`blog/author/${node.frontmatter.author.id}`}>
-                        {node.frontmatter.author.id}
+                        {node.frontmatter.author.name}
                       </Link>
                     </strong>{" "}
                     on <strong>{node.frontmatter.date}</strong>

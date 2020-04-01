@@ -1,12 +1,3 @@
-/*
-query MyQuery {
-  allMarkdownRemark {
-
-    }
-  }
-}
-*/
-
 import React from "react";
 import { Link, graphql } from "gatsby";
 
@@ -17,23 +8,16 @@ import {
   ArticleList,
   ArticleScreen,
 } from "../../components/community/articles";
-// import Tag from "../../components/community/tag";
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: frontmatter___date }
-      filter: { frontmatter: { author: { id: { eq: "Aydrian" } } } }
-    ) {
-      totalCount
+    allAuthorYaml(sort: {order: ASC, fields: name}) {
       edges {
         node {
           id
-          frontmatter {
-            title
-          }
-          fields{
-            slug
+          name
+          avatar {
+            publicURL
           }
         }
       }
@@ -41,18 +25,20 @@ export const query = graphql`
   }
 `;
 
-const Blog: React.FC = ({ data }: any) => {
-  const articles = data.allMarkdownRemark.edges;
+const Authors: React.FC = ({ data }: any) => {
+  const authors = data.allAuthorYaml.edges;
 
   return (
-    <Simple title="Courier Blog Articles from Aydrian">
-      <h1 style={{ marginBottom: 0 }}>All Tags</h1>
+    <Simple title="Courier Blog Authors">
+      <h1 style={{ marginBottom: 0 }}>All {authors.length} Authors</h1>
       <p style={{ marginTop: 0 }}>Feel free to share our content.</p>
       <ArticleScreen>
         <ArticleList>
-          {articles.map(({ node }) => (
+          {authors.map(({node}) => (
             <ArticleCard key={node.id}>
-              <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+              <Link to={`author/${node.id}`}>
+                {node.name}
+              </Link>
             </ArticleCard>
           ))}
         </ArticleList>
@@ -61,4 +47,4 @@ const Blog: React.FC = ({ data }: any) => {
   );
 };
 
-export default Blog;
+export default Authors;

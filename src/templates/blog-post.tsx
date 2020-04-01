@@ -83,6 +83,7 @@ export const query = graphql`
         author {
           id
           bio
+          name
           twitter
         }
         headerImage
@@ -114,7 +115,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
             Posted by{" "}
             <strong>
               <Link to={`blog/author/${post.frontmatter.author.id}`}>
-                {post.frontmatter.author.id}
+                {post.frontmatter.author.name}
               </Link>
             </strong>{" "}
             on <strong>{post.frontmatter.date}</strong>
@@ -147,7 +148,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
                 <br />
                 <strong>
                   <Link to={`blog/author/${post.frontmatter.author.id}`}>
-                    {post.frontmatter.author.id}
+                    {post.frontmatter.author.name}
                   </Link>
                 </strong>
               </p>
