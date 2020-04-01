@@ -140,7 +140,7 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
                     </h4>
                   </HeaderLink>
                   <ArticlePosted
-                    slug={node.frontmatter.author.id}
+                    id={node.frontmatter.author.id}
                     name={node.frontmatter.author.name}
                     date={node.frontmatter.date}
                   />
