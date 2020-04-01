@@ -9,6 +9,8 @@ import IconBack from "../images/icon-back.svg";
 import colors from "../colors";
 // import { MDXRenderer } from "gatsby-plugin-mdx"
 
+import { ArticlePosted, AuthorCard } from "../components/community/articles";
+
 const BackImg = styled.img`
   ${tw`relative`}
   top: 10px;
@@ -39,13 +41,6 @@ const BlogHeader = styled.div`
     font-size: 40px;
     margin-bottom: 2px;
   }
-  p.posted {
-    ${tw`pt-0`}
-    font-size: 14px;
-    & strong {
-      color: ${colors.textPrimary};
-    }
-  }
 `;
 
 const BlogBody = styled.div`
@@ -63,13 +58,6 @@ const BlogBody = styled.div`
 
 const BlogFooter = styled.div`
   ${tw`flex justify-between mt-4`}
-`;
-
-const AuthorCard = styled.div`
-  ${tw`flex`}
-  & strong {
-    color: ${colors.textPrimary};
-  }
 `;
 
 export const query = graphql`
@@ -111,15 +99,11 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
         <img src={post.frontmatter.headerImage} style={{ borderRadius: 10 }} />
         <BlogHeader>
           <h1>{post.frontmatter.title}</h1>
-          <p className="posted">
-            Posted by{" "}
-            <strong>
-              <Link to={`blog/author/${post.frontmatter.author.id}`}>
-                {post.frontmatter.author.name}
-              </Link>
-            </strong>{" "}
-            on <strong>{post.frontmatter.date}</strong>
-          </p>
+          <ArticlePosted
+            id={post.frontmatter.author.id}
+            name={post.frontmatter.author.name}
+            date={post.frontmatter.date}
+          />
           <div>
             {post.frontmatter.tags.map((tag: string, idx: number) => (
               <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
@@ -136,23 +120,11 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
               paddingTop: 16,
             }}
           >
-            <AuthorCard>
-              <img
-                src="https://placekeanu.com/60/60"
-                width="60"
-                height="60"
-                style={{ borderRadius: 60, marginRight: 16 }}
-              />
-              <p>
-                Author
-                <br />
-                <strong>
-                  <Link to={`blog/author/${post.frontmatter.author.id}`}>
-                    {post.frontmatter.author.name}
-                  </Link>
-                </strong>
-              </p>
-            </AuthorCard>
+            <AuthorCard
+              avatar="https://placekitten.com/60/60"
+              id={post.frontmatter.author.id}
+              name={post.frontmatter.author.name}
+            />
           </div>
           <div>
             <BackLink to="blog">

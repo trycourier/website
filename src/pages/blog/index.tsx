@@ -10,6 +10,7 @@ import {
   ArticleList,
   ArticleScreen,
   ArticleSearch,
+  ArticlePosted,
   ArticlePreview,
 } from "../../components/community/articles";
 import SearchInput from "../../components/community/search-input";
@@ -85,15 +86,11 @@ const Blog: React.FC = ({ data }: any) => {
                   <ArticleHeaderLink to={node.fields.slug}>
                     <h4>{node.frontmatter.title}</h4>
                   </ArticleHeaderLink>
-                  <div className="posted">
-                    Posted by{" "}
-                    <strong>
-                      <Link to={`blog/author/${node.frontmatter.author.id}`}>
-                        {node.frontmatter.author.name}
-                      </Link>
-                    </strong>{" "}
-                    on <strong>{node.frontmatter.date}</strong>
-                  </div>
+                  <ArticlePosted
+                    id={node.frontmatter.author.id}
+                    name={node.frontmatter.author.name}
+                    date={node.frontmatter.date}
+                  />
                   <p className="excerpt">{node.excerpt}</p>
                   <div>
                     {node.frontmatter.tags.map((tag: string) => (
