@@ -86,7 +86,7 @@ export const ArticlePosted: React.FC = ({ id, name, date }: ArticlePostedType) =
   <PostedContent>
     Posted by{" "}
     <strong>
-      <Link to={`author/${id}`}>{name}</Link>
+      <Link to={`blog/author/${id}`}>{name}</Link>
     </strong>{" "}
     on <strong>{date}</strong>
   </PostedContent>
