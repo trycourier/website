@@ -10,6 +10,7 @@ import {
   ArticleCard,
   ArticleImage,
   ArticleList,
+  ArticlePosted,
   ArticleScreen,
   ArticleSearch,
 } from "../components/community/articles";
@@ -61,7 +62,6 @@ const TaggedHeader = styled.div`
       border-radius: 4px;
     }
   }
-
 `;
 
 const TaggedFooter = styled.div`
@@ -139,15 +139,11 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
                       {node.frontmatter.title}
                     </h4>
                   </HeaderLink>
-                  <div className="posted">
-                    Posted by{" "}
-                    <strong>
-                      <Link to={`author/${node.frontmatter.author.id}`}>
-                        {node.frontmatter.author.name}
-                      </Link>
-                    </strong>{" "}
-                    on <strong>{node.frontmatter.date}</strong>
-                  </div>
+                  <ArticlePosted
+                    slug={node.frontmatter.author.id}
+                    name={node.frontmatter.author.name}
+                    date={node.frontmatter.date}
+                  />
                   <p className="excerpt">{node.excerpt}</p>
                   <div>
                     {node.frontmatter.tags.map((tag: string) => (

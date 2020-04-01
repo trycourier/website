@@ -12,6 +12,7 @@ import {
   ArticleList,
   ArticleScreen,
   ArticleSearch,
+  ArticlePosted,
 } from "../components/community/articles";
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
@@ -137,15 +138,11 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
                       {node.frontmatter.title}
                     </h4>
                   </HeaderLink>
-                  <div className="posted">
-                    Posted by{" "}
-                    <strong>
-                      <Link to={`author/${node.frontmatter.author.id}`}>
-                        {node.frontmatter.author.name}
-                      </Link>
-                    </strong>{" "}
-                    on <strong>{node.frontmatter.date}</strong>
-                  </div>
+                  <ArticlePosted
+                  id={node.frontmatter.author.id}
+                  name={node.frontmatter.author.name}
+                  date={node.frontmatter.date}
+                />
                   <p className="excerpt">{node.excerpt}</p>
                   <div>
                     {node.frontmatter.tags.map((tag: string) => (
