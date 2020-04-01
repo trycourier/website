@@ -10,6 +10,7 @@ import {
   ArticleList,
   ArticleScreen,
   ArticleSearch,
+  ArticlePosted,
   ArticlePreview,
 } from "../components/community/articles";
 import SearchInput from "../components/community/search-input";
