@@ -91,7 +91,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allAuthorYaml.nodes.forEach(author => {
     console.log('author:', author);
     actions.createPage({
-      path: `author/${author.id}`,
+      path: `blog/author/${author.id}`,
       component: path.resolve(`./src/templates/author.tsx`),
       context: {
         author,
