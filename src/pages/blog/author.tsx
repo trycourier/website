@@ -36,7 +36,7 @@ const Authors: React.FC = ({ data }: any) => {
         <ArticleList>
           {authors.map(({node}) => (
             <ArticleCard key={node.id}>
-              <Link to={`author/${node.id}`}>
+              <Link to={`blog/author/${node.id}`}>
                 {node.name}
               </Link>
             </ArticleCard>
