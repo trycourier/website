@@ -77,7 +77,7 @@ type ArticlePostedType = {
   date?: string;
 }
 const PostedContent = styled.div`
-  ${tw`pt-0`}
+  ${tw`pt-2`}
   font-size: 14px;
   ${linkStrongStyle}
 `;
