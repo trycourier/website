@@ -78,6 +78,16 @@ const Ticks = styled.div`
   height: 0px;
 `;
 
+const MarkerLabel = styled.div`
+  position: absolute;
+  top: -32px;
+  width: 32px;
+  text-align: center;
+  margin-left: 12px;
+  font-size: 12px;
+  color: ${colors.textSecondary};
+`;
+
 const Marker = styled.img`
   cursor: pointer;
   width: 20px;
@@ -118,6 +128,9 @@ const ProgressBarComponent: React.FC<{
     unticks.push(marks);
   }
 
+  const pricePts = [0, 99, 499];
+  const labelOffsets = [-8, 12, 32];
+
   return (
     <ProgressBar>
       <ProgressTrack>
@@ -129,13 +142,21 @@ const ProgressBarComponent: React.FC<{
       <Ticks>
         {unticks.length
           ? unticks.map((pos, idx) => (
-              <Marker
-                key={idx}
-                src={UnTick}
-                alt="-"
-                style={{ left: pos }}
-                onClick={() => handleRangeClick(idx + 2)}
-              />
+              <>
+                <MarkerLabel
+                  style={{ left: pos, marginLeft: labelOffsets[idx] }}
+                >
+                  {`$${pricePts[idx]}`}
+                </MarkerLabel>
+                <Marker
+                  key={idx}
+                  src={UnTick}
+                  alt={pricePts[idx]}
+                  title={`$${pricePts[idx]}`}
+                  style={{ left: pos }}
+                  onClick={() => handleRangeClick(idx + 2)}
+                />
+              </>
             ))
           : null}
       </Ticks>
@@ -158,7 +179,6 @@ const ProgressBarComponent: React.FC<{
           style={{ position: "absolute", right: -8 }}
         />
       </Ticks>
-
     </ProgressBar>
   );
 };

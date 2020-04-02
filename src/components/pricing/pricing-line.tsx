@@ -111,9 +111,8 @@ const PricingLine = styled.section`
   ${tw`md:flex`}
   color: ${colors.textPrimary};
   & h4 {
+    ${tw`mb-2 pb-0 md:mb-2`}
     font-size: 48px;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
     & small {
       font-size: 50%;
     }
