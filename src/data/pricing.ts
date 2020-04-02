@@ -9,17 +9,17 @@ export const pricingMatrix = [
   },
   {
     perMonth: "$99",
-    cummulative: "500,000",
+    cummulative: "250,000",
   },
   {
     perMonth: "$499",
-    additional: "$0.0004",
-    cummulative: "2,500,000",
+    additional: "$0.0006",
+    cummulative: "1,000,000",
   },
   {
     perMonth: "$499",
-    additional: "$0.0004",
-    cummulative: "2,500,000",
+    additional: "$0.0006",
+    cummulative: "1,000,000",
   },
 ];
 
