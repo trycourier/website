@@ -35,8 +35,16 @@ const Section = styled.section`
 const FauxHero = styled.section`
   position: relative;
   width: 100%;
-  min-height: 250px;
-  padding: 0;
+  margin-bottom: 64px;
+  min-height: 128px;
+  margin-top: 32px;
+  height: 64px;
+  @media (max-width: 768px) {
+    min-height: 64px;
+    padding-top: 0px;
+    margin-top: 0;
+    margin-bottom: 128px;
+  }
 `;
 
 
@@ -45,7 +53,7 @@ const IndexPage: React.FC = () => {
   return (
     <Layout>
       <SEO title="Pricing" />
-      <Section style={{ background: colors.berry }}>
+      <Section style={{ background: colors.berry, paddingTop: 96 }}>
         <Container>
           <FauxHero />
         </Container>
