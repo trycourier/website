@@ -16,7 +16,7 @@ import aarida from "../../images/clients/aarida.svg";
 const Clients = styled(Container)`
   ${tw`relative py-2 flex flex-col`}
   background: transparent;
-  margin-top: -60px;
+  height: 300px;
 `;
 
 const ClientsText = styled.div`

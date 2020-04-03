@@ -31,10 +31,9 @@ export const Rel = styled.div`
 `;
 
 export const Quote = styled.div`
-  ${tw`absolute w-3/4 p-6 bg-white`}
+  ${tw`absolute w-3/4 p-6 my-12 bg-white`}
   border-radius: 20px;
   box-shadow: ${shadow};
-  top: 64px;
   right: -32px;
   @media (max-width: 768px) {
     right: 16px;
