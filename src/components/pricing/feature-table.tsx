@@ -5,7 +5,6 @@ import tw from "tailwind.macro";
 
 import { features } from "../../data/pricing";
 import colors from "../../colors";
-// import { Desktop, Mobile } from "../container";
 
 import checkmark from "../../images/checkmark.svg";
 

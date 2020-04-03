@@ -62,6 +62,10 @@ const ProgressInActive = styled.div`
   background: #ccc;
 `;
 
+type ProgressActiveType = {
+  px: number;
+};
+
 const ProgressActive = styled.div`
   position: relative;
   width: 100%;
@@ -96,12 +100,14 @@ const Marker = styled.img`
 // const deltas = [-8, -16, -24]
 // const rightTickPos = [237, 450, 663];
 
-const ProgressBarComponent: React.FC<{
+type ProgressType = {
   px?: number;
   tick?: number;
   fullWidth?: number;
   handleRangeClick?: any;
-}> = ({ px = 0, tick = 0, fullWidth = 0, handleRangeClick }) => {
+};
+
+const ProgressBarComponent: React.FC<ProgressType> = ({ px = 0, tick = 0, fullWidth = 0, handleRangeClick }) => {
   let ticks = [];
   let unticks = [];
   const dx = fullWidth / 4;
