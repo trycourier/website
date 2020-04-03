@@ -6,7 +6,7 @@ import colors from "../../colors";
 
 import RegistrationCTA from "./registration-cta";
 const GettingStarted = styled.section`
-  ${tw`md:flex pt-24 pb-8 md:pt-24 md:pb-12 px-4 lg:px-0`}
+  ${tw`md:flex pt-24 pb-8 md:pb-12 px-4 lg:px-0`}
 `;
 
 const GettingStartedText = styled.div`

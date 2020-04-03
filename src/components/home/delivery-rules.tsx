@@ -8,7 +8,7 @@ import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
 
 const DeliveryRules = styled.section`
-  ${tw`flex flex-col pt-32 px-4 md:pb-0 md:pt-24 lg:px-0 mx-auto`}
+  ${tw`flex flex-col pt-32 px-4 md:pb-0 md:pt-8 lg:px-0 mx-auto`}
   color: ${colors.textSecondary};
 `;
 

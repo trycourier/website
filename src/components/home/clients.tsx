@@ -14,17 +14,19 @@ import aarida from "../../images/clients/aarida.svg";
 // import beacons from "../../images/clients/beacons.svg";
 
 const Clients = styled(Container)`
-  ${tw`py-2 flex flex-col`}
+  ${tw`relative py-2 flex flex-col`}
   background: transparent;
+  margin-top: -60px;
 `;
 
 const ClientsText = styled.div`
   ${tw`text-left mx-auto px-4`}
   & h4 {
-    ${tw` p-0 text-md`}
+    ${tw`p-0 text-md`}
     color: ${colors.textSecondary};
     font-weight: 400;
     top: -30px;
+    margin: 0;
   }
 `;
 

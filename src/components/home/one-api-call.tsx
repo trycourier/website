@@ -21,8 +21,7 @@ import expo from "../../images/providers/expo.svg";
 import msTeams from "../../images/providers/ms-teams.svg";
 
 const OneApi = styled.section`
-  ${tw`md:flex pb-8 px-4 lg:px-0`}
-  margin-top: 64px;
+  ${tw`md:flex pb-8 px-4 pt-8 lg:px-0`}
 `;
 
 const OneApiImageWrapper = styled.div`

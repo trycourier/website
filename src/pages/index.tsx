@@ -1,17 +1,12 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
-
 import styled from "styled-components";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-import BackgroundImage from "gatsby-background-image";
-
 import Container from "../components/container";
 import Footer from "../components/footer";
 
-import Divider from "../components/home/divider";
 import Hero from "../components/home/hero";
 import OneApi from "../components/home/one-api-call";
 import Clients from "../components/home/clients";
@@ -25,235 +20,159 @@ import QuoteComponent from "../components/home/client-quote";
 import QuoteComponent2 from "../components/home/client-quote-2";
 
 const IndexPage: React.FC = () => {
-  const { heroBg, quoteBg, divider1, divider3, divider4, divider5, divider6, divider7 } = useStaticQuery(graphql`
-    query {
-      heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1280) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      apiBg: file(relativePath: { eq: "bgs/api@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1280) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      quoteBg: file(relativePath: { eq: "dividers/quote-1@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 3600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      divider1: file(relativePath: { eq: "dividers/hero-white@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1280) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      divider2: file(relativePath: { eq: "dividers/quote-white-top@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1280) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      divider3: file(relativePath: { eq: "dividers/mod/one-api-call-top.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 3600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      divider4: file(relativePath: { eq: "dividers/mod/one-api-call-bottom.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      divider5: file(relativePath: { eq: "dividers/delivery-white-top@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      divider6: file(relativePath: { eq: "dividers/delivery-white-bottom@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      divider6: file(relativePath: { eq: "dividers/delivery-white-bottom@2x.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      divider7: file(relativePath: { eq: "dividers/mod/footer.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      footerBg: file(relativePath: { eq: "dividers/footer-bg@2x.png"}) { 
-        childImageSharp {
-          fluid(maxWidth: 1280) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
+
+  const Section = styled.section`
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    & svg.top {
+      position: absolute;
+      top: -1px;
     }
-  `);
-
-const Section = styled.section`
-  position: relative;
-  width: 100%;
-`;
-
-const Divide = styled.div`
-  position: absolute;
-  width: 100%;
-  min-height: 115px;
-  max-height: 160px;
-  min-width: 1520px;
-`;
-type ContainerProps = {
-  bg?: string;
-}
-
-const TopDivider = styled(Divide)`
-  top: -4px;
-  height: 160px;
-  background-color: ${(props: ContainerProps) => colors[props.bg]};
-  &.footer {
-    height: 130px;
-  }
-`
-
-const BotDivider = styled(Divide)`
-  bottom: -66px;
-  background-color: ${(props: ContainerProps) => colors[props.bg]};
-  height: 115px;
-`
-
-const HeroDivider = styled(Divide)`
-  bottom: 0px;
-  height: 160px;
-`
+    & svg.bottom {
+      position: absolute;
+      bottom: -1px;
+      left:-1px;
+    }
+  `;
 
   return (
     <Layout>
       <SEO title="Home" />
-      
-      <Section>
-        <BackgroundImage
-          Tag="section"
-          fluid={heroBg.childImageSharp.fluid}
-          backgroundColor={colors.berry}
-          style={{
-            backgroundPosition: "center center",
-            backgroundClip: "contain",
-            height: "800px",
-          }}
-        >
-          <Container>
-            <Hero />
-          </Container>
 
-        </BackgroundImage>
-        <HeroDivider>
-          <Divider image={divider1} />
-        </HeroDivider>
+      <Section style={{ background: colors.berry }}>
+        <Container>
+          <Hero />
+        </Container>
+        <svg className="bottom" x="0" y="0" viewBox="0 0 1243 112">
+          <path
+            fill="#FFF"
+            d="M1242.71,111.69v-1.04c-13.89,0.64-28.43,0.96-43.2,0.96c-16.81,0-34.53-0.42-52.66-1.24c-17.37-0.8-35.74-1.99-54.58-3.55
+            c-35.01-2.9-72.62-7.11-114.96-12.87C898.07,83.17,813.5,68.46,723.96,52.9h-0.01h-0.01c-68.76-11.95-139.85-24.31-214.42-35.95
+            c-19.51-3.04-39.32-5.72-58.87-7.96c-18.76-2.15-37.78-3.95-56.54-5.35c-35.1-2.62-70.58-3.95-105.48-3.95
+            c-56.33-0.04-112.61,3.45-168.5,10.44C79.77,15.14,39.71,22.28,0.1,31.5v80.18H1242.71z"
+          />
+        </svg>
       </Section>
-      
-      <Section style={{top: -96 }}>
+
+      <Section style={{ background: colors.white, height: 200 }}>
         <Container>
           <Clients />
         </Container>
+        <svg className="bottom" x="0" y="0" viewBox="0 0 1243 112">
+          <path
+            fill={colors.moonlight}
+            d="M1242.71,111.69v-1.04c-13.89,0.64-28.43,0.96-43.2,0.96c-16.81,0-34.53-0.42-52.66-1.24c-17.37-0.8-35.74-1.99-54.58-3.55
+            c-35.01-2.9-72.62-7.11-114.96-12.87C898.07,83.17,813.5,68.46,723.96,52.9h-0.01h-0.01c-68.76-11.95-139.85-24.31-214.42-35.95
+            c-19.51-3.04-39.32-5.72-58.87-7.96c-18.76-2.15-37.78-3.95-56.54-5.35c-35.1-2.62-70.58-3.95-105.48-3.95
+            c-56.33-0.04-112.61,3.45-168.5,10.44C79.77,15.14,39.71,22.28,0.1,31.5v80.18H1242.71z"
+          />
+        </svg>
       </Section>
 
-      <Section style={{top: -96 }}>
-        <BackgroundImage
-          Tag="section"
-          fluid={quoteBg.childImageSharp.fluid}
-          backgroundColor={colors.white}
-          style={{
-            backgroundPosition: "center center",
-            height: "280px",
-          }}
-        >
-          <Container bg="textPrimary">
-            <QuoteComponent />
-          </Container>
-        </BackgroundImage>
+      <Section style={{ background: colors.moonlight, height: 200 }}>
+        <Container bg="textPrimary">
+          <QuoteComponent />
+        </Container>
+        <svg className="bottom" x="0" y="0" viewBox="0 0 1243 112">
+          <path
+            fill={colors.white}
+            d="M1242.71,111.69v-1.04c-13.89,0.64-28.43,0.96-43.2,0.96c-16.81,0-34.53-0.42-52.66-1.24c-17.37-0.8-35.74-1.99-54.58-3.55
+            c-35.01-2.9-72.62-7.11-114.96-12.87C898.07,83.17,813.5,68.46,723.96,52.9h-0.01h-0.01c-68.76-11.95-139.85-24.31-214.42-35.95
+            c-19.51-3.04-39.32-5.72-58.87-7.96c-18.76-2.15-37.78-3.95-56.54-5.35c-35.1-2.62-70.58-3.95-105.48-3.95
+            c-56.33-0.04-112.61,3.45-168.5,10.44C79.77,15.14,39.71,22.28,0.1,31.5v80.18H1242.71z"
+          />
+        </svg>
       </Section>
-      
-      <Section>
-        <Container >
+
+      <Section style={{ background: colors.white }}>
+        <Container>
           <Editor />
         </Container>
-        <BotDivider>
-          <Divider image={divider3} />
-        </BotDivider>
+        <svg className="bottom" x="0" y="0" viewBox="0 0 1243 112">
+          <path
+            fill={colors.moonlight}
+            d="M1242.71,111.69v-1.04c-13.89,0.64-28.43,0.96-43.2,0.96c-16.81,0-34.53-0.42-52.66-1.24c-17.37-0.8-35.74-1.99-54.58-3.55
+            c-35.01-2.9-72.62-7.11-114.96-12.87C898.07,83.17,813.5,68.46,723.96,52.9h-0.01h-0.01c-68.76-11.95-139.85-24.31-214.42-35.95
+            c-19.51-3.04-39.32-5.72-58.87-7.96c-18.76-2.15-37.78-3.95-56.54-5.35c-35.1-2.62-70.58-3.95-105.48-3.95
+            c-56.33-0.04-112.61,3.45-168.5,10.44C79.77,15.14,39.71,22.28,0.1,31.5v80.18H1242.71z"
+          />
+        </svg>
       </Section>
 
-      <Section>
-        <Container bg="newMoon">
+      <Section style={{ background: colors.moonlight }}>
+        <Container>
           <OneApi />
         </Container>
       </Section>
 
-      <Section style={{ top: 64 }}>
+      <Section style={{ background: colors.moonlight }}>
         <Container>
           <QuoteComponent2 />
         </Container>
+
+        <svg className="bottom" x="0" y="0" viewBox="0 0 1243 112">
+          <path
+            fill={colors.white}
+            d="M1242.71,111.69v-1.04c-13.89,0.64-28.43,0.96-43.2,0.96c-16.81,0-34.53-0.42-52.66-1.24c-17.37-0.8-35.74-1.99-54.58-3.55
+            c-35.01-2.9-72.62-7.11-114.96-12.87C898.07,83.17,813.5,68.46,723.96,52.9h-0.01h-0.01c-68.76-11.95-139.85-24.31-214.42-35.95
+            c-19.51-3.04-39.32-5.72-58.87-7.96c-18.76-2.15-37.78-3.95-56.54-5.35c-35.1-2.62-70.58-3.95-105.48-3.95
+            c-56.33-0.04-112.61,3.45-168.5,10.44C79.77,15.14,39.71,22.28,0.1,31.5v80.18H1242.71z"
+          />
+        </svg>
       </Section>
 
-      <Section>
-        <TopDivider bg="white">
-          <Divider image={divider4} />
-        </TopDivider>
+      <Section style={{ background: colors.white }}>
         <Container>
           <Tracking />
         </Container>
       </Section>
 
-      <Section>
-        <TopDivider bg="berryWhite">
-          <Divider image={divider5} />
-        </TopDivider>
-        <Container bg="berryWhite">
+      <Section style={{ background: colors.berryWhite }}>
+      <svg className="top" x="0" y="0" viewBox="0 0 1243 112">
+          <path
+            fill="#FFF"
+            d="M0.2,0.4v35.1c39.61-9.22,79.67-16.36,120.02-21.38c55.9-6.99,112.17-10.48,168.5-10.44c34.89,0,70.38,1.33,105.48,3.95
+            c18.76,1.4,37.78,3.2,56.54,5.35c19.55,2.24,39.35,4.92,58.86,7.96c74.58,11.64,145.68,24,214.44,35.95
+            c89.54,15.57,174.11,30.27,253.34,41.05c42.35,5.76,79.95,9.97,114.96,12.87c18.84,1.56,37.21,2.76,54.58,3.55
+            c18.13,0.82,35.85,1.24,52.66,1.24c14.77,0,29.3-0.32,43.2-0.96V0.4H0.2z"
+          />
+        </svg>
+        <Container>
           <Delivery />
         </Container>
       </Section>
 
       <Section>
-        <TopDivider bg="berryWhite">
-          <Divider image={divider6} />
-        </TopDivider>
+        <svg className="top" x="0" y="0" viewBox="0 0 1243 112">
+          <path
+            fill={colors.berryWhite}
+            d="M0.2,0.4v35.1c39.61-9.22,79.67-16.36,120.02-21.38c55.9-6.99,112.17-10.48,168.5-10.44c34.89,0,70.38,1.33,105.48,3.95
+            c18.76,1.4,37.78,3.2,56.54,5.35c19.55,2.24,39.35,4.92,58.86,7.96c74.58,11.64,145.68,24,214.44,35.95
+            c89.54,15.57,174.11,30.27,253.34,41.05c42.35,5.76,79.95,9.97,114.96,12.87c18.84,1.56,37.21,2.76,54.58,3.55
+            c18.13,0.82,35.85,1.24,52.66,1.24c14.77,0,29.3-0.32,43.2-0.96V0.4H0.2z"
+          />
+        </svg>
         <Container>
           <GettingStarted />
         </Container>
       </Section>
 
-      <Section>
-        <TopDivider className="footer" bg="white">
-          <Divider image={divider7} />
-        </TopDivider>
-        <Container bg="berry">
+      <Section style={{ background: colors.berry }}>
+        <svg className="top" x="0" y="0" viewBox="0 0 1243 112">
+          <path
+            fill="#FFF"
+            d="M0.2,0.4v35.1c39.61-9.22,79.67-16.36,120.02-21.38c55.9-6.99,112.17-10.48,168.5-10.44c34.89,0,70.38,1.33,105.48,3.95
+            c18.76,1.4,37.78,3.2,56.54,5.35c19.55,2.24,39.35,4.92,58.86,7.96c74.58,11.64,145.68,24,214.44,35.95
+            c89.54,15.57,174.11,30.27,253.34,41.05c42.35,5.76,79.95,9.97,114.96,12.87c18.84,1.56,37.21,2.76,54.58,3.55
+            c18.13,0.82,35.85,1.24,52.66,1.24c14.77,0,29.3-0.32,43.2-0.96V0.4H0.2z"
+          />
+        </svg>
+        <Container>
           <Footer />
-        </Container> 
+        </Container>
       </Section>
-   
     </Layout>
   );
 };
