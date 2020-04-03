@@ -21,21 +21,21 @@ import QuoteComponent2 from "../components/home/client-quote-2";
 
 const IndexPage: React.FC = () => {
 
-  const Section = styled.section`
-    position: relative;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    & svg.top {
-      position: absolute;
-      top: -1px;
-    }
-    & svg.bottom {
-      position: absolute;
-      bottom: -1px;
-      left:-1px;
-    }
-  `;
+const Section = styled.section`
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  & svg.top {
+    position: absolute;
+    top: -1px;
+  }
+  & svg.bottom {
+    position: absolute;
+    bottom: -1px;
+    left:-1px;
+  }
+`;
 
   return (
     <Layout>
