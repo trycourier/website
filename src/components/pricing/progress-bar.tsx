@@ -62,10 +62,6 @@ const ProgressInActive = styled.div`
   background: #ccc;
 `;
 
-type ProgressActiveType = {
-  px: number;
-};
-
 const ProgressActive = styled.div`
   position: relative;
   width: 100%;
