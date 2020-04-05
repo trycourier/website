@@ -64,7 +64,7 @@ const MobileImageWrapper = styled.div`
   right: 0px;
   @media (max-width: 768px) {
     width: 65%;
-    bottom: 150px;
+    bottom: 200px;
   }
 `;
 
