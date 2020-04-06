@@ -117,10 +117,10 @@ const FooterComponent: React.FC = () => {
           </NavLinks>
           <SocialLinks>
             <a href="https://www.github.com/trycourier" rel="noreferrer" target="_blank">
-              <img src={githubLogo} style={{ padding: 2 }} alt="GitHub"/>
+              <img src={githubLogo} style={{ height: 24 }} alt="GitHub"/>
             </a>
             <a href="https://www.twitter.com/trycourier" rel="noreferrer" target="_blank">
-              <img src={twitterLogo} style={{ paddingTop: 3 }} alt="twitter"/>
+              <img src={twitterLogo} style={{ marginTop: 3 }} alt="twitter"/>
             </a>
             <a href="https://www.linkedin.com/trycourier" rel="noreferrer" target="_blank">
               <img src={linkedInLogo} alt="LinkedIn"/>
