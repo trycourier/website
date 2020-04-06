@@ -7,6 +7,7 @@ import {
   ArticleCard,
   ArticleHeaderLink,
   ArticleImage,
+  ArticleFooter,
   ArticleList,
   ArticleScreen,
   ArticleSearch,
@@ -16,6 +17,8 @@ import {
 import BackLink from "../components/community/back-link";
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
+
+import colors from "../colors";
 
 const tags = ["Long Tag", "Tag", "Regular Tag", "Significantly Longer Tag"];
 
@@ -101,7 +104,17 @@ const Community: React.FC = ({ data }: any) => {
               </ArticlePreview>
             </ArticleCard>
           ))}
-          <BackLink />
+          <ArticleFooter>
+            <div
+              style={{
+                borderTop: `1px solid ${colors.lightGray}`,
+                paddingTop: 16,
+              }}
+            >
+              First 5 Articles
+            </div>
+            <BackLink />
+          </ArticleFooter>
         </ArticleList>
         <ArticleSearch>
           <SearchInput onSearch={handleSearchInput} />
