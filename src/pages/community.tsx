@@ -13,6 +13,7 @@ import {
   ArticlePosted,
   ArticlePreview,
 } from "../components/community/articles";
+import BackLink from "../components/community/back-link";
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
 
@@ -20,7 +21,7 @@ const tags = ["Long Tag", "Tag", "Regular Tag", "Significantly Longer Tag"];
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(limit: 5, sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {
@@ -63,14 +64,9 @@ const Community: React.FC = ({ data }: any) => {
 
   return (
     <Simple title="Community">
-      <h1 style={{ marginBottom: 0 }}>Community</h1>
-      <p style={{ marginTop: 0 }}>...</p>
+      <h1 style={{ marginBottom: 0 }}>Articles</h1>
+      <p style={{ marginTop: 0 }}>.....</p>
 
-      <h2>Upcoming Events</h2>
-      <p>Join Us!</p>
-
-      <h2>Articles</h2>
-      <p>.....</p>
       <ArticleScreen>
         <ArticleList>
           {data.allMarkdownRemark.edges.filter(({ node }) => {
@@ -105,6 +101,7 @@ const Community: React.FC = ({ data }: any) => {
               </ArticlePreview>
             </ArticleCard>
           ))}
+          <BackLink />
         </ArticleList>
         <ArticleSearch>
           <SearchInput onSearch={handleSearchInput} />

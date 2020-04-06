@@ -45,6 +45,7 @@ export const ArticleCard = styled.div`
     font-size: 14px;
     color: ${colors.textPrimary};
     margin-bottom: 10px;
+    margin-top: 0px;
   }
 `;
 
@@ -77,7 +78,7 @@ type ArticlePostedType = {
   date?: string;
 }
 const PostedContent = styled.div`
-  ${tw`pt-2`}
+  ${tw`py-2`}
   font-size: 14px;
   ${linkStrongStyle}
 `;

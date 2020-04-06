@@ -4,7 +4,7 @@ import styled from "styled-components";
 import tw from "tailwind.macro";
 import Simple from "./simple";
 
-import IconBack from "../images/icon-back.svg";
+import BackLink from "../components/community/back-link";
 
 import {
   ArticleCard,
@@ -19,25 +19,6 @@ import Tag from "../components/community/tag";
 
 import colors from "../colors";
 // import { MDXRenderer } from "gatsby-plugin-mdx"
-
-const BackImg = styled.img`
-  ${tw`relative`}
-  top: 10px;
-  transition-duration: 300ms;
-`;
-
-const BackLink = styled(Link)`
-  ${tw`no-underline items-center justify-between py-2 px-6 mb-8`}
-  background: ${colors.berryGlass};
-  color: ${colors.berry};
-  border-radius: 4px;
-  & :hover {
-    filter: darken(10%);
-    & img {
-      transform: translate3d(-5px, 0, 0);
-    }
-  }
-`;
 
 const HeaderLink = styled(Link)`
   ${tw`no-underline`}
@@ -60,6 +41,7 @@ const AuthoredHeader = styled.div`
       color: #26699e;
       padding: 8px;
       border-radius: 4px;
+      font-weight: 400;
     }
   }
 `;
@@ -104,15 +86,11 @@ type AuthoredTypes = {
 };
 
 const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
-  const { author, authorId } = pageContext;
+  const { author } = pageContext;
   const posts = data.allMarkdownRemark.edges;
   return (
     <Simple title={`Authored: ${author.name}`}>
-      <BackLink to="blog">
-        <span>
-          <BackImg src={IconBack} alt="Back" /> View all Articles
-        </span>
-      </BackLink>
+      <BackLink />
 
       <AuthoredContent>
         <AuthoredHeader>
@@ -139,10 +117,10 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
                     </h4>
                   </HeaderLink>
                   <ArticlePosted
-                  id={node.frontmatter.author.id}
-                  name={node.frontmatter.author.name}
-                  date={node.frontmatter.date}
-                />
+                    id={node.frontmatter.author.id}
+                    name={node.frontmatter.author.name}
+                    date={node.frontmatter.date}
+                  />
                   <p className="excerpt">{node.excerpt}</p>
                   <div>
                     {node.frontmatter.tags.map((tag: string) => (
@@ -175,13 +153,7 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
             Authored: {author.name}
           </div>
 
-          <div>
-            <BackLink to="blog">
-              <span>
-                <BackImg src={IconBack} alt="Back" /> View all Articles
-              </span>
-            </BackLink>
-          </div>
+          <BackLink />
         </AuthoredFooter>
         {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
       </AuthoredContent>

@@ -4,8 +4,6 @@ import styled from "styled-components";
 import tw from "tailwind.macro";
 import Simple from "./simple";
 
-import IconBack from "../images/icon-back.svg";
-
 import {
   ArticleCard,
   ArticleImage,
@@ -14,30 +12,11 @@ import {
   ArticleScreen,
   ArticleSearch,
 } from "../components/community/articles";
+import BackLink from "../components/community/back-link";
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
 
-import colors from "../colors";
 // import { MDXRenderer } from "gatsby-plugin-mdx"
-
-const BackImg = styled.img`
-  ${tw`relative`}
-  top: 10px;
-  transition-duration: 300ms;
-`;
-
-const BackLink = styled(Link)`
-  ${tw`no-underline items-center justify-between py-2 px-6 mb-8`}
-  background: ${colors.berryGlass};
-  color: ${colors.berry};
-  border-radius: 4px;
-  & :hover {
-    filter: darken(10%);
-    & img {
-      transform: translate3d(-5px, 0, 0);
-    }
-  }
-`;
 
 const HeaderLink = styled(Link)`
   ${tw`no-underline`}
@@ -60,6 +39,7 @@ const TaggedHeader = styled.div`
       color: #26699e;
       padding: 8px;
       border-radius: 4px;
+      font-weight: 400;
     }
   }
 `;
@@ -109,11 +89,7 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Simple title={`Tagged: ${tag}`}>
-      <BackLink to="blog">
-        <span>
-          <BackImg src={IconBack} alt="Back" /> View all Articles
-        </span>
-      </BackLink>
+      <BackLink />
 
       <TaggedContent>
         <TaggedHeader>
@@ -158,17 +134,6 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
           </ArticleList>
           <ArticleSearch>
             <SearchInput />
-            {/* {tags.map(tag => (
-              <div
-                style={{
-                  width: "100%",
-                  textAlign: "right",
-                  margin: "16px 0px",
-                }}
-              >
-                <Tag>{tag.label}</Tag>
-              </div>
-            ))} */}
           </ArticleSearch>
         </ArticleScreen>
         <TaggedFooter>
@@ -176,13 +141,7 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
             Tagged: {tag}
           </div>
 
-          <div>
-            <BackLink to="blog">
-              <span>
-                <BackImg src={IconBack} alt="Back" /> View all Articles
-              </span>
-            </BackLink>
-          </div>
+          <BackLink />
         </TaggedFooter>
         {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
       </TaggedContent>
