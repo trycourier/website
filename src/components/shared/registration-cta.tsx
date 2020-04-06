@@ -68,7 +68,7 @@ const Content = styled.div`
 export const MobileRegistrationCTA = styled.div`
   & button.mobile {
     height: 52px;
-    ${tw`flex w-full justify-between py-4`}
+    ${tw`flex w-full justify-between py-4 mt-0`}
     width: 100%;
     & label {
       margin-top: 4px;

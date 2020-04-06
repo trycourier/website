@@ -71,6 +71,14 @@ const MobileImageWrapper = styled.div`
 const HeroCTA = styled.div`
   ${tw`relative text-center md:mt-16 md:text-left`}
   margin-top: 40vw;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+    & label {
+      margin-top: 0px;
+    }
+    
+  }
 `;
 
 const HeroComponent: React.FC = () => {
