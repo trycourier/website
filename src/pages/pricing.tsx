@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-
+import { graphql, useStaticQuery} from "gatsby";
+import BackgroundImage from "gatsby-background-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -48,17 +49,41 @@ const FauxHero = styled.section`
   }
 `;
 
-const IndexPage: React.FC = () => {
+
+
+const PricingPage: React.FC = () => {
+
+  const {
+    heroBg
+  } = useStaticQuery(graphql`
+    query {
+      heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1280) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+  
+  
+  const bgStyle = {
+    backgroundSize: "cover"
+  };
 
   return (
     <Layout>
       <SEO title="Pricing" />
-      <Section style={{ background: colors.berry, paddingTop: 96 }}>
-        <Container>
-          <FauxHero />
-        </Container>
-        <BottomDivider />
-      </Section>
+      
+      <BackgroundImage fluid={heroBg.childImageSharp.fluid} style={bgStyle}>
+        <Section style={{ paddingTop: 96 }}>
+            <Container>
+              <FauxHero />
+            </Container>
+            <BottomDivider />
+        </Section>
+      </BackgroundImage>
 
       <Section>
         <Container bg="transparent">
@@ -79,4 +104,4 @@ const IndexPage: React.FC = () => {
   );
 };
 
-export default IndexPage;
+export default PricingPage;
