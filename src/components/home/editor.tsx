@@ -35,7 +35,7 @@ const NoCodeWrapper = styled.div`
   position: relative;
   top: -10px;
   left: -55px; 
-  zIndex: -1;
+  z-index: -1;
   @media (max-width: 768px){
     left: -40px;
     top: 10px;

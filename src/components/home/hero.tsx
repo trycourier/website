@@ -9,7 +9,7 @@ import Image from "../image";
 import colors from "../../colors";
 
 import channelsGroup from "../../images/channels-group.svg";
-import RegistrationCTA from "./registration-cta";
+import RegistrationCTA from "../shared/registration-cta";
 
 const Abs = styled(animated.div)`
   position: absolute;
@@ -64,13 +64,21 @@ const MobileImageWrapper = styled.div`
   right: 0px;
   @media (max-width: 768px) {
     width: 65%;
-    bottom: 150px;
+    bottom: 200px;
   }
 `;
 
 const HeroCTA = styled.div`
   ${tw`relative text-center md:mt-16 md:text-left`}
   margin-top: 40vw;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+    & label {
+      margin-top: 0px;
+    }
+    
+  }
 `;
 
 const HeroComponent: React.FC = () => {

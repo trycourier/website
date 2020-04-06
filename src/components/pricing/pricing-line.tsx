@@ -111,9 +111,8 @@ const PricingLine = styled.section`
   ${tw`md:flex`}
   color: ${colors.textPrimary};
   & h4 {
+    ${tw`mb-2 pb-0 md:mb-2`}
     font-size: 48px;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
     & small {
       font-size: 50%;
     }
@@ -204,35 +203,23 @@ const PricingLineComponent: React.FC = () => {
           {pricingMatrix[rangeIdx - 1].perMonth}
           <small>/mo</small>
         </h4>
-        <Desktop>
 
-          <ProgressBar
-            px={((rangeIdx - 1) / 4) * width}
-            tick={rangeIdx - 1}
-            fullWidth={width}
-            handleRangeClick={handleRangeClick}
-          />
-          <input
-            ref={measuredRef}
-            type="range"
-            min="1"
-            max="5"
-            value={rangeIdx}
-            name="priceSection"
-            onChange={handleRangeChange}
-          />
-        </Desktop>
-        <Mobile>
-          <select
-            name="priceSection"
-            value={rangeIdx}
-            onChange={handleRangeChange}
-          >
-            <option value="2">Small</option>
-            <option value="3">Medium</option>
-            <option value="4">Large</option>
-          </select>
-        </Mobile>
+        <ProgressBar
+          px={((rangeIdx - 1) / 4) * width}
+          tick={rangeIdx - 1}
+          fullWidth={width}
+          handleRangeClick={handleRangeClick}
+        />
+        <input
+          ref={measuredRef}
+          type="range"
+          min="1"
+          max="5"
+          value={rangeIdx}
+          name="priceSection"
+          onChange={handleRangeChange}
+        />
+
         <h5>
           <strong>
             <span>Up to <em>{pricingMatrix[rangeIdx - 1].cummulative}</em> notifications/mo</span>

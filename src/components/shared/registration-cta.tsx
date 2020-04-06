@@ -8,7 +8,7 @@ import emailLogo from "../../images/email-logo-white.svg";
 import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
 
-import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl } from "../../links";
+import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl, signUpUrl } from "../../links";
 
 const Button = styled.button`
   ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm align-middle`}
@@ -40,9 +40,13 @@ type CTAProps = {
 
 const Content = styled.div`
   & .form {
-    ${tw`my-2 p-3 mx-auto`}
+    ${tw`my-6 md:my-2 md:p-3 mx-auto`}
     background-color: ${(props: CTAProps) =>
       props.footer ? colors.berryGlass : `rgba(0,0,0,0.25)`};
+
+    @media(max-width: 768px){
+      background-color: transparent;
+    }
     border-radius: 32px;
 
     & button {
@@ -61,12 +65,15 @@ const Content = styled.div`
   }
 `;
 
-const MobileContent = styled(Mobile)`
+export const MobileRegistrationCTA = styled.div`
   & button.mobile {
+    height: 52px;
+    ${tw`flex w-full justify-between py-4 mt-0`}
     width: 100%;
     & label {
+      margin-top: 4px;
+      font-weight: 600;
       text-align: left;
-      margin-right: 25%;
     }
     & img {
       margin-left: 8px;
@@ -80,6 +87,15 @@ const MobileContent = styled(Mobile)`
 const Flex = styled.div`
   display: flex;
 `;
+
+const handleSignUpClick = () => {
+  try {
+    window.open(signUpUrl, "_blank");
+  } catch (e) {
+    console.warn("Window not available.");
+  }
+};
+
 
 const RegistrationCTA: React.FC = (props) => {
   return (
@@ -106,21 +122,18 @@ const RegistrationCTA: React.FC = (props) => {
             </a>
           </Flex>
         </Desktop>
-        <MobileContent>
-          <Button className="mobile">
-            <label>Sign up!</label>
-
-            <a href={googleSignUpUrl}>
-              <img src={googleLogo} alt="Google SSO" />
-            </a>
-            <a href={githubSignUpUrl}>
-              <img src={githubLogo} alt="GitHub SSO" />
-            </a>
-            <a href={emailSignUpUrl}>
-              <img className="email" src={emailLogo} alt="Email" />
-            </a>
-          </Button>
-        </MobileContent>
+        <Mobile>
+          <MobileRegistrationCTA>
+              <Button className="mobile" onClick={handleSignUpClick}>
+                <label>Sign up!</label>
+                <div>
+                    <img src={googleLogo} alt="Google SSO" />
+                    <img src={githubLogo} alt="GitHub SSO" />
+                    <img className="email" src={emailLogo} alt="Email" />
+                </div>
+              </Button>
+            </MobileRegistrationCTA>
+          </Mobile>
       </div>
     </Content>
   );
