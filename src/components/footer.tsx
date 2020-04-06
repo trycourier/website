@@ -6,6 +6,7 @@ import tw from "tailwind.macro";
 import colors from "../colors";
 
 import courierLogo from "../images/courier-logo.svg";
+import githubLogo from "../images/github-logo-white.svg";
 import twitterLogo from "../images/social-twitter.svg";
 import linkedInLogo from "../images/social-linkedin.svg";
 import facebookLogo from "../images/social-fb.svg";
@@ -115,6 +116,9 @@ const FooterComponent: React.FC = () => {
             </NavigationItems>
           </NavLinks>
           <SocialLinks>
+            <a href="https://www.github.com/trycourier" rel="noreferrer" target="_blank">
+              <img src={githubLogo} alt="GitHub"/>
+            </a>
             <a href="https://www.twitter.com/trycourier" rel="noreferrer" target="_blank">
               <img src={twitterLogo} style={{ marginTop: 2 }} alt="twitter"/>
             </a>
