@@ -1,5 +1,8 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
+
+import BackgroundImage from "gatsby-background-image";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -23,31 +26,52 @@ import QuoteComponent2 from "../components/home/client-quote-2";
 
 const IndexPage: React.FC = () => {
 
-const Section = styled.section`
-  position: relative;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  & svg.top {
-    position: absolute;
-    top: -1px;
-  }
-  & svg.bottom {
-    position: absolute;
-    bottom: -1px;
-    left:-1px;
-  }
-`;
+  const Section = styled.section`
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    & svg.top {
+      position: absolute;
+      top: -1px;
+    }
+    & svg.bottom {
+      position: absolute;
+      bottom: -1px;
+      left:-1px;
+    }
+  `;
+
+  const {
+    heroBg
+  } = useStaticQuery(graphql`
+    query {
+      heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1280) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+
+  const bgStyle = {
+    backgroundSize: "cover"
+  };
 
   return (
     <Layout>
       <SEO title="Home" />
 
       <Section style={{ background: colors.berry }}>
+      <BackgroundImage fluid={heroBg.childImageSharp.fluid} style={bgStyle}>
         <Container>
           <Hero />
         </Container>
         <BottomDivider />
+      </BackgroundImage>
       </Section>
 
       <Section>
