@@ -133,6 +133,7 @@ const FooterComponent: React.FC = () => {
               <a href="/privacy">Privacy&nbsp;Policy</a>
               {/* <a href="/terms">Terms&nbsp;of&nbsp;Service</a> */}
               <a href="/disclosure">Responsible&nbsp;Disclosure&nbsp;Policy</a>
+              <a href="https://jobs.lever.co/trycourier" rel="noreferrer" target="_blank">Careers</a>
             </p>
           </DetailLinks>
         </LinkSection>
