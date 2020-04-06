@@ -26,7 +26,7 @@ const BackLink = styled(Link)`
 
 const BackLinkComponent: React.FC = () => {
   return (
-    <div>
+    <div style={{height: 48}}>
       <BackLink to="blog">
         <BackImg src={IconBack} alt="Back" /> View all Articles
       </BackLink>

@@ -49,6 +49,10 @@ export const ArticleCard = styled.div`
   }
 `;
 
+export const ArticleFooter = styled.div`
+  ${tw`flex justify-between mt-4`}
+`;
+
 export const ArticlePreview = styled.div`
   ${tw`px-4 mt-4 md:mt-0`}
 `;
