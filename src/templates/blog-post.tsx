@@ -4,31 +4,12 @@ import styled from "styled-components";
 import tw from "tailwind.macro";
 import Simple from "./simple";
 import Tag from "../components/community/tag";
-import IconBack from "../images/icon-back.svg";
+import BackLink from "../components/community/back-link";
 
 import colors from "../colors";
 // import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { ArticlePosted, AuthorCard } from "../components/community/articles";
-
-const BackImg = styled.img`
-  ${tw`relative`}
-  top: 10px;
-  transition-duration: 300ms;
-`;
-
-const BackLink = styled(Link)`
-  ${tw`no-underline items-center justify-between py-2 px-6 mb-8`}
-  background: ${colors.berryGlass};
-  color: ${colors.berry};
-  border-radius: 4px;
-  & :hover {
-    filter: darken(10%);
-    & img {
-      transform: translate3d(-5px, 0, 0);
-    }
-  }
-`;
 
 const BlogContent = styled.div`
   ${tw`mt-8`}
@@ -89,11 +70,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Simple title={post.frontmatter.title}>
-      <BackLink to="blog">
-        <span>
-          <BackImg src={IconBack} alt="Back" /> View all Articles
-        </span>
-      </BackLink>
+      <BackLink />
 
       <BlogContent>
         <img src={post.frontmatter.headerImage} style={{ borderRadius: 10 }} />
@@ -126,13 +103,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
               name={post.frontmatter.author.name}
             />
           </div>
-          <div>
-            <BackLink to="blog">
-              <span>
-                <BackImg src={IconBack} alt="Back" /> View all Articles
-              </span>
-            </BackLink>
-          </div>
+          <BackLink />
         </BlogFooter>
         {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
       </BlogContent>
