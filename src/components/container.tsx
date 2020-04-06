@@ -25,20 +25,6 @@ export const Mobile = styled.div`
   ${tw`block md:hidden`}
 `;
 
-export const MobileLandscape = styled.div`
-  display: none;
-  @media (screen && max-width: 812px) {
-    display: block;
-  }
-`;
-
-export const NotMobileLandscape = styled.div`
-  display: block;
-  @media (screen && max-width: 812px) {
-    display: none;
-  }
-`;
-
 export const Section = styled.section`
   position: relative;
   width: 100%;
@@ -63,9 +49,8 @@ export const TopDivider = styled(Divide)`
 `;
 
 export const PageWrapper = styled.div`
-  position: relative;
+  ${tw`relative px-4`}
   top: -100px;
-  padding: 0px 16px;
   overflow: hidden;
   color: ${colors.textSecondary};
   & h1 {

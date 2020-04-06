@@ -12,12 +12,13 @@ const Plans = styled.section`
 const SubscriptionPlansText = styled.div`
   ${tw`w-full`}
   & h2 {
-    ${tw`m-0 p-0 text-4xl mb-4`}
+    ${tw`m-0 p-0 mb-4`}
+    font-size: 40px;
     font-weight: 200;
     color: ${colors.textPrimary};
   }
   & p {
-    ${tw`m-0 p-0 text-xl mt-2`}
+    ${tw`hidden md:block m-0 p-0 text-xl mt-2`}
   }
 `;
 
@@ -29,9 +30,6 @@ const SubscriptionPlansWrapper = styled.div`
   }
   & button.ghost {
     color: ${colors.textPrimary};
-  }
-  @media (max-width: 768px) {
-    overflow-x: scroll;
   }
 `;
 
