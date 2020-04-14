@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import Simple from "./simple";
@@ -45,6 +45,7 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       rawMarkdownBody
       frontmatter {
         title
@@ -69,7 +70,7 @@ type GraphQLQuery = {
 const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.markdownRemark;
   return (
-    <Simple title={post.frontmatter.title}>
+    <Simple title={post.frontmatter.title} description={post.excerpt}>
       <BackLink />
 
       <BlogContent>
