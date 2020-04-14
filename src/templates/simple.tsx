@@ -17,9 +17,10 @@ import Divider from "../components/home/divider";
 type PageProps = {
   children: any;
   title: string;
+  description?: string;
 };
 
-const SimplePage: React.FC<PageProps> = ({ children, title }) => {
+const SimplePage: React.FC<PageProps> = ({ children, title, description }) => {
   const { headerBg, headerDivider, footerDivider } = useStaticQuery(graphql`
     query {
       headerBg: file(relativePath: { eq: "bgs/header-bg@2x.png" }) {
@@ -48,7 +49,7 @@ const SimplePage: React.FC<PageProps> = ({ children, title }) => {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={title} description={description} />
       <Section style={{ top: -1 }}>
         <BackgroundImage
           Tag="section"
