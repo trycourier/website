@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
@@ -55,6 +55,10 @@ export const query = graphql`
       filter: { fields: { tags: { in: [$tag] } } }
     ) {
       totalCount
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
       edges {
         node {
           fields {
@@ -87,6 +91,21 @@ type TaggedTypes = {
 const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
   const { tag } = pageContext;
   const posts = data.allMarkdownRemark.edges;
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchInput = (e: React.EventHandler) => {
+    setSearchTerm(e.currentTarget.value.toLowerCase());
+  };
+
+  const searchContent = (value: string) => {
+    const val = value.toLowerCase();
+    const regex = val.search(searchTerm);
+    return regex !== -1;
+  };
+
+  const tags = data.allMarkdownRemark.group;
+
   return (
     <Simple title={`Tagged: ${tag}`}>
       <BackLink />
@@ -133,7 +152,14 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
             ))}
           </ArticleList>
           <ArticleSearch>
-            <SearchInput />
+            <SearchInput onSearch={handleSearchInput} />
+            {tags.map(tag => (
+              <div
+                style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
+              >
+                <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
+              </div>
+            ))}
           </ArticleSearch>
         </ArticleScreen>
         <TaggedFooter>

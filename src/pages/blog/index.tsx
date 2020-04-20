@@ -16,6 +16,8 @@ import {
 import SearchInput from "../../components/community/search-input";
 import Tag from "../../components/community/tag";
 
+import { ITagType } from "./types";
+
 export const query = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -52,11 +54,11 @@ export const query = graphql`
 const Blog: React.FC = ({ data }: any) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchInput = e => {
+  const handleSearchInput = (e: React.SyntheticEvent) => {
     setSearchTerm(e.currentTarget.value.toLowerCase());
   };
 
-  const searchContent = value => {
+  const searchContent = (value: string) => {
     const val = value.toLowerCase();
     const regex = val.search(searchTerm);
     return regex !== -1;
@@ -105,7 +107,7 @@ const Blog: React.FC = ({ data }: any) => {
         </ArticleList>
         <ArticleSearch>
           <SearchInput onSearch={handleSearchInput} />
-          {tags.map(tag => (
+          {tags.map((tag: ITagType) => (
             <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
             >

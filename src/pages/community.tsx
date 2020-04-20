@@ -55,11 +55,11 @@ const Community: React.FC = ({ data }: any) => {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchInput = e => {
+  const handleSearchInput = (e: React.EventHandler) => {
     setSearchTerm(e.currentTarget.value.toLowerCase());
   };
 
-  const searchContent = value => {
+  const searchContent = (value: string) => {
     const val = value.toLowerCase();
     const regex = val.search(searchTerm);
     return regex !== -1;
