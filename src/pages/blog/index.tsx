@@ -16,7 +16,7 @@ import {
 import SearchInput from "../../components/community/search-input";
 import Tag from "../../components/community/tag";
 
-import { ITagType } from "./types";
+// import { ITagType } from "./types";
 
 export const query = graphql`
   query {
@@ -107,7 +107,7 @@ const Blog: React.FC = ({ data }: any) => {
         </ArticleList>
         <ArticleSearch>
           <SearchInput onSearch={handleSearchInput} />
-          {tags.map((tag: ITagType) => (
+          {tags.map(tag => (
             <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
             >

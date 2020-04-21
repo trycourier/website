@@ -20,12 +20,14 @@ import Tag from "../components/community/tag";
 
 import colors from "../colors";
 
-const tags = ["Long Tag", "Tag", "Regular Tag", "Significantly Longer Tag"];
-
 export const query = graphql`
   query {
     allMarkdownRemark(limit: 5, sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
+      group(field: frontmatter___tags) {
+        fieldValue
+        totalCount
+      }
       edges {
         node {
           id
@@ -64,6 +66,8 @@ const Community: React.FC = ({ data }: any) => {
     const regex = val.search(searchTerm);
     return regex !== -1;
   };
+
+  const tags = data.allMarkdownRemark.group;
 
   return (
     <Simple title="Community">
@@ -122,7 +126,7 @@ const Community: React.FC = ({ data }: any) => {
             <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
             >
-              <Tag label={tag} />
+              <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
             </div>
           ))}
         </ArticleSearch>
