@@ -54,7 +54,7 @@ export const query = graphql`
 const Blog: React.FC = ({ data }: any) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchInput = (e: React.SyntheticEvent) => {
+  const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.currentTarget.value.toLowerCase());
   };
 
