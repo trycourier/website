@@ -26,13 +26,45 @@ Error: Found vendored libvips v8.8.1 but require v8.9.1. Please remove the 'node
 
 A little removal of the `sharp/` directory within my  `node_modules/` and a `yarn add sharp` and we were back up and ready to go.
 
+First Step is to create a sharp image instance of our targeted size:
+
+I'm going wiht a 1200x630 like said in spec, with 4 channels (RGBA) and giving it the oh so familiar debug red:
+
+<code>
+  sharp({
+    create: {
+      width: 1200,
+      height: 630,
+      channels: 4,
+      background: { r: 255, g: 0, b: 0, alpha: 0.5 },
+    },
+  })
+</code>
+
+After this I will add on layers and "composite" them onto my image. 
+Each layer can be either an SVG element via `Buffer` or a PNG, of which both can also be imported through it's file path.
+
+<code>
+  .composite([
+    { input: "./src/templates/courier-bg.png", top: 0, left: 0 },
+    { input: textSvg, top: 100, left: 20 },
+    { input: "./src/images/courier-logo.svg", top: 20, left: 20 },
+    { input: "./src/data/avatars/courier.png", top: 560, left: 1125 },
+  ])
+</code>
+
 ### SVG Manipulation
 
 Px Push
 Font Dependencies (Environments)
+...
 
 ### Tying back to Gatsby Builds
 
+...
+
+### Thanks + Inspo
+
 https://github.com/lovell/sharp
-https://github.com/ChristopherBiscardi/gatsby-plugins/blob/master/packages/gatsby-plugin-printer/gatsby-node.js
-https://github.com/jlengstorf/get-share-image/blob/master/src/index.ts
+https://github.com/ChristopherBiscardi/gatsby-plugins/blob/master/packages/gatsby-plugin-printer/
+https://github.com/jlengstorf/get-share-image/
