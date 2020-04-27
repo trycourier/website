@@ -71,7 +71,7 @@ type GraphQLQuery = {
 const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.markdownRemark;
   return (
-    <Simple title={post.frontmatter.title} description={post.excerpt}>
+    <Simple title={post.frontmatter.title} description={post.excerpt} metadata={post.frontmatter}>
       <BackLink />
 
       <BlogContent>

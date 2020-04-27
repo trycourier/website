@@ -18,9 +18,15 @@ type PageProps = {
   children: any;
   title: string;
   description?: string;
+  metadata?: any;
 };
 
-const SimplePage: React.FC<PageProps> = ({ children, title, description }) => {
+const SimplePage: React.FC<PageProps> = ({
+  children,
+  title,
+  description,
+  metadata,
+}) => {
   const { headerBg, headerDivider, footerDivider } = useStaticQuery(graphql`
     query {
       headerBg: file(relativePath: { eq: "bgs/header-bg@2x.png" }) {
@@ -49,7 +55,11 @@ const SimplePage: React.FC<PageProps> = ({ children, title, description }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <SEO
+        title={title}
+        description={description}
+        meta={[{ name: "og:image", content: metadata.shareImage }, { name: "twitter:image", content: metadata.shareImage }]}
+      />
       <Section style={{ top: -1 }}>
         <BackgroundImage
           Tag="section"
