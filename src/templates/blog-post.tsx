@@ -57,6 +57,7 @@ export const query = graphql`
           twitter
         }
         headerImage
+        shareImage
         tags
       }
     }

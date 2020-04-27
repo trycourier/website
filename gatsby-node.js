@@ -22,6 +22,13 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             return headerImage || "https://www.fillmurray.com/220/160"
           }
         },
+        shareImage: {
+          type: "String",
+          resolve(source, args, context, info) {
+            const { shareImage } = source
+            return shareImage || "https://www.fillmurray.com/1200/630"
+          }
+        },
         thumbnail: {
           type: "String",
           resolve(source, args, context, info) {
