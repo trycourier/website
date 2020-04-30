@@ -58,7 +58,10 @@ const SimplePage: React.FC<PageProps> = ({
       <SEO
         title={title}
         description={description}
-        meta={[{ name: "og:image", content: metadata.shareImage }, { name: "twitter:image", content: metadata.shareImage }]}
+        meta={[
+          { name: "og:image", content: metadata.shareImage },
+          { name: "twitter:image", content: metadata.shareImage }
+        ]}
       />
       <Section style={{ top: -1 }}>
         <BackgroundImage

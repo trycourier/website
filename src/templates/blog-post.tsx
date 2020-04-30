@@ -7,7 +7,7 @@ import Tag from "../components/community/tag";
 import BackLink from "../components/community/back-link";
 
 import colors from "../colors";
-// import { MDXRenderer } from "gatsby-plugin-mdx"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { ArticlePosted, AuthorCard } from "../components/community/articles";
 
@@ -107,7 +107,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
           </div>
           <BackLink />
         </BlogFooter>
-        {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
+        <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer>
       </BlogContent>
     </Simple>
   );
