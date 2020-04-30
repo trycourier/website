@@ -59,8 +59,8 @@ const SimplePage: React.FC<PageProps> = ({
         title={title}
         description={description}
         meta={[
-          { name: "og:image", content: metadata.shareImage },
-          { name: "twitter:image", content: metadata.shareImage }
+          { name: "og:image", content: metadata ? metadata.shareImage : '' },
+          { name: "twitter:image", content: metadata ? metadata.shareImage : '' }
         ]}
       />
       <Section style={{ top: -1 }}>

@@ -21,6 +21,9 @@ export const ArticleHeaderLink = styled(Link)`
   & :hover {
     text-decoration: underline;
   }
+  & :active {
+    text-decoration-color: ${colors.berry};
+  }
   & h4 {
     ${tw`text-xl py-0 mt-0 mb-2`}
   }
@@ -72,6 +75,9 @@ const linkStrongStyle = css`
       & :hover{
         text-decoration: underline;
       }
+      & :active {
+        text-decoration-color: ${colors.berry};
+      }
     }
   }
 `;
@@ -87,7 +93,7 @@ const PostedContent = styled.div`
   ${linkStrongStyle}
 `;
 
-export const ArticlePosted: React.FC = ({ id, name, date }: ArticlePostedType) => (
+export const ArticlePosted: React.FC<ArticlePostedType> = ({ id, name, date }) => (
   <PostedContent>
     Posted by{" "}
     <strong>
@@ -108,7 +114,7 @@ const AuthorCardContent = styled.div`
   ${linkStrongStyle}
 `;
 
-export const AuthorCard: React.FC = ({avatar, id, name}: ArticleAuthorType) => (
+export const AuthorCard: React.FC<ArticleAuthorType> = ({avatar, id, name}) => (
   <AuthorCardContent>
     <img
       src={avatar}

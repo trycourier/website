@@ -61,6 +61,18 @@ export const query = graphql`
         tags
       }
     }
+    mdx(fields: { slug: { eq: $slug } }) {
+      id
+      frontmatter {
+        date
+        thumbnail
+        headerImage
+        sharingImage
+        socialImage
+        title
+      }
+      body
+    }
   }
 `;
 
@@ -70,8 +82,13 @@ type GraphQLQuery = {
 
 const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.markdownRemark;
+  const mdx = data.mdx;
   return (
-    <Simple title={post.frontmatter.title} description={post.excerpt} metadata={post.frontmatter}>
+    <Simple
+      title={post.frontmatter.title}
+      description={post.excerpt}
+      metadata={post.frontmatter}
+    >
       <BackLink />
 
       <BlogContent>
@@ -91,7 +108,11 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
             ))}
           </div>
         </BlogHeader>
-        <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} />
+        {/* <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} /> */}
+        <BlogBody>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </BlogBody>
+
         <BlogFooter>
           <div
             style={{
@@ -107,7 +128,6 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
           </div>
           <BackLink />
         </BlogFooter>
-        <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer>
       </BlogContent>
     </Simple>
   );

@@ -17,4 +17,6 @@ export default {
   textPrimary: theme.extend.colors.moonlight,
   textSecondary: theme.extend.colors.fullMoon,
   white: theme.extend.colors.white,
+  tagBg: theme.extend.colors.tagBg,
+  tagFg: theme.extend.colors.tagFg,
 };

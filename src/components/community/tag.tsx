@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import colors from "../../colors";
 
 const Tag = styled.div`
-  background: #dbf1ff;
-  color: #26699e;
+  background: ${colors.tagBg};
+  color: ${colors.tagFg};
   font-size: 12px;
   border-radius: 4px;
   padding: 8px;
@@ -15,7 +16,7 @@ const Tag = styled.div`
 
 type TagType = {
   label: string;
-}
+};
 
 const TagComponent: React.FC<TagType> = ({ label }) => {
   const tagRoute = label.toLowerCase().replace(/ /gi, "-");

@@ -18,6 +18,8 @@ module.exports = {
         newMoon: '#002F48',
         transparent: 'transparent',
         white: '#FFFFFF',
+        tagBg: '#DBF1FF',
+        tagFg: '#26699E'
       },
     },
     screens: {

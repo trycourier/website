@@ -37,8 +37,8 @@ const AuthoredHeader = styled.div`
     font-weight: 400;
     margin-bottom: 2px;
     & strong {
-      background: #dbf1ff;
-      color: #26699e;
+      background: ${colors.tagBg};
+      color: ${colors.tagFg};
       padding: 8px;
       border-radius: 4px;
       font-weight: 400;

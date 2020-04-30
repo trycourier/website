@@ -88,6 +88,7 @@ module.exports = {
         prefix: "blog/tags",
       },
     },
+    "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     // {
