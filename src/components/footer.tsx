@@ -122,7 +122,7 @@ const FooterComponent: React.FC = () => {
             <a href="https://www.twitter.com/trycourier" rel="noreferrer" target="_blank">
               <img src={twitterLogo} style={{ marginTop: 3 }} alt="twitter"/>
             </a>
-            <a href="https://www.linkedin.com/trycourier" rel="noreferrer" target="_blank">
+            <a href="https://www.linkedin.com/company/trycourier" rel="noreferrer" target="_blank">
               <img src={linkedInLogo} alt="LinkedIn"/>
             </a>
             <a href="https://www.facebook.com/trycourier" rel="noreferrer" target="_blank">
