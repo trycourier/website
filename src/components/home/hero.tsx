@@ -167,7 +167,7 @@ const HeroComponent: React.FC = () => {
         <p>Design once, deliver to any channel through one API</p>
         <HeroCTA>
           <label>
-            Sign up and recieve <strong>10,000 free</strong> notifications every
+            Sign up and receive <strong>10,000 free</strong> notifications every
             month
           </label>
           <RegistrationCTA />
