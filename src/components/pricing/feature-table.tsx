@@ -121,6 +121,7 @@ import {
   googleSignUpUrl,
   emailSignUpUrl,
   signUpUrl,
+  trackSignUp,
 } from "../../links";
 
 const AccountButtons = styled.ul`
@@ -189,17 +190,29 @@ const AccountButtonComponent: React.FC = () => {
   return (
     <AccountButtons>
       <li className="google">
-        <a href={googleSignUpUrl} target="_blank">
+        <a
+          href={googleSignUpUrl}
+          target="_blank"
+          onClick={() => trackSignUp("Google")}
+        >
           <img src={googleLogo} alt="Google SSO" />
         </a>
       </li>
       <li className="github">
-        <a href={githubSignUpUrl} target="_blank">
+        <a
+          href={githubSignUpUrl}
+          target="_blank"
+          onClick={() => trackSignUp("GitHub")}
+        >
           <img src={githubLogo} alt="GitHub SSO" />
         </a>
       </li>
       <li className="email">
-        <a href={emailSignUpUrl} target="_blank">
+        <a
+          href={emailSignUpUrl}
+          target="_blank"
+          onClick={() => trackSignUp("Email")}
+        >
           <img src={emailLogo} alt="Sign Up with Email" />
         </a>
       </li>
@@ -264,6 +277,7 @@ const handleContactSalesClick = () => {
 
 const handleSignUpClick = () => {
   try {
+    trackSignUp();
     window.open(signUpUrl, "_blank");
   } catch (e) {
     console.warn("Window not available.");
