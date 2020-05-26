@@ -8,7 +8,13 @@ import emailLogo from "../../images/email-logo-white.svg";
 import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
 
-import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl, signUpUrl } from "../../links";
+import {
+  githubSignUpUrl,
+  googleSignUpUrl,
+  emailSignUpUrl,
+  signUpUrl,
+  trackSignUp,
+} from "../../links";
 
 const Button = styled.button`
   ${tw`rounded-full mr-2 px-4 py-2 text-white text-sm align-middle`}
@@ -90,32 +96,32 @@ const Flex = styled.div`
 
 const handleSignUpClick = () => {
   try {
+    trackSignUp();
     window.open(signUpUrl, "_blank");
   } catch (e) {
     console.warn("Window not available.");
   }
 };
 
-
-const RegistrationCTA: React.FC = (props) => {
+const RegistrationCTA: React.FC = props => {
   return (
     <Content footer={props.footer}>
       <div className="form">
         <Desktop>
           <Flex>
-            <a href={googleSignUpUrl}>
+            <a href={googleSignUpUrl} onClick={() => trackSignUp("Google")}>
               <Button>
                 <img src={googleLogo} alt="Google SSO" />
                 <label>Google</label>
               </Button>
             </a>
-            <a href={githubSignUpUrl}>
+            <a href={githubSignUpUrl} onClick={() => trackSignUp("GitHub")}>
               <Button className="github">
                 <img src={githubLogo} alt="GitHub SSO" />
                 <label>GitHub</label>
               </Button>
             </a>
-            <a href={emailSignUpUrl}>
+            <a href={emailSignUpUrl} onClick={() => trackSignUp("Email")}>
               <button className="ghost">
                 or <strong>email</strong>
               </button>
@@ -124,16 +130,16 @@ const RegistrationCTA: React.FC = (props) => {
         </Desktop>
         <Mobile>
           <MobileRegistrationCTA>
-              <Button className="mobile" onClick={handleSignUpClick}>
-                <label>Sign up!</label>
-                <div>
-                    <img src={googleLogo} alt="Google SSO" />
-                    <img src={githubLogo} alt="GitHub SSO" />
-                    <img className="email" src={emailLogo} alt="Email" />
-                </div>
-              </Button>
-            </MobileRegistrationCTA>
-          </Mobile>
+            <Button className="mobile" onClick={handleSignUpClick}>
+              <label>Sign up!</label>
+              <div>
+                <img src={googleLogo} alt="Google SSO" />
+                <img src={githubLogo} alt="GitHub SSO" />
+                <img className="email" src={emailLogo} alt="Email" />
+              </div>
+            </Button>
+          </MobileRegistrationCTA>
+        </Mobile>
       </div>
     </Content>
   );

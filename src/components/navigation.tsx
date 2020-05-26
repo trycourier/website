@@ -13,7 +13,12 @@ import emailNav from "../images/email-nav.svg";
 
 import mobileMenu from "../images/hamburger.svg";
 
-import { githubSignUpUrl, googleSignUpUrl, emailSignUpUrl } from "../links";
+import {
+  githubSignUpUrl,
+  googleSignUpUrl,
+  emailSignUpUrl,
+  trackSignUp,
+} from "../links";
 
 const NavContainer = styled.section`
   position: fixed;
@@ -155,17 +160,32 @@ const NavigationComponent: React.FC = () => {
               <AccountButtons>
                 <label>Sign Up</label>
                 <li>
-                  <a href={googleSignUpUrl} rel="noreferrer" target="_blank">
+                  <a
+                    href={googleSignUpUrl}
+                    rel="noreferrer"
+                    target="_blank"
+                    onClick={() => trackSignUp("Google")}
+                  >
                     <img src={googleNav} alt="Google SSO" />
                   </a>
                 </li>
                 <li>
-                  <a href={githubSignUpUrl} rel="noreferrer" target="_blank">
+                  <a
+                    href={githubSignUpUrl}
+                    rel="noreferrer"
+                    target="_blank"
+                    onClick={() => trackSignUp("GitHub")}
+                  >
                     <img src={githubNav} alt="GitHub SSO" />
                   </a>
                 </li>
                 <li>
-                  <a href={emailSignUpUrl} rel="noreferrer" target="_blank">
+                  <a
+                    href={emailSignUpUrl}
+                    rel="noreferrer"
+                    target="_blank"
+                    onClick={() => trackSignUp("Email")}
+                  >
                     <img src={emailNav} alt="Sign Up with Email" />
                   </a>
                 </li>
@@ -173,7 +193,7 @@ const NavigationComponent: React.FC = () => {
               <MobileButtons>
                 <li className="hamburger">
                   <a href="/" onClick={toggleMenu}>
-                    <img src={mobileMenu} alt="+"/>
+                    <img src={mobileMenu} alt="+" />
                   </a>
                 </li>
               </MobileButtons>
@@ -198,17 +218,29 @@ const NavigationComponent: React.FC = () => {
             <Link to="/#company">Company</Link>
           </li> */}
           <li>
-            <a href="https://docs.trycourier.com/" rel="noreferrer" target="_blank">
+            <a
+              href="https://docs.trycourier.com/"
+              rel="noreferrer"
+              target="_blank"
+            >
               Documentation
             </a>
           </li>
           <li>
-            <a href="https://www.trycourier.app/login" rel="noreferrer" target="_blank">
+            <a
+              href="https://www.trycourier.app/login"
+              rel="noreferrer"
+              target="_blank"
+            >
               Login
             </a>
           </li>
           <li>
-            <a href="https://www.trycourier.app/register" rel="noreferrer" target="_blank">
+            <a
+              href="https://www.trycourier.app/register"
+              rel="noreferrer"
+              target="_blank"
+            >
               Sign Up
             </a>
           </li>
