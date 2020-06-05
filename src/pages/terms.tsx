@@ -17,6 +17,32 @@ import Footer from "../components/footer";
 import Divider from "../components/home/divider";
 
 const TermsOfService: React.FC = () => {
+  const { headerBg, headerDivider, footerDivider } = useStaticQuery(graphql`
+    query {
+      headerBg: file(relativePath: { eq: "bgs/header-bg@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 3200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      headerDivider: file(relativePath: { eq: "dividers/hero-white@2x.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      footerDivider: file(relativePath: { eq: "dividers/mod/footer.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Layout>
       <SEO title="Terms of Service" />
