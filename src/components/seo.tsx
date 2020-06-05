@@ -17,7 +17,8 @@ const SEO: React.FC<{
     content: string;
   }>;
   title: string;
-}> = ({ description = "", lang = "en", meta = [], title }) => {
+  image: string;
+}> = ({ description = "", lang = "en", meta = [], title, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -26,6 +27,7 @@ const SEO: React.FC<{
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -33,6 +35,7 @@ const SEO: React.FC<{
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const ogImage = image || `${site.siteMetadata.siteUrl}/images/og-image.png`;
 
   return (
     <Helmet
@@ -59,6 +62,14 @@ const SEO: React.FC<{
           content: `website`,
         },
         {
+          property: `og:site_name`,
+          content: site.siteMetadata.title,
+        },
+        {
+          property: `og:image`,
+          content: ogImage,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
@@ -73,6 +84,10 @@ const SEO: React.FC<{
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: ogImage,
         },
       ].concat(meta)}
     />

@@ -78,8 +78,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        extensions: [".md", ".mdx"]
-      }
+        extensions: [".md", ".mdx"],
+      },
     },
     {
       resolve: "gatsby-plugin-tags",
@@ -91,19 +91,19 @@ module.exports = {
     "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    // {
-    //   resolve: "gatsby-plugin-segment-js",
-    //   options: {
-    //     prodKey: process.env.SEGMENT_KEY,
-    //     trackPage: true,
-    //   },
-    // },
-    // {
-    //   resolve: `gatsby-plugin-intercom`,
-    //   options: {
-    //     appId: process.env.INTERCOM_KEY,
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-segment-js",
+      options: {
+        prodKey: process.env.SEGMENT_KEY,
+        trackPage: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-intercom`,
+      options: {
+        appId: process.env.INTERCOM_KEY,
+      },
+    },
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
