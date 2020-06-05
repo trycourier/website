@@ -49,7 +49,11 @@ const SimplePage: React.FC<PageProps> = ({ children, title, description }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={description} />
+      <SEO
+        title={title}
+        description={description}
+        meta={[{ name: "twitter:card", content: "summary_large_image" }]}
+      />
       <Section style={{ top: -1 }}>
         <BackgroundImage
           Tag="section"
