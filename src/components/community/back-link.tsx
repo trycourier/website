@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import IconBack from "../../images/icon-back.svg";
@@ -11,7 +10,7 @@ const BackImg = styled.img`
   transition-duration: 300ms;
 `;
 
-const BackLink = styled(Link)`
+const BackLink = styled.a`
   ${tw`relative no-underline items-center justify-between py-2 px-6`}
   background: ${colors.berryGlass};
   color: ${colors.berry};
@@ -27,7 +26,7 @@ const BackLink = styled(Link)`
 const BackLinkComponent: React.FC = () => {
   return (
     <div style={{height: 48}}>
-      <BackLink to="community">
+      <BackLink href="/community">
         <BackImg src={IconBack} alt="Back" /> View all Articles
       </BackLink>
     </div>

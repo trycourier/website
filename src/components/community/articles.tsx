@@ -1,7 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { Link } from "gatsby";
 import tw from "tailwind.macro";
+import Avatar from "../../images/avatar@2x.png";
+
 import colors from "../../colors";
 
 export const ArticleScreen = styled.div`
@@ -16,7 +17,7 @@ export const ArticleSearch = styled.div`
   ${tw`w-full md:w-1/4 mt-8`}
 `;
 
-export const ArticleHeaderLink = styled(Link)`
+export const ArticleHeaderLink = styled.a`
   ${tw`no-underline`}
   & :hover {
     text-decoration: underline;
@@ -91,7 +92,7 @@ export const ArticlePosted: React.FC = ({ id, name, date }: ArticlePostedType) =
   <PostedContent>
     Posted by{" "}
     <strong>
-      <Link to={`blog/author/${id}`}>{name}</Link>
+      <a href={`/blog/author/${id}`}>{name}</a>
     </strong>{" "}
     on <strong>{date}</strong>
   </PostedContent>
@@ -101,17 +102,17 @@ export const ArticlePosted: React.FC = ({ id, name, date }: ArticlePostedType) =
 type ArticleAuthorType = {
   id: string;
   name: string;
-  avatar?: string;
+  // avatar?: string;
 }
 const AuthorCardContent = styled.div`
   ${tw`flex`}
   ${linkStrongStyle}
 `;
 
-export const AuthorCard: React.FC = ({avatar, id, name}: ArticleAuthorType) => (
+export const AuthorCard: React.FC = ({id, name}: ArticleAuthorType) => (
   <AuthorCardContent>
     <img
-      src={avatar}
+      src={Avatar}
       width="60"
       height="60"
       style={{ borderRadius: 60, marginRight: 16 }}
@@ -120,9 +121,9 @@ export const AuthorCard: React.FC = ({avatar, id, name}: ArticleAuthorType) => (
       Author
       <br />
       <strong>
-        <Link to={`blog/author/${id}`}>
+        <a href={`/blog/author/${id}`}>
           {name}
-        </Link>
+        </a>
       </strong>
     </p>
   </AuthorCardContent>

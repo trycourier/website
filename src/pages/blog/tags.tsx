@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Simple from "../../templates/simple";
 
@@ -28,14 +28,14 @@ const Blog: React.FC = ({ data }: any) => {
   return (
     <Simple title="Courier Blog Tags">
       <h1 style={{ marginBottom: 0 }}>All Tags</h1>
-      <p style={{ marginTop: 0 }}>Feel free to share our content.</p>
+      <p style={{ marginTop: 0 }}>Todo</p>
       <ArticleScreen>
         <ArticleList>
           {tags.map(({ fieldValue, totalCount }) => (
             <ArticleCard key={fieldValue}>
-              <Link to={fieldValue}>
+              <a href={fieldValue}>
                 <Tag label={fieldValue}> ( {totalCount} ) </Tag>
-              </Link>
+              </a>
             </ArticleCard>
           ))}
         </ArticleList>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import Simple from "./simple";
@@ -18,7 +18,7 @@ import Tag from "../components/community/tag";
 
 // import { MDXRenderer } from "gatsby-plugin-mdx"
 
-const HeaderLink = styled(Link)`
+const HeaderLink = styled.a`
   ${tw`no-underline`}
   & :hover {
     text-decoration: underline;
@@ -102,15 +102,15 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
           <ArticleList>
             {posts.map(({ node }: any) => (
               <ArticleCard key={node.id}>
-                <Link to={node.fields.slug}>
+                <a href={`/${node.fields.slug}`}>
                   <ArticleImage
                     src={node.frontmatter.thumbnail}
                     alt={node.frontmatter.title}
                   />
-                </Link>
+                </a>
 
                 <div className="px-4">
-                  <HeaderLink to={node.fields.slug}>
+                  <HeaderLink href={`/${node.fields.slug}`}>
                     <h4 className="font-bold text-xl py-0 mt-0 mb-2">
                       {node.frontmatter.title}
                     </h4>

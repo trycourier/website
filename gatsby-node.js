@@ -15,6 +15,12 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     schema.buildObjectType({
       name: "Frontmatter",
       fields: {
+        hidden: {
+          type: "String",
+          resolve(source, args, context, info) {
+            return source.hidden === "true" ? "true" : "false"
+          }
+        },
         headerImage: {
           type: "String",
           resolve(source, args, context, info) {
@@ -55,7 +61,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: `blog${slug}`,
+      value: `/blog${slug}`,
     })
   }
 }

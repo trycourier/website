@@ -1,46 +1,5 @@
 - id: troy
   name: Troy
-  bio: Founder @ trycourier.
+  bio: CEO, Courier
+  twitter: "@troygoode"
   avatar: avatars/courier.png
-  twitter: "@trycourier"
-- id: kay
-  name: Kay
-  bio: Head of Design
-  avatar: avatars/courier.png
-  twitter: "@trycourier"
-- id: riley
-  name: Riley
-  bio: Sr. Software Enginner
-  avatar: avatars/courier.png
-  twitter: "@trycourier"
-- id: josh
-  name: Josh
-  bio: Software Enginner
-  avatar: avatars/courier.png
-  twitter: "@trycourier"
-- id: danny
-  name: Danny
-  bio: Software Enginner
-  avatar: avatars/courier.png
-  twitter: "@trycourier"
-- id: seth
-  name: Seth
-  bio: Software Enginner
-  avatar: avatars/courier.png
-  twitter: "@trycourier"
-- id: aydrian
-  name: Aydrian
-  bio: Staff Devloper Advocate
-  avatar: avatars/courier.png
-  twitter: "@trycourier"
-- id: justin
-  name: Justin
-  bio: Software Enginner
-  avatar: avatars/courier.png
-  twitter: "@jmichaliga"
-- id: tony
-  name: Tony
-  bio: Software Enginner
-  avatar: avatars/courier.png
-  twitter: "@trycourier"
-  

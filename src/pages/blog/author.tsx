@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Simple from "../../templates/simple";
 
@@ -36,9 +36,9 @@ const Authors: React.FC = ({ data }: any) => {
         <ArticleList>
           {authors.map(({node}) => (
             <ArticleCard key={node.id}>
-              <Link to={`blog/author/${node.id}`}>
+              <a href={`/blog/author/${node.id}`}>
                 {node.name}
-              </Link>
+              </a>
             </ArticleCard>
           ))}
         </ArticleList>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Simple from "../templates/simple";
 
@@ -20,16 +20,23 @@ import Tag from "../components/community/tag";
 
 import colors from "../colors";
 
-const tags = ["Long Tag", "Tag", "Regular Tag", "Significantly Longer Tag"];
+const tags = ["Example"]
 
 export const query = graphql`
   query {
-    allMarkdownRemark(limit: 5, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      limit: 5,
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: {
+        frontmatter: {hidden: {eq: "false"}}
+      }
+    ) {
       totalCount
       edges {
         node {
           id
           frontmatter {
+            hidden
             title
             date(formatString: "MMMM Do, YYYY")
             thumbnail
@@ -67,25 +74,25 @@ const Community: React.FC = ({ data }: any) => {
 
   return (
     <Simple title="Community">
-      <h1 style={{ marginBottom: 0 }}>Articles</h1>
-      <p style={{ marginTop: 0 }}>.....</p>
+      <h1 style={{ marginBottom: 0 }}>Blog</h1>
+      <p style={{ marginTop: 0 }}>Stay up to date on the latest from Courier.</p>
 
       <ArticleScreen>
         <ArticleList>
           {data.allMarkdownRemark.edges.filter(({ node }) => {
               return searchContent(node.frontmatter.title);
             })
-          .map(({ node }: any) => (
-            <ArticleCard key={node.id}>
-              <Link to={node.fields.slug}>
+          .map(({ node }: any, idx: Number) => (
+            <ArticleCard key={node.id} key={idx}>
+              <a href={node.fields.slug}>
                 <ArticleImage
                   src={node.frontmatter.thumbnail}
                   alt={node.frontmatter.title}
                 />
-              </Link>
+              </a>
 
               <ArticlePreview>
-                <ArticleHeaderLink to={node.fields.slug}>
+                <ArticleHeaderLink href={node.fields.slug}>
                   <h4>{node.frontmatter.title}</h4>
                 </ArticleHeaderLink>
                 <ArticlePosted
@@ -95,8 +102,8 @@ const Community: React.FC = ({ data }: any) => {
                 />
                 <p className="excerpt">{node.excerpt}</p>
                 <div>
-                  {node.frontmatter.tags.map((tag: string) => (
-                    <span style={{ marginRight: 8 }}>
+                  {node.frontmatter.tags.map((tag: string, idx: number) => (
+                    <span style={{ marginRight: 8 }} key={idx}>
                       <Tag label={tag} />
                     </span>
                   ))}
@@ -118,8 +125,8 @@ const Community: React.FC = ({ data }: any) => {
         </ArticleList>
         <ArticleSearch>
           <SearchInput onSearch={handleSearchInput} />
-          {tags.map(tag => (
-            <div
+          {tags.map((tag, idx) => (
+            <div key={idx}
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
             >
               <Tag label={tag} />

@@ -76,7 +76,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
       <BlogContent>
         <img src={post.frontmatter.headerImage} style={{ borderRadius: 10 }} />
         <BlogHeader>
-          <h1>{post.frontmatter.title}</h1>
+          {false && <h1>{post.frontmatter.title}</h1>}
           <ArticlePosted
             id={post.frontmatter.author.id}
             name={post.frontmatter.author.name}
@@ -99,7 +99,6 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
             }}
           >
             <AuthorCard
-              avatar="https://placekitten.com/60/60"
               id={post.frontmatter.author.id}
               name={post.frontmatter.author.name}
             />
