@@ -3,7 +3,7 @@ module.exports = {
     siteUrl: `https://www.trycourier.com`,
     title: "Courier",
     description:
-      "Courier sends your product's user notifications to the best channel for each user. Add any notification channel – like SMS, push, Slack, and WhatsApp – to your app with just a single API call.",
+      "Courier is the smartest way to design and deliver notifications. Design once, and deliver to any channel – email, Slack, SMS, push, and more – through one API.",
     author: "@trycourier",
     social: [
       {
