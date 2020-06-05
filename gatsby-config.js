@@ -5,10 +5,32 @@ module.exports = {
     description:
       "Courier sends your product's user notifications to the best channel for each user. Add any notification channel – like SMS, push, Slack, and WhatsApp – to your app with just a single API call.",
     author: "@trycourier",
+    social: [
+      {
+        name: `Facebook`,
+        url: `https://facebook.com/trycourier`,
+      },
+      {
+        name: `Instagram`,
+        url: `https://instagram.com/trycourier`,
+      },
+      {
+        name: `Twitter`,
+        url: `https://twitter.com/trycourier`,
+      },
+      {
+        name: `GitHub`,
+        url: `https://github.com/trycourier`,
+      },
+    ],
+  },
+  mapping: {
+    "MarkdownRemark.frontmatter.author": `AuthorYaml`,
+    "Mdx.frontmatter.author": `AuthorYaml`,
   },
   plugins: [
     "gatsby-plugin-react-helmet",
-    `gatsby-plugin-sitemap`,
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-typescript",
     {
       resolve: "gatsby-plugin-prefetch-google-fonts",
@@ -33,21 +55,55 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "posts",
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./src/data/`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".md", ".mdx"]
+      }
+    },
+    {
+      resolve: "gatsby-plugin-tags",
+      options: {
+        templatePath: `${__dirname}/src/templates/tag.tsx`,
+        prefix: "/blog/tags",
+      },
+    },
+    "gatsby-transformer-remark",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    {
-      resolve: "gatsby-plugin-segment-js",
-      options: {
-        prodKey: process.env.SEGMENT_KEY,
-        trackPage: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-intercom`,
-      options: {
-        appId: process.env.INTERCOM_KEY,
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-segment-js",
+    //   options: {
+    //     prodKey: process.env.SEGMENT_KEY,
+    //     trackPage: true,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-plugin-intercom`,
+    //   options: {
+    //     appId: process.env.INTERCOM_KEY,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {

@@ -18,7 +18,7 @@ const Footer = styled.footer`
 `;
 
 const LogoSection = styled.div`
-  ${tw`md:w-1/8 md:ml-6 md:pr-8`}
+  ${tw`md:w-1/8 md:ml-2 md:pr-8`}
 `;
 const Logo = styled.div`
   ${tw`mt-4 ml-2`}
@@ -44,7 +44,7 @@ const NavigationItems = styled.ul`
       line-height: 30px;
       border-radius: 9999px;
       :hover{
-        background: rgba(255,255,255,0.1);
+        background: rgba(255, 255, 255, 0.1);
       }
     }
   }
@@ -102,12 +102,11 @@ const FooterComponent: React.FC = () => {
               <li>
                 <Link to="/pricing">Pricing</Link>
               </li>
-              {/* <li>
-                <Link to="/#company">Company</Link>
-              </li>
-              <li>
-                <Link to="/#community">Community</Link>
-              </li> */}
+              {false && (
+                <li>
+                  <Link to="/community">Community</Link>
+                </li>
+              )}
               <li>
                 <a href="https://docs.trycourier.com/" rel="noreferrer" target="_blank">
                   Documentation

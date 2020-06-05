@@ -142,21 +142,20 @@ const ProgressBarComponent: React.FC<{
       <Ticks>
         {unticks.length
           ? unticks.map((pos, idx) => (
-              <>
+              <span key={idx}>
                 <MarkerLabel
                   style={{ left: pos, marginLeft: labelOffsets[idx] }}
                 >
                   {`$${pricePts[idx]}`}
                 </MarkerLabel>
                 <Marker
-                  key={idx}
                   src={UnTick}
                   alt={pricePts[idx]}
                   title={`$${pricePts[idx]}`}
                   style={{ left: pos }}
                   onClick={() => handleRangeClick(idx + 2)}
                 />
-              </>
+              </span>
             ))
           : null}
       </Ticks>

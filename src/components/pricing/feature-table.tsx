@@ -337,8 +337,8 @@ const FeatureTableComponent: React.FC = () => {
             </tr>
           </tbody>
           <tbody>
-            {features.map(feat => (
-              <tr key={feat.label}>
+            {features.map((feat, idx) => (
+              <tr key={idx}>
                 <td>{feat.label}</td>
                 <td>{feat.standard ? displayCell(feat.standard) : " "}</td>
                 <td>{feat.enterprise ? displayCell(feat.enterprise) : " "}</td>
@@ -370,8 +370,8 @@ const FeatureTableComponent: React.FC = () => {
           <ul>
             {features
               .filter(feat => feat.standard)
-              .map(feat => (
-                <li>{feat.label}</li>
+              .map((feat, idx) => (
+                <li key={idx}>{feat.label}</li>
               ))}
           </ul>
           <MobileRegistrationCTA>
@@ -401,8 +401,8 @@ const FeatureTableComponent: React.FC = () => {
           <ul>
             {features
               .filter(feat => feat.enterprise)
-              .map(feat => (
-                <li>{feat.label}</li>
+              .map((feat, idx) => (
+                <li key={idx}>{feat.label}</li>
               ))}
           </ul>
           <Button style={{ width: "100%" }} onClick={handleContactSalesClick}>

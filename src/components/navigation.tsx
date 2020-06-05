@@ -145,14 +145,13 @@ const NavigationComponent: React.FC = () => {
                 <li>
                   <Link to="/pricing">Pricing</Link>
                 </li>
-                {/* <li>
-                    <Link to="/#company">Company</Link>
-                  </li>
+                {false && (
                   <li>
-                    <Link to="/#community">Community</Link>
-                  </li> */}
+                    <Link to="/community">Community</Link>
+                  </li>
+                )}
                 <li>
-                  <a href="https://docs.trycourier.com/" target="_blank">
+                  <a href="https://docs.trycourier.com/" rel="noreferrer" target="_blank">
                     Documentation
                   </a>
                 </li>
@@ -214,9 +213,11 @@ const NavigationComponent: React.FC = () => {
           <li>
             <Link to="/pricing">Pricing</Link>
           </li>
-          {/* <li>
-            <Link to="/#company">Company</Link>
-          </li> */}
+          {false && (
+            <li>
+              <Link to="/community">Community</Link>
+            </li>
+          )}
           <li>
             <a
               href="https://docs.trycourier.com/"

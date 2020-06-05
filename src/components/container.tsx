@@ -39,7 +39,7 @@ export const Divide = styled.div`
 `;
 
 export const TopDivider = styled(Divide)`
-  top: 0px;
+  top: -1px;
   height: 160px;
   background-color: ${(props: ContainerProps) => colors[props.bg]};
   &.footer {
@@ -52,6 +52,7 @@ export const PageWrapper = styled.div`
   ${tw`relative px-4`}
   top: -100px;
   overflow: hidden;
+  min-height: 40vh;
   color: ${colors.textSecondary};
   & h1 {
     color: ${colors.textPrimary};
