@@ -17,7 +17,7 @@ const SEO: React.FC<{
     content: string;
   }>;
   title: string;
-  image: string;
+  image?: string;
 }> = ({ description = "", lang = "en", meta = [], title, image }) => {
   const { site } = useStaticQuery(
     graphql`
