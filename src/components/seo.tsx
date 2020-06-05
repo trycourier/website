@@ -74,7 +74,7 @@ const SEO: React.FC<{
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
+          name: `twitter:site`,
           content: site.siteMetadata.author,
         },
         {
