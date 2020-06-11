@@ -79,7 +79,7 @@ const DetailLinks = styled.div`
     ${tw`flex flex-col md:flex-row`}
   }
   a {
-    ${tw`no-underline inline-block text-white text-sm p-2 md:px-8`}
+    ${tw`no-underline inline-block text-white text-sm p-2 md:px-4`}
     border-radius: 9999px;
     :hover {
       background: rgba(255, 255, 255, 0.1);
@@ -136,6 +136,7 @@ const FooterComponent: React.FC = () => {
               <a href="/terms">Terms&nbsp;of&nbsp;Service</a>
               <a href="/privacy">Privacy&nbsp;Policy</a>
               <a href="/disclosure">Responsible&nbsp;Disclosure&nbsp;Policy</a>
+              <a href="/subprocessors">Data Subprocessors</a>
               <a href="https://jobs.lever.co/trycourier" rel="noreferrer" target="_blank">Careers</a>
             </p>
           </DetailLinks>
