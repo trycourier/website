@@ -102,17 +102,17 @@ export const ArticlePosted: React.FC = ({ id, name, date }: ArticlePostedType) =
 type ArticleAuthorType = {
   id: string;
   name: string;
-  // avatar?: string;
+  avatar?: string;
 }
 const AuthorCardContent = styled.div`
   ${tw`flex`}
   ${linkStrongStyle}
 `;
 
-export const AuthorCard: React.FC = ({id, name}: ArticleAuthorType) => (
+export const AuthorCard: React.FC = ({id, name, avatar}: ArticleAuthorType) => (
   <AuthorCardContent>
     <img
-      src={Avatar}
+      src={avatar || Avatar}
       width="60"
       height="60"
       style={{ borderRadius: 60, marginRight: 16 }}

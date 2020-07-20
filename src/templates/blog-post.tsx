@@ -73,6 +73,11 @@ export const query = graphql`
         name
         twitter
         slug
+        avatar {
+          fluid(maxHeight: 100) {
+            src
+          }
+        }
       }
       content {
         childContentfulRichText {
@@ -134,6 +139,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
             <AuthorCard
               id={post.authors[0].slug}
               name={post.authors[0].name}
+              avatar={post.authors[0].avatar.fluid.src}
             />
           </div>
           <BackLink />
