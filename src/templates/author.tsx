@@ -89,6 +89,10 @@ export const query = graphql`
       filter: { authors: {elemMatch: {slug: {in: $authorId}}}}
     ) {
       totalCount
+      group(field: tags___name) {
+        fieldValue
+        totalCount
+      }
       edges {
         node {
           id
@@ -130,6 +134,8 @@ type AuthoredTypes = {
 const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
   const { author } = pageContext;
   const posts = data.allContentfulPost.edges;
+  const tags = data.allContentfulPost.group;
+
   return (
     <Simple title={`Authored: ${author.name}`}>
       <BackLink />
@@ -176,18 +182,15 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
             ))}
           </ArticleList>
           <ArticleSearch>
-            {/*<SearchInput />
-             {tags.map(tag => (
-              <div
-                style={{
-                  width: "100%",
-                  textAlign: "right",
-                  margin: "16px 0px",
-                }}
-              >
-                <Tag>{tag.label}</Tag>
-              </div>
-            ))} */}
+            {false && (<SearchInput />)}
+            {tags.map((tag: {fieldValue: string, totalCount: Number}, idx: Number) => (
+            <div
+              style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
+              key={`${idx}`}
+            >
+              <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
+            </div>
+          ))}
           </ArticleSearch>
         </ArticleScreen>
         <AuthoredFooter>

@@ -181,7 +181,7 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
             ))}
           </ArticleList>
           <ArticleSearch>
-            <SearchInput />
+            {false && <SearchInput />}
             {tags.map((tag: {fieldValue: string, totalCount: Number}, idx: Number) => (
             <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
