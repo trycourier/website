@@ -108,7 +108,7 @@ type GraphQLQuery = {
 const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.contentfulPost;
   return (
-    <Simple title={post.title} description={post.excerpt}>
+    <Simple title={post.title} description={post.excerpt.excerpt}>
       <BackLink />
 
       <BlogContent>
