@@ -92,7 +92,7 @@ export const ArticlePosted: React.FC = ({ id, name, date }: ArticlePostedType) =
   <PostedContent>
     Posted by{" "}
     <strong>
-      <a href={`/blog/author/${id}`}>{name}</a>
+      <a href={`/blog/authors/${id}`}>{name}</a>
     </strong>{" "}
     on <strong>{date}</strong>
   </PostedContent>
@@ -102,17 +102,17 @@ export const ArticlePosted: React.FC = ({ id, name, date }: ArticlePostedType) =
 type ArticleAuthorType = {
   id: string;
   name: string;
-  // avatar?: string;
+  avatar?: string;
 }
 const AuthorCardContent = styled.div`
   ${tw`flex`}
   ${linkStrongStyle}
 `;
 
-export const AuthorCard: React.FC = ({id, name}: ArticleAuthorType) => (
+export const AuthorCard: React.FC = ({id, name, avatar}: ArticleAuthorType) => (
   <AuthorCardContent>
     <img
-      src={Avatar}
+      src={avatar || Avatar}
       width="60"
       height="60"
       style={{ borderRadius: 60, marginRight: 16 }}
@@ -121,7 +121,7 @@ export const AuthorCard: React.FC = ({id, name}: ArticleAuthorType) => (
       Author
       <br />
       <strong>
-        <a href={`/blog/author/${id}`}>
+        <a href={`/blog/authors/${id}`}>
           {name}
         </a>
       </strong>

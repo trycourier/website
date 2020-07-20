@@ -8,6 +8,7 @@
     "node": ">=10.10"
   },
   "dependencies": {
+    "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@mdx-js/mdx": "^1.5.7",
     "@mdx-js/react": "^1.5.7",
     "@sentry/browser": "^5.7.1",
@@ -35,6 +36,7 @@
     "gatsby-plugin-styled-components": "^3.1.2",
     "gatsby-plugin-tags": "^2.3.7",
     "gatsby-plugin-typescript": "^2.1.2",
+    "gatsby-source-contentful": "^2.3.28",
     "gatsby-source-filesystem": "^2.1.8",
     "gatsby-transformer-remark": "^2.7.1",
     "gatsby-transformer-sharp": "^2.2.5",

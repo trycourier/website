@@ -50,6 +50,7 @@ const AuthoredFooter = styled.div`
   ${tw`flex justify-between mt-4`}
 `;
 
+/*
 export const query = graphql`
   query ($authorId: String!){
     allMarkdownRemark(
@@ -79,6 +80,51 @@ export const query = graphql`
     }
   }
 `;
+*/
+
+export const query = graphql`
+  query ($authorId: [String]){
+    allContentfulPost(
+      limit: 1000
+      filter: { authors: {elemMatch: {slug: {in: $authorId}}}}
+    ) {
+      totalCount
+      group(field: tags___name) {
+        fieldValue
+        totalCount
+      }
+      edges {
+        node {
+          id
+          title
+          tags {
+            id
+            name
+          }
+          content {
+            childContentfulRichText {
+              timeToRead
+            }
+          }
+          createdAt(formatString: "MMMM Do, YYYY")
+          thumbnail {
+            file {
+              url
+            }
+          }
+          authors {
+            slug
+            name
+          }
+          slug
+          excerpt {
+            excerpt
+          }
+        }
+      }
+    }
+  }
+`;
 
 type AuthoredTypes = {
   pageContext: any;
@@ -87,7 +133,9 @@ type AuthoredTypes = {
 
 const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
   const { author } = pageContext;
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data.allContentfulPost.edges;
+  const tags = data.allContentfulPost.group;
+
   return (
     <Simple title={`Authored: ${author.name}`}>
       <BackLink />
@@ -103,29 +151,29 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
           <ArticleList>
             {posts.map(({ node }: any) => (
               <ArticleCard key={node.id}>
-                <a href={`/${node.fields.slug}`}>
+                <a href={`/blog/${node.slug}`}>
                   <ArticleImage
-                    src={node.frontmatter.thumbnail}
-                    alt={node.frontmatter.title}
+                    src={node.thumbnail.file.url}
+                    alt={node.title}
                   />
                 </a>
 
                 <div className="px-4">
-                  <HeaderLink href={`/${node.fields.slug}`}>
+                  <HeaderLink href={`/blog/${node.slug}`}>
                     <h4 className="font-bold text-xl py-0 mt-0 mb-2">
-                      {node.frontmatter.title}
+                      {node.title}
                     </h4>
                   </HeaderLink>
                   <ArticlePosted
-                    id={node.frontmatter.author.id}
-                    name={node.frontmatter.author.name}
-                    date={node.frontmatter.date}
+                    id={node.authors[0].slug}
+                    name={node.authors[0].name}
+                    date={node.createdAt}
                   />
-                  <p className="excerpt">{node.excerpt}</p>
+                  <p className="excerpt">{node.excerpt.excerpt}</p>
                   <div>
-                    {node.frontmatter.tags.map((tag: string) => (
-                      <span style={{ marginRight: 8 }}>
-                        <Tag label={tag} />
+                    {node.tags.map((tag: {name: string, id: string}) => (
+                      <span style={{ marginRight: 8 }} key={tag.id}>
+                        <Tag label={tag.name} />
                       </span>
                     ))}
                   </div>
@@ -134,18 +182,15 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
             ))}
           </ArticleList>
           <ArticleSearch>
-            {/*<SearchInput />
-             {tags.map(tag => (
-              <div
-                style={{
-                  width: "100%",
-                  textAlign: "right",
-                  margin: "16px 0px",
-                }}
-              >
-                <Tag>{tag.label}</Tag>
-              </div>
-            ))} */}
+            {false && (<SearchInput />)}
+            {tags.map((tag: {fieldValue: string, totalCount: Number}, idx: Number) => (
+            <div
+              style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
+              key={`${idx}`}
+            >
+              <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
+            </div>
+          ))}
           </ArticleSearch>
         </ArticleScreen>
         <AuthoredFooter>

@@ -41,6 +41,7 @@ const BlogFooter = styled.div`
   ${tw`flex justify-between mt-4`}
 `;
 
+/*
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -62,35 +63,72 @@ export const query = graphql`
     }
   }
 `;
+*/
+
+export const query = graphql`
+  query($slug: String!) {
+    contentfulPost( slug: { eq: $slug }) {
+      title
+      authors {
+        name
+        twitter
+        slug
+        avatar {
+          fluid(maxHeight: 100) {
+            src
+          }
+        }
+      }
+      content {
+        childContentfulRichText {
+          html
+        }
+      }
+      tags {
+        id
+        name
+      }
+      headerImage {
+        file {
+          url
+        }
+      }
+      createdAt(formatString: "MMMM Do, YYYY")
+      excerpt {
+        excerpt
+      }
+    }
+  }
+`;
 
 type GraphQLQuery = {
   data: any;
 };
 
 const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
-  const post = data.markdownRemark;
+  const post = data.contentfulPost;
   return (
-    <Simple title={post.frontmatter.title} description={post.excerpt}>
+    <Simple title={post.title} description={post.excerpt.excerpt}>
       <BackLink />
 
       <BlogContent>
-        <img src={post.frontmatter.headerImage} style={{ borderRadius: 10 }} />
+        <img src={post.headerImage.file.url} style={{ borderRadius: 10 }} />
         <BlogHeader>
-          {false && <h1>{post.frontmatter.title}</h1>}
+          {false && <h1>{post.title}</h1>}
           <ArticlePosted
-            id={post.frontmatter.author.id}
-            name={post.frontmatter.author.name}
-            date={post.frontmatter.date}
+            id={post.authors[0].slug}
+            name={post.authors[0].name}
+            date={post.createdAt}
           />
           <div>
-            {post.frontmatter.tags.map((tag: string, idx: number) => (
+            {post.tags.map((tag: string, idx: number) => (
               <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
-                <Tag label={tag} />
+                <Tag label={tag.name} />
               </span>
             ))}
           </div>
         </BlogHeader>
-        <BlogBody dangerouslySetInnerHTML={{ __html: post.html }} />
+        <BlogBody dangerouslySetInnerHTML={{ __html: post.content.childContentfulRichText.html }} />
         <BlogFooter>
           <div
             style={{
@@ -99,8 +137,9 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
             }}
           >
             <AuthorCard
-              id={post.frontmatter.author.id}
-              name={post.frontmatter.author.name}
+              id={post.authors[0].slug}
+              name={post.authors[0].name}
+              avatar={post.authors[0].avatar.fluid.src}
             />
           </div>
           <BackLink />

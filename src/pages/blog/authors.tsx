@@ -9,7 +9,7 @@ import {
   ArticleScreen,
 } from "../../components/community/articles";
 
-export const query = graphql`
+/*export const query = graphql`
   query {
     allAuthorYaml(sort: {order: ASC, fields: name}) {
       edges {
@@ -23,10 +23,25 @@ export const query = graphql`
       }
     }
   }
+`;*/
+
+export const query = graphql`
+  query {
+    allContentfulAuthor(sort: {order: ASC, fields: name}) {
+      edges {
+        node {
+          id
+          name
+          twitter
+          slug
+        }
+      }
+    }
+  }
 `;
 
 const Authors: React.FC = ({ data }: any) => {
-  const authors = data.allAuthorYaml.edges;
+  const authors = data.allContentfulAuthor.edges;
 
   return (
     <Simple title="Courier Blog Authors">
@@ -36,7 +51,7 @@ const Authors: React.FC = ({ data }: any) => {
         <ArticleList>
           {authors.map(({node}) => (
             <ArticleCard key={node.id}>
-              <a href={`/blog/author/${node.id}`}>
+              <a href={`/blog/authors/${node.slug}`}>
                 {node.name}
               </a>
             </ArticleCard>

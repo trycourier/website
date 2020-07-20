@@ -16,7 +16,7 @@ import {
 import SearchInput from "../../components/community/search-input";
 import Tag from "../../components/community/tag";
 
-export const query = graphql`
+/*export const query = graphql`
   query {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
@@ -47,7 +47,45 @@ export const query = graphql`
       }
     }
   }
-`;
+`;*/
+
+export const query = graphql`
+  query {
+    allContentfulPost(sort: {fields: createdAt, order: DESC}) {
+      totalCount
+      group(field: tags___name) {
+        fieldValue
+        totalCount
+      }
+      edges {
+        node {
+          id
+          title
+          tags {
+            id
+            name
+          }
+          authors {
+            id
+            name
+            twitter
+            slug
+          }
+          slug
+          createdAt(formatString: "MMMM Do, YYYY")
+          thumbnail {
+            file {
+              url
+            }
+          }
+          excerpt {
+            excerpt
+          }
+        }
+      }
+    }
+  }
+`
 
 const Blog: React.FC = ({ data }: any) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -62,7 +100,7 @@ const Blog: React.FC = ({ data }: any) => {
     return regex !== -1;
   };
 
-  const tags = data.allMarkdownRemark.group;
+  const tags = data.allContentfulPost.group;
 
   return (
     <Simple title="Courier Blog">
@@ -70,32 +108,32 @@ const Blog: React.FC = ({ data }: any) => {
       <p style={{ marginTop: 0 }}>Feel free to share our content.</p>
       <ArticleScreen>
         <ArticleList>
-          {data.allMarkdownRemark.edges
+          {data.allContentfulPost.edges
             .filter(({ node }) => {
-              return searchContent(node.frontmatter.title);
+              return searchContent(node.title);
             })
             .map(({ node }: any) => (
               <ArticleCard key={node.id}>
-                <a href={`/${node.fields.slug}`}>
+                <a href={`/blog/${node.slug}`}>
                   <ArticleImage
-                    src={node.frontmatter.thumbnail}
-                    alt={node.frontmatter.title}
+                    src={node.thumbnail.file.url}
+                    alt={node.title}
                   />
                 </a>
                 <ArticlePreview>
-                  <ArticleHeaderLink href={`/${node.fields.slug}`}>
-                    <h4>{node.frontmatter.title}</h4>
+                  <ArticleHeaderLink href={`/blog/${node.slug}`}>
+                    <h4>{node.title}</h4>
                   </ArticleHeaderLink>
                   <ArticlePosted
-                    id={node.frontmatter.author.id}
-                    name={node.frontmatter.author.name}
-                    date={node.frontmatter.date}
+                    id={node.authors[0].slug}
+                    name={node.authors[0].name}
+                    date={node.createdAt}
                   />
-                  <p className="excerpt">{node.excerpt}</p>
+                  <p className="excerpt">{node.excerpt.excerpt}</p>
                   <div>
-                    {node.frontmatter.tags.map((tag: string) => (
-                      <span style={{ marginRight: 8 }}>
-                        <Tag label={tag} />
+                    {node.tags.map((tag: {name: string, id: string}) => (
+                      <span style={{ marginRight: 8 }} key={tag.id}>
+                        <Tag label={tag.name} />
                       </span>
                     ))}
                   </div>
@@ -105,9 +143,10 @@ const Blog: React.FC = ({ data }: any) => {
         </ArticleList>
         <ArticleSearch>
           <SearchInput onSearch={handleSearchInput} />
-          {tags.map(tag => (
+          {tags.map((tag: {fieldValue: string, totalCount: Number}, idx: Number) => (
             <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
+              key={`${idx}`}
             >
               <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
             </div>

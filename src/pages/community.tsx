@@ -22,7 +22,7 @@ import colors from "../colors";
 
 const tags = ["Example"]
 
-export const query = graphql`
+/*export const query = graphql`
   query {
     allMarkdownRemark(
       limit: 5,
@@ -56,7 +56,46 @@ export const query = graphql`
       }
     }
   }
-`;
+`;*/
+
+export const query = graphql`
+  query {
+    allContentfulPost(
+      limit: 5,
+      sort: { fields: createdAt, order: DESC }
+    ) {
+      totalCount
+      group(field: tags___name) {
+        fieldValue
+        totalCount
+      }
+      edges {
+        node {
+          id
+          slug
+          title
+          createdAt(formatString: "MMMM Do, YYYY")
+          thumbnail {
+            file {
+              url
+            }
+          }
+          tags {
+            name
+          }
+          authors {
+            slug
+            name
+            twitter
+          }
+          excerpt {
+            excerpt
+          }
+        }
+      }
+    }
+  }
+`
 
 const Community: React.FC = ({ data }: any) => {
 
@@ -66,11 +105,15 @@ const Community: React.FC = ({ data }: any) => {
     setSearchTerm(e.currentTarget.value.toLowerCase());
   };
 
+  const articles = data.allContentfulPost.edges;
+
   const searchContent = value => {
     const val = value.toLowerCase();
     const regex = val.search(searchTerm);
     return regex !== -1;
   };
+
+  const tags = data.allContentfulPost.group;
 
   return (
     <Simple title="Community">
@@ -79,32 +122,32 @@ const Community: React.FC = ({ data }: any) => {
 
       <ArticleScreen>
         <ArticleList>
-          {data.allMarkdownRemark.edges.filter(({ node }) => {
-              return searchContent(node.frontmatter.title);
+          {articles.filter(({ node }) => {
+              return searchContent(node.title);
             })
           .map(({ node }: any, idx: Number) => (
             <ArticleCard key={node.id} key={idx}>
-              <a href={node.fields.slug}>
+              <a href={node.slug}>
                 <ArticleImage
-                  src={node.frontmatter.thumbnail}
-                  alt={node.frontmatter.title}
+                  src={node.thumbnail.file.url}
+                  alt={node.title}
                 />
               </a>
 
               <ArticlePreview>
-                <ArticleHeaderLink href={node.fields.slug}>
-                  <h4>{node.frontmatter.title}</h4>
+                <ArticleHeaderLink href={`/blog/${node.slug}`}>
+                  <h4>{node.title}</h4>
                 </ArticleHeaderLink>
                 <ArticlePosted
-                  id={node.frontmatter.author.id}
-                  name={node.frontmatter.author.name}
-                  date={node.frontmatter.date}
+                  id={node.authors[0].slug}
+                  name={node.authors[0].name}
+                  date={node.createdAt}
                 />
-                <p className="excerpt">{node.excerpt}</p>
+                <p className="excerpt">{node.excerpt.excerpt}</p>
                 <div>
-                  {node.frontmatter.tags.map((tag: string, idx: number) => (
+                  {node.tags.map((tag: string, idx: number) => (
                     <span style={{ marginRight: 8 }} key={idx}>
-                      <Tag label={tag} />
+                      <Tag label={tag.name} />
                     </span>
                   ))}
                 </div>
@@ -125,11 +168,12 @@ const Community: React.FC = ({ data }: any) => {
         </ArticleList>
         <ArticleSearch>
           <SearchInput onSearch={handleSearchInput} />
-          {tags.map((tag, idx) => (
-            <div key={idx}
+          {tags.map((tag: {fieldValue: string, totalCount: Number}, idx: Number) => (
+            <div
               style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
+              key={`${idx}`}
             >
-              <Tag label={tag} />
+              <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
             </div>
           ))}
         </ArticleSearch>
