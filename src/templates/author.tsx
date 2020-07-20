@@ -113,6 +113,9 @@ export const query = graphql`
             name
           }
           slug
+          excerpt {
+            excerpt
+          }
         }
       }
     }
@@ -160,7 +163,7 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
                     name={node.authors[0].name}
                     date={node.createdAt}
                   />
-                  <p className="excerpt">{node.excerpt}</p>
+                  <p className="excerpt">{node.excerpt.excerpt}</p>
                   <div>
                     {node.tags.map((tag: {name: string, id: string}) => (
                       <span style={{ marginRight: 8 }} key={tag.id}>

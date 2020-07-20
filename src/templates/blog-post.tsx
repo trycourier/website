@@ -89,6 +89,9 @@ export const query = graphql`
         }
       }
       createdAt(formatString: "MMMM Do, YYYY")
+      excerpt {
+        excerpt
+      }
     }
   }
 `;

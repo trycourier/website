@@ -88,6 +88,9 @@ export const query = graphql`
             name
             twitter
           }
+          excerpt {
+            excerpt
+          }
         }
       }
     }
@@ -140,7 +143,7 @@ const Community: React.FC = ({ data }: any) => {
                   name={node.authors[0].name}
                   date={node.createdAt}
                 />
-                <p className="excerpt">{node.excerpt}</p>
+                <p className="excerpt">{node.excerpt.excerpt}</p>
                 <div>
                   {node.tags.map((tag: string, idx: number) => (
                     <span style={{ marginRight: 8 }} key={idx}>
