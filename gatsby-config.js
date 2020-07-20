@@ -122,6 +122,14 @@ module.exports = {
         icon: "static/favicon/favicon-96x96.png", // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: "z7iqk1q8njt4",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
+    },
+    "@contentful/gatsby-transformer-contentful-richtext",
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',

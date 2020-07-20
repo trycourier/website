@@ -5,7 +5,6 @@
  */
 
 const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
 
 // Customize Schema
 exports.createSchemaCustomization = ({ actions, schema }) => {
@@ -54,55 +53,72 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 }
 
 // Create Pages
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `posts` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: `/blog${slug}`,
-    })
-  }
-}
 exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allContentfulPost {
         edges {
           node {
-            fields {
-              slug
-            }
+            slug
+            title
           }
         }
       }
-      allAuthorYaml {
-        nodes {
-          name
-          id
+      allContentfulAuthor {
+        edges {
+          node {
+            name
+            slug
+          }
+        }
+      }
+      allContentfulTag {
+        edges {
+          node {
+            id
+            name
+          }
         }
       }
     }
   `)
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    actions.createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/templates/blog-post.tsx`),
+
+  const posts = result.data.allContentfulPost.edges
+  posts.forEach(({ node }) => {
+    createPage({
+      path: `blog/${node.slug}`,
+      component: blogPost,
       context: {
-        slug: node.fields.slug,
+        slug: node.slug,
       },
     })
   })
-  result.data.allAuthorYaml.nodes.forEach(author => {
-    console.log('author:', author);
-    actions.createPage({
-      path: `blog/author/${author.id}`,
+
+  const authors = result.data.allContentfulAuthor.edges
+  authors.forEach(({node}) => {
+    console.log('author:', node.name);
+    createPage({
+      path: `blog/authors/${node.slug}`,
       component: path.resolve(`./src/templates/author.tsx`),
       context: {
-        author,
-        authorId: author.id
+        author: node,
+        authorId: node.slug
       },
+    })
+  })
+
+  const tags = result.data.allContentfulTag.edges
+  tags.forEach(({node}) => {
+    createPage({
+      path: `blog/tags/${node.name}`,
+      component: path.resolve(`./src/templates/tag.tsx`),
+      context: {
+        tag: node,
+        tagId: node.id
+      }
     })
   })
 }

@@ -92,7 +92,7 @@ export const ArticlePosted: React.FC = ({ id, name, date }: ArticlePostedType) =
   <PostedContent>
     Posted by{" "}
     <strong>
-      <a href={`/blog/author/${id}`}>{name}</a>
+      <a href={`/blog/authors/${id}`}>{name}</a>
     </strong>{" "}
     on <strong>{date}</strong>
   </PostedContent>
@@ -121,7 +121,7 @@ export const AuthorCard: React.FC = ({id, name}: ArticleAuthorType) => (
       Author
       <br />
       <strong>
-        <a href={`/blog/author/${id}`}>
+        <a href={`/blog/authors/${id}`}>
           {name}
         </a>
       </strong>
