@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
 import tw from "tailwind.macro";
 import Avatar from "../../images/avatar@2x.png";
@@ -88,7 +88,7 @@ const PostedContent = styled.div`
   ${linkStrongStyle}
 `;
 
-export const ArticlePosted: React.FC = ({ id, name, date }: ArticlePostedType) => (
+export const ArticlePosted: React.FC<ArticlePostedType> = ({ id, name, date }) => (
   <PostedContent>
     Posted by{" "}
     <strong>
@@ -103,13 +103,14 @@ type ArticleAuthorType = {
   id: string;
   name: string;
   avatar?: string;
+  children?: ReactNode;
 }
 const AuthorCardContent = styled.div`
   ${tw`flex`}
   ${linkStrongStyle}
 `;
 
-export const AuthorCard: React.FC = ({id, name, avatar}: ArticleAuthorType) => (
+export const AuthorCard: React.FC<ArticleAuthorType> = ({id, name, avatar}) => (
   <AuthorCardContent>
     <img
       src={avatar || Avatar}

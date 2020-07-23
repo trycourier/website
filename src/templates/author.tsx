@@ -18,7 +18,6 @@ import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
 
 import colors from "../colors";
-// import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const HeaderLink = styled.a`
   ${tw`no-underline`}
@@ -50,38 +49,6 @@ const AuthoredFooter = styled.div`
   ${tw`flex justify-between mt-4`}
 `;
 
-/*
-export const query = graphql`
-  query ($authorId: String!){
-    allMarkdownRemark(
-      limit: 1000
-      filter: { frontmatter: { author: { id: { eq: $authorId } } } }
-    ) {
-      totalCount
-      edges {
-        node {
-          frontmatter {
-            title
-            thumbnail
-            tags
-            date
-            author {
-              id
-              name
-            }
-          }
-          fields {
-            slug
-          }
-          excerpt
-          timeToRead
-        }
-      }
-    }
-  }
-`;
-*/
-
 export const query = graphql`
   query ($authorId: [String]){
     allContentfulPost(
@@ -100,11 +67,6 @@ export const query = graphql`
           tags {
             id
             name
-          }
-          content {
-            childContentfulRichText {
-              timeToRead
-            }
           }
           createdAt(formatString: "MMMM Do, YYYY")
           thumbnail {
@@ -200,7 +162,6 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
 
           <BackLink />
         </AuthoredFooter>
-        {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
       </AuthoredContent>
     </Simple>
   );

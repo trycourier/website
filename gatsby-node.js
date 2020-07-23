@@ -6,64 +6,16 @@
 
 const path = require(`path`)
 
-// Customize Schema
-exports.createSchemaCustomization = ({ actions, schema }) => {
-  const { createTypes } = actions
-  const typeDefs = [
-    "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
-    schema.buildObjectType({
-      name: "Frontmatter",
-      fields: {
-        hidden: {
-          type: "String",
-          resolve(source, args, context, info) {
-            return source.hidden === "true" ? "true" : "false"
-          }
-        },
-        headerImage: {
-          type: "String",
-          resolve(source, args, context, info) {
-            const { headerImage } = source
-            return headerImage || "https://www.fillmurray.com/220/160"
-          }
-        },
-        thumbnail: {
-          type: "String",
-          resolve(source, args, context, info) {
-            const { thumbnail } = source
-            return thumbnail || "https://www.fillmurray.com/220/160"
-          }
-        },
-        tags: {
-          type: "[String!]",
-          resolve(source, args, context, info) {
-            // For a more generic solution, you could pick the field value from
-            // `source[info.fieldName]`
-            const { tags } = source
-            if (source.tags == null || (Array.isArray(tags) && !tags.length)) {
-              return ["Uncategorized"]
-            }
-            return tags
-          },
-        },
-      },
-    }),
-  ]
-  createTypes(typeDefs)
-}
-
 // Create Pages
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const result = await graphql(`
     query {
       allContentfulPost {
         edges {
           node {
             slug
-            title
           }
         }
       }
@@ -86,6 +38,13 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  // Handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const posts = result.data.allContentfulPost.edges
   posts.forEach(({ node }) => {
     createPage({

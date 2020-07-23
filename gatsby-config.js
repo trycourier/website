@@ -24,10 +24,6 @@ module.exports = {
       },
     ],
   },
-  mapping: {
-    "MarkdownRemark.frontmatter.author": `AuthorYaml`,
-    "Mdx.frontmatter.author": `AuthorYaml`,
-  },
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
@@ -56,36 +52,9 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "posts",
-        path: `${__dirname}/src/posts`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-page-creator",
-      options: {
-        path: `${__dirname}/src/posts`,
-      },
-    },
-    `gatsby-transformer-yaml`,
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `./src/data/`,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        extensions: [".md", ".mdx"],
-      },
-    },
-    {
-      resolve: "gatsby-plugin-tags",
-      options: {
-        templatePath: `${__dirname}/src/templates/tag.tsx`,
-        prefix: "/blog/tags",
       },
     },
     "gatsby-transformer-remark",
@@ -129,7 +98,6 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
       }
     },
-    "@contentful/gatsby-transformer-contentful-richtext",
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',
