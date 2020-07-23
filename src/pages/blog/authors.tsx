@@ -9,22 +9,6 @@ import {
   ArticleScreen,
 } from "../../components/community/articles";
 
-/*export const query = graphql`
-  query {
-    allAuthorYaml(sort: {order: ASC, fields: name}) {
-      edges {
-        node {
-          id
-          name
-          avatar {
-            publicURL
-          }
-        }
-      }
-    }
-  }
-`;*/
-
 export const query = graphql`
   query {
     allContentfulAuthor(sort: {order: ASC, fields: name}) {

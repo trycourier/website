@@ -16,39 +16,6 @@ import {
 import SearchInput from "../../components/community/search-input";
 import Tag from "../../components/community/tag";
 
-/*export const query = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      totalCount
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
-      }
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "MMMM Do, YYYY")
-            thumbnail
-            tags
-            author {
-              id
-              bio
-              name
-              twitter
-            }
-          }
-          fields {
-            slug
-          }
-          excerpt
-        }
-      }
-    }
-  }
-`;*/
-
 export const query = graphql`
   query {
     allContentfulPost(sort: {fields: createdAt, order: DESC}) {

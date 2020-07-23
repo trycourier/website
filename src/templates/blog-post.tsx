@@ -1,5 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { INLINES } from '@contentful/rich-text-types'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import Simple from "./simple";
@@ -7,7 +9,6 @@ import Tag from "../components/community/tag";
 import BackLink from "../components/community/back-link";
 
 import colors from "../colors";
-// import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { ArticlePosted, AuthorCard } from "../components/community/articles";
 
@@ -41,29 +42,19 @@ const BlogFooter = styled.div`
   ${tw`flex justify-between mt-4`}
 `;
 
-/*
-export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      excerpt
-      rawMarkdownBody
-      frontmatter {
-        title
-        date(formatString: "MMMM Do, YYYY")
-        author {
-          id
-          bio
-          name
-          twitter
-        }
-        headerImage
-        tags
-      }
-    }
-  }
-`;
-*/
+const IframeContainer = styled.span`
+  padding-bottom: 56.25%; 
+  position: relative; 
+  display: block; 
+  width: 100%;
+
+  > iframe {
+    height: 100%;
+    width: 100%;
+    position: absolute; 
+    top: 0; 
+    left: 0;
+  }`;
 
 export const query = graphql`
   query($slug: String!) {
@@ -80,9 +71,7 @@ export const query = graphql`
         }
       }
       content {
-        childContentfulRichText {
-          html
-        }
+        json
       }
       tags {
         id
@@ -107,6 +96,19 @@ type GraphQLQuery = {
 
 const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.contentfulPost;
+  const options = {
+    renderNode: {
+      [INLINES.HYPERLINK]: (node) => {
+        console.log(node);
+        if((node.data.uri).includes("player.vimeo.com/video")){
+          return <IframeContainer><iframe title={node.content[0].value} src={node.data.uri} frameBorder="0" allowFullScreen></iframe></IframeContainer>
+        } else if((node.data.uri).includes("youtube.com/embed")) {
+          return <IframeContainer><iframe title={node.content[0].value} src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></IframeContainer>
+        }
+      }
+    }
+  };
+
   return (
     <Simple title={post.title} description={post.excerpt.excerpt}>
       <BackLink />
@@ -121,14 +123,16 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
             date={post.createdAt}
           />
           <div>
-            {post.tags.map((tag: string, idx: number) => (
+            {post.tags.map((tag: {name: string}, idx: number) => (
               <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
                 <Tag label={tag.name} />
               </span>
             ))}
           </div>
         </BlogHeader>
-        <BlogBody dangerouslySetInnerHTML={{ __html: post.content.childContentfulRichText.html }} />
+        <BlogBody>
+          { documentToReactComponents(post.content.json, options) }
+        </BlogBody>
         <BlogFooter>
           <div
             style={{
@@ -144,7 +148,6 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
           </div>
           <BackLink />
         </BlogFooter>
-        {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
       </BlogContent>
     </Simple>
   );

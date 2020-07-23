@@ -16,8 +16,6 @@ import BackLink from "../components/community/back-link";
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
 
-// import { MDXRenderer } from "gatsby-plugin-mdx"
-
 const HeaderLink = styled.a`
   ${tw`no-underline`}
   & :hover {
@@ -48,37 +46,6 @@ const TaggedFooter = styled.div`
   ${tw`flex justify-between mt-4`}
 `;
 
-/*export const query = graphql`
-  query($tag: String!) {
-    allMarkdownRemark(
-      limit: 1000
-      filter: { fields: { tags: { in: [$tag] } } }
-    ) {
-      totalCount
-      edges {
-        node {
-          fields {
-            slug
-            tags
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            date(formatString: "MMMM Do, YYYY")
-            thumbnail
-            tags
-            author {
-              id
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-`;*/
-
 export const query = graphql`
   query($tagId: [String]) {
     allContentfulPost(
@@ -97,11 +64,6 @@ export const query = graphql`
           tags {
             id
             name
-          }
-          content {
-            childContentfulRichText {
-              timeToRead
-            }
           }
           title
           createdAt(formatString: "MMMM Do, YYYY")
@@ -199,7 +161,6 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
 
           <BackLink />
         </TaggedFooter>
-        {/* <MDXRenderer>{post.rawMarkdownBody}</MDXRenderer> */}
       </TaggedContent>
     </Simple>
   );
