@@ -99,7 +99,6 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const options = {
     renderNode: {
       [INLINES.HYPERLINK]: (node) => {
-        console.log(node);
         if((node.data.uri).includes("player.vimeo.com/video")){
           return <IframeContainer><iframe title={node.content[0].value} src={node.data.uri} frameBorder="0" allowFullScreen></iframe></IframeContainer>
         } else if((node.data.uri).includes("youtube.com/embed")) {

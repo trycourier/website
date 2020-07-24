@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 import Simple from "../../templates/simple";
 
@@ -81,14 +81,14 @@ const Blog: React.FC = ({ data }: any) => {
             })
             .map(({ node }: any) => (
               <ArticleCard key={node.id}>
-                <a href={`/blog/${node.slug}`}>
+                <Link to={`/blog/${node.slug}`}>
                   <ArticleImage
                     src={node.thumbnail.file.url}
                     alt={node.title}
                   />
-                </a>
+                </Link>
                 <ArticlePreview>
-                  <ArticleHeaderLink href={`/blog/${node.slug}`}>
+                  <ArticleHeaderLink to={`/blog/${node.slug}`}>
                     <h4>{node.title}</h4>
                   </ArticleHeaderLink>
                   <ArticlePosted

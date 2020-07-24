@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { Link } from "gatsby";
 import styled, { css } from "styled-components";
 import tw from "tailwind.macro";
 import Avatar from "../../images/avatar@2x.png";
@@ -17,7 +18,7 @@ export const ArticleSearch = styled.div`
   ${tw`w-full md:w-1/4 mt-8`}
 `;
 
-export const ArticleHeaderLink = styled.a`
+export const ArticleHeaderLink = styled(Link)`
   ${tw`no-underline`}
   & :hover {
     text-decoration: underline;
@@ -92,7 +93,7 @@ export const ArticlePosted: React.FC<ArticlePostedType> = ({ id, name, date }) =
   <PostedContent>
     Posted by{" "}
     <strong>
-      <a href={`/blog/authors/${id}`}>{name}</a>
+      <Link to={`/blog/authors/${id}`}>{name}</Link>
     </strong>{" "}
     on <strong>{date}</strong>
   </PostedContent>
@@ -122,9 +123,9 @@ export const AuthorCard: React.FC<ArticleAuthorType> = ({id, name, avatar}) => (
       Author
       <br />
       <strong>
-        <a href={`/blog/authors/${id}`}>
+        <Link to={`/blog/authors/${id}`}>
           {name}
-        </a>
+        </Link>
       </strong>
     </p>
   </AuthorCardContent>

@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import Simple from "./simple";
@@ -19,7 +19,7 @@ import Tag from "../components/community/tag";
 
 import colors from "../colors";
 
-const HeaderLink = styled.a`
+const HeaderLink = styled(Link)`
   ${tw`no-underline`}
   & :hover {
     text-decoration: underline;
@@ -113,15 +113,15 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
           <ArticleList>
             {posts.map(({ node }: any) => (
               <ArticleCard key={node.id}>
-                <a href={`/blog/${node.slug}`}>
+                <Link to={`/blog/${node.slug}`}>
                   <ArticleImage
                     src={node.thumbnail.file.url}
                     alt={node.title}
                   />
-                </a>
+                </Link>
 
                 <div className="px-4">
-                  <HeaderLink href={`/blog/${node.slug}`}>
+                  <HeaderLink to={`/blog/${node.slug}`}>
                     <h4 className="font-bold text-xl py-0 mt-0 mb-2">
                       {node.title}
                     </h4>
