@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import Simple from "./simple";
@@ -16,7 +16,7 @@ import BackLink from "../components/community/back-link";
 import SearchInput from "../components/community/search-input";
 import Tag from "../components/community/tag";
 
-const HeaderLink = styled.a`
+const HeaderLink = styled(Link)`
   ${tw`no-underline`}
   & :hover {
     text-decoration: underline;
@@ -47,10 +47,10 @@ const TaggedFooter = styled.div`
 `;
 
 export const query = graphql`
-  query($tagId: [String]) {
+  query($tagId: String!) {
     allContentfulPost(
       limit: 1000
-      filter: { tags: {elemMatch: {id: {in: $tagId}}}}
+      filter: { tags: {elemMatch: {id: {eq: $tagId}}}}
     ) {
       totalCount
       group(field: tags___name) {
@@ -94,7 +94,6 @@ type TaggedTypes = {
 const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
   const { tag } = pageContext;
   const posts = data.allContentfulPost.edges;
-
   const tags = data.allContentfulPost.group;
 
   return (
@@ -112,15 +111,15 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
           <ArticleList>
             {posts.map(({ node }: any) => (
               <ArticleCard key={node.id}>
-                <a href={`/blog/${node.slug}`}>
+                <Link to={`/blog/${node.slug}`}>
                   <ArticleImage
                     src={node.thumbnail.file.url}
                     alt={node.title}
                   />
-                </a>
+                </Link>
 
                 <div className="px-4">
-                  <HeaderLink href={`/blog/${node.slug}`}>
+                  <HeaderLink to={`/blog/${node.slug}`}>
                     <h4 className="font-bold text-xl py-0 mt-0 mb-2">
                       {node.title}
                     </h4>

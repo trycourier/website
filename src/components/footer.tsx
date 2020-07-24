@@ -133,10 +133,10 @@ const FooterComponent: React.FC = () => {
           </SocialLinks>
           <DetailLinks>
             <p>
-              <a href="/terms">Terms&nbsp;of&nbsp;Service</a>
-              <a href="/privacy">Privacy&nbsp;Policy</a>
-              <a href="/disclosure">Responsible&nbsp;Disclosure&nbsp;Policy</a>
-              <a href="/subprocessors">Data Subprocessors</a>
+              <Link to="/terms">Terms&nbsp;of&nbsp;Service</Link>
+              <Link to="/privacy">Privacy&nbsp;Policy</Link>
+              <Link to="/disclosure">Responsible&nbsp;Disclosure&nbsp;Policy</Link>
+              <Link to="/subprocessors">Data Subprocessors</Link>
               <a href="https://jobs.lever.co/trycourier" rel="noreferrer" target="_blank">Careers</a>
             </p>
           </DetailLinks>

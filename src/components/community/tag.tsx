@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 
 const Tag = styled.div`
@@ -19,9 +20,9 @@ type TagType = {
 const TagComponent: React.FC<TagType> = ({ label }) => {
   const tagRoute = label.toLowerCase().replace(/ /gi, "-");
   return (
-    <a href={`/blog/tags/${tagRoute}`}>
+    <Link to={`/blog/tags/${tagRoute}`}>
       <Tag>{label}</Tag>
-    </a>
+    </Link>
   );
 };
 
