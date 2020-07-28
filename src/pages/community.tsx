@@ -38,8 +38,8 @@ export const query = graphql`
           title
           createdAt(formatString: "MMMM Do, YYYY")
           thumbnail {
-            file {
-              url
+            fluid(maxWidth: 220) {
+              src
             }
           }
           tags {
@@ -91,7 +91,7 @@ const Community: React.FC = ({ data }: any) => {
             <ArticleCard key={node.id}>
               <Link to={`/blog/${node.slug}`}>
                 <ArticleImage
-                  src={node.thumbnail.file.url}
+                  src={node.thumbnail.fluid.src}
                   alt={node.title}
                 />
               </Link>

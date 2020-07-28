@@ -70,8 +70,8 @@ export const query = graphql`
           }
           createdAt(formatString: "MMMM Do, YYYY")
           thumbnail {
-            file {
-              url
+            fluid(maxWidth: 220) {
+              src
             }
           }
           authors {
@@ -115,7 +115,7 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
               <ArticleCard key={node.id}>
                 <Link to={`/blog/${node.slug}`}>
                   <ArticleImage
-                    src={node.thumbnail.file.url}
+                    src={node.thumbnail.fluid.src}
                     alt={node.title}
                   />
                 </Link>

@@ -41,8 +41,8 @@ export const query = graphql`
           slug
           createdAt(formatString: "MMMM Do, YYYY")
           thumbnail {
-            file {
-              url
+            fluid(maxWidth: 220) {
+              src
             }
           }
           excerpt {
@@ -83,7 +83,7 @@ const Blog: React.FC = ({ data }: any) => {
               <ArticleCard key={node.id}>
                 <Link to={`/blog/${node.slug}`}>
                   <ArticleImage
-                    src={node.thumbnail.file.url}
+                    src={node.thumbnail.fluid.src}
                     alt={node.title}
                   />
                 </Link>

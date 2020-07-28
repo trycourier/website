@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { INLINES } from '@contentful/rich-text-types'
+import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from "styled-components";
 import tw from "tailwind.macro";
@@ -81,6 +81,9 @@ export const query = graphql`
         file {
           url
         }
+        fluid(maxWidth: 1000) {
+          src
+        }
       }
       createdAt(formatString: "MMMM Do, YYYY")
       excerpt {
@@ -98,6 +101,30 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.contentfulPost;
   const options = {
     renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const { title, description, file } = node.data.target.fields;
+        const mimeType = file['en-US'].contentType
+        const mimeGroup = mimeType.split('/')[0]
+  
+        switch (mimeGroup) {
+          case 'image':
+            return <img
+              style={{maxWidth:"100%",height:"auto"}}
+              title={ title ? title['en-US'] : null}
+              alt={description ?  description['en-US'] : null}
+              src={file['en-US'].url}
+            />
+          case 'application':
+            return <a
+              title={description ?  description['en-US'] : null}
+              href={file['en-US'].url}
+              >{ title ? title['en-US'] : file['en-US'].details.fileName }
+            </a>
+          default:
+            return <span style={{backgroundColor: 'red', color: 'white'}}> {mimeType} embedded asset </span>
+        }
+        
+      },
       [INLINES.HYPERLINK]: (node) => {
         if((node.data.uri).includes("player.vimeo.com/video")){
           return <IframeContainer><iframe title={node.content[0].value} src={node.data.uri} frameBorder="0" allowFullScreen></iframe></IframeContainer>
@@ -113,7 +140,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
       <BackLink />
 
       <BlogContent>
-        <img src={post.headerImage.file.url} style={{ borderRadius: 10 }} />
+        <img src={post.headerImage.fluid.src} style={{ borderRadius: 10 }} />
         <BlogHeader>
           {false && <h1>{post.title}</h1>}
           <ArticlePosted
