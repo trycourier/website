@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { BLOCKS, INLINES } from '@contentful/rich-text-types'
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from "styled-components";
 import tw from "tailwind.macro";
@@ -14,6 +14,10 @@ import { ArticlePosted, AuthorCard } from "../components/community/articles";
 
 const BlogContent = styled.div`
   ${tw`mt-8`}
+`;
+
+const BlogCode = styled.code`
+  ${tw`block whitespace-pre-wrap`}
 `;
 
 const BlogHeader = styled.div`
@@ -101,6 +105,9 @@ type GraphQLQuery = {
 const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.contentfulPost;
   const options = {
+    renderMark: {
+      [MARKS.CODE]: (text: string) => <BlogCode>{text}</BlogCode>
+    },
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const { title, description, file } = node.data.target.fields;
