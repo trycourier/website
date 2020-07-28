@@ -16,7 +16,7 @@ const CTALink = styled.a`
   }
 `;
 
-const BackLinkComponent: React.FC = ({text}) => {
+const CTALinkComponent: React.FC = ({text}) => {
   return (
     <div style={{height: 48}}>
       <CTALink href="#" className="blogCTABotLauncher">
@@ -26,4 +26,4 @@ const BackLinkComponent: React.FC = ({text}) => {
   );
 };
 
-export default BackLinkComponent;
+export default CTALinkComponent;
