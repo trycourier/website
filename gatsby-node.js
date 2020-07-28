@@ -77,7 +77,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve(`./src/templates/tag.tsx`),
       context: {
         tag: node,
-        slugId: node.slug
+        slug: node.slug
       }
     })
   })

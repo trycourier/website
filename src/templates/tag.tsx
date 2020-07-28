@@ -47,16 +47,18 @@ const TaggedFooter = styled.div`
 `;
 
 export const query = graphql`
-  query($slugId: String!) {
-    allContentfulPost(
-      limit: 1000
-      filter: { tags: {elemMatch: {slug: {eq: $slugId}}}}
-    ) {
-      totalCount
+  query($slug: String!) {
+    groupedTags: allContentfulPost {
       group(field: tags___name) {
         fieldValue
         totalCount
       }
+    }
+    allContentfulPost(
+      limit: 1000
+      filter: { tags: {elemMatch: {slug: {eq: $slug}}}}
+    ) {
+      totalCount
       edges {
         node {
           id
@@ -95,10 +97,10 @@ type TaggedTypes = {
 const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
   const { tag } = pageContext;
   const posts = data.allContentfulPost.edges;
-  const tags = data.allContentfulPost.group;
+  const tags = data.groupedTags.group;
 
   return (
-    <Simple title={`Tagged: ${tag}`}>
+    <Simple title={`Tagged: ${tag.name}`}>
       <BackLink />
 
       <TaggedContent>

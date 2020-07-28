@@ -51,15 +51,17 @@ const AuthoredFooter = styled.div`
 
 export const query = graphql`
   query ($authorId: [String]){
+    groupedTags: allContentfulPost {
+      group(field: tags___name) {
+        fieldValue
+        totalCount
+      }
+    }
     allContentfulPost(
       limit: 1000
       filter: { authors: {elemMatch: {slug: {in: $authorId}}}}
     ) {
       totalCount
-      group(field: tags___name) {
-        fieldValue
-        totalCount
-      }
       edges {
         node {
           id
@@ -97,7 +99,7 @@ type AuthoredTypes = {
 const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
   const { author } = pageContext;
   const posts = data.allContentfulPost.edges;
-  const tags = data.allContentfulPost.group;
+  const tags = data.groupedTags.group;
 
   return (
     <Simple title={`Authored: ${author.name}`}>

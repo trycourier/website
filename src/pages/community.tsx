@@ -22,6 +22,12 @@ import colors from "../colors";
 
 export const query = graphql`
   query {
+    groupedTags: allContentfulPost {
+      group(field: tags___name) {
+        fieldValue
+        totalCount
+      }
+    }
     allContentfulPost(
       limit: 5,
       sort: { fields: createdAt, order: DESC }
@@ -76,7 +82,7 @@ const Community: React.FC = ({ data }: any) => {
     return regex !== -1;
   };
 
-  const tags = data.allContentfulPost.group;
+  const tags = data.groupedTags.group;
 
   return (
     <Simple title="Community">

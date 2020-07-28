@@ -18,12 +18,14 @@ import Tag from "../../components/community/tag";
 
 export const query = graphql`
   query {
-    allContentfulPost(sort: {fields: createdAt, order: DESC}) {
-      totalCount
+    groupedTags: allContentfulPost {
       group(field: tags___name) {
         fieldValue
         totalCount
       }
+    }
+    allContentfulPost(sort: {fields: createdAt, order: DESC}) {
+      totalCount
       edges {
         node {
           id
@@ -68,7 +70,7 @@ const Blog: React.FC = ({ data }: any) => {
     return regex !== -1;
   };
 
-  const tags = data.allContentfulPost.group;
+  const tags = data.groupedTags.group;
 
   return (
     <Simple title="Courier Blog">
