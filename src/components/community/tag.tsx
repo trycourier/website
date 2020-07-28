@@ -15,12 +15,13 @@ const Tag = styled.div`
 
 type TagType = {
   label: string;
+  slug?: string;
 }
 
-const TagComponent: React.FC<TagType> = ({ label }) => {
+const TagComponent: React.FC<TagType> = ({ label, slug }) => {
   const tagRoute = label.toLowerCase().replace(/ /gi, "-");
   return (
-    <Link to={`/blog/tags/${tagRoute}`}>
+    <Link to={`/blog/tags/${slug || tagRoute}`}>
       <Tag>{label}</Tag>
     </Link>
   );

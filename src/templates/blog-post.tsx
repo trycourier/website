@@ -76,6 +76,7 @@ export const query = graphql`
       tags {
         id
         name
+        slug
       }
       headerImage {
         file {
@@ -149,9 +150,9 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
             date={post.createdAt}
           />
           <div>
-            {post.tags.map((tag: {name: string}, idx: number) => (
+            {post.tags.map((tag: {name: string, slug: string}, idx: number) => (
               <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
-                <Tag label={tag.name} />
+                <Tag label={tag.name} slug={tag.slug} />
               </span>
             ))}
           </div>

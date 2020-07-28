@@ -44,6 +44,7 @@ export const query = graphql`
           }
           tags {
             name
+            slug
           }
           authors {
             slug
@@ -107,9 +108,9 @@ const Community: React.FC = ({ data }: any) => {
                 />
                 <p className="excerpt">{node.excerpt.excerpt}</p>
                 <div>
-                  {node.tags.map((tag: {name: string}, idx: number) => (
+                  {node.tags.map((tag: {name: string, slug: string}, idx: number) => (
                     <span style={{ marginRight: 8 }} key={idx}>
-                      <Tag label={tag.name} />
+                      <Tag label={tag.name} slug={tag.slug} />
                     </span>
                   ))}
                 </div>

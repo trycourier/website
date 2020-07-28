@@ -47,10 +47,10 @@ const TaggedFooter = styled.div`
 `;
 
 export const query = graphql`
-  query($tagId: String!) {
+  query($slugId: String!) {
     allContentfulPost(
       limit: 1000
-      filter: { tags: {elemMatch: {id: {eq: $tagId}}}}
+      filter: { tags: {elemMatch: {slug: {eq: $slugId}}}}
     ) {
       totalCount
       group(field: tags___name) {
@@ -64,6 +64,7 @@ export const query = graphql`
           tags {
             id
             name
+            slug
           }
           title
           createdAt(formatString: "MMMM Do, YYYY")
@@ -131,9 +132,9 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
                   />
                   <p className="excerpt">{node.excerpt.excerpt}</p>
                   <div>
-                    {node.tags.map((tag: {name: string, id: string}) => (
+                    {node.tags.map((tag: {name: string, id: string, slug: string}) => (
                       <span style={{ marginRight: 8 }} key={tag.id}>
-                        <Tag label={tag.name} />
+                        <Tag label={tag.name} slug={tag.slug} />
                       </span>
                     ))}
                   </div>
