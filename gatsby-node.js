@@ -32,6 +32,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           node {
             id
             name
+            slug
           }
         }
       }
@@ -58,7 +59,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const authors = result.data.allContentfulAuthor.edges
   authors.forEach(({node}) => {
-    console.log('author:', node.name);
     createPage({
       path: `blog/authors/${node.slug}`,
       component: path.resolve(`./src/templates/author.tsx`),
@@ -72,11 +72,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const tags = result.data.allContentfulTag.edges
   tags.forEach(({node}) => {
     createPage({
-      path: `blog/tags/${node.name}`,
+      path: `blog/tags/${node.slug}`,
       component: path.resolve(`./src/templates/tag.tsx`),
       context: {
         tag: node,
-        tagId: node.id
+        slug: node.slug
       }
     })
   })

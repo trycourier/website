@@ -18,12 +18,14 @@ import Tag from "../../components/community/tag";
 
 export const query = graphql`
   query {
-    allContentfulPost(sort: {fields: createdAt, order: DESC}) {
-      totalCount
+    groupedTags: allContentfulPost {
       group(field: tags___name) {
         fieldValue
         totalCount
       }
+    }
+    allContentfulPost(sort: {fields: publishDate, order: DESC}) {
+      totalCount
       edges {
         node {
           id
@@ -31,6 +33,7 @@ export const query = graphql`
           tags {
             id
             name
+            slug
           }
           authors {
             id
@@ -40,9 +43,10 @@ export const query = graphql`
           }
           slug
           createdAt(formatString: "MMMM Do, YYYY")
+          publishDate(formatString: "MMMM Do, YYYY")
           thumbnail {
-            file {
-              url
+            fluid(maxWidth: 220) {
+              src
             }
           }
           excerpt {
@@ -67,7 +71,7 @@ const Blog: React.FC = ({ data }: any) => {
     return regex !== -1;
   };
 
-  const tags = data.allContentfulPost.group;
+  const tags = data.groupedTags.group;
 
   return (
     <Simple title="Courier Blog">
@@ -83,7 +87,7 @@ const Blog: React.FC = ({ data }: any) => {
               <ArticleCard key={node.id}>
                 <Link to={`/blog/${node.slug}`}>
                   <ArticleImage
-                    src={node.thumbnail.file.url}
+                    src={node.thumbnail.fluid.src}
                     alt={node.title}
                   />
                 </Link>
@@ -94,13 +98,13 @@ const Blog: React.FC = ({ data }: any) => {
                   <ArticlePosted
                     id={node.authors[0].slug}
                     name={node.authors[0].name}
-                    date={node.createdAt}
+                    date={node.publishDate || node.createdAt}
                   />
                   <p className="excerpt">{node.excerpt.excerpt}</p>
                   <div>
-                    {node.tags.map((tag: {name: string, id: string}) => (
+                    {node.tags.map((tag: {name: string, id: string, slug: string}) => (
                       <span style={{ marginRight: 8 }} key={tag.id}>
-                        <Tag label={tag.name} />
+                        <Tag label={tag.name} slug={tag.slug} />
                       </span>
                     ))}
                   </div>

@@ -22,9 +22,15 @@ import colors from "../colors";
 
 export const query = graphql`
   query {
+    groupedTags: allContentfulPost {
+      group(field: tags___name) {
+        fieldValue
+        totalCount
+      }
+    }
     allContentfulPost(
       limit: 5,
-      sort: { fields: createdAt, order: DESC }
+      sort: { fields: publishDate, order: DESC }
     ) {
       totalCount
       group(field: tags___name) {
@@ -37,13 +43,15 @@ export const query = graphql`
           slug
           title
           createdAt(formatString: "MMMM Do, YYYY")
+          publishDate(formatString: "MMMM Do, YYYY")
           thumbnail {
-            file {
-              url
+            fluid(maxWidth: 220) {
+              src
             }
           }
           tags {
             name
+            slug
           }
           authors {
             slug
@@ -75,7 +83,7 @@ const Community: React.FC = ({ data }: any) => {
     return regex !== -1;
   };
 
-  const tags = data.allContentfulPost.group;
+  const tags = data.groupedTags.group;
 
   return (
     <Simple title="Community">
@@ -91,7 +99,7 @@ const Community: React.FC = ({ data }: any) => {
             <ArticleCard key={node.id}>
               <Link to={`/blog/${node.slug}`}>
                 <ArticleImage
-                  src={node.thumbnail.file.url}
+                  src={node.thumbnail.fluid.src}
                   alt={node.title}
                 />
               </Link>
@@ -103,13 +111,13 @@ const Community: React.FC = ({ data }: any) => {
                 <ArticlePosted
                   id={node.authors[0].slug}
                   name={node.authors[0].name}
-                  date={node.createdAt}
+                  date={node.publishDate || node.createdAt}
                 />
                 <p className="excerpt">{node.excerpt.excerpt}</p>
                 <div>
-                  {node.tags.map((tag: {name: string}, idx: number) => (
+                  {node.tags.map((tag: {name: string, slug: string}, idx: number) => (
                     <span style={{ marginRight: 8 }} key={idx}>
-                      <Tag label={tag.name} />
+                      <Tag label={tag.name} slug={tag.slug} />
                     </span>
                   ))}
                 </div>

@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body, p {
-    font-family: 'Proxima Nova', 'Roboto', 'Nunito Sans', Roboto, sans-serif;
+    font-family: 'Proxima Nova', 'Nunito Sans', Roboto, sans-serif;
     font-weight: 100;
     cursor: default;
     color: ${colors.textSecondary};
@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Bebas Neue', 'Impact', 'Helvetica Neue', sans-serif;
   }
   h4, h5, h6{
-    font-family: 'Proxima Nova','Roboto', 'Nunito Sans', Roboto, sans-serif;
+    font-family: 'Proxima Nova','Nunito Sans', Roboto, sans-serif;
   }
 
   button {

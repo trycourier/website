@@ -47,16 +47,18 @@ const TaggedFooter = styled.div`
 `;
 
 export const query = graphql`
-  query($tagId: String!) {
-    allContentfulPost(
-      limit: 1000
-      filter: { tags: {elemMatch: {id: {eq: $tagId}}}}
-    ) {
-      totalCount
+  query($slug: String!) {
+    groupedTags: allContentfulPost {
       group(field: tags___name) {
         fieldValue
         totalCount
       }
+    }
+    allContentfulPost(
+      limit: 1000
+      filter: { tags: {elemMatch: {slug: {eq: $slug}}}}
+    ) {
+      totalCount
       edges {
         node {
           id
@@ -64,12 +66,14 @@ export const query = graphql`
           tags {
             id
             name
+            slug
           }
           title
           createdAt(formatString: "MMMM Do, YYYY")
+          publishDate(formatString: "MMMM Do, YYYY")
           thumbnail {
-            file {
-              url
+            fluid(maxWidth: 220) {
+              src
             }
           }
           authors {
@@ -94,10 +98,10 @@ type TaggedTypes = {
 const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
   const { tag } = pageContext;
   const posts = data.allContentfulPost.edges;
-  const tags = data.allContentfulPost.group;
+  const tags = data.groupedTags.group;
 
   return (
-    <Simple title={`Tagged: ${tag}`}>
+    <Simple title={`Tagged: ${tag.name}`}>
       <BackLink />
 
       <TaggedContent>
@@ -113,7 +117,7 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
               <ArticleCard key={node.id}>
                 <Link to={`/blog/${node.slug}`}>
                   <ArticleImage
-                    src={node.thumbnail.file.url}
+                    src={node.thumbnail.fluid.src}
                     alt={node.title}
                   />
                 </Link>
@@ -127,13 +131,13 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
                   <ArticlePosted
                     id={node.authors[0].slug}
                     name={node.authors[0].name}
-                    date={node.createdAt}
+                    date={node.publishDate || node.createdAt}
                   />
                   <p className="excerpt">{node.excerpt.excerpt}</p>
                   <div>
-                    {node.tags.map((tag: {name: string, id: string}) => (
+                    {node.tags.map((tag: {name: string, id: string, slug: string}) => (
                       <span style={{ marginRight: 8 }} key={tag.id}>
-                        <Tag label={tag.name} />
+                        <Tag label={tag.name} slug={tag.slug} />
                       </span>
                     ))}
                   </div>
