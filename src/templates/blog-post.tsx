@@ -32,9 +32,11 @@ const BlogHeader = styled.div`
 const BlogBody = styled.div`
   ${tw`mt-8`}
   p {
+    font-family: "Nunito Sans", Roboto, sans-serif;
     font-size: 16px;
     line-height: 24px;
-    color: ${colors.textPrimary};
+    font-weight: 400;
+    color: #333;
     & img {
       text-align: center;
       margin: 16px auto;
