@@ -91,6 +91,7 @@ export const query = graphql`
         }
       }
       createdAt(formatString: "MMMM Do, YYYY")
+      publishDate(formatString: "MMMM Do, YYYY")
       excerpt {
         excerpt
       }
@@ -155,7 +156,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
           <ArticlePosted
             id={post.authors[0].slug}
             name={post.authors[0].name}
-            date={post.createdAt}
+            date={post.publishDate || post.createdAt}
           />
           <div>
             {post.tags.map((tag: {name: string, slug: string}, idx: number) => (

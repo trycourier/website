@@ -59,7 +59,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const authors = result.data.allContentfulAuthor.edges
   authors.forEach(({node}) => {
-    console.log('author:', node.name);
     createPage({
       path: `blog/authors/${node.slug}`,
       component: path.resolve(`./src/templates/author.tsx`),

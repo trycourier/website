@@ -70,6 +70,7 @@ export const query = graphql`
           }
           title
           createdAt(formatString: "MMMM Do, YYYY")
+          publishDate(formatString: "MMMM Do, YYYY")
           thumbnail {
             fluid(maxWidth: 220) {
               src
@@ -130,7 +131,7 @@ const Tagged: React.FC<TaggedTypes> = ({ pageContext, data }) => {
                   <ArticlePosted
                     id={node.authors[0].slug}
                     name={node.authors[0].name}
-                    date={node.createdAt}
+                    date={node.publishDate || node.createdAt}
                   />
                   <p className="excerpt">{node.excerpt.excerpt}</p>
                   <div>

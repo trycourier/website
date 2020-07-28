@@ -12,7 +12,7 @@ import Tag from "../../components/community/tag";
 
 export const query = graphql`
   query {
-    allContentfulPost(sort: { fields: [createdAt], order: DESC }) {
+    allContentfulPost(sort: { fields: [publishDate], order: DESC }) {
       totalCount
       group(field: tags___name) {
         fieldValue

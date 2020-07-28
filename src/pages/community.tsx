@@ -30,7 +30,7 @@ export const query = graphql`
     }
     allContentfulPost(
       limit: 5,
-      sort: { fields: createdAt, order: DESC }
+      sort: { fields: publishDate, order: DESC }
     ) {
       totalCount
       group(field: tags___name) {
@@ -43,6 +43,7 @@ export const query = graphql`
           slug
           title
           createdAt(formatString: "MMMM Do, YYYY")
+          publishDate(formatString: "MMMM Do, YYYY")
           thumbnail {
             fluid(maxWidth: 220) {
               src
@@ -110,7 +111,7 @@ const Community: React.FC = ({ data }: any) => {
                 <ArticlePosted
                   id={node.authors[0].slug}
                   name={node.authors[0].name}
-                  date={node.createdAt}
+                  date={node.publishDate || node.createdAt}
                 />
                 <p className="excerpt">{node.excerpt.excerpt}</p>
                 <div>
