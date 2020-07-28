@@ -133,12 +133,13 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
         }
         
       },
-      [INLINES.HYPERLINK]: (node) => {
+      [INLINES.HYPERLINK]: (node, children) => {
         if((node.data.uri).includes("player.vimeo.com/video")){
           return <IframeContainer><iframe title={node.content[0].value} src={node.data.uri} frameBorder="0" allowFullScreen></iframe></IframeContainer>
         } else if((node.data.uri).includes("youtube.com/embed")) {
           return <IframeContainer><iframe title={node.content[0].value} src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></IframeContainer>
         }
+        return <a href={node.data.uri}>{children}</a>
       }
     }
   };
