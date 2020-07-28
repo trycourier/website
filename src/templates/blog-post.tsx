@@ -150,7 +150,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
       <BlogContent>
         <img src={post.headerImage.fluid.src} style={{ borderRadius: 10 }} />
         <BlogHeader>
-          {false && <h1>{post.title}</h1>}
+          <h1>{post.title}</h1>
           <ArticlePosted
             id={post.authors[0].slug}
             name={post.authors[0].name}
