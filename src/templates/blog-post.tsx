@@ -7,6 +7,7 @@ import tw from "tailwind.macro";
 import Simple from "./simple";
 import Tag from "../components/community/tag";
 import BackLink from "../components/community/back-link";
+import CTALink from "../components/community/cta-link";
 
 import colors from "../colors";
 
@@ -97,6 +98,7 @@ export const query = graphql`
       excerpt {
         excerpt
       }
+      ctaText
     }
   }
 `;
@@ -184,6 +186,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
               avatar={post.authors[0].avatar.fluid.src}
             />
           </div>
+          {post.ctaText && <CTALink text={post.ctaText} /> }
           <BackLink />
         </BlogFooter>
       </BlogContent>
