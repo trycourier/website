@@ -47,7 +47,7 @@ const TaggedFooter = styled.div`
 `;
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: [String]) {
     groupedTags: allContentfulPost {
       group(field: tags___name) {
         fieldValue
@@ -56,7 +56,7 @@ export const query = graphql`
     }
     allContentfulPost(
       limit: 1000
-      filter: { tags: {elemMatch: {slug: {eq: $slug}}}}
+      filter: { tags: {elemMatch: {slug: {in: $slug}}}}
     ) {
       totalCount
       edges {

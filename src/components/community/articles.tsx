@@ -44,6 +44,7 @@ export const ArticleCard = styled.div`
     }
   }
   & p.excerpt {
+    font-family: "Nunito Sans", Roboto, sans-serif;
     font-size: 14px;
     color: ${colors.textPrimary};
     margin-bottom: 10px;
