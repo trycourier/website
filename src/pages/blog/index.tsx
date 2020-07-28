@@ -24,7 +24,7 @@ export const query = graphql`
         totalCount
       }
     }
-    allContentfulPost(sort: {fields: createdAt, order: DESC}) {
+    allContentfulPost(sort: {fields: publishDate, order: DESC}) {
       totalCount
       edges {
         node {
