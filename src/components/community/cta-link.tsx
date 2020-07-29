@@ -5,8 +5,8 @@ import colors from "../../colors";
 
 const CTALink = styled.a`
   ${tw`relative no-underline items-center justify-between py-2 px-6`}
-  background: ${colors.berryGlass};
-  color: ${colors.berry};
+  background: #5c74ec;
+  color: white;
   border-radius: 4px;
   & :hover {
     filter: darken(10%);
@@ -18,7 +18,7 @@ const CTALink = styled.a`
 
 const CTALinkComponent: React.FC = ({text}) => {
   return (
-    <div style={{height: 48}}>
+    <div style={{}}>
       <CTALink href="#" className="blogCTABotLauncher">
         {text}
       </CTALink>

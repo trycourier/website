@@ -47,7 +47,7 @@ const BlogBody = styled.div`
 `;
 
 const BlogFooter = styled.div`
-  ${tw`flex justify-between mt-4`}
+  ${tw`justify-between mt-4`}
 `;
 
 const IframeContainer = styled.span`
@@ -175,20 +175,46 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
           { documentToReactComponents(post.content.json, options) }
         </BlogBody>
         <BlogFooter>
-          <div
+          <div 
             style={{
-              borderTop: `1px solid ${colors.lightGray}`,
-              paddingTop: 16,
+              position: "relative",
+              width: "fit-content",
+              margin: "auto",
+              marginRight: "auto",
+              marginTop: "40px",
             }}
           >
-            <AuthorCard
-              id={post.authors[0].slug}
-              name={post.authors[0].name}
-              avatar={post.authors[0].avatar.fluid.src}
-            />
+            {post.ctaText && <CTALink text={post.ctaText} /> }
           </div>
-          {post.ctaText && <CTALink text={post.ctaText} /> }
-          <BackLink />
+          <div
+            style={{
+              display: "flex",
+              paddingTop: 24
+            }}
+          >
+            <div
+              style={{
+                borderTop: `1px solid ${colors.lightGray}`,
+                paddingTop: 16,
+                marginRight: "auto"
+              }}
+            >
+              <AuthorCard
+                id={post.authors[0].slug}
+                name={post.authors[0].name}
+                avatar={post.authors[0].avatar.fluid.src}
+              />
+            </div>
+            
+            <div
+              style={{
+                marginLeft: "auto",
+                paddingTop: 26
+              }}
+            >
+              <BackLink />
+            </div>
+          </div>
         </BlogFooter>
       </BlogContent>
     </Simple>
