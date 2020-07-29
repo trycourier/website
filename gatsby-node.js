@@ -22,7 +22,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allContentfulAuthor {
         edges {
           node {
-            name
             slug
           }
         }
@@ -30,8 +29,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allContentfulTag {
         edges {
           node {
-            id
-            name
             slug
           }
         }
@@ -63,8 +60,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       path: `blog/authors/${node.slug}`,
       component: path.resolve(`./src/templates/author.tsx`),
       context: {
-        author: node,
-        authorId: node.slug
+        slug: node.slug
       },
     })
   })
@@ -75,7 +71,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       path: `blog/tags/${node.slug}`,
       component: path.resolve(`./src/templates/tag.tsx`),
       context: {
-        tag: node,
         slug: node.slug
       }
     })

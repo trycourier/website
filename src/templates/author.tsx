@@ -50,42 +50,38 @@ const AuthoredFooter = styled.div`
 `;
 
 export const query = graphql`
-  query ($authorId: [String]){
+  query ($slug: String!) {
     groupedTags: allContentfulPost {
       group(field: tags___name) {
         fieldValue
         totalCount
       }
     }
-    allContentfulPost(
-      limit: 1000
-      filter: { authors: {elemMatch: {slug: {in: $authorId}}}}
-    ) {
-      totalCount
-      edges {
-        node {
+    contentfulAuthor(slug: {eq: $slug}) {
+      name
+      slug
+      post {
+        id
+        title
+        slug
+        tags {
           id
-          title
-          tags {
-            id
-            name
-            slug
-          }
-          createdAt(formatString: "MMMM Do, YYYY")
-          publishDate(formatString: "MMMM Do, YYYY")
-          thumbnail {
-            fluid(maxWidth: 220) {
-              src
-            }
-          }
-          authors {
-            slug
-            name
-          }
+          name
           slug
-          excerpt {
-            excerpt
+        }
+        createdAt(formatString: "MMMM Do, YYYY")
+        publishDate(formatString: "MMMM Do, YYYY")
+        thumbnail {
+          fluid(maxWidth: 220) {
+            src
           }
+        }
+        authors {
+          slug
+          name
+        }
+        excerpt {
+          excerpt
         }
       }
     }
@@ -97,9 +93,9 @@ type AuthoredTypes = {
   data: any;
 };
 
-const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
-  const { author } = pageContext;
-  const posts = data.allContentfulPost.edges;
+const Authored: React.FC<AuthoredTypes> = ({ data }) => {
+  const author = data.contentfulAuthor;
+  const posts = author.post || [];
   const tags = data.groupedTags.group;
 
   return (
@@ -115,29 +111,29 @@ const Authored: React.FC<AuthoredTypes> = ({ pageContext, data }) => {
         </AuthoredHeader>
         <ArticleScreen>
           <ArticleList>
-            {posts.map(({ node }: any) => (
-              <ArticleCard key={node.id}>
-                <Link to={`/blog/${node.slug}`}>
+            {posts.map((post: any) => (
+              <ArticleCard key={post.id}>
+                <Link to={`/blog/${post.slug}`}>
                   <ArticleImage
-                    src={node.thumbnail.fluid.src}
-                    alt={node.title}
+                    src={post.thumbnail.fluid.src}
+                    alt={post.title}
                   />
                 </Link>
 
                 <div className="px-4">
-                  <HeaderLink to={`/blog/${node.slug}`}>
+                  <HeaderLink to={`/blog/${post.slug}`}>
                     <h4 className="font-bold text-xl py-0 mt-0 mb-2">
-                      {node.title}
+                      {post.title}
                     </h4>
                   </HeaderLink>
                   <ArticlePosted
-                    id={node.authors[0].slug}
-                    name={node.authors[0].name}
-                    date={node.publishDate || node.createdAt}
+                    id={post.authors[0].slug}
+                    name={post.authors[0].name}
+                    date={post.publishDate || post.createdAt}
                   />
-                  <p className="excerpt">{node.excerpt.excerpt}</p>
+                  <p className="excerpt">{post.excerpt.excerpt}</p>
                   <div>
-                    {node.tags.map((tag: {name: string, id: string, slug: string}) => (
+                    {post.tags.map((tag: {name: string, id: string, slug: string}) => (
                       <span style={{ marginRight: 8 }} key={tag.id}>
                         <Tag label={tag.name} slug={tag.slug} />
                       </span>
