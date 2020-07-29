@@ -154,7 +154,12 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
       <BackLink />
 
       <BlogContent>
-        <img src={post.headerImage.fluid.src} style={{ borderRadius: 10 }} />
+        <img src={post.headerImage.fluid.src} 
+          style={{ 
+            borderRadius: 10,
+            maxWidth: "100%"
+          }} 
+        />
         <BlogHeader>
           <h1>{post.title}</h1>
           <ArticlePosted
