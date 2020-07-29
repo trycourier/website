@@ -8,6 +8,7 @@ const CTALink = styled.a`
   background: #5c74ec;
   color: white;
   border-radius: 4px;
+  cursor: pointer;
   & :hover {
     filter: darken(10%);
     & img {
@@ -19,7 +20,7 @@ const CTALink = styled.a`
 const CTALinkComponent: React.FC = ({text}) => {
   return (
     <div style={{}}>
-      <CTALink href="#" className="blogCTABotLauncher">
+      <CTALink className="blogCTABotLauncher">
         {text}
       </CTALink>
     </div>
