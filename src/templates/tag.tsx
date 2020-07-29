@@ -94,7 +94,7 @@ type TaggedTypes = {
 
 const Tagged: React.FC<TaggedTypes> = ({ data }) => {
   const tag = data.contentfulTag;
-  const posts = tag.post;
+  const posts = tag.post || [];
   const tags = data.groupedTags.group;
 
   return (

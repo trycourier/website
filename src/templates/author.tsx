@@ -95,7 +95,7 @@ type AuthoredTypes = {
 
 const Authored: React.FC<AuthoredTypes> = ({ data }) => {
   const author = data.contentfulAuthor;
-  const posts = author.post;
+  const posts = author.post || [];
   const tags = data.groupedTags.group;
 
   return (
