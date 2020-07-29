@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Img from "gatsby-image";
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled from "styled-components";
@@ -90,7 +91,7 @@ export const query = graphql`
           url
         }
         fluid(maxWidth: 1000) {
-          src
+          ...GatsbyContentfulFluid
         }
       }
       createdAt(formatString: "MMMM Do, YYYY")
@@ -154,7 +155,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
       <BackLink />
 
       <BlogContent>
-        <img src={post.headerImage.fluid.src} style={{ borderRadius: 10 }} />
+        <Img fluid={post.headerImage.fluid} style={{ borderRadius: 10 }} />
         <BlogHeader>
           <h1>{post.title}</h1>
           <ArticlePosted
