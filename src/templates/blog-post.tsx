@@ -153,7 +153,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
 
   return (
     <Simple title={post.title} description={post.excerpt.excerpt}>
-      <SEO image={`https:${post.headerImage.fixed.src}`} />
+      <SEO title={post.title} description={post.excerpt.excerpt} image={`https:${post.headerImage.fixed.src}`} />
       <BackLink />
 
       <BlogContent>
