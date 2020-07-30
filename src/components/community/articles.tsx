@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { Link } from "gatsby";
+import Img, { FixedObject } from "gatsby-image"
 import styled, { css } from "styled-components";
 import tw from "tailwind.macro";
 import Avatar from "../../images/avatar@2x.png";
@@ -60,7 +61,7 @@ export const ArticlePreview = styled.div`
   ${tw`px-4 mt-4 md:mt-0`}
 `;
 
-export const ArticleImage = styled.img`
+export const ArticleImage = styled(Img)`
   ${tw`w-full md:w-1/6 flex mr-4`}
   border-radius: 10px;
   min-width: 220px;
@@ -104,7 +105,7 @@ export const ArticlePosted: React.FC<ArticlePostedType> = ({ id, name, date }) =
 type ArticleAuthorType = {
   id: string;
   name: string;
-  avatar?: string;
+  avatar?: FixedObject;
   children?: ReactNode;
 }
 const AuthorCardContent = styled.div`
@@ -112,13 +113,17 @@ const AuthorCardContent = styled.div`
   ${linkStrongStyle}
 `;
 
+const AuthorCardAvatar = styled(Img)`
+  ${tw`rounded-full`}
+  height: 60px;
+  width: 60px;
+  margin-right: 16px;
+`;
+
 export const AuthorCard: React.FC<ArticleAuthorType> = ({id, name, avatar}) => (
   <AuthorCardContent>
-    <img
-      src={avatar || Avatar}
-      width="60"
-      height="60"
-      style={{ borderRadius: 60, marginRight: 16 }}
+    <AuthorCardAvatar
+      fixed={avatar}
     />
     <p>
       Author

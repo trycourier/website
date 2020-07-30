@@ -73,7 +73,7 @@ export const query = graphql`
         publishDate(formatString: "MMMM Do, YYYY")
         thumbnail {
           fluid(maxWidth: 220) {
-            src
+            ...GatsbyContentfulFluid
           }
         }
         authors {
@@ -115,7 +115,7 @@ const Authored: React.FC<AuthoredTypes> = ({ data }) => {
               <ArticleCard key={post.id}>
                 <Link to={`/blog/${post.slug}`}>
                   <ArticleImage
-                    src={post.thumbnail.fluid.src}
+                    fluid={post.thumbnail.fluid}
                     alt={post.title}
                   />
                 </Link>

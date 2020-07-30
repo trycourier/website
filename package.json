@@ -17,7 +17,7 @@
     "@types/node": "^12.6.9",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
-    "@types/react-helmet": "^5.0.8",
+    "@types/react-helmet": "^6.0.0",
     "@types/styled-components": "^5.1.1",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.23.3",
@@ -64,7 +64,7 @@
     "sentry:release": "./bin/sentry-release.sh"
   },
   "devDependencies": {
-    "prettier": "^1.18.2",
+    "prettier": "^2.0.5",
     "yarn-upgrade-all": "^0.5.0"
   },
   "repository": {
