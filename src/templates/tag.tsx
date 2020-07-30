@@ -71,7 +71,7 @@ export const query = graphql`
         }
         thumbnail {
           fluid(maxWidth: 220) {
-            src
+            ...GatsbyContentfulFluid
           }
         }
         authors {
@@ -114,7 +114,7 @@ const Tagged: React.FC<TaggedTypes> = ({ data }) => {
               <ArticleCard key={post.id}>
                 <Link to={`/blog/${post.slug}`}>
                   <ArticleImage
-                    src={post.thumbnail.fluid.src}
+                    fluid={post.thumbnail.fluid}
                     alt={post.title}
                   />
                 </Link>

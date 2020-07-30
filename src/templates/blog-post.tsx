@@ -6,6 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styled from "styled-components";
 import tw from "tailwind.macro";
 import Simple from "./simple";
+import SEO from "../components/seo";
 import Tag from "../components/community/tag";
 import BackLink from "../components/community/back-link";
 import CTALink from "../components/community/cta-link";
@@ -73,8 +74,8 @@ export const query = graphql`
         twitter
         slug
         avatar {
-          fluid(maxHeight: 100) {
-            src
+          fixed(height: 60) {
+            ...GatsbyContentfulFixed
           }
         }
       }
@@ -87,8 +88,8 @@ export const query = graphql`
         slug
       }
       headerImage {
-        file {
-          url
+        fixed(cropFocus: CENTER, resizingBehavior: PAD, width: 1200, height: 600) {
+          src
         }
         fluid(maxWidth: 1000) {
           ...GatsbyContentfulFluid
@@ -110,6 +111,7 @@ type GraphQLQuery = {
 
 const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.contentfulPost;
+  console.log(post.headerImage)
   const options = {
     renderMark: {
       [MARKS.CODE]: (text: string) => <BlogCode>{text}</BlogCode>
@@ -137,7 +139,6 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
           default:
             return <span style={{backgroundColor: 'red', color: 'white'}}> {mimeType} embedded asset </span>
         }
-        
       },
       [INLINES.HYPERLINK]: (node, children) => {
         if((node.data.uri).includes("player.vimeo.com/video")){
@@ -152,6 +153,12 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
 
   return (
     <Simple title={post.title} description={post.excerpt.excerpt}>
+      <SEO 
+        title={post.title} 
+        description={post.excerpt.excerpt} 
+        image={`https:${post.headerImage.fixed.src}`} 
+        meta={[{ name: "twitter:card", content: "summary_large_image" }]} 
+      />
       <BackLink />
 
       <BlogContent>
@@ -202,7 +209,7 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
               <AuthorCard
                 id={post.authors[0].slug}
                 name={post.authors[0].name}
-                avatar={post.authors[0].avatar.fluid.src}
+                avatar={post.authors[0].avatar.fixed}
               />
             </div>
             

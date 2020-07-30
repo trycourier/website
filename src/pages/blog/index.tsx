@@ -46,7 +46,7 @@ export const query = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           thumbnail {
             fluid(maxWidth: 220) {
-              src
+              ...GatsbyContentfulFluid
             }
           }
           excerpt {
@@ -87,7 +87,7 @@ const Blog: React.FC = ({ data }: any) => {
               <ArticleCard key={node.id}>
                 <Link to={`/blog/${node.slug}`}>
                   <ArticleImage
-                    src={node.thumbnail.fluid.src}
+                    fluid={node.thumbnail.fluid}
                     alt={node.title}
                   />
                 </Link>
