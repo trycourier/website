@@ -87,7 +87,7 @@ export const features = [
   {
     label: "Data Privacy",
     developer: "GDPR & CCPA",
-    pro: "GDPR & CCPA w/ DPA",
+    pro: "GDPR & CCPA",
     business: "GDPR & CCPA w/ DPA",
   }
 ];
