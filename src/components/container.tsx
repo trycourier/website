@@ -18,6 +18,7 @@ const ContainerDark = styled.div`
 `;
 
 export const Desktop = styled.div`
+  width: 100%;
   ${tw`hidden md:block`}
 `;
 

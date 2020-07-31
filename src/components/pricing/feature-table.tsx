@@ -12,7 +12,7 @@ import { MobileRegistrationCTA } from "../shared/registration-cta";
 import checkmark from "../../images/checkmark.svg";
 
 const FeatureTable = styled.section`
-  ${tw`flex flex-row px-4 md:pb-8`}
+  ${tw`flex flex-row`}
   color: ${colors.textPrimary};
 `;
 
@@ -22,88 +22,122 @@ const FeatureTableTable = styled.table`
   ${tw`mt-8 w-full text-center`}
   display: inline-table;
   border-spacing: 0px;
-  & tbody.highlighted {
-    font-weight: 600;
+  font-weight: normal;
+
+  tbody.features {
+    tr:first-child td {
+      border: none;
+    }
+
+    tr:not(:first-child) {
+      td {
+        position: relative;
+        border: none;
+
+        &:first-child:after {
+          content: "";
+          position: absolute;
+          width: 110%;
+          margin: auto;
+          left: 16px;
+          bottom: 0;
+          border-bottom: 1px solid #ccc;
+        }
+
+        &:not(:first-child):after {
+          content: "";
+          position: absolute;
+          width: 80%;
+          margin: auto;
+          left: 16px;
+          bottom: 0;
+          border-bottom: 1px solid #ccc;
+        }
+      }
+    }
+  }
+
+  tbody.highlighted {
     font-size: 18px;
 
-    & tr:not(:last-child) {
-      & td {
-        border-bottom: 1px solid ${colors.highlightBorder};
+    tr:not(:last-child) {
+      td {
+        position: relative;
+        border: none;
+
+        &:first-child:after {
+          content: "";
+          position: absolute;
+          width: 110%;
+          margin: auto;
+          left: 16px;
+          bottom: 0;
+          border-bottom: 1px solid #ccc;
+        }
+
+        &:not(:first-child):after {
+          content: "";
+          position: absolute;
+          width: 80%;
+          margin: auto;
+          left: 15px;
+          bottom: 0;
+          border-bottom: 1px solid #ccc;
+        }
       }
     }
 
     tr {
-      & td {
-        background: ${colors.highlight};
+      background: ${colors.highlight};
+      td {
         aside {
           font-weight: normal;
           font-size: 10px;
         }
       }
       &:first-child {
-        & td {
-          background: ${colors.highlight};
+        td {
           &:first-child {
-            border-top-left-radius: 20px;
+            border-top-left-radius: 10px;
           }
           &:last-child {
-            border-top-right-radius: 20px;
+            border-top-right-radius: 10px;
           }
         }
       }
       &:last-child {
-        & td {
-          background: ${colors.highlight};
+        td {
           border-bottom: none;
           &:first-child {
-            border-bottom-left-radius: 20px;
+            border-bottom-left-radius: 10px;
           }
           &:last-child {
-            border-bottom-right-radius: 20px;
+            border-bottom-right-radius: 10px;
           }
         }
       }
     }
   }
-  & tr {
+  tr {
     ${tw`m-0 p-0`}
   }
-  & th {
-    ${tw`m-0 px-16 py-8 text-3xl md:text-4xl font-normal`}
-    &:nth-child(2) {
-      ${tw`p-8`}
-      background: #FFF;
-      position: relative;
-      z-index: 2;
-      box-shadow: ${shadow};
-      border: 5px solid #fff;
-      border-radius: 20px 20px 0px 0px;
-      border-spacing: 0px;
-    }
+  th {
+    text-align: left;
+    font-size: 28px;
+    font-weight: normal;
+    ${tw`m-0 px-2 py-4`}
   }
-  & td {
-    ${tw`m-0 px-4 text-md mt-4`}
-    border-bottom: 1px solid #CCC;
+  td {
+    font-size: 16px;
+    color: #344563;
+    ${tw`m-0 mt-4`}
+    padding: 16px;
 
-    &:first-child {
-      ${tw`text-left pr-32`}
-    }
-    &:nth-child(2) {
-      ${tw`py-4 px-8`}
-      height: 24px;
-      position: relative;
-      z-index: 3;
-      background: #fff;
-      box-shadow: ${shadow};
-      border-left: 16px solid #fff;
-      border-right: 16px solid #fff;
-    }
-    &.highlighted {
-      background-color: ${colors.highlight};
-    }
+    border-bottom: 1px solid #ccc;
+    text-align: left;
   }
-  & tfoot {
-    & td {
+  tfoot {
+    td {
       border-bottom: none;
       &:nth-child(2) {
         border-radius: 0px 0px 20px 20px;
@@ -125,7 +159,10 @@ import {
 } from "../../links";
 
 const AccountButtons = styled.ul`
-  ${tw`m-0 p-2 flex hidden md:inline-block`}
+  display: flex;
+  align-items: center;
+  ${tw`m-0 p-2 pl-0`}
+
   list-style: none;
   height: 36px;
   & li {
@@ -139,21 +176,29 @@ const AccountButtons = styled.ul`
     }
   }
   & li.google {
+    margin-left: 0;
+
     background: ${colors.googleBlue};
-    & a > img {
+    & img {
+      width: 20px;
+      margin-left: 2px;
       margin-top: 2px;
     }
   }
   & li.github {
     background: #000;
     & img {
-      margin-top: 1px;
+      width: 20px;
+      margin-left: 2px;
+      margin-top: 2px;
     }
   }
   & li.email {
     background: ${colors.berry};
     & img {
-      margin-top: 3px;
+      width: 20px;
+      margin-left: 2px;
+      margin-top: 5px;
     }
   }
   svg {
@@ -246,7 +291,7 @@ const CardHeader = styled.div`
 `;
 
 const Pricing = styled.div`
-  ${tw`text-center`}
+  ${tw`text-center py-4`}
   & h4 {
     color: ${colors.green};
     font-size: 66px;
@@ -262,18 +307,6 @@ const Pricing = styled.div`
     margin-bottom: 8px;
   }
 `;
-
-const handleContactSalesClick = () => {
-  try {
-    window.Intercom(
-      "showNewMessage",
-      `I'd like to discuss Courier's Enterprise plan. Please contact me at: `
-    );
-  } catch (e) {
-    console.warn("Intercom not enabled:", e);
-    window.open("mailto:sales@trycourier.com", "_blank");
-  }
-};
 
 const handleSignUpClick = () => {
   try {
@@ -297,6 +330,38 @@ const displayCell = (property: any | string) => {
   }
 };
 
+const getMobileFeatures = (type: string) => {
+  return features
+    .filter((feat) => feat[type])
+    .map((feat, idx) => {
+      const label = (() => {
+        if (!feat.label || !feat[type]) {
+          return;
+        }
+
+        if (type !== "developer" && feat.developer === feat[type]) {
+          return;
+        }
+
+        if (type === "business" && feat.pro === feat[type]) {
+          return;
+        }
+
+        if (feat[type] === "Yes") {
+          return feat.label;
+        }
+
+        return `${feat[type]} ${feat.label}`;
+      })();
+
+      if (!label) {
+        return null;
+      }
+
+      return <li key={idx}>{label}</li>;
+    });
+};
+
 const FeatureTableComponent: React.FC = () => {
   return (
     <FeatureTable>
@@ -304,44 +369,39 @@ const FeatureTableComponent: React.FC = () => {
         <FeatureTableTable>
           <thead>
             <tr>
-              <th></th>
-              <th>Standard</th>
-              <th>Enterprise</th>
+              <th />
+              <th>Developer</th>
+              <th>Pro</th>
+              <th>Business</th>
             </tr>
           </thead>
           <tbody className="highlighted">
             <tr>
               <td>Subscription Fee</td>
-              <td className="highlighted">$0</td>
-              <td>$5,000/mo</td>
+              <td className="highlighted">
+                <strong>Free Forever</strong>
+              </td>
+              <td>
+                <strong>$99/m</strong>
+              </td>
+              <td>
+                <strong>$500/mo</strong>
+              </td>
             </tr>
             <tr>
               <td>Included Usage</td>
-              <td className="highlighted">10,000 notifications/mo</td>
-              <td>10,000 notifications/mo</td>
-            </tr>
-            <tr>
-              <td>Usage Fee</td>
-              <td className="highlighted">
-                <span>Pricing Varies</span>
-                <aside>
-                  See <strong>Usage Based Pricing</strong> above
-                </aside>
-              </td>
-              <td>
-                <span>Pricing Varies</span>
-                <aside>
-                  See <strong>Usage Based Pricing</strong> above
-                </aside>
-              </td>
+              <td className="highlighted">10k notifications/mo</td>
+              <td>10k notifications/mo</td>
+              <td>1m notifications/mo</td>
             </tr>
           </tbody>
-          <tbody>
+          <tbody className="features">
             {features.map((feat, idx) => (
               <tr key={idx}>
                 <td>{feat.label}</td>
-                <td>{feat.standard ? displayCell(feat.standard) : " "}</td>
-                <td>{feat.enterprise ? displayCell(feat.enterprise) : " "}</td>
+                <td>{feat.developer ? displayCell(feat.developer) : " "}</td>
+                <td>{feat.pro ? displayCell(feat.pro) : " "}</td>
+                <td>{feat.business ? displayCell(feat.business) : " "}</td>
               </tr>
             ))}
           </tbody>
@@ -349,7 +409,8 @@ const FeatureTableComponent: React.FC = () => {
             <tr>
               <td></td>
               <td>{displayCell("SIGN_UP")}</td>
-              <td>{displayCell("CONTACT_SALES")}</td>
+              <td>{displayCell("SIGN_UP")}</td>
+              <td>{displayCell("SIGN_UP")}</td>
             </tr>
           </tfoot>
         </FeatureTableTable>
@@ -357,22 +418,43 @@ const FeatureTableComponent: React.FC = () => {
       <Mobile style={{ width: "100%" }}>
         <Card>
           <CardHeader>
-            <h3>Standard</h3>
+            <h3>Developer</h3>
+            <p>Subscription Plan</p>
+          </CardHeader>
+          <Pricing>
+            <h4 style={{ fontSize: 36 }}>Free Forever</h4>
+            <p>10k notifications/mo</p>
+          </Pricing>
+          <ul>{getMobileFeatures("developer")}</ul>
+          <MobileRegistrationCTA>
+            <Button className="mobile" onClick={handleSignUpClick}>
+              <label>Sign up!</label>
+              <div>
+                <img src={googleLogo} alt="Google SSO" />
+                <img src={githubLogo} alt="GitHub SSO" />
+                <img className="email" src={emailLogo} alt="Email" />
+              </div>
+            </Button>
+          </MobileRegistrationCTA>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <h3>Pro</h3>
             <p>Subscription Plan</p>
           </CardHeader>
 
           <Pricing>
             <h4>
-              $0<small>/mo</small>
+              $99<small>/mo</small>
             </h4>
-            <p>plus usage</p>
+            <p>10k notifications/mo</p>
           </Pricing>
           <ul>
-            {features
-              .filter(feat => feat.standard)
-              .map((feat, idx) => (
-                <li key={idx}>{feat.label}</li>
-              ))}
+            <ul>
+              <li>Everything from the Developer Plan</li>
+              {getMobileFeatures("pro")}
+            </ul>
           </ul>
           <MobileRegistrationCTA>
             <Button className="mobile" onClick={handleSignUpClick}>
@@ -388,29 +470,31 @@ const FeatureTableComponent: React.FC = () => {
 
         <Card>
           <CardHeader>
-            <h3>Enterprise</h3>
+            <h3>Business</h3>
             <p>Subscription Plan</p>
           </CardHeader>
 
           <Pricing>
             <h4>
-              $5k<small>/mo</small>
+              $500<small>/mo</small>
             </h4>
-            <p>plus usage</p>
+            <p>1M notifications/mo</p>
           </Pricing>
           <ul>
-            {features
-              .filter(feat => feat.enterprise)
-              .map((feat, idx) => (
-                <li key={idx}>{feat.label}</li>
-              ))}
+            <li>Everything from the Pro Plan</li>
+            <ul>{getMobileFeatures("business")}</ul>
           </ul>
-          <Button style={{ width: "100%" }} onClick={handleContactSalesClick}>
-            Contact Sales
-          </Button>
+          <MobileRegistrationCTA>
+            <Button className="mobile" onClick={handleSignUpClick}>
+              <label>Sign up!</label>
+              <div>
+                <img src={googleLogo} alt="Google SSO" />
+                <img src={githubLogo} alt="GitHub SSO" />
+                <img className="email" src={emailLogo} alt="Email" />
+              </div>
+            </Button>
+          </MobileRegistrationCTA>
         </Card>
-
-        <GettingStartedContent />
       </Mobile>
     </FeatureTable>
   );
