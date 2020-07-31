@@ -74,8 +74,8 @@ export const features = [
   },
   {
     label: "Log Retention",
-    developer: "7 Days",
-    pro: "30 Days",
+    developer: "48 Hours",
+    pro: "7 Days",
     business: "30 Days",
   },
   {
@@ -85,9 +85,9 @@ export const features = [
     business: "Google + Github",
   },
   {
-    label: "GPDR Compliant",
-    developer: "",
-    pro: "",
-    business: "Yes",
+    label: "Data Privacy",
+    developer: "GDPR & CCPA",
+    pro: "GDPR & CCPA w/ DPA",
+    business: "GDPR & CCPA w/ DPA",
   }
 ];
