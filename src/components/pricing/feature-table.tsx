@@ -308,18 +308,6 @@ const Pricing = styled.div`
   }
 `;
 
-const handleContactSalesClick = () => {
-  try {
-    window.Intercom(
-      "showNewMessage",
-      `I'd like to discuss Courier's Enterprise plan. Please contact me at: `
-    );
-  } catch (e) {
-    console.warn("Intercom not enabled:", e);
-    window.open("mailto:sales@trycourier.com", "_blank");
-  }
-};
-
 const handleSignUpClick = () => {
   try {
     trackSignUp();
