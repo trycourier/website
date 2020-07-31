@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://www.trycourier.com`,
@@ -96,8 +98,8 @@ module.exports = {
       options: {
         spaceId: "z7iqk1q8njt4",
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: process.env.CONTENTFUL_HOST || "cdn.contentful.com"
-      }
+        host: process.env.CONTENTFUL_HOST || "cdn.contentful.com",
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

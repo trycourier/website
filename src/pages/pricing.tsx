@@ -15,7 +15,6 @@ import Footer from "../components/footer";
 
 import Divider from "../components/home/divider";
 
-import UsageBasedPricing from "../components/pricing/usage-based-pricing";
 import SubscriptionPlans from "../components/pricing/subscription-plans";
 
 const IndexPage: React.FC = () => {
@@ -65,7 +64,6 @@ const IndexPage: React.FC = () => {
       <Section>
         <Container bg="transparent">
           <PageWrapper>
-            <UsageBasedPricing />
             <SubscriptionPlans />
           </PageWrapper>
         </Container>
