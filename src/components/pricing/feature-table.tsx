@@ -332,7 +332,7 @@ const displayCell = (property: any | string) => {
 
 const getMobileFeatures = (type: string) => {
   return features
-    .filter(feat => feat[type])
+    .filter((feat) => feat[type])
     .map((feat, idx) => {
       const label = (() => {
         if (!feat.label || !feat[type]) {
@@ -422,7 +422,7 @@ const FeatureTableComponent: React.FC = () => {
             <p>Subscription Plan</p>
           </CardHeader>
           <Pricing>
-            <h4>Free Forever</h4>
+            <h4 style={{ fontSize: 36 }}>Free Forever</h4>
             <p>10k notifications/mo</p>
           </Pricing>
           <ul>{getMobileFeatures("developer")}</ul>
@@ -495,7 +495,6 @@ const FeatureTableComponent: React.FC = () => {
             </Button>
           </MobileRegistrationCTA>
         </Card>
-        <GettingStartedContent />
       </Mobile>
     </FeatureTable>
   );

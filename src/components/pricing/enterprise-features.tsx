@@ -13,16 +13,21 @@ const StyledEnterpriseFeature = styled.div`
   flex: 0 48%;
   box-shadow: rgba(157, 52, 139, 0.25) 0px 8px 18px;
   border-radius: 10px;
-  padding: 12px;
+  padding: 24px;
   height: 144px;
   box-sizing: border-box;
   margin: 21px 0;
+
+  @media only screen and (min-width: 768px) {
+    .image {
+      width: 130px;
+    }
+  }
 
   @media only screen and (max-width: 768px) {
     display: block;
     height: auto;
     text-align: center;
-    padding: 24px;
   }
 
   p {
@@ -42,7 +47,9 @@ const EnterpriseFeature: React.FC<{
 }> = ({ svg, title, description }) => {
   return (
     <StyledEnterpriseFeature>
-      <img src={svg} alt={title} />
+      <div className="image">
+        <img src={svg} alt={title} />
+      </div>
       <div>
         <p className="title">{title}</p>
         <p className="description">{description}</p>
@@ -74,7 +81,7 @@ const EnterpriseFeatures: React.FC = () => {
       />
       <EnterpriseFeature
         svg={data}
-        title="Unlimited custom data log retention"
+        title="Unlimited data log retention"
         description="Full control over data retention"
       />
       <EnterpriseFeature
