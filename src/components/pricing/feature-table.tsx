@@ -293,7 +293,7 @@ const Pricing = styled.div`
   ${tw`text-center py-4`}
   & h4 {
     color: ${colors.green};
-    font-size: 50px;
+    font-size: 45px;
     padding-bottom: 0px;
     margin: 0px;
     & small {
