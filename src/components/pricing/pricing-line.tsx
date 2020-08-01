@@ -3,12 +3,36 @@ import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
-import { pricingMatrix } from "../../data/pricing";
 import colors from "../../colors";
 
 import ProgressBar from "./progress-bar";
 
 import { Desktop, Mobile } from "../container";
+
+export const pricingMatrix = [
+  {
+    perMonth: "$0",
+    cummulative: "10,000",
+  },
+  {
+    perMonth: "$0",
+    cummulative: "10,000",
+  },
+  {
+    perMonth: "$99",
+    cummulative: "250,000",
+  },
+  {
+    perMonth: "$499",
+    additional: "$0.0006",
+    cummulative: "1,000,000",
+  },
+  {
+    perMonth: "$499",
+    additional: "$0.0006",
+    cummulative: "1,000,000",
+  },
+];
 
 const trackW = "100%";
 const trackBw = "5px";

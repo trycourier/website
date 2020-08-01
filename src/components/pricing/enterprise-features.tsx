@@ -86,13 +86,13 @@ const EnterpriseFeatures: React.FC = () => {
       />
       <EnterpriseFeature
         svg={roles}
-        title="Customer roles and permissions"
+        title="Custom roles and permissions"
         description="Manage your entire team’s notifications workflow"
       />
       <EnterpriseFeature
         svg={volume}
-        title="1 million+ notifications"
-        description="Infinitely scalable volume"
+        title="High volume"
+        description="We're built to scale"
       />
     </StyledEnterpriseFeatures>
   );

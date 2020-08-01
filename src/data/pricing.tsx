@@ -1,0 +1,133 @@
+import React from "react";
+
+export const plans = {
+  free: {
+    name: 'Developer',
+    price: 'Free Forever',
+    included: <>10k messages<small>/mo</small></>,
+    overage: <>&mdash;</>
+  },
+  good: {
+    name: 'Starter',
+    price: <><small>From</small> $99<small>/mo</small></>,
+    included: <>10k messages<small>/mo</small></>,
+    overage: <>+$0.005<small>/additional</small></>
+  },
+  better: {
+    name: 'Business',
+    price: <><small>From</small> $1,800<small>/mo</small></>,
+    included: <>250k messages<small>/mo</small></>,
+    overage: <>+$0.001<small>/additional</small></>
+  }
+};
+
+export const features = [
+  {
+    label: "",
+    developer: "SIGN_UP",
+    pro: "SIGN_UP",
+    business: "SIGN_UP",
+  },
+  {
+    label: "Team Members",
+    developer: "Unlimited",
+    pro: "Unlimited",
+    business: "Unlimited",
+  },
+  {
+    label: "Integrations",
+    developer: "Unlimited",
+    pro: "Unlimited",
+    business: "Unlimited",
+  },
+  {
+    label: "Templates",
+    developer: "Unlimited",
+    pro: "Unlimited",
+    business: "Unlimited",
+  },
+  {
+    label: "Brands",
+    developer: "Up to 10",
+    pro: "Unlimited",
+    business: "Unlimited",
+  },
+  {
+    label: "Delayed & Recurring Messages",
+    developer: "",
+    pro: "Yes",
+    business: "Yes",
+  },
+  {
+    label: "Message Fan-out (Topics)",
+    developer: "",
+    pro: "Yes",
+    business: "Yes",
+  },
+  {
+    label: "Message Batching (Digest)",
+    developer: "",
+    pro: "Yes",
+    business: "Yes",
+  },
+  {
+    label: "Service Level Agreement",
+    developer: "",
+    pro: "",
+    business: "Yes",
+  },
+  {
+    label: "Log Retention",
+    developer: "48 Hours",
+    pro: "7 Days",
+    business: "30 Days",
+  },
+  {
+    label: "",
+    developer: "SIGN_UP",
+    pro: "SIGN_UP",
+    business: "SIGN_UP",
+  },
+  {
+    label: "Support",
+    developer: "Community",
+    pro: "Email",
+    business: "Prioritized",
+  },
+  {
+    label: "Onboarding",
+    developer: "Self-Service",
+    pro: "Self-Service",
+    business: "Customer Success",
+  },
+  {
+    label: "Compliance Reports",
+    developer: "",
+    pro: "",
+    business: "SOC 2, Pentest",
+  },
+  {
+    label: "Data Privacy",
+    developer: "GDPR, CCPA",
+    pro: "GDPR, CCPA",
+    business: "GDPR (with DPA), CCPA",
+  },
+  {
+    label: "Data Encryption",
+    developer: "In-flight & At-rest",
+    pro: "In-flight & At-rest",
+    business: "In-flight & At-rest",
+  },
+  {
+    label: "SSO",
+    developer: "Google, Github",
+    pro: "Google, Github",
+    business: "Google, Github",
+  },
+  {
+    label: "Two-Factor Authentication",
+    developer: "Yes",
+    pro: "Yes",
+    business: "Yes",
+  },
+];

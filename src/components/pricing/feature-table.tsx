@@ -3,10 +3,9 @@ import React from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
 
-import { features } from "../../data/pricing";
+import { plans, features } from "../../data/pricing";
 import colors from "../../colors";
 import { Desktop, Mobile } from "../container";
-import GettingStartedContent from "../shared/getting-started";
 import { MobileRegistrationCTA } from "../shared/registration-cta";
 
 import checkmark from "../../images/checkmark.svg";
@@ -294,7 +293,7 @@ const Pricing = styled.div`
   ${tw`text-center py-4`}
   & h4 {
     color: ${colors.green};
-    font-size: 66px;
+    font-size: 50px;
     padding-bottom: 0px;
     margin: 0px;
     & small {
@@ -322,7 +321,8 @@ const displayCell = (property: any | string) => {
     case "SIGN_UP":
       return <AccountButtonComponent />;
     case "CONTACT_SALES":
-      return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
+      return <a href="mailto:sales@trycourier.com">Contact Sales</a>;
+      // return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
     case true:
       return <img src={checkmark} alt="+" width="32" />;
     default:
@@ -370,29 +370,35 @@ const FeatureTableComponent: React.FC = () => {
           <thead>
             <tr>
               <th />
-              <th>Developer</th>
-              <th>Pro</th>
-              <th>Business</th>
+              <th>{plans.free.name}</th>
+              <th>{plans.good.name}</th>
+              <th>{plans.better.name}</th>
             </tr>
           </thead>
           <tbody className="highlighted">
             <tr>
               <td>Subscription Fee</td>
               <td className="highlighted">
-                <strong>Free Forever</strong>
+                <strong>{plans.free.price}</strong>
               </td>
               <td>
-                <strong>$99/m</strong>
+                <strong>{plans.good.price}</strong>
               </td>
               <td>
-                <strong>$500/mo</strong>
+                <strong>{plans.better.price}</strong>
               </td>
             </tr>
             <tr>
               <td>Included Usage</td>
-              <td className="highlighted">10k notifications/mo</td>
-              <td>10k notifications/mo</td>
-              <td>1m notifications/mo</td>
+              <td className="highlighted">{plans.free.included}</td>
+              <td>{plans.good.included}</td>
+              <td>{plans.better.included}</td>
+            </tr>
+            <tr>
+              <td>Overage</td>
+              <td className="highlighted">{plans.free.overage}</td>
+              <td>{plans.good.overage}</td>
+              <td>{plans.better.overage}</td>
             </tr>
           </tbody>
           <tbody className="features">
@@ -415,15 +421,16 @@ const FeatureTableComponent: React.FC = () => {
           </tfoot>
         </FeatureTableTable>
       </Desktop>
+
       <Mobile style={{ width: "100%" }}>
         <Card>
           <CardHeader>
-            <h3>Developer</h3>
+            <h3>{plans.free.name}</h3>
             <p>Subscription Plan</p>
           </CardHeader>
           <Pricing>
-            <h4 style={{ fontSize: 36 }}>Free Forever</h4>
-            <p>10k notifications/mo</p>
+            <h4 style={{ fontSize: 36 }}>{plans.free.price}</h4>
+            <p>{plans.free.included}</p>
           </Pricing>
           <ul>{getMobileFeatures("developer")}</ul>
           <MobileRegistrationCTA>
@@ -440,19 +447,18 @@ const FeatureTableComponent: React.FC = () => {
 
         <Card>
           <CardHeader>
-            <h3>Pro</h3>
+            <h3>{plans.good.name}</h3>
             <p>Subscription Plan</p>
           </CardHeader>
 
           <Pricing>
-            <h4>
-              $99<small>/mo</small>
-            </h4>
-            <p>10k notifications/mo</p>
+            <h4>{plans.good.price}</h4>
+            <p>{plans.good.included}</p>
+            <p>{plans.good.overage}</p>
           </Pricing>
           <ul>
             <ul>
-              <li>Everything from the Developer Plan</li>
+              <li>Everything from the {plans.free.name} Plan</li>
               {getMobileFeatures("pro")}
             </ul>
           </ul>
@@ -470,18 +476,17 @@ const FeatureTableComponent: React.FC = () => {
 
         <Card>
           <CardHeader>
-            <h3>Business</h3>
+            <h3>{plans.better.name}</h3>
             <p>Subscription Plan</p>
           </CardHeader>
 
           <Pricing>
-            <h4>
-              $500<small>/mo</small>
-            </h4>
-            <p>1M notifications/mo</p>
+            <h4>{plans.better.price}</h4>
+            <p>{plans.better.included}</p>
+            <p>{plans.better.overage}</p>
           </Pricing>
           <ul>
-            <li>Everything from the Pro Plan</li>
+            <li>Everything from the {plans.good.name} Plan</li>
             <ul>{getMobileFeatures("business")}</ul>
           </ul>
           <MobileRegistrationCTA>
