@@ -211,11 +211,9 @@ const NavigationComponent: React.FC = () => {
           <li>
             <Link to="/pricing">Pricing</Link>
           </li>
-          {false && (
-            <li>
-              <Link to="/community">Community</Link>
-            </li>
-          )}
+          <li>
+            <Link to="/community">Community</Link>
+          </li>
           <li>
             <a
               href="https://docs.trycourier.com/"
