@@ -91,8 +91,8 @@ export const features = [
   {
     label: "Support",
     developer: <a href="https://community.trycourier.com/" target="_blank">Community</a>,
-    pro: "Email",
-    business: "Prioritized",
+    pro: <a href="https://community.trycourier.com/" target="_blank">Community</a>,
+    business: "Customer Success",
   },
   {
     label: "Onboarding",
