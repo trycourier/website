@@ -35,7 +35,7 @@ export const features = [
     business: "Unlimited",
   },
   {
-    label: "Integrations",
+    label: "Channel Integrations",
     developer: "Unlimited",
     pro: "Unlimited",
     business: "Unlimited",
@@ -48,7 +48,7 @@ export const features = [
   },
   {
     label: "Brands",
-    developer: "Up to 10",
+    developer: "10",
     pro: "Unlimited",
     business: "Unlimited",
   },
@@ -90,7 +90,7 @@ export const features = [
   },
   {
     label: "Support",
-    developer: "Community",
+    developer: <a href="https://community.trycourier.com/" target="_blank">Community</a>,
     pro: "Email",
     business: "Prioritized",
   },
@@ -114,9 +114,9 @@ export const features = [
   },
   {
     label: "Data Encryption",
-    developer: "In-flight & At-rest",
-    pro: "In-flight & At-rest",
-    business: "In-flight & At-rest",
+    developer: "In-flight & at-rest",
+    pro: "In-flight & at-rest",
+    business: "In-flight & at-rest",
   },
   {
     label: "SSO",

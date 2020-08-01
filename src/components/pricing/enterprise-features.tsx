@@ -81,8 +81,8 @@ const EnterpriseFeatures: React.FC = () => {
       />
       <EnterpriseFeature
         svg={data}
-        title="Unlimited data log retention"
-        description="Full control over data retention"
+        title="Flexible data retention"
+        description="Full control over log retention"
       />
       <EnterpriseFeature
         svg={roles}

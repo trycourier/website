@@ -351,7 +351,7 @@ const getMobileFeatures = (type: string) => {
           return feat.label;
         }
 
-        return `${feat[type]} ${feat.label}`;
+        return <>{feat[type]} {feat.label}</>;
       })();
 
       if (!label) {
