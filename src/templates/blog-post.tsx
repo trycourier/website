@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types'
@@ -8,6 +8,7 @@ import tw from "tailwind.macro";
 import Simple from "./simple";
 import SEO from "../components/seo";
 import Tag from "../components/community/tag";
+import SyntaxHighlighter from "../components/syntax-highlighter";
 import BackLink from "../components/community/back-link";
 import CTALink from "../components/community/cta-link";
 
@@ -111,7 +112,6 @@ type GraphQLQuery = {
 
 const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.contentfulPost;
-  console.log(post.headerImage)
   const options = {
     renderMark: {
       [MARKS.CODE]: (text: string) => <BlogCode>{text}</BlogCode>
@@ -138,6 +138,21 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
             </a>
           default:
             return <span style={{backgroundColor: 'red', color: 'white'}}> {mimeType} embedded asset </span>
+        }
+      },
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+        const entry = node.data.target;
+        const entryType = entry.sys.contentType.sys.id
+
+        switch(entryType) {
+          case 'codeSnippet':
+            {
+              const {title, language} = entry.fields;
+              const [code, setCode] = useState(entry.fields.code["en-US"]);
+              return <SyntaxHighlighter title={title["en-US"]} language={language["en-US"]} code={code} onChange={setCode} />
+            }
+          default:
+            return <span style={{backgroundColor: 'red', color: 'white'}}> {entryType} embedded asset </span>
         }
       },
       [INLINES.HYPERLINK]: (node, children) => {
