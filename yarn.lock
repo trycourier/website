@@ -1585,6 +1585,14 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
+"@tippy.js/react@^2.2.2":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@tippy.js/react/-/react-2.2.3.tgz#2ffb0af6693055be7db4b329b2d3cc7f2356f68e"
+  integrity sha512-5XYvbQujzDj9r00JYEz/cBtm6DutjOdv2azdco53B+eWF7FDBCQfkLVn87wimfEpmGK0vqRQv/cwFxFcoOP98Q==
+  dependencies:
+    prop-types "^15.6.2"
+    tippy.js "^4.3.4"
+
 "@turist/fetch@^7.1.6":
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/@turist/fetch/-/fetch-7.1.6.tgz#85eb342e8dee82fe9c7e2fbfa2773abd776f0b62"
@@ -3552,7 +3560,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.0.0:
+classnames@^2.0.0, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -3621,6 +3629,11 @@ cli-width@^3.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-3.0.0.tgz#a2f48437a2caa9a22436e794bf071ec9e61cedf6"
   integrity sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw==
 
+clipboard-copy@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/clipboard-copy/-/clipboard-copy-3.1.0.tgz#4c59030a43d4988990564a664baeafba99f78ca4"
+  integrity sha512-Xsu1NddBXB89IUauda5BIq3Zq73UWkjkaQlPQbLNvNsd5WBMnTWPNKYR6HGaySOxGYZ+BKxP2E9X4ElnI3yiPA==
+
 clipboardy@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/clipboardy/-/clipboardy-2.3.0.tgz#3c2903650c68e46a91b388985bc2774287dba290"
@@ -3668,6 +3681,11 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
+
+codemirror@^5.56.0:
+  version "5.56.0"
+  resolved "https://registry.yarnpkg.com/codemirror/-/codemirror-5.56.0.tgz#675640fcc780105cd22d3faa738b5d7ea6426f61"
+  integrity sha512-MfKVmYgifXjQpLSgpETuih7A7WTTIsxvKfSLGseTY5+qt0E1UD1wblZGM6WLenORo8sgmf+3X+WTe2WF7mufyw==
 
 collapse-white-space@^1.0.0, collapse-white-space@^1.0.2:
   version "1.0.6"
@@ -10836,6 +10854,11 @@ pnp-webpack-plugin@^1.6.4:
   dependencies:
     ts-pnp "^1.1.6"
 
+popper.js@^1.14.7:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
+  integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
+
 portfinder@^1.0.26:
   version "1.0.28"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
@@ -11614,6 +11637,11 @@ rc@^1.2.7, rc@^1.2.8:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-codemirror2@^7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/react-codemirror2/-/react-codemirror2-7.2.1.tgz#38dab492fcbe5fb8ebf5630e5bb7922db8d3a10c"
+  integrity sha512-t7YFmz1AXdlImgHXA9Ja0T6AWuopilub24jRaQdPVbzUJVNKIYuy3uCFZYa7CE5S3UW6SrSa5nAqVQvtzRF9gw==
 
 react-dev-utils@^4.2.3:
   version "4.2.3"
@@ -13746,6 +13774,13 @@ tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
+
+tippy.js@^4.3.4:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-4.3.5.tgz#882bff8d92f09bb0546d2826d5668c0560006f54"
+  integrity sha512-NDq3efte8nGK6BOJ1dDN1/WelAwfmh3UtIYXXck6+SxLzbIQNZE/cmRSnwScZ/FyiKdIcvFHvYUgqmoGx8CcyA==
+  dependencies:
+    popper.js "^1.14.7"
 
 tlds@^1.187.0:
   version "1.207.0"
