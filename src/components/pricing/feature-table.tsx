@@ -164,39 +164,43 @@ const AccountButtons = styled.ul`
 
   list-style: none;
   height: 36px;
-  & li {
+  li {
     ${tw`list-none inline-block mx-2`}
-    height: 24px;
-    width: 24px;
+    height: 30px;
+    width: 30px;
     border-radius: 9999px;
-    padding: 6px;
     & :hover {
       filter: brightness(90%);
     }
+
+    a {
+      padding: 3px;
+      display: block;
+    }
   }
-  & li.google {
+  li.google {
     margin-left: 0;
 
     background: ${colors.googleBlue};
-    & img {
+    img {
       width: 20px;
       margin-left: 2px;
       margin-top: 2px;
     }
   }
-  & li.github {
+  li.github {
     background: #000;
-    & img {
+    img {
       width: 20px;
       margin-left: 2px;
       margin-top: 2px;
     }
   }
-  & li.email {
+  li.email {
     background: ${colors.berry};
-    & img {
-      width: 20px;
-      margin-left: 2px;
+    img {
+      width: 18px;
+      margin-left: 3px;
       margin-top: 5px;
     }
   }
@@ -322,7 +326,7 @@ const displayCell = (property: any | string) => {
       return <AccountButtonComponent />;
     case "CONTACT_SALES":
       return <a href="mailto:sales@trycourier.com">Contact Sales</a>;
-      // return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
+    // return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
     case true:
       return <img src={checkmark} alt="+" width="32" />;
     default:
@@ -351,7 +355,11 @@ const getMobileFeatures = (type: string) => {
           return feat.label;
         }
 
-        return <>{feat[type]} {feat.label}</>;
+        return (
+          <>
+            {feat[type]} {feat.label}
+          </>
+        );
       })();
 
       if (!label) {

@@ -1,1 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="37" height="36" viewBox="0 0 37 36"><g transform="translate(-111 -455)"><rect width="37" height="36" rx="18" transform="translate(111 455)" fill="#fff"/><g transform="translate(119.269 463.125)"><path d="M18.54,9.4a11.418,11.418,0,0,0-.181-2.033H9v3.844h5.348a4.572,4.572,0,0,1-1.983,3V16.7h3.212A9.692,9.692,0,0,0,18.54,9.4Z" transform="translate(0.937 0.767)" fill="#4285f4" fill-rule="evenodd"/><path d="M9.838,18.759a9.487,9.487,0,0,0,6.577-2.408L13.2,13.858A6,6,0,0,1,4.277,10.71H.957v2.575a9.934,9.934,0,0,0,8.881,5.475Z" transform="translate(0.1 1.116)" fill="#4285f4" fill-rule="evenodd"/><path d="M4.377,11.309a5.875,5.875,0,0,1,0-3.776V4.958H1.057a9.95,9.95,0,0,0,0,8.926l3.32-2.575Z" transform="translate(0 0.516)" fill="#4285f4" fill-rule="evenodd"/><path d="M9.838,3.952a5.368,5.368,0,0,1,3.8,1.486l2.85-2.85A9.55,9.55,0,0,0,9.838,0,9.934,9.934,0,0,0,.957,5.475l3.32,2.575a5.922,5.922,0,0,1,5.56-4.1Z" transform="translate(0.1 0)" fill="#4285f4" fill-rule="evenodd"/><path d="M0,0H19.875V19.875H0Z" fill="none" fill-rule="evenodd"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="37" height="36" viewBox="0 0 37 36">
+
+  <g transform="translate(-111 -455)">
+    <rect width="37" height="36" rx="18" transform="translate(111 455)" fill="#fff" />
+  </g>
+  <g id="Artboard_1" data-name="Artboard – 1" clip-path="url(#clip-Artboard_1)">
+    <g id="Google__G__Logo" transform="translate(9 9)">
+      <path id="Path_4625" data-name="Path 4625"
+        d="M281.068,225a10.972,10.972,0,0,0-.161-1.9H272.1v3.6h5.043a4.321,4.321,0,0,1-1.866,2.837v2.333h3.009A9.118,9.118,0,0,0,281.068,225Z"
+        transform="translate(-262.814 -215.464)" fill="#4285f4" />
+      <path id="Path_4626" data-name="Path 4626"
+        d="M37.243,331.847a8.937,8.937,0,0,0,6.189-2.254l-3.009-2.333A5.663,5.663,0,0,1,32,324.3H28.9v2.4A9.338,9.338,0,0,0,37.243,331.847Z"
+        transform="translate(-27.957 -313.192)" fill="#34a853" />
+      <path id="Path_4627" data-name="Path 4627"
+        d="M4.044,155.979a5.592,5.592,0,0,1,0-3.575V150H.943a9.344,9.344,0,0,0,0,8.384Z"
+        transform="translate(0 -144.872)" fill="#fbbc04" />
+      <path id="Path_4628" data-name="Path 4628"
+        d="M37.243,3.677a5.074,5.074,0,0,1,3.582,1.4L43.49,2.411A8.973,8.973,0,0,0,37.243-.018,9.335,9.335,0,0,0,28.9,5.128l3.1,2.4a5.584,5.584,0,0,1,5.242-3.856Z"
+        transform="translate(-27.957 0)" fill="#ea4335" />
+    </g>
+  </g>
+</svg>
