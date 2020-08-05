@@ -2,3 +2,8 @@
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
+
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/static/favicon/favicon.ico"
+  status = 301
