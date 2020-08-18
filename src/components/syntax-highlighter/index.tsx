@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "tailwind.macro";
-import ClipboardCopy from  "../clipboard-copy";
+import ClipboardCopy from "../clipboard-copy";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import { ISyntaxHighlighterProps } from "./types";
 
@@ -12,6 +12,8 @@ if (typeof window !== "undefined") {
   require("codemirror/mode/php/php");
   require("codemirror/mode/go/go");
   require("codemirror/mode/ruby/ruby");
+  require("codemirror/mode/css/css");
+  require("codemirror/mode/htmlmixed/htmlmixed");
   require("codemirror/lib/codemirror.css");
   require("codemirror/theme/material-palenight.css");
 }
@@ -84,7 +86,7 @@ const SyntaxHighlighter: React.FunctionComponent<ISyntaxHighlighterProps> = ({
   title,
   language,
   code,
-  onChange
+  onChange,
 }) => {
   const handleOnChange = (_editor: any, _data: any, value: string) => {
     if (!onChange) {
