@@ -32,3 +32,9 @@
   status = 301
   force = true
   
+[[redirects]]
+  from = "https://www.trycourier.com/*"
+  to = "https://www.courier.com/:splat"
+  status = 301
+  force = true
+  
