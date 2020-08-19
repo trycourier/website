@@ -7,3 +7,8 @@
   from = "/favicon.ico"
   to = "/static/favicon/favicon.ico"
   status = 301
+
+[[redirects]]
+  from = "https://courier.com/*"
+  to = "https://www.courier.com/:splat"
+  status = 301
