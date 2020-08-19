@@ -7,8 +7,28 @@
   from = "/favicon.ico"
   to = "/static/favicon/favicon.ico"
   status = 301
+  
+[[redirects]]
+  from = "http://courier.com"
+  to = "https://www.courier.com"
+  status = 301
+  force = true
+  
+[[redirects]]
+  from = "http://www.courier.com"
+  to = "https://www.courier.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://courier.com"
+  to = "https://www.courier.com"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "https://courier.com/*"
   to = "https://www.courier.com/:splat"
   status = 301
+  force = true
+  
