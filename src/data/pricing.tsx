@@ -90,8 +90,8 @@ export const features = [
   },
   {
     label: "Support",
-    developer: <a href="https://community.trycourier.com/" target="_blank">Community</a>,
-    pro: <a href="https://community.trycourier.com/" target="_blank">Community</a>,
+    developer: <a href="https://community.courier.com/" target="_blank">Community</a>,
+    pro: <a href="https://community.courier.com/" target="_blank">Community</a>,
     business: "Customer Success",
   },
   {
