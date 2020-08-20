@@ -8,7 +8,7 @@
 
 The easiest way to add notifications to a new project or to add additional channels — like SMS, Facebook Messenger, or Slack — to your existing notification strategy.
 
-[https://www.trycourier.com](https://www.trycourier.com)
+[https://www.courier.com](https://www.courier.com)
 
 ## License
 
