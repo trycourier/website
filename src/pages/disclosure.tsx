@@ -56,8 +56,8 @@ const DisclosurePolicy: React.FC = () => {
       <p>
         We may revise these guidelines from time to time. The most current
         version of the guidelines will be available at{" "}
-        <a href="https://www.trycourier.com/disclosure">
-          https://www.trycourier.com/disclosure
+        <a href="https://www.courier.com/disclosure">
+          https://www.courier.com/disclosure
         </a>
         .
       </p>
