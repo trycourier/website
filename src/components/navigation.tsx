@@ -149,7 +149,7 @@ const NavigationComponent: React.FC = () => {
                   <Link to="/community">Community</Link>
                 </li>
                 <li>
-                  <a href="https://docs.trycourier.com/" rel="noreferrer" target="_blank">
+                  <a href="https://docs.courier.com/" rel="noreferrer" target="_blank">
                     Documentation
                   </a>
                 </li>
@@ -216,7 +216,7 @@ const NavigationComponent: React.FC = () => {
           </li>
           <li>
             <a
-              href="https://docs.trycourier.com/"
+              href="https://docs.courier.com/"
               rel="noreferrer"
               target="_blank"
             >
