@@ -2,7 +2,7 @@ require("dotenv").config();
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.trycourier.com`,
+    siteUrl: `https://www.courier.com`,
     title: "Courier",
     description:
       "Courier is the smartest way to design and deliver notifications. Design once, and deliver to any channel – email, Slack, SMS, push, and more – through one API.",
