@@ -104,11 +104,11 @@ const FooterComponent: React.FC = () => {
               </li>
               {false && (
                 <li>
-                  <Link to="/community">Community</Link>
+                  <Link to="/blog">Blog</Link>
                 </li>
               )}
               <li>
-                <a href="https://docs.trycourier.com/" rel="noreferrer" target="_blank">
+                <a href="https://docs.courier.com/" rel="noreferrer" target="_blank">
                   Documentation
                 </a>
               </li>
