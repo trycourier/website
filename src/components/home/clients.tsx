@@ -5,13 +5,12 @@ import tw from "tailwind.macro";
 import Container from "../container";
 import colors from "../../colors";
 
-import lattice from "../../images/clients/lattice.svg";
+import bluecrew from "../../images/clients/bluecrew.svg";
 import blissfully from "../../images/clients/blissfully.svg";
-import eatgeek from "../../images/clients/eatgeek.svg";
-import hutsy from "../../images/clients/hutsy-logo.svg";
-import savvy from "../../images/clients/savvy.svg";
-import aarida from "../../images/clients/aarida.svg";
-// import beacons from "../../images/clients/beacons.svg";
+import expel from "../../images/clients/expel.svg";
+import lattice from "../../images/clients/lattice.svg";
+import launchdarkly from "../../images/clients/launchdarkly.svg";
+import ltse from "../../images/clients/ltse.svg";
 
 const Clients = styled(Container)`
   ${tw`py-2 flex flex-col`}
@@ -31,8 +30,20 @@ const ClientsText = styled.div`
 const ClientsImageWrapper = styled.div`
   ${tw`w-full relative mx-auto`}
   height: 120px;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 385px;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 768px) and (max-width: 900px) {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 760px;
+    margin: -20px 0 20px 0;
+    img {
+      position: static;
+      margin: 12px;
+    }
   }
 `;
 
@@ -71,39 +82,42 @@ const ClientsComponent: React.FC = () => {
           src={lattice}
           alt="Lattice"
           desktop={{ top: "20px", left: "10px" }}
-          mobile={{ top: "10px", left: "10px" }}
+          mobile={{ top: "0px", left: "16px" }}
         />
         <ClientImage
           src={blissfully}
           alt="Blissfully"
-          desktop={{ top: "2px", left: "194px" }}
-          mobile={{ top: "10px", left: "130px" }}
+          desktop={{ top: "2px", left: "190px" }}
+          mobile={{ top: "10px", left: "160px" }}
         />
         <ClientImage
-          src={eatgeek}
-          alt="EatGeek"
-          desktop={{ top: "16px", left: "380px" }}
-          mobile={{ top: "10px", left: "260px" }}
+          src={ltse}
+          alt="Long Term Stock Exchange"
+          desktop={{ top: "16px", left: "370px" }}
+          mobile={{ top: "-15px", left: "300px" }}
+          style={{ height: "40px" }}
         />
         <ClientImage
-          src={hutsy}
-          alt="Hutsy"
-          desktop={{ top: "33px", left: "543px" }}
-          mobile={{ top: "60px", left: "10px" }}
+          src={launchdarkly}
+          alt="LaunchDarkly"
+          desktop={{ top: "40px", left: "470px" }}
+          mobile={{ top: "50px", left: "20px" }}
+          style={{ height: "40px" }}
         />
         <ClientImage
-          src={savvy}
-          alt="Savvy"
-          desktop={{ top: "50px", left: "685px" }}
-          mobile={{ top: "65px", left: "130px" }}
+          src={expel}
+          alt="Expel"
+          desktop={{ top: "70px", left: "700px" }}
+          mobile={{ top: "100px", left: "160px" }}
+          style={{ height: "25px" }}
         />
         <ClientImage
-          src={aarida}
-          alt="Aarida"
-          desktop={{ top: "67px", left: "825px" }}
-          mobile={{ top: "50px", left: "260px" }}
+          src={bluecrew}
+          alt="Bluecrew"
+          desktop={{ top: "90px", left: "860px" }}
+          mobile={{ top: "70px", left: "250px" }}
+          style={{ height: "17px" }}
         />
-        {/* <ClientImage src={beacons} desktop={{top: "74px", left: "10px"}} mobile={{top: "10px", left: "10px"}}/> */}
       </ClientsImageWrapper>
     </Clients>
   );
