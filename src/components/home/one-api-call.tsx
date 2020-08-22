@@ -116,7 +116,7 @@ const OneApiComponent: React.FC = () => {
                   <img src={twilio} alt="Twilio" />
                 </td>
                 <td>
-                  <img src={firebase} alt="Firebase" /> 
+                  <img src={firebase} alt="Firebase" />
                 </td>
                 <td>
                   <img src={slack} alt="Slack" />
@@ -224,7 +224,7 @@ const OneApiComponent: React.FC = () => {
           </OneApiTable>
         </Mobile>
         <div style={{ marginTop: 32 }}>
-          <a href="https://docs.trycourier.com/docs" rel="noreferrer" target="_blank">Other Integrations</a>
+          <a href="https://docs.courier.com.com/docs" rel="noreferrer" target="_blank">Other Integrations</a>
         </div>
       </OneApiInfo>
     </OneApi>
