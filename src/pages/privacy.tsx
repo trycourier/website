@@ -85,7 +85,6 @@ const PrivacyPolicy: React.FC = () => {
               the Service. We will not use or share your information with anyone
               except as described in this Privacy Policy.
             </p>
-            {/* <p>The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which is accessible at https://www.trycourier.app, unless otherwise defined in this Privacy Policy. Our Privacy Policy was created with the help of the Privacy Policy Template and the Disclaimer Template.</p> */}
 
             <h2>Information Collection and Use</h2>
             <p>
@@ -183,7 +182,7 @@ const PrivacyPolicy: React.FC = () => {
             <p>
               If you have any questions or suggestions about our Privacy Policy,
               do not hesitate to contact us at{" "}
-              <a href="mailto:support@trycourier.com">support@trycourier.com</a>
+              <a href="mailto:support@courier.com">support@courier.com</a>
               .
             </p>
 

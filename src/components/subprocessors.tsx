@@ -45,7 +45,7 @@ const SubprocessorsComponent: React.FC = () => {
         </tbody>
       </SubprocessorTable>
 
-      <p>If you have any questions please contact us at <a href="mailto:privacy@trycourier.com">privacy@trycourier.com</a>.</p>
+      <p>If you have any questions please contact us at <a href="mailto:privacy@courier.com">privacy@courier.com</a>.</p>
     </>
   );
 };

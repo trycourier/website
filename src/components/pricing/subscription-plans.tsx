@@ -75,7 +75,7 @@ const handleContactSalesClick = () => {
     );
   } catch (e) {
     console.warn("Intercom not enabled:", e);
-    window.open("mailto:sales@trycourier.com", "_blank");
+    window.open("mailto:sales@courier.com", "_blank");
   }
 };
 

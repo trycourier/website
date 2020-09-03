@@ -24,7 +24,7 @@ const DisclosurePolicy: React.FC = () => {
         <li>
           If you believe you’ve discovered a potential vulnerability, please let
           us know by emailing us at{" "}
-          <a href="mailto:security@trycourier.com">security@trycourier.com</a>.
+          <a href="mailto:security@courier.com">security@courier.com</a>.
           We will acknowledge your email within five business days.
         </li>
         <li>
@@ -66,7 +66,7 @@ const DisclosurePolicy: React.FC = () => {
       <p>
         Courier is always open to feedback, questions, and suggestions. If you
         would like to talk to us, please feel free to email us at{" "}
-        <a href="mailto:security@trycourier.com">security@trycourier.com</a>.
+        <a href="mailto:security@courier.com">security@courier.com</a>.
       </p>
 
       <h2>Responsibility</h2>

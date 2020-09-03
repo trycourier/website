@@ -325,7 +325,7 @@ const displayCell = (property: any | string) => {
     case "SIGN_UP":
       return <AccountButtonComponent />;
     case "CONTACT_SALES":
-      return <a href="mailto:sales@trycourier.com">Contact Sales</a>;
+      return <a href="mailto:sales@courier.com">Contact Sales</a>;
     // return <Button onClick={handleContactSalesClick}>Contact Sales</Button>;
     case true:
       return <img src={checkmark} alt="+" width="32" />;
