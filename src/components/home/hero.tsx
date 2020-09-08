@@ -77,11 +77,26 @@ const HeroCTA = styled.div`
     & label {
       margin-top: 0px;
     }
-    
   }
 `;
 
-const HeroComponent: React.FC = () => {
+interface Props {
+  eyebrow?: string | React.FC;
+  heading?: string | React.FC;
+  subHeading: string | React.FC;
+}
+
+const HeroComponent: React.FC<Props> = ({
+  heading = (
+    <h1>
+      The Smartest Way to
+      <br />
+      Design &amp; Deliver Notifications
+    </h1>
+  ),
+  subHeading = <p>Design once, deliver to any channel through one API</p>,
+  eyebrow
+}) => {
   const calc = (x, y) => [
     x - window.innerWidth / 2,
     y - window.innerHeight / 2,
@@ -159,12 +174,9 @@ const HeroComponent: React.FC = () => {
       </MobileImageWrapper>
 
       <HeroContent>
-        <h1>
-          The Smartest Way to
-          <br />
-          Design &amp; Deliver Notifications
-        </h1>
-        <p>Design once, deliver to any channel through one API</p>
+        {eyebrow}
+        {heading}
+        {subHeading}
         <HeroCTA>
           <label>
             Sign up and receive <strong>10,000 free</strong> notifications every
