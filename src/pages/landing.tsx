@@ -182,6 +182,7 @@ const IndexPage: React.FC = () => {
     ${tw`mx-auto flex-wrap md:flex-nowrap`};
     padding: 36px 0;
     align-items: center;
+    & img { margin: 8px;}
   `;
 
   const Divide = styled.div`
