@@ -24,8 +24,8 @@ const DisclosurePolicy: React.FC = () => {
         <li>
           If you believe you’ve discovered a potential vulnerability, please let
           us know by emailing us at{" "}
-          <a href="mailto:security@courier.com">security@courier.com</a>.
-          We will acknowledge your email within five business days.
+          <a href="mailto:security@courier.com">security@courier.com</a>. We
+          will acknowledge your email within five business days.
         </li>
         <li>
           Provide us with a reasonable amount of time to resolve the issue

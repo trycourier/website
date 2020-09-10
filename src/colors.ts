@@ -2,6 +2,7 @@ import { theme } from "../tailwind";
 
 export default {
   berry: theme.extend.colors.berry,
+  berryPale: theme.extend.colors.berryPale,
   berryGlass: theme.extend.colors.berryGlass,
   berryNeutral: theme.extend.colors.berryNeutral,
   neutralGlass: theme.extend.colors.neutralGlass,

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import IconBack from "../../images/icon-back.svg";
 import colors from "../../colors";
@@ -26,7 +26,7 @@ const BackLink = styled(Link)`
 
 const BackLinkComponent: React.FC = () => {
   return (
-    <div style={{height: 48}}>
+    <div style={{ height: 48 }}>
       <BackLink to="/blog">
         <BackImg src={IconBack} alt="Back" /> View all Articles
       </BackLink>

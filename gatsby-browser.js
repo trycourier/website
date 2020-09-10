@@ -1,7 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+const { ThemeProvider } = require("@chakra-ui/core");
+const { theme } = require("./theme");
+const React = require("react");
 
-// You can delete this file if you're not using it
+exports.wrapRootElement = ({ element }) => {
+  return <ThemeProvider theme={theme}>{element}</ThemeProvider>;
+};

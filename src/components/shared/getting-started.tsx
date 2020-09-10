@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import colors from "../../colors";
@@ -12,7 +12,7 @@ const GettingStartedText = styled.div`
     font-family: "Proxima Nova", sans-serif;
     color: ${colors.textPrimary};
     font-weight: 600;
-    @media(max-width: 768px){
+    @media (max-width: 768px) {
       font-family: "Bebas Neue", sans-serif;
       font-weight: 400;
     }
@@ -52,5 +52,3 @@ const GettingStartedContent: React.FC = () => {
 };
 
 export default GettingStartedContent;
-
-

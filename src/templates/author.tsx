@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import Simple from "./simple";
 
@@ -50,14 +50,14 @@ const AuthoredFooter = styled.div`
 `;
 
 export const query = graphql`
-  query ($slug: String!) {
+  query($slug: String!) {
     groupedTags: allContentfulPost {
       group(field: tags___name) {
         fieldValue
         totalCount
       }
     }
-    contentfulAuthor(slug: {eq: $slug}) {
+    contentfulAuthor(slug: { eq: $slug }) {
       name
       slug
       post {
@@ -114,10 +114,7 @@ const Authored: React.FC<AuthoredTypes> = ({ data }) => {
             {posts.map((post: any) => (
               <ArticleCard key={post.id}>
                 <Link to={`/blog/${post.slug}`}>
-                  <ArticleImage
-                    fluid={post.thumbnail.fluid}
-                    alt={post.title}
-                  />
+                  <ArticleImage fluid={post.thumbnail.fluid} alt={post.title} />
                 </Link>
 
                 <div className="px-4">
@@ -133,26 +130,37 @@ const Authored: React.FC<AuthoredTypes> = ({ data }) => {
                   />
                   <p className="excerpt">{post.excerpt.excerpt}</p>
                   <div>
-                    {post.tags.map((tag: {name: string, id: string, slug: string}) => (
-                      <span style={{ marginRight: 8 }} key={tag.id}>
-                        <Tag label={tag.name} slug={tag.slug} />
-                      </span>
-                    ))}
+                    {post.tags.map(
+                      (tag: { name: string; id: string; slug: string }) => (
+                        <span style={{ marginRight: 8 }} key={tag.id}>
+                          <Tag label={tag.name} slug={tag.slug} />
+                        </span>
+                      )
+                    )}
                   </div>
                 </div>
               </ArticleCard>
             ))}
           </ArticleList>
           <ArticleSearch>
-            {false && (<SearchInput />)}
-            {tags.map((tag: {fieldValue: string, totalCount: Number}, idx: Number) => (
-            <div
-              style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
-              key={`${idx}`}
-            >
-              <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
-            </div>
-          ))}
+            {false && <SearchInput />}
+            {tags.map(
+              (
+                tag: { fieldValue: string; totalCount: Number },
+                idx: Number
+              ) => (
+                <div
+                  style={{
+                    width: "100%",
+                    textAlign: "right",
+                    margin: "16px 0px",
+                  }}
+                  key={`${idx}`}
+                >
+                  <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
+                </div>
+              )
+            )}
           </ArticleSearch>
         </ArticleScreen>
         <AuthoredFooter>

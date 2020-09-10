@@ -1,22 +1,16 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import Image from "./image";
 import colors from "../colors";
-import { listStyles } from "./styles";
+import { Box, Grid } from "@chakra-ui/core";
 
-const FeatureGrid = styled.section<{ imageFirst: boolean }>`
-  ${tw`flex  px-4 pt-0 mt-8 md:my-0 md:pb-16 lg:px-0`}
-  ${(props) =>
-    props.imageFirst
-      ? tw`flex-col-reverse md:flex-row-reverse`
-      : tw`flex-col md:flex-row`}
-`;
+// was going to make this a reusable compoenent but didn't really make sense with hardcoded pages... leaving as is for the sake of timee
 
-const FeatureGridText = styled.div<{ imageFirst: boolean }>`
-  ${tw`w-3/4 md:w-1/2 mx-auto md:pr-8 mt-8`}
+const FeatureGridText = styled(Box)<{ imageFirst: boolean }>`
+  ${tw`mx-auto md:pr-8 mt-8`}
   ${(props) => (props.imageFirst ? tw`md:pl-8` : tw`md:pr-8`)}
   & h2 {
     ${tw`m-0 p-0 text-3xl md:text-4xl mb-2`}
@@ -27,11 +21,9 @@ const FeatureGridText = styled.div<{ imageFirst: boolean }>`
     ${tw`m-0 p-0 text-lg`}
     color: ${colors.textSecondary};
   }
-  ${listStyles}
-`;
-
-const FeatureGridImageWrapper = styled.div`
-  ${tw`md:w-1/2`}
+  text-align: right;
+  max-width: 514px;
+  
 `;
 
 const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
@@ -39,7 +31,7 @@ const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
 }) => {
   const { img } = useStaticQuery(graphql`
     query {
-      img: file(relativePath: { eq: "notification-design-studio@2x.png" }) {
+      img: file(relativePath: { eq: "CourierAP.png" }) {
         childImageSharp {
           fluid(maxWidth: 640) {
             ...GatsbyImageSharpFluid
@@ -50,7 +42,15 @@ const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
   `);
 
   return (
-    <FeatureGrid imageFirst={imageFirst}>
+    <Grid
+      templateColumns={{ md: "repeat(2, 1fr)", sm: "repeat(1,1fr)" }}
+      gap={12}
+      px={[4, 0]}
+      pb={8}
+    >
+      <Box mt={{ small: "0", md: -140 }}>
+        <Image image={img} />
+      </Box>
       <FeatureGridText imageFirst={imageFirst}>
         <h2>One API call</h2>
         <p>
@@ -60,10 +60,34 @@ const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
           aliquip ex ea commodo consequat.
         </p>
       </FeatureGridText>
-      <FeatureGridImageWrapper>
-        <Image image={img} />
-      </FeatureGridImageWrapper>
-    </FeatureGrid>
+      <div>
+        <p style={{ display: "block", width: "auto" }}>
+          Detailed event log for every user on every channel  <br />
+          <br />
+          Each notification sent comes with a detailed summary and timeline{" "}
+          <br />
+          of its delivery. View what was sent from the REST API, when
+          <br />
+          and where it was routed, any errors that ight have occurred,
+          <br />
+          and more!
+        </p>
+      </div>
+      <div>
+        <p>
+          Detailed event log for every user on every channel
+          <br />
+          <br />
+          Each notification sent comes with a detailed summary and timeline
+          <br />
+          of its delivery. View what was sent from the REST API, when
+          <br />
+          and where it was routed, any errors that ight have occurred,
+          <br />
+          and more!
+        </p>
+      </div>
+    </Grid>
   );
 };
 

@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { Instance } from "tippy.js";
 
 import tw from "tailwind.macro";
@@ -18,17 +18,17 @@ const Styled = styled(Tippy)`
 
     &[x-placement^="top"] {
       .tippy-arrow {
-        border-top-color: #1F314F;
+        border-top-color: #1f314f;
       }
     }
   }
 
   &.theme-dark {
-    background-color: #1F314F;
+    background-color: #1f314f;
 
     &[x-placement^="top"] {
       .tippy-arrow {
-        border-top-color: #1F314F;
+        border-top-color: #1f314f;
       }
     }
   }
@@ -45,12 +45,12 @@ const Styled = styled(Tippy)`
   }
 
   &.theme-success {
-    background-color: #01C39A;
+    background-color: #01c39a;
 
     &[x-placement^="top"] {
       .tippy-arrow {
         transition: border-color 300ms;
-        border-top-color: #01C39A;
+        border-top-color: #01c39a;
       }
     }
   }

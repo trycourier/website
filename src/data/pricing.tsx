@@ -2,23 +2,51 @@ import React from "react";
 
 export const plans = {
   free: {
-    name: 'Developer',
-    price: 'Free Forever',
-    included: <>10k messages<small>/mo</small></>,
-    overage: <>&mdash;</>
+    name: "Developer",
+    price: "Free Forever",
+    included: (
+      <>
+        10k messages<small>/mo</small>
+      </>
+    ),
+    overage: <>&mdash;</>,
   },
   good: {
-    name: 'Starter',
-    price: <><small>From</small> $99<small>/mo</small></>,
-    included: <>10k messages<small>/mo</small></>,
-    overage: <>+$0.005<small>/additional</small></>
+    name: "Starter",
+    price: (
+      <>
+        <small>From</small> $99<small>/mo</small>
+      </>
+    ),
+    included: (
+      <>
+        10k messages<small>/mo</small>
+      </>
+    ),
+    overage: (
+      <>
+        +$0.005<small>/additional</small>
+      </>
+    ),
   },
   better: {
-    name: 'Business',
-    price: <><small>From</small> $1,800<small>/mo</small></>,
-    included: <>250k messages<small>/mo</small></>,
-    overage: <>+$0.001<small>/additional</small></>
-  }
+    name: "Business",
+    price: (
+      <>
+        <small>From</small> $1,800<small>/mo</small>
+      </>
+    ),
+    included: (
+      <>
+        250k messages<small>/mo</small>
+      </>
+    ),
+    overage: (
+      <>
+        +$0.001<small>/additional</small>
+      </>
+    ),
+  },
 };
 
 export const features = [
@@ -90,8 +118,16 @@ export const features = [
   },
   {
     label: "Support",
-    developer: <a href="https://community.courier.com/" target="_blank">Community</a>,
-    pro: <a href="https://community.courier.com/" target="_blank">Community</a>,
+    developer: (
+      <a href="https://community.courier.com/" target="_blank">
+        Community
+      </a>
+    ),
+    pro: (
+      <a href="https://community.courier.com/" target="_blank">
+        Community
+      </a>
+    ),
     business: "Customer Success",
   },
   {

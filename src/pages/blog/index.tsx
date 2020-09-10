@@ -24,7 +24,7 @@ export const query = graphql`
         totalCount
       }
     }
-    allContentfulPost(sort: {fields: publishDate, order: DESC}) {
+    allContentfulPost(sort: { fields: publishDate, order: DESC }) {
       totalCount
       edges {
         node {
@@ -56,16 +56,16 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
 const Blog: React.FC = ({ data }: any) => {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchInput = e => {
+  const handleSearchInput = (e) => {
     setSearchTerm(e.currentTarget.value.toLowerCase());
   };
 
-  const searchContent = value => {
+  const searchContent = (value) => {
     const val = value.toLowerCase();
     const regex = val.search(searchTerm);
     return regex !== -1;
@@ -86,10 +86,7 @@ const Blog: React.FC = ({ data }: any) => {
             .map(({ node }: any) => (
               <ArticleCard key={node.id}>
                 <Link to={`/blog/${node.slug}`}>
-                  <ArticleImage
-                    fluid={node.thumbnail.fluid}
-                    alt={node.title}
-                  />
+                  <ArticleImage fluid={node.thumbnail.fluid} alt={node.title} />
                 </Link>
                 <ArticlePreview>
                   <ArticleHeaderLink to={`/blog/${node.slug}`}>
@@ -102,11 +99,13 @@ const Blog: React.FC = ({ data }: any) => {
                   />
                   <p className="excerpt">{node.excerpt.excerpt}</p>
                   <div>
-                    {node.tags.map((tag: {name: string, id: string, slug: string}) => (
-                      <span style={{ marginRight: 8 }} key={tag.id}>
-                        <Tag label={tag.name} slug={tag.slug} />
-                      </span>
-                    ))}
+                    {node.tags.map(
+                      (tag: { name: string; id: string; slug: string }) => (
+                        <span style={{ marginRight: 8 }} key={tag.id}>
+                          <Tag label={tag.name} slug={tag.slug} />
+                        </span>
+                      )
+                    )}
                   </div>
                 </ArticlePreview>
               </ArticleCard>
@@ -114,14 +113,20 @@ const Blog: React.FC = ({ data }: any) => {
         </ArticleList>
         <ArticleSearch>
           <SearchInput onSearch={handleSearchInput} />
-          {tags.map((tag: {fieldValue: string, totalCount: Number}, idx: Number) => (
-            <div
-              style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
-              key={`${idx}`}
-            >
-              <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
-            </div>
-          ))}
+          {tags.map(
+            (tag: { fieldValue: string; totalCount: Number }, idx: Number) => (
+              <div
+                style={{
+                  width: "100%",
+                  textAlign: "right",
+                  margin: "16px 0px",
+                }}
+                key={`${idx}`}
+              >
+                <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
+              </div>
+            )
+          )}
         </ArticleSearch>
       </ArticleScreen>
     </Simple>

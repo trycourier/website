@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -25,7 +25,16 @@ import QuoteComponent from "../components/home/client-quote";
 import QuoteComponent2 from "../components/home/client-quote-2";
 
 const IndexPage: React.FC = () => {
-  const { heroBg, quoteBg, divider1, divider3, divider4, divider5, divider6, divider7 } = useStaticQuery(graphql`
+  const {
+    heroBg,
+    quoteBg,
+    divider1,
+    divider3,
+    divider4,
+    divider5,
+    divider6,
+    divider7,
+  } = useStaticQuery(graphql`
     query {
       heroBg: file(relativePath: { eq: "bgs/hero-top@2x.png" }) {
         childImageSharp {
@@ -62,35 +71,45 @@ const IndexPage: React.FC = () => {
           }
         }
       }
-      divider3: file(relativePath: { eq: "dividers/mod/one-api-call-top.png" }) {
+      divider3: file(
+        relativePath: { eq: "dividers/mod/one-api-call-top.png" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 3600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      divider4: file(relativePath: { eq: "dividers/mod/one-api-call-bottom.png" }) {
+      divider4: file(
+        relativePath: { eq: "dividers/mod/one-api-call-bottom.png" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      divider5: file(relativePath: { eq: "dividers/delivery-white-top@2x.png" }) {
+      divider5: file(
+        relativePath: { eq: "dividers/delivery-white-top@2x.png" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      divider6: file(relativePath: { eq: "dividers/delivery-white-bottom@2x.png" }) {
+      divider6: file(
+        relativePath: { eq: "dividers/delivery-white-bottom@2x.png" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      divider6: file(relativePath: { eq: "dividers/delivery-white-bottom@2x.png" }) {
+      divider6: file(
+        relativePath: { eq: "dividers/delivery-white-bottom@2x.png" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
@@ -104,7 +123,7 @@ const IndexPage: React.FC = () => {
           }
         }
       }
-      footerBg: file(relativePath: { eq: "dividers/footer-bg@2x.png"}) { 
+      footerBg: file(relativePath: { eq: "dividers/footer-bg@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 1280) {
             ...GatsbyImageSharpFluid
@@ -114,46 +133,46 @@ const IndexPage: React.FC = () => {
     }
   `);
 
-const Section = styled.section`
-  position: relative;
-  width: 100%;
-`;
+  const Section = styled.section`
+    position: relative;
+    width: 100%;
+  `;
 
-const Divide = styled.div`
-  position: absolute;
-  width: 100%;
-  min-height: 115px;
-  max-height: 160px;
-  min-width: 1520px;
-`;
-type ContainerProps = {
-  bg?: string;
-}
+  const Divide = styled.div`
+    position: absolute;
+    width: 100%;
+    min-height: 115px;
+    max-height: 160px;
+    min-width: 1520px;
+  `;
+  type ContainerProps = {
+    bg?: string;
+  };
 
-const TopDivider = styled(Divide)`
-  top: -4px;
-  height: 160px;
-  background-color: ${(props: ContainerProps) => colors[props.bg]};
-  &.footer {
-    height: 130px;
-  }
-`
+  const TopDivider = styled(Divide)`
+    top: -4px;
+    height: 160px;
+    background-color: ${(props: ContainerProps) => colors[props.bg]};
+    &.footer {
+      height: 130px;
+    }
+  `;
 
-const BotDivider = styled(Divide)`
-  bottom: -66px;
-  background-color: ${(props: ContainerProps) => colors[props.bg]};
-  height: 115px;
-`
+  const BotDivider = styled(Divide)`
+    bottom: -66px;
+    background-color: ${(props: ContainerProps) => colors[props.bg]};
+    height: 115px;
+  `;
 
-const HeroDivider = styled(Divide)`
-  bottom: 0px;
-  height: 160px;
-`
+  const HeroDivider = styled(Divide)`
+    bottom: 0px;
+    height: 160px;
+  `;
 
   return (
     <Layout>
       <SEO title="Home" />
-      
+
       <Section>
         <BackgroundImage
           Tag="section"
@@ -168,20 +187,19 @@ const HeroDivider = styled(Divide)`
           <Container>
             <Hero />
           </Container>
-
         </BackgroundImage>
         <HeroDivider>
           <Divider image={divider1} />
         </HeroDivider>
       </Section>
-      
-      <Section style={{top: -96 }}>
+
+      <Section style={{ top: -96 }}>
         <Container>
           <Clients />
         </Container>
       </Section>
 
-      <Section style={{top: -96 }}>
+      <Section style={{ top: -96 }}>
         <BackgroundImage
           Tag="section"
           fluid={quoteBg.childImageSharp.fluid}
@@ -196,9 +214,9 @@ const HeroDivider = styled(Divide)`
           </Container>
         </BackgroundImage>
       </Section>
-      
+
       <Section>
-        <Container >
+        <Container>
           <Editor />
         </Container>
         <BotDivider>
@@ -251,9 +269,8 @@ const HeroDivider = styled(Divide)`
         </TopDivider>
         <Container bg="berry">
           <Footer />
-        </Container> 
+        </Container>
       </Section>
-   
     </Layout>
   );
 };

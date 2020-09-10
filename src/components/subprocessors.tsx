@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 import subprocessors from "../../content/subprocessors.yaml";
 
@@ -24,7 +24,10 @@ const SubprocessorsComponent: React.FC = () => {
       <h1>List of Data Subprocessors</h1>
       <h3>Current as of: June 11, 2020</h3>
 
-      <p>The following is the current list of Subprocessors authorized to process customer data for Courier.</p>
+      <p>
+        The following is the current list of Subprocessors authorized to process
+        customer data for Courier.
+      </p>
 
       <SubprocessorTable>
         <thead>
@@ -45,7 +48,10 @@ const SubprocessorsComponent: React.FC = () => {
         </tbody>
       </SubprocessorTable>
 
-      <p>If you have any questions please contact us at <a href="mailto:privacy@courier.com">privacy@courier.com</a>.</p>
+      <p>
+        If you have any questions please contact us at{" "}
+        <a href="mailto:privacy@courier.com">privacy@courier.com</a>.
+      </p>
     </>
   );
 };

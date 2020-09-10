@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { useSpring, animated } from "react-spring";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import Image from "../image";
@@ -95,7 +95,8 @@ const HeroComponent: React.FC<Props> = ({
     </h1>
   ),
   subHeading = <p>Design once, deliver to any channel through one API</p>,
-  eyebrow
+  eyebrow,
+  ctaStyle,
 }) => {
   const calc = (x, y) => [
     x - window.innerWidth / 2,
@@ -177,7 +178,7 @@ const HeroComponent: React.FC<Props> = ({
         {eyebrow}
         {heading}
         {subHeading}
-        <HeroCTA>
+        <HeroCTA style={ctaStyle}>
           <label>
             Sign up and receive <strong>10,000 free</strong> notifications every
             month

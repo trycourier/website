@@ -1,33 +1,53 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 
 import tw from "tailwind.macro";
-import styled, { css } from "styled-components";
+import styled from "@emotion/styled";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import FeatureGrid from "../components/featureGrid";
 
-import BackgroundImage from "gatsby-background-image";
-
 import Container from "../components/container";
-import Footer from "../components/footer";
-
-import Divider from "../components/home/divider";
 import Hero from "../components/home/hero";
-import OneApi from "../components/home/one-api-call";
-import Clients from "../components/home/clients";
-import Editor from "../components/home/editor";
-import Delivery from "../components/home/delivery-rules";
-import Tracking from "../components/home/tracking";
-import GettingStarted from "../components/home/getting-started";
 
 import colors from "../colors";
-import QuoteComponent from "../components/home/client-quote";
-import QuoteComponent2 from "../components/home/client-quote-2";
 import Image from "../components/image";
 
+import bluecrew from "../images/clients/bluecrew.svg";
+import blissfully from "../images/clients/blissfully.svg";
+import expel from "../images/clients/expel.svg";
+import lattice from "../images/clients/lattice.svg";
+import launchdarkly from "../images/clients/launchdarkly.svg";
+import youtube from "../images/youtube.svg";
+import twitch from "../images/twitch.svg";
+import periscope from "../images/periscope.svg";
+
+import {
+  Box,
+  Button,
+  Heading,
+  List,
+  ListItem,
+  SimpleGrid,
+} from "@chakra-ui/core";
+import { listStyles } from "../components/styles";
+import { css } from "@emotion/core";
+import Divider from "../components/home/divider";
+import Footer from "../components/footer";
+
 const IndexPage: React.FC = () => {
+  useEffect(() => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    });
+  }, []);
   const {
     heroBg,
     quoteBg,
@@ -144,9 +164,24 @@ const IndexPage: React.FC = () => {
     }
   `);
 
-  const Section = styled.section`
+  const Section = styled(Box)`
     position: relative;
     width: 100%;
+  `;
+  Section.defaultProps = { as: "section" };
+
+  const LogoSection = styled.section`
+    position: relative;
+    width: 100%;
+    background: ${colors.berryPale};
+  `;
+  const LogoWrapper = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 1280px;
+    ${tw`mx-auto flex-wrap md:flex-nowrap`};
+    padding: 36px 0;
+    align-items: center;
   `;
 
   const Divide = styled.div`
@@ -187,76 +222,195 @@ const IndexPage: React.FC = () => {
     justify-content: center;
     padding: 8px;
     margin-left: 8px;
+    color: black;
+    width: fit-content;
+    white-space: nowrap;
   `;
-  const Flex = styled.div`
+  const Flex = styled(Box)`
     display: flex;
     align-items: center;
     margin-bottom: 36px;
   `;
-
-  const FlexWrap = styled.div`
-    display: flex;
-    align-items: center;
-    margin-bottom: 36px;
-    ${tw`md:flex-no-wrap flex-wrap`}
+  const ClientImage = styled.img`
+    margin: auto;
+    ${tw`w-1/2 md:w-auto`}
+    height: 29px;
   `;
 
   const HeroEyebrow = () => (
-    <Flex>
-      <Image image={ss} style={{ width: 35 }} />{" "}
-      <EyebrowWrapper>Twilio Signal / DEVELOPER CONFERENCE</EyebrowWrapper>{" "}
-    </Flex>
+    <a style={{ textDecoration: "none" }} href={"#integrations"}>
+      <Flex>
+        <Image image={ss} style={{ width: 35 }} />{" "}
+        <EyebrowWrapper>Twilio Signal / DEVELOPER CONFERENCE</EyebrowWrapper>{" "}
+      </Flex>
+    </a>
   );
   return (
     <Layout>
       <SEO title="Home" />
 
       <Section>
-        <Container
-          bg={colors.berry}
+        <div
           style={{
-            backgroundPosition: "center center",
-            backgroundClip: "contain",
-            height: "800px",
+            backgroundPosition: "bottom",
+            backgroundSize: "cover",
+            backgroundImage: `url("/landing.svg")`,
           }}
         >
           <Container>
-            <Hero eyebrow={<HeroEyebrow />} />
+            <Hero ctaStyle={{ marginTop: 50 }} eyebrow={<HeroEyebrow />} />
           </Container>
-        </Container>
-        <HeroDivider>
-          <Divider image={divider1} />
-        </HeroDivider>
+        </div>
       </Section>
       <Section>
-
         <Section>
-          <Container >
-            <FeatureGrid  />
-            <Flex>
-              <div  css={css`${tw`w-full md:w-1/2`}`} >
-                <p>
-                  Detailed event log for every user on every channel  Each notification
-                  sent comes with a detailed summary and timeline of its delivery. View
-                  what was sent from the REST API, when and where it was routed, any
-                  errors that ight have occurred, and more!
-                </p>
-              </div>
-              <div css={css`${tw`w-full md:w-1/2`}`} >
-                <p>
-                  Detailed event log for every user on every channel  Each notification
-                  sent comes with a detailed summary and timeline of its delivery. View
-                  what was sent from the REST API, when and where it was routed, any
-                  errors that ight have occurred, and more!
-                </p>
-              </div>
-            </Flex>
+          <Container>
+            <FeatureGrid />
           </Container>
-          <BotDivider>
-
-            <Divider image={divider3} />
-          </BotDivider>
         </Section>
+      </Section>
+      <LogoSection>
+        <LogoWrapper>
+          <ClientImage src={lattice} alt="Lattice" />
+          <ClientImage src={blissfully} alt="Blissfully" />
+          <ClientImage src={launchdarkly} alt="LaunchDarkly" />
+          <ClientImage src={expel} alt="Expel" />
+          <ClientImage src={bluecrew} alt="Bluecrew" />
+        </LogoWrapper>
+      </LogoSection>
+      <Box
+        as={"section"}
+        css={css`
+          ${listStyles}
+          background: ${colors.lightGray};
+        `}
+      >
+        <SimpleGrid
+          maxW={1280}
+          columns={[1, 3]}
+          mx={"auto"}
+          py={[6, , 10]}
+          px={[4, , 130]}
+          gap={[5, 100]}
+        >
+          <ClientImage src={lattice} alt="Lattice" />
+          <ClientImage src={expel} alt="Expel" />
+          <ClientImage src={bluecrew} alt="Bluecrew" />
+        </SimpleGrid>
+
+        <SimpleGrid
+          maxW={1280}
+          columns={[1, 2]}
+          mx={"auto"}
+          py={[6, , 10]}
+          px={[4, , 130]}
+        >
+          <Box>
+            <Heading color={"textPrimary"} mt={0}>
+              Lorem ipsum
+            </Heading>
+            <List>
+              <ListItem>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.
+              </ListItem>
+              <ListItem>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.
+              </ListItem>
+              <ListItem>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.
+              </ListItem>
+              <ListItem>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.
+              </ListItem>
+              <ListItem>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.
+              </ListItem>
+            </List>
+
+            <Button
+              px={8}
+              py={4}
+              bg={"#D5EEE9"}
+              border={"none"}
+              borderRadius={"full"}
+            >
+              Sign Up
+            </Button>
+          </Box>
+          <Box bg={"berry"} w={"full"} height={"100%"}></Box>
+        </SimpleGrid>
+      </Box>
+
+      <Box
+        as={"section"}
+        css={css`
+          ${listStyles}
+          padding: 80px 0;
+          margin: 0;
+        `}
+        id={"integrations"}
+      >
+        <Heading color={"textPrimary"} textAlign={"center"}>
+          Courier @ Twilio Signal
+        </Heading>
+        <SimpleGrid
+          maxW={1280}
+          columns={[1, 2]}
+          mx={"auto"}
+          py={[6, , 10]}
+          px={[4, , 130]}
+        >
+          <Box>
+            <Box bg={"berry"} w={"full"} height={"100%"} minHeight={400}></Box>
+
+            <Box
+              w={276}
+              bg={"#F3D9EE"}
+              p={4}
+              alignItems={"center"}
+              justifyContent={"space-evenly"}
+              display={"flex"}
+              mt={5}
+              mb={[8, , 0]}
+              borderRadius={"full"}
+            >
+              <img src={youtube} />
+              <img src={twitch} />
+              <img src={periscope} />
+            </Box>
+          </Box>
+          <Box textAlign={"right"}>
+            <Heading color={"textPrimary"} mt={0}>
+              Lorem ipsum
+            </Heading>
+            <List>
+              <ListItem>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.
+              </ListItem>
+              <ListItem>Lorem ipsum dolor sit amet consectit.</ListItem>
+              <ListItem>Lorem ipsum dolor sit am</ListItem>
+              <ListItem>Lorem ipsum dolor sit amet cons.</ListItem>
+              <ListItem>Lorem ipsum</ListItem>
+            </List>
+            <Button
+              px={8}
+              py={4}
+              bg={"#D5EEE9"}
+              border={"none"}
+              borderRadius={"full"}
+            >
+              RSV
+            </Button>
+          </Box>
+        </SimpleGrid>
+      </Box>
+      <Section>
+        <TopDivider className="footer" bg={"white"}>
+          <Divider image={divider7} />
+        </TopDivider>
+        <Container bg="berry">
+          <Footer />
+        </Container>
       </Section>
     </Layout>
   );
