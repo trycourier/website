@@ -5,7 +5,7 @@ import tw from "tailwind.macro";
 
 import Image from "./image";
 import colors from "../colors";
-import { Box, Grid } from "@chakra-ui/core";
+import { Box, Button, Grid, List, Text } from "@chakra-ui/core";
 
 // was going to make this a reusable compoenent but didn't really make sense with hardcoded pages... leaving as is for the sake of timee
 
@@ -50,6 +50,9 @@ const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
     >
       <Box mt={{ small: "0", md: -140 }}>
         <Image image={img} />
+        <Text textAlign={"center"} fontWeight={"bold"}>
+          More Integrations
+        </Text>
       </Box>
       <FeatureGridText imageFirst={imageFirst}>
         <h2>One API call</h2>
@@ -59,7 +62,18 @@ const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
         </p>
+        <Button
+          px={8}
+          py={4}
+          mt={4}
+          bg={"#D5EEE9"}
+          border={"none"}
+          borderRadius={"full"}
+        >
+          Sign Up
+        </Button>
       </FeatureGridText>
+
       <div>
         <p style={{ display: "block", width: "auto" }}>
           Detailed event log for every user on every channel  <br />

@@ -23,6 +23,7 @@ import youtube from "../images/youtube.svg";
 import twitch from "../images/twitch.svg";
 import periscope from "../images/periscope.svg";
 import landing from "../images/bgs/landing.svg";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
 
 import {
   Box,
@@ -36,6 +37,9 @@ import { listStyles } from "../components/styles";
 import { css } from "@emotion/core";
 import Divider from "../components/home/divider";
 import Footer from "../components/footer";
+import Panel1 from "../components/panels/panel1";
+import Panel2 from "../components/panels/panel2";
+import Panel3 from "../components/panels/panel3";
 
 const IndexPage: React.FC = () => {
   useEffect(() => {
@@ -287,62 +291,50 @@ const IndexPage: React.FC = () => {
         css={css`
           ${listStyles}
           background: ${colors.lightGray};
+          button[role="tab"] {
+            border: 0px;
+            background: transparent;
+            padding: 16px;
+          }
+          button[tabIndex="0"] {
+            background: ${colors.berryPale};
+          }
         `}
       >
-        <SimpleGrid
-          maxW={1280}
-          columns={[1, 3]}
-          mx={"auto"}
-          py={[6, , 10]}
-          px={[4, , 130]}
-          gap={[5, 100]}
-        >
-          <ClientImage src={lattice} alt="Lattice" />
-          <ClientImage src={expel} alt="Expel" />
-          <ClientImage src={bluecrew} alt="Bluecrew" />
-        </SimpleGrid>
+        <Tabs variant="soft-rounded" variantColor="berry">
+          <TabList
+            maxW={1280}
+            columns={[1, 3]}
+            mx={"auto"}
+            py={[6, , 10]}
+            px={[4, , 130]}
+            gap={[5, 100]}
+            display={"flex"}
+            justifyContent={"space-evenly"}
+          >
+            <Tab>
+              <ClientImage src={lattice} alt="Lattice" />
+            </Tab>
+            <Tab>
+              <ClientImage src={expel} alt="Expel" />
+            </Tab>
+            <Tab>
+              <ClientImage src={bluecrew} alt="Bluecrew" />
+            </Tab>
+          </TabList>
 
-        <SimpleGrid
-          maxW={1280}
-          columns={[1, 2]}
-          mx={"auto"}
-          py={[6, , 10]}
-          px={[4, , 130]}
-        >
-          <Box>
-            <Heading color={"textPrimary"} mt={0}>
-              Lorem ipsum
-            </Heading>
-            <List>
-              <ListItem>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-              </ListItem>
-              <ListItem>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-              </ListItem>
-              <ListItem>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-              </ListItem>
-              <ListItem>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-              </ListItem>
-              <ListItem>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit.
-              </ListItem>
-            </List>
-
-            <Button
-              px={8}
-              py={4}
-              bg={"#D5EEE9"}
-              border={"none"}
-              borderRadius={"full"}
-            >
-              Sign Up
-            </Button>
-          </Box>
-          <Box bg={"berry"} w={"full"} height={"100%"}></Box>
-        </SimpleGrid>
+          <TabPanels pb={[5,7,12]}>
+            <TabPanel>
+              <Panel1 />
+            </TabPanel>
+            <TabPanel>
+              <Panel2 />
+            </TabPanel>
+            <TabPanel>
+              <Panel3 />
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
       </Box>
 
       <Box
@@ -378,9 +370,15 @@ const IndexPage: React.FC = () => {
               mb={[8, , 0]}
               borderRadius={"full"}
             >
-              <img src={youtube} />
-              <img src={twitch} />
-              <img src={periscope} />
+              <a href={"https://youtube.com"}>
+                <img src={youtube} alt={"youtube img"} />
+              </a>
+              <a href={"https://twitch.tv"}>
+                <img src={twitch} />
+              </a>
+              <a href={"https://periscope.com"}>
+                <img src={periscope} />
+              </a>
             </Box>
           </Box>
           <Box textAlign={"right"}>
