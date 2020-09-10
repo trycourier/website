@@ -22,6 +22,7 @@ import launchdarkly from "../images/clients/launchdarkly.svg";
 import youtube from "../images/youtube.svg";
 import twitch from "../images/twitch.svg";
 import periscope from "../images/periscope.svg";
+import landing from "../images/bgs/landing.svg";
 
 import {
   Box,
@@ -182,7 +183,9 @@ const IndexPage: React.FC = () => {
     ${tw`mx-auto flex-wrap md:flex-nowrap`};
     padding: 36px 0;
     align-items: center;
-    & img { margin: 8px;}
+    & img {
+      margin: 8px;
+    }
   `;
 
   const Divide = styled.div`
@@ -255,7 +258,7 @@ const IndexPage: React.FC = () => {
           style={{
             backgroundPosition: "bottom",
             backgroundSize: "cover",
-            backgroundImage: `url("/landing.svg")`,
+            backgroundImage: `url("${landing}")`,
           }}
         >
           <Container>
