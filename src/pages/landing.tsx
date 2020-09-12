@@ -176,14 +176,14 @@ const IndexPage: React.FC = () => {
   `;
   Section.defaultProps = { as: "section" };
 
-  const LogoSection = styled.section`
+  const LogoSection = styled(Box)`
     position: relative;
     width: 100%;
     background: ${colors.berryPale};
   `;
-  const LogoWrapper = styled.div`
+  const LogoWrapper = styled(Box)`
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     max-width: 1280px;
     ${tw`mx-auto flex-wrap md:flex-nowrap`};
     padding: 36px 0;
@@ -242,16 +242,20 @@ const IndexPage: React.FC = () => {
     margin-bottom: 36px;
   `;
   const ClientImage = styled.img`
-    margin: auto;
-    ${tw`w-1/2 md:w-auto`}
-    height: 29px;
+    margin: 0;
+    width: auto;
+    max-height:30px;
+    min-width: 100px;
   `;
 
   const HeroEyebrow = () => (
     <a style={{ textDecoration: "none" }} href={"#integrations"}>
       <Flex>
         <Image image={ss} style={{ width: 35 }} />{" "}
-        <EyebrowWrapper>Twilio Signal / DEVELOPER CONFERENCE <Arrow style={{marginLeft: '4px'}} /></EyebrowWrapper>{" "}
+        <EyebrowWrapper>
+          Twilio Signal / DEVELOPER CONFERENCE{" "}
+          <Arrow style={{ marginLeft: "4px" }} />
+        </EyebrowWrapper>{" "}
       </Flex>
     </a>
   );
@@ -277,15 +281,14 @@ const IndexPage: React.FC = () => {
           <Container>
             <FeatureGrid />
           </Container>
-          <Box bg={colors.lightGray} py={6}>
+          <Box bg={colors.lightGray} py={6} px={[4,,0]}>
             <Container>
-
-              <SimpleGrid columns={[1, 1, 2]} gap={12} >
+              <SimpleGrid columns={[1, 1, 2]} gap={12}>
                 <div>
                   <p style={{ display: "block", width: "auto" }}>
-                  <span style={{ fontWeight: "bold" }}>
-                    Detailed event log for every user on every channel
-                  </span>
+                    <span style={{ fontWeight: "bold" }}>
+                      Detailed event log for every user on every channel
+                    </span>
                     <br />
                     <br />
                     Each notification sent comes with a detailed summary and
@@ -299,9 +302,9 @@ const IndexPage: React.FC = () => {
                 </div>
                 <div>
                   <p style={{ display: "block", width: "auto" }}>
-                  <span style={{ fontWeight: "bold" }}>
-                    Detailed event log for every user on every channel
-                  </span>
+                    <span style={{ fontWeight: "bold" }}>
+                      Detailed event log for every user on every channel
+                    </span>
                     <br />
                     <br />
                     Each notification sent comes with a detailed summary and
@@ -319,12 +322,17 @@ const IndexPage: React.FC = () => {
         </Section>
       </Section>
       <LogoSection>
-        <LogoWrapper>
-          <ClientImage src={lattice} alt="Lattice" />
-          <ClientImage src={blissfully} alt="Blissfully" />
-          <ClientImage src={launchdarkly} alt="LaunchDarkly" />
-          <ClientImage src={expel} alt="Expel" />
-          <ClientImage src={bluecrew} alt="Bluecrew" />
+        <LogoWrapper flexWrap={['wrap',,'nowrap']} w={['full',,2/5]}>
+          <Box display={'flex'} alignItems={'center'} >
+            <ClientImage src={lattice} alt="Lattice" />
+            <ClientImage src={blissfully} alt="Blissfully" />
+          </Box>
+          <Box display={'flex'} alignItems={'center'} w={['full',,3/5]} >
+
+            <ClientImage src={launchdarkly} alt="LaunchDarkly" />
+            <ClientImage src={expel} alt="Expel" />
+            <ClientImage src={bluecrew} alt="Bluecrew" />
+          </Box>
         </LogoWrapper>
       </LogoSection>
       <Box
@@ -342,25 +350,25 @@ const IndexPage: React.FC = () => {
           }
         `}
       >
-        <Tabs variant="soft-rounded" variantColor="berry">
+        <Tabs variantColor="berry">
           <TabList
             maxW={1280}
             columns={[1, 3]}
             mx={"auto"}
             py={[6, , 10]}
-            px={[4, , 130]}
-            gap={[5, 100]}
+            px={6}
             display={"flex"}
             justifyContent={"space-evenly"}
+            border={'none'}
           >
             <Tab>
-              <ClientImage src={lattice} alt="Lattice" />
+              <ClientImage style={{maxWidth: '33%'}} src={lattice} alt="Lattice" />
             </Tab>
             <Tab>
-              <ClientImage src={expel} alt="Expel" />
+              <ClientImage style={{maxWidth: '33%'}} src={expel} alt="Expel" />
             </Tab>
             <Tab>
-              <ClientImage src={bluecrew} alt="Bluecrew" />
+              <ClientImage style={{maxWidth: '33%'}} src={bluecrew} alt="Bluecrew" />
             </Tab>
           </TabList>
 
