@@ -10,6 +10,7 @@ import colors from "../../colors";
 
 import channelsGroup from "../../images/channels-group.svg";
 import RegistrationCTA from "../shared/registration-cta";
+import { Box } from "@chakra-ui/core";
 
 const Abs = styled(animated.div)`
   position: absolute;
@@ -25,7 +26,7 @@ const Hero = styled.div`
   overflow: hidden;
 `;
 
-const HeroContent = styled.div`
+const HeroContent = styled(Box)`
   ${tw`relative py-4 md:pr-16 mt-16 sm:mt-16`}
   color: ${colors.white};
   z-index: 5;
@@ -174,7 +175,7 @@ const HeroComponent: React.FC<Props> = ({
         <Image image={mobileImg} />
       </MobileImageWrapper>
 
-      <HeroContent>
+      <HeroContent pr={[,,20]}>
         {eyebrow}
         {heading}
         {subHeading}
