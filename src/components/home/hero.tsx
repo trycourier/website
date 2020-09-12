@@ -61,7 +61,7 @@ const MobileImageWrapper = styled.div`
   ${tw`absolute block md:hidden`}
   width: 50%;
   bottom: 50px;
-  right: 0px;
+  right: -24px;
   @media (max-width: 768px) {
     width: 65%;
     bottom: 200px;

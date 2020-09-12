@@ -32,15 +32,7 @@ const Panel2 = ({ ...props }) => {
         </ListItem>
       </List>
 
-      <Button
-        px={8}
-        py={4}
-        bg={"red.500"}
-        border={"none"}
-        borderRadius={"full"}
-      >
-        Sign Up
-      </Button>
+
     </Box>
     <Box bg={"berry"} w={"full"} height={"100%"}></Box>
   </SimpleGrid>;

@@ -74,33 +74,7 @@ const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
         </Button>
       </FeatureGridText>
 
-      <div>
-        <p style={{ display: "block", width: "auto" }}>
-          Detailed event log for every user on every channel  <br />
-          <br />
-          Each notification sent comes with a detailed summary and timeline{" "}
-          <br />
-          of its delivery. View what was sent from the REST API, when
-          <br />
-          and where it was routed, any errors that ight have occurred,
-          <br />
-          and more!
-        </p>
-      </div>
-      <div>
-        <p>
-          Detailed event log for every user on every channel
-          <br />
-          <br />
-          Each notification sent comes with a detailed summary and timeline
-          <br />
-          of its delivery. View what was sent from the REST API, when
-          <br />
-          and where it was routed, any errors that ight have occurred,
-          <br />
-          and more!
-        </p>
-      </div>
+
     </Grid>
   );
 };

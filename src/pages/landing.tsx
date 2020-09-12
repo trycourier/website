@@ -40,6 +40,7 @@ import Footer from "../components/footer";
 import Panel1 from "../components/panels/panel1";
 import Panel2 from "../components/panels/panel2";
 import Panel3 from "../components/panels/panel3";
+import Arrow from "../components/Arrow";
 
 const IndexPage: React.FC = () => {
   useEffect(() => {
@@ -222,7 +223,7 @@ const IndexPage: React.FC = () => {
     bottom: 0px;
     height: 160px;
   `;
-  const EyebrowWrapper = styled.div`
+  const EyebrowWrapper = styled(Box)`
     background: #db57c0;
     border-radius: 29px;
     display: flex;
@@ -230,9 +231,10 @@ const IndexPage: React.FC = () => {
     justify-content: center;
     padding: 8px;
     margin-left: 8px;
-    color: black;
+    color: #840069;
     width: fit-content;
     white-space: nowrap;
+    font-weight: bold;
   `;
   const Flex = styled(Box)`
     display: flex;
@@ -249,7 +251,7 @@ const IndexPage: React.FC = () => {
     <a style={{ textDecoration: "none" }} href={"#integrations"}>
       <Flex>
         <Image image={ss} style={{ width: 35 }} />{" "}
-        <EyebrowWrapper>Twilio Signal / DEVELOPER CONFERENCE</EyebrowWrapper>{" "}
+        <EyebrowWrapper>Twilio Signal / DEVELOPER CONFERENCE <Arrow style={{marginLeft: '4px'}} /></EyebrowWrapper>{" "}
       </Flex>
     </a>
   );
@@ -275,6 +277,45 @@ const IndexPage: React.FC = () => {
           <Container>
             <FeatureGrid />
           </Container>
+          <Box bg={colors.lightGray} py={6}>
+            <Container>
+
+              <SimpleGrid columns={[1, 1, 2]} gap={12} >
+                <div>
+                  <p style={{ display: "block", width: "auto" }}>
+                  <span style={{ fontWeight: "bold" }}>
+                    Detailed event log for every user on every channel
+                  </span>
+                    <br />
+                    <br />
+                    Each notification sent comes with a detailed summary and
+                    timeline <br />
+                    of its delivery. View what was sent from the REST API, when
+                    <br />
+                    and where it was routed, any errors that ight have occurred,
+                    <br />
+                    and more!
+                  </p>
+                </div>
+                <div>
+                  <p style={{ display: "block", width: "auto" }}>
+                  <span style={{ fontWeight: "bold" }}>
+                    Detailed event log for every user on every channel
+                  </span>
+                    <br />
+                    <br />
+                    Each notification sent comes with a detailed summary and
+                    timeline <br />
+                    of its delivery. View what was sent from the REST API, when
+                    <br />
+                    and where it was routed, any errors that ight have occurred,
+                    <br />
+                    and more!
+                  </p>
+                </div>
+              </SimpleGrid>
+            </Container>
+          </Box>
         </Section>
       </Section>
       <LogoSection>
@@ -323,7 +364,7 @@ const IndexPage: React.FC = () => {
             </Tab>
           </TabList>
 
-          <TabPanels pb={[5,7,12]}>
+          <TabPanels pb={[5, 7, 12]}>
             <TabPanel>
               <Panel1 />
             </TabPanel>
