@@ -1,10 +1,11 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import normalize from "styled-normalize";
+import Sticky from "react-stickynode";
 
 import ErrorBoundary from "./error-boundary";
-import Sticky from "react-stickynode";
 import Navigation from "./navigation";
+import { Banner } from "./banner";
 
 import colors from "../colors";
 
@@ -71,6 +72,7 @@ const Layout: React.FC = ({ children }) => {
   return (
     <ErrorBoundary>
       <GlobalStyle />
+      {true ? <Banner /> : null}
       <Sticky top={0} innerZ={9999} activeClass="sticky-active">
         <Navigation />
       </Sticky>
