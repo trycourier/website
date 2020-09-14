@@ -8,7 +8,7 @@ import LogoSlackSrc from "../images/logo-icon-slack.svg";
 import LogoTwilioSrc from "../images/logo-icon-twilio.svg";
 import LogoYCSrc from "../images/logo-icon-yc.svg";
 
-const HYPERLINK = "https://techcrunch.com/2020/09/14/courier-raises-10-1m-series-a-to-help-developers-integrate-multi-channel-notifications/";
+const HYPERLINK = "https://www.courier.com/blog/announcing-our-series-a"
 
 const BannerWrapper = styled.div`
   ${tw`text-center py-3`}
