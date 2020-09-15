@@ -263,7 +263,7 @@ const IndexPage: React.FC = () => {
     <Layout>
       <SEO title="Home" />
 
-      <Section>
+      <Section maxH={800}>
         <div
           style={{
             backgroundPosition: "bottom",
