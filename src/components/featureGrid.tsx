@@ -55,12 +55,11 @@ const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
         </Text>
       </Box>
       <FeatureGridText imageFirst={imageFirst}>
-        <h2>One API call</h2>
+        <h2>One API</h2>
         <p>
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          Send over any channel and any provider with One API.
+
+          Need to add a new channel? Integrate it in minutes - and without shipping any code.
         </p>
         <Button
           px={8}

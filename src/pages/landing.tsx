@@ -244,7 +244,7 @@ const IndexPage: React.FC = () => {
   const ClientImage = styled.img`
     margin: 0;
     width: auto;
-    max-height:30px;
+    max-height: 30px;
     min-width: 100px;
   `;
 
@@ -281,39 +281,32 @@ const IndexPage: React.FC = () => {
           <Container>
             <FeatureGrid />
           </Container>
-          <Box bg={colors.lightGray} py={6} px={[4,,0]}>
+          <Box bg={colors.lightGray} py={6} px={[4, , 0]}>
             <Container>
               <SimpleGrid columns={[1, 1, 2]} gap={12}>
                 <div>
-                  <p style={{ display: "block", width: "auto" }}>
+                  <p style={{ display: "block", width: "auto", maxWidth: 320 }}>
                     <span style={{ fontWeight: "bold" }}>
-                      Detailed event log for every user on every channel
+                      Beautiful multi-channel notifications
                     </span>
                     <br />
                     <br />
-                    Each notification sent comes with a detailed summary and
-                    timeline <br />
-                    of its delivery. View what was sent from the REST API, when
-                    <br />
-                    and where it was routed, any errors that ight have occurred,
-                    <br />
-                    and more!
+                    Create branded templates for every channel with our no-code
+                    visual designer. Drag and drop reusable content blocks, or
+                    add custom code to make it fully your own.
                   </p>
                 </div>
                 <div>
-                  <p style={{ display: "block", width: "auto" }}>
+                  <p style={{ display: "block", width: "auto", maxWidth: 320 }}>
                     <span style={{ fontWeight: "bold" }}>
-                      Detailed event log for every user on every channel
+                      Powerful orchestration engine
                     </span>
                     <br />
                     <br />
-                    Each notification sent comes with a detailed summary and
-                    timeline <br />
-                    of its delivery. View what was sent from the REST API, when
-                    <br />
-                    and where it was routed, any errors that ight have occurred,
-                    <br />
-                    and more!
+                    Notify the right users on the right channels based on their
+                    preferences and your rules. Out of the box list management,
+                    automatic digests, scheduling, cross-channel engagement
+                    tracking, and more.
                   </p>
                 </div>
               </SimpleGrid>
@@ -322,13 +315,12 @@ const IndexPage: React.FC = () => {
         </Section>
       </Section>
       <LogoSection>
-        <LogoWrapper flexWrap={['wrap',,'nowrap']} w={['full',,2/5]}>
-          <Box display={'flex'} alignItems={'center'} >
+        <LogoWrapper flexWrap={["wrap", , "nowrap"]} w={["full", , 2 / 5]}>
+          <Box display={"flex"} alignItems={"center"}>
             <ClientImage src={lattice} alt="Lattice" />
             <ClientImage src={blissfully} alt="Blissfully" />
           </Box>
-          <Box display={'flex'} alignItems={'center'} w={['full',,3/5]} >
-
+          <Box display={"flex"} alignItems={"center"} w={["full", , 3 / 5]}>
             <ClientImage src={launchdarkly} alt="LaunchDarkly" />
             <ClientImage src={expel} alt="Expel" />
             <ClientImage src={bluecrew} alt="Bluecrew" />
@@ -359,20 +351,35 @@ const IndexPage: React.FC = () => {
             px={6}
             display={"flex"}
             justifyContent={"space-evenly"}
-            border={'none'}
+            border={"none"}
           >
             <Tab>
-              <ClientImage style={{maxWidth: '33%'}} src={lattice} alt="Lattice" />
+              <ClientImage
+                style={{ maxWidth: "33%" }}
+                src={lattice}
+                alt="Lattice"
+              />
             </Tab>
             <Tab>
-              <ClientImage style={{maxWidth: '33%'}} src={expel} alt="Expel" />
+              <ClientImage
+                style={{ maxWidth: "33%" }}
+                src={expel}
+                alt="Expel"
+              />
             </Tab>
             <Tab>
-              <ClientImage style={{maxWidth: '33%'}} src={bluecrew} alt="Bluecrew" />
+              <ClientImage
+                style={{ maxWidth: "33%" }}
+                src={bluecrew}
+                alt="Bluecrew"
+              />
             </Tab>
           </TabList>
 
-          <TabPanels pb={[5, 7, 12]}>
+          <TabPanels
+            pb={[5, 7, 12]}
+            style={{ '& div': { minHeight: 500 } }}
+          >
             <TabPanel>
               <Panel1 />
             </TabPanel>

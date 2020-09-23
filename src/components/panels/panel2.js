@@ -1,41 +1,51 @@
 import React from "react";
 import t from "prop-types";
 import { Box, Button, Heading, List, ListItem, SimpleGrid } from "@chakra-ui/core";
+import { graphql, useStaticQuery } from "gatsby";
+import Image from "../image";
 
 const Panel2 = ({ ...props }) => {
-  return<SimpleGrid
-    maxW={1280}
-    columns={[1, 2]}
-    mx={"auto"}
-    py={[6, , 10]}
-    px={[4, , 130]}
-  >
-    <Box>
-      <Heading color={"textPrimary"} mt={0}>
-        Lorem ipsum
-      </Heading>
-      <List>
-        <ListItem>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit.
-        </ListItem>
-        <ListItem>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit.
-        </ListItem>
-        <ListItem>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit.
-        </ListItem>
-        <ListItem>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit.
-        </ListItem>
-        <ListItem>
-          Lorem ipsum dolor sit amet consectetur adipiscing elit.
-        </ListItem>
-      </List>
 
-
-    </Box>
-    <Box bg={"berry"} w={"full"} height={"100%"}></Box>
-  </SimpleGrid>;
+  const {clientImage} = useStaticQuery(graphql`
+      {
+          clientImage: imageSharp(original: {src: {regex: "/-guy/"}}) {
+              id
+              fluid {
+                  src
+              }
+          }
+      }
+  `)
+  return (
+    <SimpleGrid
+      maxW={1280}
+      columns={[1, 2]}
+      mx={"auto"}
+      py={[6, , 10]}
+      px={[4, , 130]}
+      minH={400}
+    >
+      <Box>
+        <Heading color={"textPrimary"} mt={0}>
+          Expel
+        </Heading>
+        <List>
+          <ListItem>
+            Expel is a B2B Security Operations Center (SOC) as a service
+            platform that provides transparent managed security.
+          </ListItem>
+          <ListItem>
+            Expel alerts their customers about critical security threats 24/7
+            with multi-channel notifications over Slack, Microsoft Teams, and
+            email, all powered by Courier.
+          </ListItem>
+        </List>
+      </Box>
+      <Box w={"full"} height={"100%"}>
+        <Image image={clientImage} style={{height: '100%'}} objectFit={'contain'} />
+      </Box>
+    </SimpleGrid>
+  );
 };
 
 export default Panel2;

@@ -8,8 +8,20 @@ import {
   ListItem,
   SimpleGrid,
 } from "@chakra-ui/core";
+import { graphql, useStaticQuery } from "gatsby";
+import Image from "../image";
 
 const Panel3 = ({ ...props }) => {
+  const {clientImage} = useStaticQuery(graphql`
+      {
+          clientImage: imageSharp(original: {src: {regex: "/bluecrew-guy/"}}) {
+              id
+              fluid {
+                  src
+              }
+          }
+      }
+  `)
   return (
     <SimpleGrid
       maxW={1280}
@@ -17,31 +29,36 @@ const Panel3 = ({ ...props }) => {
       mx={"auto"}
       py={[6, , 10]}
       px={[4, , 130]}
+      minH={400}
     >
       <Box>
         <Heading color={"textPrimary"} mt={0}>
-          Lorem ipsum
+          Bluecrew
         </Heading>
         <List>
           <ListItem>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit.
+            Bluecrew is a two-sided staffing platform that makes it easy for
+            employers to find and manage great hourly workers while giving job
+            seekers access to jobs that fit their life, schedule and skills with
+            top pay and benefits.
           </ListItem>
           <ListItem>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit.
+            Bluecrew hires more top hourly talent, fills jobs faster, and keeps
+            employers updated across multiple channels with no-code
+            notifications powered by Courier, Twilio and Segment.
           </ListItem>
           <ListItem>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit.
-          </ListItem>
-          <ListItem>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit.
-          </ListItem>
-          <ListItem>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit.
+            "We were looking for a tool with an easy-to-use visual editor that
+            we could hook up to our Segment events and would allow us to send
+            multi-channel user notifications, without having to code or test
+            anything. We thought this was a pipe dream – and then we found
+            Courier." -Cooper Newby, CPO and Co-founder @ Bluecrew
           </ListItem>
         </List>
-
       </Box>
-      <Box bg={"berry"} w={"full"} height={"100%"}></Box>
+      <Box w={"full"} height={"100%"}>
+        <Image image={clientImage} style={{height: '100%'}} objectFit={'contain'} />
+      </Box>
     </SimpleGrid>
   );
 };

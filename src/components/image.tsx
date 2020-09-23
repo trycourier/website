@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "gatsby-image";
+import Img from "gatsby-image/withIEPolyfill";
 
 export type GatsbyImage = {
   childImageSharp: {
@@ -11,7 +11,7 @@ const Image: React.FC<{
   image: GatsbyImage;
   title?: string;
 }> = ({ image, title, ...props }) => {
-  return <Img {...props} fluid={image.childImageSharp.fluid} title={title} />;
+  return <Img {...props} fluid={image.fluid || image.childImageSharp.fluid} title={title} />;
 };
 
 export default Image;
