@@ -45,14 +45,17 @@ const Panel1 = ({ ...props }) => {
             goals with multi-channel notifications (Slack, Microsoft Teams,
             email and mobile push) powered by Courier.
           </ListItem>
-          <ListItem>
-            “We were building out a new team to focus entirely on our
-            notification infrastructure when we found Courier. Now we support
-            even more channels with one line of code – and our product managers
-            & designers can design the templates without engineering help.” -
-            Eric Koslow, CTO & Co-Founder @ Lattice
-          </ListItem>
+
         </List>
+        <blockquote>
+          “We were building out a new team to focus entirely on our
+          notification infrastructure when we found Courier. Now we support
+          even more channels with one line of code – and our product managers
+          & designers can design the templates without engineering help.”
+          <br/>
+          <br/>
+          - Eric Koslow, CTO & Co-Founder @ Lattice
+        </blockquote>
       </Box>
       <Box w={"full"} height={"100%"}>
         <Image image={clientImage} style={{height: '100%'}} objectFit={'contain'} />

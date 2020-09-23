@@ -47,15 +47,20 @@ const Panel3 = ({ ...props }) => {
             employers updated across multiple channels with no-code
             notifications powered by Courier, Twilio and Segment.
           </ListItem>
-          <ListItem>
-            "We were looking for a tool with an easy-to-use visual editor that
-            we could hook up to our Segment events and would allow us to send
-            multi-channel user notifications, without having to code or test
-            anything. We thought this was a pipe dream – and then we found
-            Courier." -Cooper Newby, CPO and Co-founder @ Bluecrew
-          </ListItem>
         </List>
+
+        <blockquote>
+          "We were looking for a tool with an easy-to-use visual editor that
+          we could hook up to our Segment events and would allow us to send
+          multi-channel user notifications, without having to code or test
+          anything. We thought this was a pipe dream – and then we found
+          Courier."
+          <br/>
+          <br/>
+          -Cooper Newby, CPO and Co-founder @ Bluecrew
+        </blockquote>
       </Box>
+
       <Box w={"full"} height={"100%"}>
         <Image image={clientImage} style={{height: '100%'}} objectFit={'contain'} />
       </Box>

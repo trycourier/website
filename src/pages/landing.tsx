@@ -442,8 +442,8 @@ const IndexPage: React.FC = () => {
             <Heading color={"textPrimary"} mt={0}>
               You're invited!
             </Heading>
-            <Text>Join us virtually at Twilio SIGNAL for:</Text>
-            <List>
+            <Text fontWeight={'bold'}>Join us virtually at Twilio SIGNAL for:</Text>
+            <List color={'textPrimary'}>
               <ListItem>
                 Fireside chat with Patrick Malatack of Matrix Partners <br/>(former VP of Product at Twilio)
               </ListItem>
