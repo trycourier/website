@@ -286,7 +286,7 @@ const IndexPage: React.FC = () => {
             <Container>
               <SimpleGrid columns={[1, 1, 2]} gap={12}>
                 <div>
-                  <p style={{ display: "block", width: "auto", maxWidth: 320 }}>
+                  <p style={{ display: "block", width: "auto", maxWidth: 320 , margin: 'auto'}}>
                     <span style={{ fontWeight: "bold" }}>
                       Beautiful multi-channel notifications
                     </span>
@@ -298,7 +298,7 @@ const IndexPage: React.FC = () => {
                   </p>
                 </div>
                 <div>
-                  <p style={{ display: "block", width: "auto", maxWidth: 320 }}>
+                  <p style={{ display: "block", width: "auto", maxWidth: 320, margin: 'auto' }}>
                     <span style={{ fontWeight: "bold" }}>
                       Powerful orchestration engine
                     </span>
@@ -449,7 +449,7 @@ const IndexPage: React.FC = () => {
               </ListItem>
               <ListItem>Livestream with Twilio's Developer Evangelist Lizzie Siegle</ListItem>
               <ListItem>Free white paper on adding SMS notifications to email</ListItem>
-              <ListItem>Exclusive discount on all Courrier pricing plans.</ListItem>
+              <ListItem>Exclusive discount on all Courier pricing plans.</ListItem>
             </List>
             <Text>Want in? RSVP for free below.</Text>
             <Button
@@ -459,7 +459,7 @@ const IndexPage: React.FC = () => {
               border={"none"}
               borderRadius={"full"}
             >
-              RSV
+              RSVP
             </Button>
           </Box>
         </SimpleGrid>

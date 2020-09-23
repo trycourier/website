@@ -3,7 +3,7 @@ import t from "prop-types";
 import { Box, Button, Heading, List, ListItem, SimpleGrid } from "@chakra-ui/core";
 import { graphql, useStaticQuery } from "gatsby";
 import Image from "../image";
-
+import expel from '../../images/clients/expel.svg'
 const Panel2 = ({ ...props }) => {
 
   const {clientImage} = useStaticQuery(graphql`
@@ -41,8 +41,8 @@ const Panel2 = ({ ...props }) => {
           </ListItem>
         </List>
       </Box>
-      <Box w={"full"} height={"100%"}>
-        <Image image={clientImage} style={{height: '100%'}} objectFit={'contain'} />
+      <Box w={"full"} height={"100%"} display={{base: "none", md: "flex"}} justifyContent={'center'} alignItems={'baseline'} pt={20}>
+        <img src={expel} />
       </Box>
     </SimpleGrid>
   );

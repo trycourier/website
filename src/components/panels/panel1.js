@@ -57,7 +57,7 @@ const Panel1 = ({ ...props }) => {
           - Eric Koslow, CTO & Co-Founder @ Lattice
         </blockquote>
       </Box>
-      <Box w={"full"} height={"100%"}>
+      <Box w={"full"} height={"100%"}  display={{base: "none", md: "block"}} >
         <Image image={clientImage} style={{height: '100%'}} objectFit={'contain'} />
       </Box>
     </SimpleGrid>

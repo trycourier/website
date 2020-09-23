@@ -61,7 +61,7 @@ const Panel3 = ({ ...props }) => {
         </blockquote>
       </Box>
 
-      <Box w={"full"} height={"100%"}>
+      <Box w={"full"}  display={{base: "none", md: "block"}}  height={"100%"}>
         <Image image={clientImage} style={{height: '100%'}} objectFit={'contain'} />
       </Box>
     </SimpleGrid>
