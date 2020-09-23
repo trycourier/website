@@ -13,6 +13,7 @@ import Hero from "../components/home/hero";
 
 import colors from "../colors";
 import Image from "../components/image";
+import {Text} from "@chakra-ui/core";
 
 import bluecrew from "../images/clients/bluecrew.svg";
 import blissfully from "../images/clients/blissfully.svg";
@@ -439,17 +440,18 @@ const IndexPage: React.FC = () => {
           </Box>
           <Box textAlign={"right"}>
             <Heading color={"textPrimary"} mt={0}>
-              Lorem ipsum
+              You're invited!
             </Heading>
+            <Text>Join us virtually at Twilio SIGNAL for:</Text>
             <List>
               <ListItem>
-                Lorem ipsum dolor sit amet consectetur adipiscing elit.
+                Fireside chat with Patrick Malatack of Matrix Partners (former VP of Product at Twilio)
               </ListItem>
-              <ListItem>Lorem ipsum dolor sit amet consectit.</ListItem>
-              <ListItem>Lorem ipsum dolor sit am</ListItem>
-              <ListItem>Lorem ipsum dolor sit amet cons.</ListItem>
-              <ListItem>Lorem ipsum</ListItem>
+              <ListItem>Livestream with Twilio's Developer Evangelist Lizzie Siegle</ListItem>
+              <ListItem>Free white paper on adding SMS notifications to email</ListItem>
+              <ListItem>Exclusive discount on all Courrier pricing plans.</ListItem>
             </List>
+            <Text>Want in? RSVP for free below.</Text>
             <Button
               px={8}
               py={4}
