@@ -445,7 +445,7 @@ const IndexPage: React.FC = () => {
             <Text>Join us virtually at Twilio SIGNAL for:</Text>
             <List>
               <ListItem>
-                Fireside chat with Patrick Malatack of Matrix Partners (former VP of Product at Twilio)
+                Fireside chat with Patrick Malatack of Matrix Partners <br/>(former VP of Product at Twilio)
               </ListItem>
               <ListItem>Livestream with Twilio's Developer Evangelist Lizzie Siegle</ListItem>
               <ListItem>Free white paper on adding SMS notifications to email</ListItem>
