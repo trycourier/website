@@ -286,7 +286,7 @@ const IndexPage: React.FC = () => {
             <Container>
               <SimpleGrid columns={[1, 1, 2]} gap={12}>
                 <div>
-                  <p style={{ display: "block", width: "auto", maxWidth: 320 , margin: 'auto'}}>
+                  <p style={{ display: "block", width: "auto", maxWidth: 350 , margin: 'auto'}}>
                     <span style={{ fontWeight: "bold" }}>
                       Beautiful multi-channel notifications
                     </span>
@@ -298,7 +298,7 @@ const IndexPage: React.FC = () => {
                   </p>
                 </div>
                 <div>
-                  <p style={{ display: "block", width: "auto", maxWidth: 320, margin: 'auto' }}>
+                  <p style={{ display: "block", width: "auto", maxWidth: 350, margin: 'auto' }}>
                     <span style={{ fontWeight: "bold" }}>
                       Powerful orchestration engine
                     </span>
