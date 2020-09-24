@@ -1,13 +1,13 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import Image from "../image";
 
 const NoCode = styled.div`
   ${tw`absolute`}
   width: 130px;
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     width: 75px;
     top: 4px;
     left: 48px;

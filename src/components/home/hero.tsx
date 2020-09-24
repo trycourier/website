@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { useSpring, animated } from "react-spring";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import Image from "../image";
@@ -10,6 +10,7 @@ import colors from "../../colors";
 
 import channelsGroup from "../../images/channels-group.svg";
 import RegistrationCTA from "../shared/registration-cta";
+import { Box } from "@chakra-ui/core";
 
 const Abs = styled(animated.div)`
   position: absolute;
@@ -25,7 +26,7 @@ const Hero = styled.div`
   overflow: hidden;
 `;
 
-const HeroContent = styled.div`
+const HeroContent = styled(Box)`
   ${tw`relative py-4 md:pr-16 mt-16 sm:mt-16`}
   color: ${colors.white};
   z-index: 5;
@@ -61,10 +62,10 @@ const MobileImageWrapper = styled.div`
   ${tw`absolute block md:hidden`}
   width: 50%;
   bottom: 50px;
-  right: 0px;
+  right: -36px;
   @media (max-width: 768px) {
     width: 65%;
-    bottom: 200px;
+    bottom: 160px;
   }
 `;
 
@@ -77,11 +78,27 @@ const HeroCTA = styled.div`
     & label {
       margin-top: 0px;
     }
-    
   }
 `;
 
-const HeroComponent: React.FC = () => {
+interface Props {
+  eyebrow?: string | React.FC;
+  heading?: string | React.FC;
+  subHeading: string | React.FC;
+}
+
+const HeroComponent: React.FC<Props> = ({
+  heading = (
+    <h1>
+      The Smartest Way to
+      <br />
+      Design &amp; Deliver Notifications
+    </h1>
+  ),
+  subHeading = <p>Design once, deliver to any channel through one API</p>,
+  eyebrow,
+  ctaStyle,
+}) => {
   const calc = (x, y) => [
     x - window.innerWidth / 2,
     y - window.innerHeight / 2,
@@ -158,14 +175,11 @@ const HeroComponent: React.FC = () => {
         <Image image={mobileImg} />
       </MobileImageWrapper>
 
-      <HeroContent>
-        <h1>
-          The Smartest Way to
-          <br />
-          Design &amp; Deliver Notifications
-        </h1>
-        <p>Design once, deliver to any channel through one API</p>
-        <HeroCTA>
+      <HeroContent pr={[,,20]}>
+        {eyebrow}
+        {heading}
+        {subHeading}
+        <HeroCTA style={ctaStyle}>
           <label>
             Sign up and receive <strong>10,000 free</strong> notifications every
             month

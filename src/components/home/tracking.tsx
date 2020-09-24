@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import BackgroundImage from "gatsby-background-image";
 import Image from "../image";

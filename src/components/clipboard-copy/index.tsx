@@ -1,6 +1,6 @@
 import clipboardCopy from "clipboard-copy";
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import CopyImage from "../../images/copy-clipboard";
@@ -15,10 +15,9 @@ const Button = styled.button`
     font-family: inherit;
     ${tw`bg-transparent border-none p-0`}
   }
-`
+`;
 import Tooltip from "../tooltip";
 import { ClipboardCopyProps, PickATextFunction } from "./types";
-
 
 const StyledButton = styled(Button)`
   max-width: 100%;
@@ -64,7 +63,10 @@ const ClipboardCopy: React.FunctionComponent<ClipboardCopyProps> = ({
   const inverseTheme = theme === "light" ? "dark" : "light";
 
   return (
-    <StyledButton className="link clipboard-copy" onClick={handleCopyToClipboard}>
+    <StyledButton
+      className="link clipboard-copy"
+      onClick={handleCopyToClipboard}
+    >
       <Tooltip content={text} theme={copySuccess ? "success" : inverseTheme}>
         <span>
           <span>{children}</span>

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import searchIcon from "../../images/icon-search.svg";
@@ -25,7 +25,7 @@ const SearchInput = styled.div`
 
 type SearchTypes = {
   onSearch: React.FormEvent;
-}
+};
 
 const SearchInputComponent: React.FC<SearchTypes> = ({ onSearch }) => {
   return (

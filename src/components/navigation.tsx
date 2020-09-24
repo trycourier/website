@@ -1,6 +1,6 @@
 import { Link } from "gatsby"; // useStaticQuery, graphql
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import colors from "../colors";
@@ -149,7 +149,11 @@ const NavigationComponent: React.FC = () => {
                   <Link to="/blog">Blog</Link>
                 </li>
                 <li>
-                  <a href="https://docs.courier.com/" rel="noreferrer" target="_blank">
+                  <a
+                    href="https://docs.courier.com/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
                     Documentation
                   </a>
                 </li>

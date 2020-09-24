@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Image from "../image";
 import NoCode from "./no-code";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { Desktop, Mobile } from "../container";
 import { Flex, Quote, QuoteBox, QuoteText, Rel } from "./client-quote";
 

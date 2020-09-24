@@ -1,6 +1,6 @@
 import React from "react";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import colors from "../../colors";
@@ -69,7 +69,7 @@ const ProgressActive = styled.div`
   left: -100%;
   background: ${colors.green};
   transition-duration: 200ms;
-  transform: translate3d(${props => props.px || 0}px, 0, 0);
+  transform: translate3d(${(props) => props.px || 0}px, 0, 0);
 `;
 
 const Ticks = styled.div`

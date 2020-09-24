@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import Image from "../image";
@@ -34,7 +34,6 @@ const OneApiImageWrapper = styled.div`
 `;
 
 const StyledImage = styled(Image)`
-  display: none;
 `;
 
 const OneApiInfo = styled.div`

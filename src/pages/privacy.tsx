@@ -182,8 +182,7 @@ const PrivacyPolicy: React.FC = () => {
             <p>
               If you have any questions or suggestions about our Privacy Policy,
               do not hesitate to contact us at{" "}
-              <a href="mailto:support@courier.com">support@courier.com</a>
-              .
+              <a href="mailto:support@courier.com">support@courier.com</a>.
             </p>
 
             <br />

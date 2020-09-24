@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 const Tag = styled.div`
   background: #dbf1ff;
@@ -16,7 +16,7 @@ const Tag = styled.div`
 type TagType = {
   label: string;
   slug?: string;
-}
+};
 
 const TagComponent: React.FC<TagType> = ({ label, slug }) => {
   const tagRoute = label.toLowerCase().replace(/ /gi, "-");

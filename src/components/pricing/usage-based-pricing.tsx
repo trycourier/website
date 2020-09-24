@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import colors from "../../colors";
@@ -38,9 +38,7 @@ const UsageBasedPricing: React.FC = () => {
     <Pricing>
       <UsageBasedPricingText>
         <h2>Usage Based Pricing</h2>
-        <p>
-          Get started for free, or select a plan that scales to your needs.
-        </p>
+        <p>Get started for free, or select a plan that scales to your needs.</p>
       </UsageBasedPricingText>
       <UsageBasedPricingWrapper>
         <PricingLine />

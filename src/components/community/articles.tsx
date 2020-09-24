@@ -1,7 +1,8 @@
 import React, { ReactNode } from "react";
 import { Link } from "gatsby";
-import Img, { FixedObject } from "gatsby-image"
-import styled, { css } from "styled-components";
+import Img, { FixedObject } from "gatsby-image";
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import Avatar from "../../images/avatar@2x.png";
 
@@ -84,14 +85,18 @@ type ArticlePostedType = {
   id: string;
   name: string;
   date?: string;
-}
+};
 const PostedContent = styled.div`
   ${tw`py-2`}
   font-size: 14px;
   ${linkStrongStyle}
 `;
 
-export const ArticlePosted: React.FC<ArticlePostedType> = ({ id, name, date }) => (
+export const ArticlePosted: React.FC<ArticlePostedType> = ({
+  id,
+  name,
+  date,
+}) => (
   <PostedContent>
     Posted by{" "}
     <strong>
@@ -101,13 +106,12 @@ export const ArticlePosted: React.FC<ArticlePostedType> = ({ id, name, date }) =
   </PostedContent>
 );
 
-
 type ArticleAuthorType = {
   id: string;
   name: string;
   avatar?: FixedObject;
   children?: ReactNode;
-}
+};
 const AuthorCardContent = styled.div`
   ${tw`flex`}
   ${linkStrongStyle}
@@ -120,18 +124,18 @@ const AuthorCardAvatar = styled(Img)`
   margin-right: 16px;
 `;
 
-export const AuthorCard: React.FC<ArticleAuthorType> = ({id, name, avatar}) => (
+export const AuthorCard: React.FC<ArticleAuthorType> = ({
+  id,
+  name,
+  avatar,
+}) => (
   <AuthorCardContent>
-    <AuthorCardAvatar
-      fixed={avatar}
-    />
+    <AuthorCardAvatar fixed={avatar} />
     <p>
       Author
       <br />
       <strong>
-        <Link to={`/blog/authors/${id}`}>
-          {name}
-        </Link>
+        <Link to={`/blog/authors/${id}`}>{name}</Link>
       </strong>
     </p>
   </AuthorCardContent>

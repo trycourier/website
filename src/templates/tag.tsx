@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import Simple from "./simple";
 
@@ -54,7 +54,7 @@ export const query = graphql`
         totalCount
       }
     }
-    contentfulTag(slug: {eq: $slug}) {
+    contentfulTag(slug: { eq: $slug }) {
       id
       name
       slug
@@ -113,10 +113,7 @@ const Tagged: React.FC<TaggedTypes> = ({ data }) => {
             {posts.map((post: any) => (
               <ArticleCard key={post.id}>
                 <Link to={`/blog/${post.slug}`}>
-                  <ArticleImage
-                    fluid={post.thumbnail.fluid}
-                    alt={post.title}
-                  />
+                  <ArticleImage fluid={post.thumbnail.fluid} alt={post.title} />
                 </Link>
 
                 <div className="px-4">
@@ -132,11 +129,13 @@ const Tagged: React.FC<TaggedTypes> = ({ data }) => {
                   />
                   <p className="excerpt">{post.excerpt.excerpt}</p>
                   <div>
-                    {post.tags.map((tag: {name: string, id: string, slug: string}) => (
-                      <span style={{ marginRight: 8 }} key={tag.id}>
-                        <Tag label={tag.name} slug={tag.slug} />
-                      </span>
-                    ))}
+                    {post.tags.map(
+                      (tag: { name: string; id: string; slug: string }) => (
+                        <span style={{ marginRight: 8 }} key={tag.id}>
+                          <Tag label={tag.name} slug={tag.slug} />
+                        </span>
+                      )
+                    )}
                   </div>
                 </div>
               </ArticleCard>
@@ -144,14 +143,23 @@ const Tagged: React.FC<TaggedTypes> = ({ data }) => {
           </ArticleList>
           <ArticleSearch>
             {false && <SearchInput />}
-            {tags.map((tag: {fieldValue: string, totalCount: Number}, idx: Number) => (
-            <div
-              style={{ width: "100%", textAlign: "right", margin: "16px 0px" }}
-              key={`${idx}`}
-            >
-              <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
-            </div>
-          ))}
+            {tags.map(
+              (
+                tag: { fieldValue: string; totalCount: Number },
+                idx: Number
+              ) => (
+                <div
+                  style={{
+                    width: "100%",
+                    textAlign: "right",
+                    margin: "16px 0px",
+                  }}
+                  key={`${idx}`}
+                >
+                  <Tag label={tag.fieldValue} /> ( {tag.totalCount} )
+                </div>
+              )
+            )}
           </ArticleSearch>
         </ArticleScreen>
         <TaggedFooter>

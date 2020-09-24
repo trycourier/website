@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import colors from "../../colors";
 
@@ -17,12 +17,10 @@ const CTALink = styled.a`
   }
 `;
 
-const CTALinkComponent: React.FC = ({text}) => {
+const CTALinkComponent: React.FC = ({ text }) => {
   return (
     <div style={{}}>
-      <CTALink className="blogCTABotLauncher">
-        {text}
-      </CTALink>
+      <CTALink className="blogCTABotLauncher">{text}</CTALink>
     </div>
   );
 };

@@ -11,7 +11,7 @@ import {
 
 export const query = graphql`
   query {
-    allContentfulAuthor(sort: {order: ASC, fields: name}) {
+    allContentfulAuthor(sort: { order: ASC, fields: name }) {
       edges {
         node {
           id
@@ -33,11 +33,9 @@ const Authors: React.FC = ({ data }: any) => {
       <p style={{ marginTop: 0 }}>Feel free to share our content.</p>
       <ArticleScreen>
         <ArticleList>
-          {authors.map(({node}) => (
+          {authors.map(({ node }) => (
             <ArticleCard key={node.id}>
-              <Link to={`/blog/authors/${node.slug}`}>
-                {node.name}
-              </Link>
+              <Link to={`/blog/authors/${node.slug}`}>{node.name}</Link>
             </ArticleCard>
           ))}
         </ArticleList>

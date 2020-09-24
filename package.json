@@ -8,12 +8,16 @@
     "node": ">=10.10"
   },
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
     "@contentful/rich-text-react-renderer": "^14.1.1",
     "@contentful/rich-text-types": "^14.1.1",
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
     "@mdx-js/mdx": "^1.6.14",
     "@mdx-js/react": "^1.5.7",
     "@sentry/browser": "^5.7.1",
     "@sentry/cli": "^1.48.0",
+    "@styled-system/prop-types": "^5.1.5",
     "@tippy.js/react": "^2.2.2",
     "@types/node": "^12.6.9",
     "@types/react": "^16.8.24",
@@ -25,6 +29,7 @@
     "clipboard-copy": "^3.1.0",
     "codemirror": "^5.56.0",
     "dotenv": "^8.2.0",
+    "emotion-theming": "^10.0.27",
     "gatsby": "^2.23.3",
     "gatsby-background-image": "^0.10.2",
     "gatsby-image": "^2.2.8",
@@ -54,6 +59,7 @@
     "react-stickynode": "^3",
     "styled-components": "^4.3.2",
     "styled-normalize": "^8.0.6",
+    "styled-system": "^5.1.5",
     "tailwind.macro": "^1.0.0-alpha.10",
     "tailwindcss": "^1.0.6",
     "typescript": "^3.5.3"

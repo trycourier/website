@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import colors from "../../colors";
@@ -199,7 +199,7 @@ const PricingLineComponent: React.FC = () => {
   const size = useWindowSize();
 
   const measuredRef = useCallback(
-    n => {
+    (n) => {
       if (n !== null) {
         setWidth(n.getBoundingClientRect().width);
       }
@@ -246,12 +246,17 @@ const PricingLineComponent: React.FC = () => {
 
         <h5>
           <strong>
-            <span>Up to <em>{pricingMatrix[rangeIdx - 1].cummulative}</em> notifications/mo</span>
-            {
-              pricingMatrix[rangeIdx - 1].additional ? (
-                <span> + <em>{pricingMatrix[rangeIdx - 1].additional}</em> per additional notification</span>
-              ) : null
-            }
+            <span>
+              Up to <em>{pricingMatrix[rangeIdx - 1].cummulative}</em>{" "}
+              notifications/mo
+            </span>
+            {pricingMatrix[rangeIdx - 1].additional ? (
+              <span>
+                {" "}
+                + <em>{pricingMatrix[rangeIdx - 1].additional}</em> per
+                additional notification
+              </span>
+            ) : null}
           </strong>
         </h5>
       </PricingLineInfo>

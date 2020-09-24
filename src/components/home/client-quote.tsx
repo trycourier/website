@@ -1,6 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import Image from "../image";
 
@@ -96,10 +96,10 @@ const QuoteComponent: React.FC = () => {
         <Flex>
           <QuoteBox>
             <Abs>
-              <img src={quoteImg} alt="quote"/>
+              <img src={quoteImg} alt="quote" />
             </Abs>
             <Abs2>
-              <img src={quoteImg} alt="endquote"/>
+              <img src={quoteImg} alt="endquote" />
             </Abs2>
             <Flex>
               <QuoteText>
@@ -124,19 +124,17 @@ const QuoteComponent: React.FC = () => {
       <Mobile>
         <QuoteBox>
           <Abs>
-            <img src={quoteImg} alt="quote"/>
+            <img src={quoteImg} alt="quote" />
           </Abs>
           <Abs2>
-            <img src={quoteImg} alt="endquote"/>
+            <img src={quoteImg} alt="endquote" />
           </Abs2>
           <QuoteText>
             We were building out a new team to focus entirely on our
             notification infrastructure when we found Courier. Now we support
-            even more channels with one line of code – and our product
-            managers & designers can design the templates without engineering
-            help.
+            even more channels with one line of code – and our product managers
+            & designers can design the templates without engineering help.
           </QuoteText>
-
         </QuoteBox>
         <Flex>
           <QuoteImage>
@@ -144,7 +142,12 @@ const QuoteComponent: React.FC = () => {
               <Image image={eric} />
             </ImageBorder>
           </QuoteImage>
-          <QuoteAuthor>Eric Koslow,<br/>CTO &amp; Co-Founder<br/>@ Lattice</QuoteAuthor>
+          <QuoteAuthor>
+            Eric Koslow,
+            <br />
+            CTO &amp; Co-Founder
+            <br />@ Lattice
+          </QuoteAuthor>
         </Flex>
       </Mobile>
     </Quote>

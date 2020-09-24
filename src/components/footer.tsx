@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import colors from "../colors";
@@ -108,36 +108,68 @@ const FooterComponent: React.FC = () => {
                 </li>
               )}
               <li>
-                <a href="https://docs.courier.com/" rel="noreferrer" target="_blank">
+                <a
+                  href="https://docs.courier.com/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   Documentation
                 </a>
               </li>
             </NavigationItems>
           </NavLinks>
           <SocialLinks>
-            <a href="https://www.github.com/trycourier" rel="noreferrer" target="_blank">
-              <img src={githubLogo} style={{ height: 24 }} alt="GitHub"/>
+            <a
+              href="https://www.github.com/trycourier"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img src={githubLogo} style={{ height: 24 }} alt="GitHub" />
             </a>
-            <a href="https://www.twitter.com/trycourier" rel="noreferrer" target="_blank">
-              <img src={twitterLogo} style={{ marginTop: 3 }} alt="twitter"/>
+            <a
+              href="https://www.twitter.com/trycourier"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img src={twitterLogo} style={{ marginTop: 3 }} alt="twitter" />
             </a>
-            <a href="https://www.linkedin.com/company/trycourier" rel="noreferrer" target="_blank">
-              <img src={linkedInLogo} alt="LinkedIn"/>
+            <a
+              href="https://www.linkedin.com/company/trycourier"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img src={linkedInLogo} alt="LinkedIn" />
             </a>
-            <a href="https://www.facebook.com/trycourier" rel="noreferrer" target="_blank">
-              <img src={facebookLogo} alt="Facebook"/>
+            <a
+              href="https://www.facebook.com/trycourier"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img src={facebookLogo} alt="Facebook" />
             </a>
-            <a href="https://www.instagram.com/trycourier" rel="noreferrer" target="_blank">
-              <img src={instagramLogo} alt="Instagram"/>
+            <a
+              href="https://www.instagram.com/trycourier"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img src={instagramLogo} alt="Instagram" />
             </a>
           </SocialLinks>
           <DetailLinks>
             <p>
               <Link to="/terms">Terms&nbsp;of&nbsp;Service</Link>
               <Link to="/privacy">Privacy&nbsp;Policy</Link>
-              <Link to="/disclosure">Responsible&nbsp;Disclosure&nbsp;Policy</Link>
+              <Link to="/disclosure">
+                Responsible&nbsp;Disclosure&nbsp;Policy
+              </Link>
               <Link to="/subprocessors">Data Subprocessors</Link>
-              <a href="https://jobs.lever.co/trycourier" rel="noreferrer" target="_blank">Careers</a>
+              <a
+                href="https://jobs.lever.co/trycourier"
+                rel="noreferrer"
+                target="_blank"
+              >
+                Careers
+              </a>
             </p>
           </DetailLinks>
         </LinkSection>

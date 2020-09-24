@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import styled from "styled-components";
+import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 import Simple from "./simple";
 import SEO from "../components/seo";
@@ -53,22 +53,23 @@ const BlogFooter = styled.div`
 `;
 
 const IframeContainer = styled.span`
-  padding-bottom: 56.25%; 
-  position: relative; 
-  display: block; 
+  padding-bottom: 56.25%;
+  position: relative;
+  display: block;
   width: 100%;
 
   > iframe {
     height: 100%;
     width: 100%;
-    position: absolute; 
-    top: 0; 
+    position: absolute;
+    top: 0;
     left: 0;
-  }`;
+  }
+`;
 
 export const query = graphql`
   query($slug: String!) {
-    contentfulPost( slug: { eq: $slug }) {
+    contentfulPost(slug: { eq: $slug }) {
       title
       authors {
         name
@@ -89,7 +90,12 @@ export const query = graphql`
         slug
       }
       headerImage {
-        fixed(cropFocus: CENTER, resizingBehavior: PAD, width: 1200, height: 600) {
+        fixed(
+          cropFocus: CENTER
+          resizingBehavior: PAD
+          width: 1200
+          height: 600
+        ) {
           src
         }
         fluid(maxWidth: 1000) {
@@ -114,65 +120,105 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
   const post = data.contentfulPost;
   const options = {
     renderMark: {
-      [MARKS.CODE]: (text: string) => <BlogCode>{text}</BlogCode>
+      [MARKS.CODE]: (text: string) => <BlogCode>{text}</BlogCode>,
     },
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const { title, description, file } = node.data.target.fields;
-        const mimeType = file['en-US'].contentType
-        const mimeGroup = mimeType.split('/')[0]
-  
+        const mimeType = file["en-US"].contentType;
+        const mimeGroup = mimeType.split("/")[0];
+
         switch (mimeGroup) {
-          case 'image':
-            return <img
-              style={{maxWidth:"100%",height:"auto"}}
-              title={ title ? title['en-US'] : null}
-              alt={description ?  description['en-US'] : null}
-              src={file['en-US'].url}
-            />
-          case 'application':
-            return <a
-              title={description ?  description['en-US'] : null}
-              href={file['en-US'].url}
-              >{ title ? title['en-US'] : file['en-US'].details.fileName }
-            </a>
+          case "image":
+            return (
+              <img
+                style={{ maxWidth: "100%", height: "auto" }}
+                title={title ? title["en-US"] : null}
+                alt={description ? description["en-US"] : null}
+                src={file["en-US"].url}
+              />
+            );
+          case "application":
+            return (
+              <a
+                title={description ? description["en-US"] : null}
+                href={file["en-US"].url}
+              >
+                {title ? title["en-US"] : file["en-US"].details.fileName}
+              </a>
+            );
           default:
-            return <span style={{backgroundColor: 'red', color: 'white'}}> {mimeType} embedded asset </span>
+            return (
+              <span style={{ backgroundColor: "red", color: "white" }}>
+                {" "}
+                {mimeType} embedded asset{" "}
+              </span>
+            );
         }
       },
       [BLOCKS.EMBEDDED_ENTRY]: (node) => {
         const entry = node.data.target;
-        const entryType = entry.sys.contentType.sys.id
+        const entryType = entry.sys.contentType.sys.id;
 
-        switch(entryType) {
-          case 'codeSnippet':
-            {
-              const {title, language} = entry.fields;
-              const [code, setCode] = useState(entry.fields.code["en-US"]);
-              return <SyntaxHighlighter title={title["en-US"]} language={language["en-US"]} code={code} onChange={setCode} />
-            }
+        switch (entryType) {
+          case "codeSnippet": {
+            const { title, language } = entry.fields;
+            const [code, setCode] = useState(entry.fields.code["en-US"]);
+            return (
+              <SyntaxHighlighter
+                title={title["en-US"]}
+                language={language["en-US"]}
+                code={code}
+                onChange={setCode}
+              />
+            );
+          }
           default:
-            return <span style={{backgroundColor: 'red', color: 'white'}}> {entryType} embedded asset </span>
+            return (
+              <span style={{ backgroundColor: "red", color: "white" }}>
+                {" "}
+                {entryType} embedded asset{" "}
+              </span>
+            );
         }
       },
       [INLINES.HYPERLINK]: (node, children) => {
-        if((node.data.uri).includes("player.vimeo.com/video")){
-          return <IframeContainer><iframe title={node.content[0].value} src={node.data.uri} frameBorder="0" allowFullScreen></iframe></IframeContainer>
-        } else if((node.data.uri).includes("youtube.com/embed")) {
-          return <IframeContainer><iframe title={node.content[0].value} src={node.data.uri} allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" frameBorder="0" allowFullScreen></iframe></IframeContainer>
+        if (node.data.uri.includes("player.vimeo.com/video")) {
+          return (
+            <IframeContainer>
+              <iframe
+                title={node.content[0].value}
+                src={node.data.uri}
+                frameBorder="0"
+                allowFullScreen
+              ></iframe>
+            </IframeContainer>
+          );
+        } else if (node.data.uri.includes("youtube.com/embed")) {
+          return (
+            <IframeContainer>
+              <iframe
+                title={node.content[0].value}
+                src={node.data.uri}
+                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                frameBorder="0"
+                allowFullScreen
+              ></iframe>
+            </IframeContainer>
+          );
         }
-        return <a href={node.data.uri}>{children}</a>
-      }
-    }
+        return <a href={node.data.uri}>{children}</a>;
+      },
+    },
   };
 
   return (
     <Simple title={post.title} description={post.excerpt.excerpt}>
-      <SEO 
-        title={post.title} 
-        description={post.excerpt.excerpt} 
-        image={`https:${post.headerImage.fixed.src}`} 
-        meta={[{ name: "twitter:card", content: "summary_large_image" }]} 
+      <SEO
+        title={post.title}
+        description={post.excerpt.excerpt}
+        image={`https:${post.headerImage.fixed.src}`}
+        meta={[{ name: "twitter:card", content: "summary_large_image" }]}
       />
       <BackLink />
 
@@ -186,18 +232,20 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
             date={post.publishDate || post.createdAt}
           />
           <div>
-            {post.tags.map((tag: {name: string, slug: string}, idx: number) => (
-              <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
-                <Tag label={tag.name} slug={tag.slug} />
-              </span>
-            ))}
+            {post.tags.map(
+              (tag: { name: string; slug: string }, idx: number) => (
+                <span key={`tag-${idx}`} style={{ marginRight: 8 }}>
+                  <Tag label={tag.name} slug={tag.slug} />
+                </span>
+              )
+            )}
           </div>
         </BlogHeader>
         <BlogBody>
-          { documentToReactComponents(post.content.json, options) }
+          {documentToReactComponents(post.content.json, options)}
         </BlogBody>
         <BlogFooter>
-          <div 
+          <div
             style={{
               position: "relative",
               width: "fit-content",
@@ -206,19 +254,19 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
               marginTop: "40px",
             }}
           >
-            {post.ctaText && <CTALink text={post.ctaText} /> }
+            {post.ctaText && <CTALink text={post.ctaText} />}
           </div>
           <div
             style={{
               display: "flex",
-              paddingTop: 24
+              paddingTop: 24,
             }}
           >
             <div
               style={{
                 borderTop: `1px solid ${colors.lightGray}`,
                 paddingTop: 16,
-                marginRight: "auto"
+                marginRight: "auto",
               }}
             >
               <AuthorCard
@@ -227,11 +275,11 @@ const BlogPost: React.FC<GraphQLQuery> = ({ data }) => {
                 avatar={post.authors[0].avatar.fixed}
               />
             </div>
-            
+
             <div
               style={{
                 marginLeft: "auto",
-                paddingTop: 26
+                paddingTop: 26,
               }}
             >
               <BackLink />

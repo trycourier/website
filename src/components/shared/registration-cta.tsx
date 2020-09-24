@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import tw from "tailwind.macro";
 
 import googleLogo from "../../images/google-logo-white.svg";
@@ -103,7 +103,7 @@ const handleSignUpClick = () => {
   }
 };
 
-const RegistrationCTA: React.FC = props => {
+const RegistrationCTA: React.FC = (props) => {
   return (
     <Content footer={props.footer}>
       <div className="form">
@@ -122,7 +122,7 @@ const RegistrationCTA: React.FC = props => {
               </Button>
             </a>
             <a href={emailSignUpUrl} onClick={() => trackSignUp("Email")}>
-              <button className="ghost">
+              <button className="ghost" style={{color: props.footer && 'black'}}>
                 or <strong>email</strong>
               </button>
             </a>
