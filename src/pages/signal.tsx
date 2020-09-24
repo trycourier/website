@@ -56,13 +56,7 @@ const IndexPage: React.FC = () => {
     });
   }, []);
   const {
-    heroBg,
-    quoteBg,
-    divider1,
-    divider3,
-    divider4,
-    divider5,
-    divider6,
+    signalImage,
     divider7,
     ss,
   } = useStaticQuery(graphql`
@@ -154,6 +148,15 @@ const IndexPage: React.FC = () => {
           }
         }
       }
+        
+      signalImage: file(relativePath: { regex: "/Signal Combined/" }) {
+        childImageSharp {
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+        
       footerBg: file(relativePath: { eq: "dividers/footer-bg@2x.png" }) {
         childImageSharp {
           fluid(maxWidth: 1280) {
@@ -436,7 +439,7 @@ const IndexPage: React.FC = () => {
           px={[4, , 130]}
         >
           <Box>
-            <Box bg={"berry"} w={"full"} height={"100%"} minHeight={400}></Box>
+            <Image image={signalImage} />
 
             <Box
               w={276}
@@ -484,11 +487,16 @@ const IndexPage: React.FC = () => {
             </List>
             <Text>RSVP for free below and enter our raffle!</Text>
             <Button
+              as={'a'}
+
+              href={'https://trycourier.typeform.com/to/TbEvSqOu'}
+              textDecoration={'none'}
               px={8}
-              py={4}
+              py={0}
               bg={"#D5EEE9"}
               border={"none"}
               borderRadius={"full"}
+              color={'textPrimary'}
             >
               RSVP
             </Button>

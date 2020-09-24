@@ -62,12 +62,18 @@ const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
           Need to add a new channel? Integrate it in minutes – and without shipping any code.
         </p>
         <Button
+          as={'a'}
+          href={'https://www.trycourier.app/register/email'}
           px={8}
           py={4}
           mt={4}
           bg={"#D5EEE9"}
           border={"none"}
           borderRadius={"full"}
+          textDecoration={'none'}
+          px={8}
+          py={0}
+          color={'textPrimary'}
         >
           Sign Up
         </Button>
