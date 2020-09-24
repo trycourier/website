@@ -13,7 +13,7 @@ import Hero from "../components/home/hero";
 
 import colors from "../colors";
 import Image from "../components/image";
-import {Text} from "@chakra-ui/core";
+import { Text } from "@chakra-ui/core";
 
 import bluecrew from "../images/clients/bluecrew.svg";
 import blissfully from "../images/clients/blissfully.svg";
@@ -187,7 +187,8 @@ const IndexPage: React.FC = () => {
     justify-content: center;
     max-width: 1280px;
     ${tw`mx-auto flex-wrap md:flex-nowrap`};
-    padding: 36px 0;
+    padding-bottom: 36px ;
+    padding-top: 16px ;
     align-items: center;
     & img {
       margin: 8px;
@@ -225,7 +226,7 @@ const IndexPage: React.FC = () => {
     height: 160px;
   `;
   const EyebrowWrapper = styled(Box)`
-    background: #db57c0;
+    background: white;
     border-radius: 29px;
     display: flex;
     align-items: center;
@@ -236,6 +237,7 @@ const IndexPage: React.FC = () => {
     width: fit-content;
     white-space: nowrap;
     font-weight: bold;
+    text-shadow: none;
   `;
   const Flex = styled(Box)`
     display: flex;
@@ -254,7 +256,7 @@ const IndexPage: React.FC = () => {
       <Flex>
         <Image image={ss} style={{ width: 35 }} />{" "}
         <EyebrowWrapper>
-          Twilio Signal / DEVELOPER CONFERENCE{" "}
+          Twilio Signal / Developer Conference{" "}
           <Arrow style={{ marginLeft: "4px" }} />
         </EyebrowWrapper>{" "}
       </Flex>
@@ -286,7 +288,14 @@ const IndexPage: React.FC = () => {
             <Container>
               <SimpleGrid columns={[1, 1, 2]} gap={12}>
                 <div>
-                  <p style={{ display: "block", width: "auto", maxWidth: 350 , margin: 'auto'}}>
+                  <p
+                    style={{
+                      display: "block",
+                      width: "auto",
+                      maxWidth: 350,
+                      margin: "auto",
+                    }}
+                  >
                     <span style={{ fontWeight: "bold" }}>
                       Beautiful multi-channel notifications
                     </span>
@@ -298,9 +307,16 @@ const IndexPage: React.FC = () => {
                   </p>
                 </div>
                 <div>
-                  <p style={{ display: "block", width: "auto", maxWidth: 350, margin: 'auto' }}>
+                  <p
+                    style={{
+                      display: "block",
+                      width: "auto",
+                      maxWidth: 350,
+                      margin: "auto",
+                    }}
+                  >
                     <span style={{ fontWeight: "bold" }}>
-                      Powerful orchestration engine
+                      List management engine
                     </span>
                     <br />
                     <br />
@@ -316,6 +332,9 @@ const IndexPage: React.FC = () => {
         </Section>
       </Section>
       <LogoSection>
+        <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+          <Heading mb={0}>Trusted by leading companies</Heading>{" "}
+        </Box>
         <LogoWrapper flexWrap={["wrap", , "nowrap"]} w={["full", , 2 / 5]}>
           <Box display={"flex"} alignItems={"center"}>
             <ClientImage src={lattice} alt="Lattice" />
@@ -332,18 +351,24 @@ const IndexPage: React.FC = () => {
         as={"section"}
         css={css`
           ${listStyles}
-          background: ${colors.lightGray};
           button[role="tab"] {
             border: 0px;
-            background: transparent;
             padding: 16px;
           }
           button[tabIndex="0"] {
-            background: ${colors.berryPale};
+            position: relative;
+            padding-right: 32px;
+            ::before {
+              content: "ˇ";
+              position: absolute;
+              top: 15px;
+              font-size: 50px;
+              right: 6px;
+            }
           }
         `}
       >
-        <Tabs variantColor="berry">
+        <Tabs variant="soft-rounded" variantColor="green">
           <TabList
             maxW={1280}
             columns={[1, 3]}
@@ -377,10 +402,7 @@ const IndexPage: React.FC = () => {
             </Tab>
           </TabList>
 
-          <TabPanels
-            pb={[5, 7, 12]}
-            style={{ '& div': { minHeight: 500 } }}
-          >
+          <TabPanels pb={[5, 7, 12]} style={{ "& div": { minHeight: 500 } }}>
             <TabPanel>
               <Panel1 />
             </TabPanel>
@@ -438,20 +460,29 @@ const IndexPage: React.FC = () => {
               </a>
             </Box>
           </Box>
-          <Box textAlign={"right"}>
+          <Box textAlign={"left"} mx={"auto"}>
             <Heading color={"textPrimary"} mt={0}>
               You're invited!
             </Heading>
-            <Text fontWeight={'bold'}>Join us virtually at Twilio SIGNAL for:</Text>
-            <List color={'textPrimary'}>
+            <Text fontWeight={"bold"}>
+              Join us virtually at Twilio SIGNAL for:
+            </Text>
+            <List color={"textPrimary"}>
               <ListItem>
-                Fireside chat with Patrick Malatack of Matrix Partners <br/>(former VP of Product at Twilio)
+                Fireside chat with Patrick Malatack of Matrix Partners <br />
+                (former VP of Product at Twilio)
               </ListItem>
-              <ListItem>Livestream with Twilio's Developer Evangelist Lizzie Siegle</ListItem>
-              <ListItem>Free white paper on adding SMS notifications to email</ListItem>
-              <ListItem>Exclusive discount on all Courier pricing plans.</ListItem>
+              <ListItem>
+                Livestream with Twilio's Developer Evangelist Lizzie Siegle
+              </ListItem>
+              <ListItem>
+                Free white paper on adding SMS notifications to email
+              </ListItem>
+              <ListItem>
+                Exclusive discount on all Courier pricing plans
+              </ListItem>
             </List>
-            <Text>Want in? RSVP for free below.</Text>
+            <Text>RSVP for free below</Text>
             <Button
               px={8}
               py={4}

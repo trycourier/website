@@ -5,7 +5,7 @@ import tw from "tailwind.macro";
 
 import Image from "./image";
 import colors from "../colors";
-import { Box, Button, Grid, List, Text } from "@chakra-ui/core";
+import { Box, Button, Grid, List, Text, Heading } from "@chakra-ui/core";
 
 // was going to make this a reusable compoenent but didn't really make sense with hardcoded pages... leaving as is for the sake of timee
 
@@ -55,11 +55,11 @@ const FeatureGridComponent: React.FC<{ imageFirst: boolean }> = ({
         </Text>
       </Box>
       <FeatureGridText imageFirst={imageFirst}>
-        <h2>One API</h2>
+        <Heading  >Any channel, one API</Heading>
         <p>
-          Send over any channel and any provider with One API.
+          Send over any channel and any provider with one API.
 
-          Need to add a new channel? Integrate it in minutes - and without shipping any code.
+          Need to add a new channel? Integrate it in minutes – and without shipping any code.
         </p>
         <Button
           px={8}
