@@ -122,7 +122,7 @@ const RegistrationCTA: React.FC = (props) => {
               </Button>
             </a>
             <a href={emailSignUpUrl} onClick={() => trackSignUp("Email")}>
-              <button className="ghost">
+              <button className="ghost" style={{color: 'black'}}>
                 or <strong>email</strong>
               </button>
             </a>

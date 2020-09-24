@@ -33,7 +33,7 @@ const OneApiImageWrapper = styled.div`
   }
 `;
 
-const StyledImage = styled(Image)`\
+const StyledImage = styled(Image)`
 `;
 
 const OneApiInfo = styled.div`

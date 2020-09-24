@@ -316,7 +316,7 @@ const IndexPage: React.FC = () => {
                     }}
                   >
                     <span style={{ fontWeight: "bold" }}>
-                      List management engine
+                      Powerful orchestration engine
                     </span>
                     <br />
                     <br />
@@ -482,7 +482,7 @@ const IndexPage: React.FC = () => {
                 Exclusive discount on all Courier pricing plans
               </ListItem>
             </List>
-            <Text>RSVP for free below</Text>
+            <Text>RSVP for free below and enter our raffle!</Text>
             <Button
               px={8}
               py={4}
