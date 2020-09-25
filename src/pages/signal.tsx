@@ -452,13 +452,13 @@ const IndexPage: React.FC = () => {
               mb={[8, , 0]}
               borderRadius={"full"}
             >
-              <a href={"https://youtube.com"}>
+              <a href={"https://www.youtube.com/channel/UCuONBIOzl-hypZ5qqWKDeeg"}>
                 <img src={youtube} alt={"youtube img"} />
               </a>
-              <a href={"https://twitch.tv"}>
+              <a href={"https://www.twitch.tv/trycourier"}>
                 <img src={twitch} />
               </a>
-              <a href={"https://periscope.com"}>
+              <a href={"https://twitter.com/trycourier"}>
                 <img src={periscope} />
               </a>
             </Box>
