@@ -485,7 +485,7 @@ const IndexPage: React.FC = () => {
                 Exclusive discount on all Courier pricing plans
               </ListItem>
             </List>
-            <Text>RSVP for free below and enter our raffle!</Text>
+            <Text>RSVP for free below!</Text>
             <Button
               as={'a'}
 
