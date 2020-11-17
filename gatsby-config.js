@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Bebas Neue\:400`, `Roboto\:400,700`],
+        fonts: [`Bebas Neue`, `Roboto\:wght@400;700`],
         display: "swap",
       },
     },
