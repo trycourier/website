@@ -46,6 +46,10 @@ const BlogBody = styled.div`
       margin: 16px auto;
     }
   }
+  h1,
+  h2 {
+    font-weight: 200;
+  }
 `;
 
 const BlogFooter = styled.div`

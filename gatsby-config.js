@@ -31,18 +31,10 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-typescript",
     {
-      resolve: "gatsby-plugin-prefetch-google-fonts",
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: "Bebas Neue",
-            variants: [`400`],
-          },
-          {
-            family: "Roboto",
-            variants: [`400`, `700`],
-          },
-        ],
+        fonts: [`Bebas Neue`, `Roboto\:wght@400;700`],
+        display: "swap",
       },
     },
     "gatsby-plugin-styled-components",
@@ -97,7 +89,9 @@ module.exports = {
       resolve: "gatsby-source-contentful",
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID || "z7iqk1q8njt4",
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "NieQ2Z92R-_-GxHVtPrZTR7kAjn2KeLbrQWz12XV570",
+        accessToken:
+          process.env.CONTENTFUL_ACCESS_TOKEN ||
+          "NieQ2Z92R-_-GxHVtPrZTR7kAjn2KeLbrQWz12XV570",
         host: process.env.CONTENTFUL_HOST || "cdn.contentful.com",
       },
     },
