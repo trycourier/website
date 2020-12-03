@@ -69,7 +69,7 @@ const PrivacyPolicy: React.FC = () => {
             </p>
 
             <p>
-              courier.com, Inc. operates the https://app.courier.com
+              trycourier.com, Inc. operates the https://app.courier.com
               website, which provides the SERVICE.
             </p>
             <p>
