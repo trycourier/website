@@ -106,7 +106,7 @@ export const features = [
   },
   {
     label: "Log Retention",
-    developer: "48 Hours",
+    developer: "72 Hours",
     pro: "7 Days",
     business: "30 Days",
   },
