@@ -166,4 +166,10 @@ export const features = [
     pro: "Yes",
     business: "Yes",
   },
+  {
+    label: "Roles & Permissions",
+    developer: "",
+    pro: "",
+    business: "Yes",
+  },
 ];
