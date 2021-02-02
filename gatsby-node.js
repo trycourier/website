@@ -12,7 +12,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query {
-      allContentfulTextPage {
+      allContentfulPage {
         edges {
           node {
             id
@@ -53,7 +53,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const textPageTemplates = {
     basic: path.resolve(`./src/templates/text-pages/basic.tsx`)
   }
-  const textPages = result.data.allContentfulTextPage.edges
+  const textPages = result.data.allContentfulPage.edges
   textPages.forEach(({ node }) => {
     createPage({
       path: `${node.slug}`,
