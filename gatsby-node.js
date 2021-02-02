@@ -12,6 +12,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query {
+      allContentfulTextPage {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
       allContentfulPost {
         edges {
           node {
@@ -42,6 +50,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
+  const textPageTemplates = {
+    basic: path.resolve(`./src/templates/text-pages/basic.tsx`)
+  }
+  const textPages = result.data.allContentfulTextPage.edges
+  textPages.forEach(({ node }) => {
+    createPage({
+      path: `${node.slug}`,
+      component: textPageTemplates.basic,
+      context: {
+        id: node.id,
+        slug: node.slug
+      },
+    })
+  })
+
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const posts = result.data.allContentfulPost.edges
   posts.forEach(({ node }) => {
@@ -49,7 +72,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       path: `blog/${node.slug}`,
       component: blogPost,
       context: {
-        slug: node.slug,
+        slug: node.slug
       },
     })
   })
