@@ -1,14 +1,13 @@
 import React from "react";
-import t from "prop-types";
 import {
   Box,
-  Button,
   Heading,
   List,
   ListItem,
   SimpleGrid,
 } from "@chakra-ui/core";
 import { graphql, useStaticQuery } from "gatsby";
+
 import Image from "../image";
 
 const Panel3 = ({ ...props }) => {
@@ -27,8 +26,8 @@ const Panel3 = ({ ...props }) => {
       maxW={1280}
       columns={[1, 2]}
       mx={"auto"}
-      py={[6, , 10]}
-      px={[4, , 130]}
+      py={[6, undefined, 10]}
+      px={[4, undefined, 130]}
       minH={400}
     >
       <Box>
