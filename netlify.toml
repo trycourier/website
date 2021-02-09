@@ -8,6 +8,16 @@
   to = "/static/favicon/favicon.ico"
   status = 301
   
+# marketing redirects
+
+[[redirects]]
+  from = "https://www.courier.com/sedaily"
+  to = "https://www.courier.com/?utm_medium=podcast&utm_source=sedaily&utm_campaign=se-daily-podcast-q1"
+  status = 301
+  force = true
+  
+# site redirects to keep everything on the same domain
+
 [[redirects]]
   from = "http://courier.com"
   to = "https://www.courier.com"
@@ -55,4 +65,3 @@
   to = "https://www.courier.com/:splat"
   status = 301
   force = true
-  
