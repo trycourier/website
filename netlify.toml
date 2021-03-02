@@ -15,6 +15,14 @@
   to = "https://www.courier.com/?utm_medium=podcast&utm_source=sedaily&utm_campaign=se-daily-podcast-q1"
   status = 301
   force = true
+
+# other redirects
+
+[[redirects]]
+  from = "https://www.courier.com/careers"
+  to = "https://jobs.lever.co/trycourier/"
+  status = 301
+  force = true
   
 # site redirects to keep everything on the same domain
 
