@@ -2,7 +2,7 @@
   for = "/*"
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
-    Content-Security-Policy-Report-Only = "default-src 'none'; form-action 'none'; frame-ancestors 'none'; report-uri 'https://courier.report-uri.com/r/d/csp/reportOnly';"
+    Content-Security-Policy-Report-Only = "default-src 'none'; form-action 'none'; frame-ancestors 'none'; report-uri https://courier.report-uri.com/r/d/csp/reportOnly;"
 
 [[redirects]]
   from = "/favicon.ico"
