@@ -25,7 +25,7 @@
     www.google.se www.google.ae www.google.co.ao www.google.mu www.google.hu; font-src 'self' data: fonts.gstatic.com js.intercomcdn.com www.slant.co 
     storage.googleapis.com; connect-src 'self' api.segment.io api-iam.intercom.io forms.hubspot.com www.google-analytics.com heapanalytics.com 
     wss://nexus-websocket-a.intercom.io api.hubapi.com www.google.com; media-src js.intercomcdn.com; frame-src www.youtube.com intercom-sheets.com; 
-    worker-src blob:; frame-ancestors 'self'; form-action calendly.com; manifest-src 'self' report-uri https://courier.report-uri.com/r/d/csp/wizard;"
+    worker-src blob:; frame-ancestors 'self'; form-action calendly.com; manifest-src 'self'; report-uri https://courier.report-uri.com/r/d/csp/wizard;"
 
 [[redirects]]
   from = "/favicon.ico"
