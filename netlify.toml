@@ -52,7 +52,7 @@
 # other redirects
 
 [[redirects]]
-  from = "https://www.courier.com/careers"
+  from = "https://deploy-preview-66--trycourier-com.netlify.app/careers"
   to = "https://jobs.lever.co/trycourier/"
   status = 301
   force = true
