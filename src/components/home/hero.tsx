@@ -10,7 +10,7 @@ import colors from "../../colors";
 
 import channelsGroup from "../../images/channels-group.svg";
 import RegistrationCTA from "../shared/registration-cta";
-import { Box } from "@chakra-ui/core";
+import { Box, Button } from "@chakra-ui/core";
 
 const Abs = styled(animated.div)`
   position: absolute;
@@ -175,7 +175,7 @@ const HeroComponent: React.FC<Props> = ({
         <Image image={mobileImg} />
       </MobileImageWrapper>
 
-      <HeroContent pr={[,,20]}>
+      <HeroContent pr={[, , 20]}>
         {eyebrow}
         {heading}
         {subHeading}
@@ -185,6 +185,22 @@ const HeroComponent: React.FC<Props> = ({
             month
           </label>
           <RegistrationCTA />
+          <Button
+            as={"a"}
+            href={"/starters"}
+            px={8}
+            py={4}
+            mt={4}
+            bg={"#2C1338"}
+            border={"none"}
+            borderRadius={"full"}
+            textDecoration={"none"}
+            px={8}
+            py={0}
+            color={"white"}
+          >
+            Try Courier API
+          </Button>
         </HeroCTA>
       </HeroContent>
 
