@@ -49,6 +49,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "https://www.courier.com/bitcamp"
+  to = "https://app.courier.com/?utm_campaign=Developer%20Relations&utm_source=bitcamp&utm_medium=sign-up"
+  status = 301
+  force = true
+
 # other redirects
 
 [[redirects]]
