@@ -44,6 +44,12 @@
   force = true
 
 [[redirects]]
+  from = "https://www.courier.com/codestory"
+  to = "https://www.courier.com/?utm_campaign=Podcasts&utm_source=code-story&utm_medium=roll-ad"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://www.courier.com/hackabull"
   to = "https://app.courier.com/?utm_medium=hackathon&utm_source=hackbull-usf&utm_campaign=developer-relations"
   status = 301
