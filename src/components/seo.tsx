@@ -37,6 +37,9 @@ const SEO: React.FC<{
   const metaDescription = description || site.siteMetadata.description;
   const ogImage = image || `${site.siteMetadata.siteUrl}/images/og-image.png`;
 
+  const g2Id = "";
+  const g2Src = `https://tracking.g2crowd.com/attribution_tracking/conversions/5036.js?p=${encodeURI(document.location.href)}&e=${g2Id}`;
+
   return (
     <Helmet
       htmlAttributes={{
@@ -90,7 +93,9 @@ const SEO: React.FC<{
           content: ogImage,
         },
       ].concat(meta)}
-    />
+    >
+      <script src={g2Src} async />
+    </Helmet>
   );
 };
 
