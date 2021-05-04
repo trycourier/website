@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
@@ -36,6 +36,15 @@ const SEO: React.FC<{
 
   const metaDescription = description || site.siteMetadata.description;
   const ogImage = image || `${site.siteMetadata.siteUrl}/images/og-image.png`;
+  const [g2Src, setG2Src] = useState<string>("");
+
+  useEffect(() => {
+    setG2Src(
+      `https://tracking.g2crowd.com/attribution_tracking/conversions/5036.js?p=${encodeURI(
+        document.location.href
+      )}&e=`
+    );
+  }, []);
 
   return (
     <Helmet
@@ -90,7 +99,9 @@ const SEO: React.FC<{
           content: ogImage,
         },
       ].concat(meta)}
-    />
+    >
+      <script src={g2Src} async />
+    </Helmet>
   );
 };
 
