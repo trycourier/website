@@ -61,6 +61,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "https://www.courier.com/tohacks"
+  to = "https://app.courier.com/?utm_campaign=Developer%20Relations&utm_source=tohacks&utm_medium=sign-up"
+  status = 301
+  force = true
+
 # other redirects
 
 [[redirects]]
