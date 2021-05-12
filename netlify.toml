@@ -109,7 +109,7 @@
   
 [[redirects]]
   from = "http://trycourier.com/*"
-  to = "https://www.courier.com/:splat"
+  to = "https://www.courier.com/:splat/"
   status = 301
   force = true
 
