@@ -30,7 +30,7 @@ export const plans = {
     ),
   },
   better: {
-    name: "Business",
+    name: "Growth",
     price: (
       <>
         <small>From</small> $2,000<small>/mo</small>
