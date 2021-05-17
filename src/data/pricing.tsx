@@ -33,12 +33,12 @@ export const plans = {
     name: "Business",
     price: (
       <>
-        <small>From</small> $1,800<small>/mo</small>
+        <small>From</small> $2,000<small>/mo</small>
       </>
     ),
     included: (
       <>
-        250k messages<small>/mo</small>
+        10k messages<small>/mo</small>
       </>
     ),
     overage: (
