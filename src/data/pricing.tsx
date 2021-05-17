@@ -12,7 +12,7 @@ export const plans = {
     overage: <>&mdash;</>,
   },
   good: {
-    name: "Starter",
+    name: "Startup",
     price: (
       <>
         <small>From</small> $99<small>/mo</small>
