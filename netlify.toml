@@ -101,7 +101,7 @@
   status = 301
   force = true
   
-  [[redirects]]
+[[redirects]]
   from = "http://courier.com/*"
   to = "https://www.courier.com/:splat/"
   status = 301
