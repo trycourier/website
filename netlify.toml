@@ -88,6 +88,12 @@
   to = "https://www.courier.com"
   status = 301
   force = true
+  
+[[redirects]]
+  from = "http://www.courier.com/*"
+  to = "https://www.courier.com/:splat/"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "https://courier.com"
