@@ -13,7 +13,7 @@ export default [
         items: [
             {title: "Documentation", link: documentation, linkType: "external"},
             {title: "API", link: apiReference},
-            {title: "Libraries", link: "/"},
+            {title: "Libraries", link: libraries, linkType: "external"},
             {title: "Status", link: status, linkType: "external" }
         ]
     },
@@ -29,9 +29,7 @@ export default [
     {
         title: "Company",
         items: [
-            {title: "About", link: "/"},
             {title: "Careers", link: careers, linkType: "external"},
-            {title: "Security", link: "/"},
         ]
     }
 ];
