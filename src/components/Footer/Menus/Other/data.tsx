@@ -1,4 +1,4 @@
-import { pricing, documentation, blog, careers, help, discord, updates, status, apiReference, providers } from 'constants/urls';
+import { pricing, documentation, blog, careers, help, discord, updates, status, apiReference, providers, libraries } from 'constants/urls';
 
 export default [
     {
