@@ -4,7 +4,6 @@ import InternalLink from 'components/InternalLink';
 
 const Desktop = ({data, slug} : {data: any[], slug: string}) => (
         <Box color="secondary.dark" boxShadow='0 10px 30px rgb(0 0 0 / 8%)' p={"20px 20px"} h="fit-content">
-        <SearchButton size="lg" borderWidth="1px" borderRadius="8px"/>
         {
             data.map((menu, index) => (
                 <InternalLink to={menu.slug === "home" ? `/blog`: `/blog/tags/${menu.slug}`}>
