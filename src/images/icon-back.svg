@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <g id="icon-down" transform="translate(32) rotate(90)">
-    <rect id="Rectangle_17279" data-name="Rectangle 17279" width="32" height="32" fill="rgba(255,255,255,0)"/>
-    <g id="icon-down-2" data-name="icon-down" transform="translate(9.686 12.172)">
-      <path id="Union_28" data-name="Union 28" d="M6.657,7.657a1,1,0,0,1-.708-.293l-.023-.024L.293,1.707A1,1,0,0,1,1.707.293L6.656,5.243,11.606.293A1,1,0,1,1,13.02,1.707L7.364,7.364a1,1,0,0,1-.707.293Z" transform="translate(0 0)" fill="#9d3789"/>
-    </g>
-  </g>
-</svg>
