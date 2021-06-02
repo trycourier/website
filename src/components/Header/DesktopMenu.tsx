@@ -1,4 +1,5 @@
-import { Flex, Text, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
+import React from 'react';
+import { Flex, Text, Menu, MenuButton, MenuList, MenuItem, Spinner } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import MetaLink from 'components/MetaLink';
 import DocumentationIcon from './icons/Documentation';
@@ -11,13 +12,22 @@ import data from './data';
 
 interface CustomMenuProps {
     children: React.ReactNode;
+    menuTitle: string;
     [x:string]: any;
 }
 
 const DesktopMenu = () => {
-    const CustomMenuItem = ({children, ...other}: CustomMenuProps) => (
+    const [ showBlogSpinner, setShowBlogSpinner ] = React.useState(false);
+
+    function handleShowBlogSpinner({menuTitle}: {menuTitle: string}) {
+        if(menuTitle === "Blog") {
+            setShowBlogSpinner(true);
+        }
+    }
+
+    const CustomMenuItem = ({children, menuTitle, ...other}: CustomMenuProps) => (
             <MenuItem {...other} fontWeight={500} fontSize='13px' lineHeight={'19.5px'} _hover={{backgroundColor: "rgba(44,19,56,.04)"}} 
-            style={{transition: "all .3s ease-in-out"}}>
+            style={{transition: "all .3s ease-in-out"}} onClick={() => handleShowBlogSpinner({menuTitle})}>
                 {children}
             </MenuItem>
     )
@@ -40,13 +50,18 @@ const DesktopMenu = () => {
                         return (
                             <Menu isLazy key={menu.title}>
                                 <MenuButton as={Text} p='0 20px' variant='smallbody1' fontWeight='500' cursor='pointer'>
-                                    {menu.title} <ChevronDownIcon />
+                                    {menu.title} 
+                                    <span style={{paddingLeft: "4px"}}>
+                                        {
+                                            showBlogSpinner && menu.title === "Resources" ?  <Spinner size="xs" />: <ChevronDownIcon />
+                                        }
+                                    </span>
                                 </MenuButton>
                                 <MenuList color='secondary.dark' minWidth='200px' py={3} borderRadius='16px'>
                                     {
                                         menu.items.map((childMenu: any) => (
                                             <MetaLink to={childMenu.link} linkType={childMenu.isExternalLink ? "external": "internal" } key={childMenu.title}>
-                                                <CustomMenuItem py={3} className={childMenu.className}>
+                                                <CustomMenuItem py={3} className={childMenu.className} menuTitle={childMenu.title}>
                                                    <ChildMenuIcon iconName={childMenu.icon} /> &nbsp; {childMenu.title}
                                                 </CustomMenuItem>
                                             </MetaLink>
