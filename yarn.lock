@@ -2688,6 +2688,25 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
+"@ndhoule/each@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@ndhoule/each/-/each-2.0.1.tgz#bbed372a603e0713a3193c706a73ddebc5b426a9"
+  integrity sha1-u+03KmA+BxOjGTxwanPd68W0Jqk=
+  dependencies:
+    "@ndhoule/keys" "^2.0.0"
+
+"@ndhoule/keys@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ndhoule/keys/-/keys-2.0.0.tgz#3d64ae677c65a261747bf3a457c62eb292a4e0ce"
+  integrity sha1-PWSuZ3xlomF0e/OkV8YuspKk4M4=
+
+"@ndhoule/map@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@ndhoule/map/-/map-2.0.1.tgz#f5ca0a47424ea67f46e2a6d499b9e9bc886aefa8"
+  integrity sha1-9coKR0JOpn9G4qbUmbnpvIhq76g=
+  dependencies:
+    "@ndhoule/each" "^2.0.1"
+
 "@netlify/plugin-nextjs@^3.1.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-3.2.0.tgz#9ea7a5c42531cc0b1aa5caefdba91fa0e1d2ed8a"
@@ -2840,6 +2859,13 @@
     "@types/estree" "0.0.39"
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
+
+"@segment/snippet@^4.13.2":
+  version "4.13.2"
+  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.13.2.tgz#5630272768b33cadb610d3ee86d938668eb9aee7"
+  integrity sha512-gxp+jZgUVaJIq/MBm1oxx67UzwU1p+SNGLTLR7KWSsdkaz9LM/3tEaedlAVYxAeROvswHtjHzjbA7iXSysYWqg==
+  dependencies:
+    "@ndhoule/map" "^2.0.1"
 
 "@sls-next/lambda-at-edge@^1.5.2":
   version "1.7.0"

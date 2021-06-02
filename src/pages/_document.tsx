@@ -1,4 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+ // @ts-expect-error
+import * as snippet from '@segment/snippet';
 const APP_NAME = "Courier";
 const APP_DESCRIPTION = "Courier is the smartest way to design and deliver notifications. Design once, and deliver to any channel – email, Slack, SMS, push, and more – through one API.";
 
@@ -8,10 +10,24 @@ class MyDocument extends Document {
     return { ...initialProps };
   }
 
+  renderSnippet() {
+    const opts = {
+      apiKey: process.env.SEGMENT_KEY,
+      page: true,
+    }
+
+    if (process.env.NODE_ENV === 'development') {
+      return snippet.max(opts)
+    }
+
+    return snippet.min(opts)
+  }
+
   render() {
     return (
       <Html lang="en">
         <Head>
+        <script dangerouslySetInnerHTML={{ __html: this.renderSnippet() }} />
           <link
           rel="preload"
           href="/fonts/Gellix/Gellix-ExtraBold.ttf"
