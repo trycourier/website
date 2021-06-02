@@ -3,6 +3,7 @@ const urls = {
     pricing: "/pricing",
     blog: "/blog",
     privacy: "/privacy",
+    libraries: "https://github.com/trycourier",
     getStarted: "/",
     apiReference: "https://docs.courier.com/reference",
     status: "https://status.courier.com/",
