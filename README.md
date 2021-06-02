@@ -1,15 +1,27 @@
-# The Courier website
+# Courier.com [Website]
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e2a22425-8d96-43ac-b71e-7e11872b6f72/deploy-status)](https://app.netlify.com/sites/trycourier-com/deploys)
+## Getting Started [Run Locally]
 
-## Courier
+After cloning then repo, install dependencies by using the following command:
 
-**Super Powered Notifications**
+```bash
+npm install 
+# or 
+yarn install
+```
 
-The easiest way to add notifications to a new project or to add additional channels — like SMS, Facebook Messenger, or Slack — to your existing notification strategy.
+Then, run the development server:
 
-[https://www.courier.com](https://www.courier.com)
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-## License
+Open [http://localhost:3000](http://localhost:3000) in the browser to view the website.
 
-[MIT](LICENSE)
+## Powered By
+
+- [Next.js](https://nextjs.org/)
+- [Chakra UI](https://chakra-ui.com)
+- [TypeScript](https://www.typescriptlang.org)
