@@ -25,4 +25,4 @@ const urls = {
     login: "https://app.courier.com/login"
 };
 
-export let {terms, pricing, blog, privacy, getStarted, disclosure, subprocessors, documentation, careers, github, twitter, linkedin, facebook, instagram, youtube, twitch, discord, status, help, updates, apiReference, providers, login } = urls;
+export let {terms, pricing, blog, privacy, libraries, getStarted, disclosure, subprocessors, documentation, careers, github, twitter, linkedin, facebook, instagram, youtube, twitch, discord, status, help, updates, apiReference, providers, login } = urls;
