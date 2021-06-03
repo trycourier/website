@@ -11,7 +11,7 @@
     X-Frame-Options = "SAMEORIGIN"
     Content-Security-Policy-Report-Only = """
       base-uri 'self'; \
-      connect-src 'self' api.segment.io api-iam.intercom.io forms.hubspot.com www.google-analytics.com heapanalytics.com wss://nexus-websocket-a.intercom.io api.hubapi.com www.google.com; \
+      connect-src 'self' api.segment.io api-iam.intercom.io forms.hubspot.com www.google-analytics.com heapanalytics.com wss://nexus-websocket-a.intercom.io api.hubapi.com www.google.com stats.g.doubleclick.net; \
       default-src 'self' api-iam.intercom.io api.segment.io cdn.heapanalytics.com cdn.segment.io fonts.googleapis.com fonts.gstatic.com forms.hubspot.com heapanalytics.com  js-na1.hs-scripts.com js.hs-analytics.net js.hs-banner.com js.hscollectedforms.net js.intercomcdn.com self track.hubspot.com widget.intercom.io www.google-analytics.com www.googletagmanager.com null images.ctfassets.net wss://nexus-websocket-a.intercom.io api.hubapi.com connect.facebook.net js.hsadspixel.net px.ads.linkedin.com snap.licdn.com www.facebook.com www.google.com www.google.dk downloads.intercomcdn.com messenger-apps.intercom.io static.intercomassets.com www.google.co.in www.google.co.nz www.google.ca www.google.com.br www.google.com.do www.google.es www.youtube.com wss www.google.fr www.google.hu www.google.lu www.linkedin.com; \
       font-src 'self' data: fonts.gstatic.com js.intercomcdn.com www.slant.co storage.googleapis.com; \
       form-action calendly.com; \
