@@ -22,7 +22,7 @@
       media-src js.intercomcdn.com; \
       object-src 'none'; \
       script-src 'self' cdn.segment.io js.intercomcdn.com widget.intercom.io cdn.heapanalytics.com js-na1.hs-scripts.com js.hs-analytics.net js.hs-banner.com js.hscollectedforms.net www.google-analytics.com www.googletagmanager.com js.hsadspixel.net snap.licdn.com; \
-      script-src-elem 'self' 'unsafe-inline' widget.intercom.io www.google-analytics.com www.googletagmanager.com cdn.heapanalytics.com cdn.segment.io js-na1.hs-scripts.com js.hs-analytics.net js.hs-banner.com js.hscollectedforms.net js.intercomcdn.com js.hsadspixel.net snap.licdn.com www.google.com; \
+      script-src-elem 'self' 'unsafe-inline' widget.intercom.io www.google-analytics.com www.googletagmanager.com cdn.heapanalytics.com cdn.segment.com js-na1.hs-scripts.com js.hs-analytics.net js.hs-banner.com js.hscollectedforms.net js.intercomcdn.com js.hsadspixel.net snap.licdn.com www.google.com analytics.twitter.com static.ads-twitter.com www.googleadservices.com googleads.g.doubleclick.net stats.g.doubleclick.net js.hsleadflows.net; \
       style-src 'self' 'unsafe-inline' fonts.googleapis.com; \
       style-src-elem 'self' 'unsafe-inline' fonts.googleapis.com; \
       worker-src 'self'; \
