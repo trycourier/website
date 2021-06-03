@@ -66,8 +66,18 @@ async function getBlogPostDetails({blogPostId}: {blogPostId: string}) {
                         links {
                             assets {
                                 block {
-                                sys { id  }
-                                url
+                                    sys { id  }
+                                    url
+                                }
+                            }
+                            entries {
+                                block {
+                                    sys { id }
+                                    ... on CodeSnippet {
+                                        title
+                                        language
+                                        code
+                                    }
                                 }
                             }
                         }
@@ -86,6 +96,20 @@ async function getBlogPostDetails({blogPostId}: {blogPostId: string}) {
         blogImages[thisImage.sys.id] = thisImage.url;   
     }
     blogPostDetails.images = blogImages;
+
+    const blogSnippets:any = {};
+    const codeSnippetsArrRaw = data.data.post.content.links.entries.block;
+    for (let index = 0; index < codeSnippetsArrRaw.length; index++) {
+        const thisSnippet = codeSnippetsArrRaw[index];
+        blogSnippets[thisSnippet.sys.id] = {
+            title: thisSnippet.title,
+            language: thisSnippet.language,
+            code: thisSnippet.code
+        };   
+    }
+    console.log(blogSnippets);
+    blogPostDetails.snippets = blogSnippets;
+
     return blogPostDetails;
 }
 

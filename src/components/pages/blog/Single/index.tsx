@@ -42,18 +42,19 @@ interface SingleBlogProps {
     publishDate: Date;
     content: ContentProps;
     images: object;
+    snippets: object;
     slug: string
     moreFromTagName: string;
     moreBlogs: any[]
 }
 
-const SingleBlogContent = ({headerImage, title, tagsCollection, publishDate, authorsCollection, content, images, moreFromTagName, moreBlogs}: SingleBlogProps) => (
+const SingleBlogContent = ({headerImage, title, tagsCollection, publishDate, authorsCollection, content, images, snippets, moreFromTagName, moreBlogs}: SingleBlogProps) => (
     <Box color="secondary.dark" maxW={980} mx="auto" pt={{base: "132px", lg: "92px"}} p="0 20px">
         <ViewAllPosts />
         <Image src={headerImage.url} borderRadius="16px" mt={"62px"}/>
         <Headline title={title} tags={tagsCollection} />
         <Author name={authorsCollection.items[0].name} avatar={authorsCollection.items[0].avatar.url} publishDate={publishDate} />
-        <Content content={content.json.content} images={images} />
+        <Content content={content.json.content} images={images} snippets={snippets}/>
         <MoreFrom moreFromTagName={moreFromTagName} moreBlogs={moreBlogs} />
     </Box>          
 );

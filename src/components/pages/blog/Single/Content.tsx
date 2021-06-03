@@ -41,7 +41,7 @@ function getParagraphString({content}: {content:any[]}) {
     return allText;
 }
 
-const Content = ({content, images}: {content: any[], images: any}) => {
+const Content = ({content, images, snippets}: {content: any[], images: any, snippets: any}) => {
     return (
         <Box mt={"52px"}>
             {
@@ -71,6 +71,15 @@ const Content = ({content, images}: {content: any[], images: any}) => {
                         return (
                             <Text mt={6} dangerouslySetInnerHTML={{__html: allContent}} />
                         )
+                    }
+
+                    if(row.nodeType === "embedded-entry-block") {
+                        // Ignoring if not a snippet
+                        if (row.data.target.sys.id in snippets) {
+                            return (
+                                <code style={{display: "block", whiteSpace: "pre-wrap", color: "#FCEDE3", backgroundColor: "#2C1338", padding: "10px", margin: "10px 0px", borderRadius: "10px"}}>{snippets[row.data.target.sys.id].code}</code>
+                            )
+                        }
                     }
                 })
             }
