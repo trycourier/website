@@ -1,0 +1,25 @@
+# favicon
+/favicon.ico    /static/favicon/favicon.ico 301!
+
+# marketing redirects
+/sedaily    /?utm_medium=podcast&utm_source=sedaily&utm_campaign=se-daily-podcast-q1    301!
+/codestory  /?utm_campaign=Podcasts&utm_source=code-story&utm_medium=roll-ad    301!
+/hackabull  https://app.courier.com/?utm_medium=hackathon&utm_source=hackbull-usf&utm_campaign=developer-relations  301!
+/bitcamp    https://app.courier.com/?utm_campaign=Developer%20Relations&utm_source=bitcamp&utm_medium=sign-up    301!
+/tohacks    https://app.courier.com/?utm_campaign=Developer%20Relations&utm_source=tohacks&utm_medium=sign-up   301!
+
+# other redirects
+/careers    https://jobs.lever.co/trycourier/   301!
+
+# site redirects to keep everything on the same domain
+http://courier.com  https://www.courier.com 301!
+http://www.courier.com  https://www.courier.com 301!
+http://www.courier.com/*    https://www.courier.com/:splat/ 301!
+https://courier.com https://www.courier.com 301!
+https://courier.com/*   https://www.courier.com/:splat/ 301!
+http://courier.com/*    https://www.courier.com/:splat/ 301!
+http://www.trycourier.com/* https://www.courier.com/:splat/ 301!
+http://trycourier.com/* https://www.courier.com/:splat/ 301!
+https://www.trycourier.com/*    https://www.courier.com/:splat  301!
+https://trycourier.com/*    https://www.courier.com/:splat  301!
+
