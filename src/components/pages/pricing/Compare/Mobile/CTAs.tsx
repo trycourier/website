@@ -30,9 +30,9 @@ export default {
     ),
     growthData: () => (
         <Box>
-            <Text variant="smallbody2" color="rgba(44,19,56,.48)">Includes 250,000 notifications/mo +$0.001/additional</Text>
+            <Text variant="smallbody2" color="rgba(44,19,56,.48)">Includes 10,000 notifications/mo +$0.001/additional</Text>
             <Flex py={4}>
-                <Text fontSize="24px" lineHeight="24px" fontWeight="700" color="secondary.dark">$1800</Text>
+                <Text fontSize="24px" lineHeight="24px" fontWeight="700" color="secondary.dark">$2,000</Text>
                 <Text variant="body2">/month</Text>
             </Flex>
             <PurpleBgButton width={"180px"} height={"40px"} link={"/"}>Try for free</PurpleBgButton>
