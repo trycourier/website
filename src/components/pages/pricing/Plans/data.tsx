@@ -33,8 +33,8 @@ export default [
     {
         name: "Growth",
         buttonType: "PurpleBgButton",
-        price: "$1800/month",
-        limits: "Includes 250,000 notifications/mo +$0.001/additional",
+        price: "$2,000/month",
+        limits: "Includes 10,000 notifications/mo +$0.001/additional",
         buttonText: "Try for free",
         planIncludes: {
             title: "Everything in Starter, plus:",
