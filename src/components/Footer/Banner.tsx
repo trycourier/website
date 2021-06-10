@@ -12,8 +12,8 @@ const FooterBanner = () => {
                         <CTAGradient text={'Get started for free'} link={login} />
                     </Box>
                     <Flex pt={{base: '104px'}} ml={{base: 0, lg: "-430px", xl: '-172px'}}>
-                        <Image src={'/images/footer/footeradsmall@2x.png'} w={{base:"192px", md: "314px"}} />
-                        <Image src={'/images/footer/footeradLarge@2x.png'} w={{base:"192px", md: "314px"}} ml={'-115px'} mt={'-50px'}/>
+                        <Image src={'/images/footer/footeradsmall@2x.png'} w={{base:"60%", md: "314px"}} />
+                        <Image src={'/images/footer/footeradLarge@2x.png'} w={{base:"60%", md: "314px"}} ml={'-115px'} mt={'-50px'}/>
                         
                     </Flex>
                 </Flex>

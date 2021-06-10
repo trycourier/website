@@ -30,12 +30,12 @@ const PostSummary = ({data, tagName}: {data:any, tagName: any}) => {
 
 const MoreFrom = ({moreFromTagName, moreBlogs}: {moreFromTagName: string, moreBlogs: any[]}) => {
     return (
-        <Box mt={"92px"}>
+        <Box mt={{base: "62px", md: "92px"}}>
             <Heading>More from {moreFromTagName}</Heading>
             <SimpleGrid columns={{base: 1, md: 2}} spacingX={10} mt={"42px"} w={"100%"} spacingY={{base: 16, md: 0}}>
                 {
                     moreBlogs.map(blog => (
-                        <PostSummary data={blog} tagName={moreFromTagName} />
+                        <PostSummary data={blog} tagName={moreFromTagName} key={blog.sys.id}/>
                     ))
                 }
             </SimpleGrid>
