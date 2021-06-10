@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { InputGroup, Input, InputRightElement, Alert, AlertIcon, Box, FormControl, Spinner } from '@chakra-ui/react';
 import PurpleBgButton from 'components/buttons/PurpleBg';
-import cookies from 'js-cookie';
 
 const BlogNewsletter = () => {
     const [ subscriptionSuccess, setSubscriptionSuccess ] = useState(false);
@@ -13,11 +12,11 @@ const BlogNewsletter = () => {
         if(emailFieldValid) {
             setIsLoading(true);
             const email = emailRef.current.value;
-            let hutk = cookies.get('hubspotutk');
-            if (!hutk) {
-                //TODO: figure a solution when cookie not available
-                hutk = "0357bb413489ee6bfdeda28e0566a639"
-            };
+            // let hutk = cookies.get('hubspotutk');
+            // if (!hutk) {
+            //     //TODO: figure a solution when cookie not available
+            //     hutk = "0357bb413489ee6bfdeda28e0566a639"
+            // };
 
             await fetch(`/api/newsletter-subscribe`, {
                 method: 'POST',
