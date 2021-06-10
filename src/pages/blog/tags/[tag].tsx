@@ -5,6 +5,7 @@ import Hero from 'components/pages/blog/tag/Hero';
 import { NextSeo } from 'next-seo';
 import GetBlogsForTag from 'scripts/GetBlogsForTag';
 import menuData from 'components/pages/blog/common/Menu/data';
+import Newsletter from 'components/pages/blog/common/Newsletter';
 
 export async function getServerSideProps(context: any) {
     const { params } = context;
@@ -29,6 +30,7 @@ const Blog = ({feedContent}: {feedContent: any}) => {
             />
             <Header headerPlain />
             <Hero slug={feedContent.slug} />
+            <Newsletter />
             <Content feedContent={feedContent.items} slug={feedContent.slug} />
             <Footer />
         </>            

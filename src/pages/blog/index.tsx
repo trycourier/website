@@ -2,6 +2,7 @@ import Header from "components/Header/index";
 import Footer from "components/Footer";
 import Content from 'components/pages/blog/home/Content';
 import Hero from 'components/pages/blog/home/Hero';
+import Newsletter from 'components/pages/blog/common/Newsletter';
 import { NextSeo } from 'next-seo';
 import GetBlogsHomeFeed from 'scripts/GetBlogsHomeFeed';
 
@@ -23,6 +24,7 @@ const Blog = ({feedContent}: {feedContent: any}) => {
             />
             <Header headerPlain />
             <Hero />
+            <Newsletter />
             <Content feedContent={feedContent} />
             <Footer />
         </>            
