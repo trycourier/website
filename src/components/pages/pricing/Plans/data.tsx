@@ -31,7 +31,7 @@ export default [
         }
     },
     {
-        name: "Growth",
+        name: "Business",
         buttonType: "PurpleBgButton",
         price: "$2,000/month",
         limits: "Includes 10,000 notifications/mo +$0.001/additional",
