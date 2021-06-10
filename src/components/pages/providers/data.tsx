@@ -37,7 +37,9 @@ export default [
             {name: "Africa's Talking", link: "https://docs.courier.com/docs/africas-talking", image: "/images/pages/integrations/providers/africas-talking.svg"},
             {name: "AWS SNS", link: "https://docs.courier.com/docs/aws-sns-sms", image: "/images/pages/integrations/providers/aws-sns.svg"},
             {name: "MessageBird", link: "https://docs.courier.com/docs/messagebird", image: "/images/pages/integrations/providers/messagebird.svg"},
+            {name: "MessageMedia", link: "https://docs.courier.com/docs/messagemedia", image: "/images/pages/integrations/providers/messagemedia.png"},
             {name: "Plivo", link: "https://docs.courier.com/docs/plivo", image: "/images/pages/integrations/providers/plivo.svg"},
+            {name: "Sinch", link: "https://docs.courier.com/docs/sinch", image: "/images/pages/integrations/providers/sinch.png"},
             {name: "Telnyx", link: "https://docs.courier.com/docs/telnyx", image: "/images/pages/integrations/providers/telnyx.svg"},
             {name: "Twilio", link: "https://docs.courier.com/docs/twilio", image: "/images/pages/integrations/providers/twilio.svg"},
             {name: "Vonage", link: "https://docs.courier.com/docs/vonage", image: "/images/pages/integrations/providers/vonage.svg"}

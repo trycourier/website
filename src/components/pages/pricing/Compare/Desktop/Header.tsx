@@ -32,7 +32,7 @@ const Header = () => (
             <Box w={'17.5%'}>
                 <Heading variant="subh2">Growth</Heading>
                 <Flex my={"20px"}>
-                    <Heading fontSize={{base: "32px", md: "24px", xl: "32px"}} fontWeight="700" lineHeight={{base: "32px", md: "24px", xl: "32px"}}>$1,800</Heading>
+                    <Heading fontSize={{base: "32px", md: "24px", xl: "32px"}} fontWeight="700" lineHeight={{base: "32px", md: "24px", xl: "32px"}}>$2,000</Heading>
                     <Text fontSize={{base: "18px", md: "16px", xl: "18px"}} pt={"5px"}>/ month</Text>
                 </Flex>
                 
