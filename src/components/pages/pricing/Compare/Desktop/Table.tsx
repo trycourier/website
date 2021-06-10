@@ -68,6 +68,9 @@ const CompareTable = () => (
                                 <Box w={'27.5%'} alignSelf="center">
                                     <RightText rowIndex={2}>{feature.starterData}</RightText>
                                 </Box>
+                                <Box w={'17.5%'} alignSelf="center">
+                                    <RightText rowIndex={3}>{feature.growthData}</RightText>
+                                </Box>                                
                                 <Box w={'27.5%'} alignSelf="center">
                                     <RightText rowIndex={4}>{feature.enterpriseData}</RightText>
                                 </Box>
