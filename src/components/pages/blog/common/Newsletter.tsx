@@ -22,7 +22,7 @@ const BlogNewsletter = () => {
                 method: 'POST',
                 body: JSON.stringify({
                     email,
-                    hutk, 
+                    // hutk, 
                     pageUri: window.location.href,
                     pageName: document.title
                 }),
