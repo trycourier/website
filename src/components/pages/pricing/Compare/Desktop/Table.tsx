@@ -60,18 +60,15 @@ const CompareTable = () => (
                                         }} ml={3}>SOON</Tag>
                                     }
                                 </Flex>
-                                <Box w={'17.5%'} alignSelf="center">
+                                <Box w={'27.5%'} alignSelf="center">
                                     <RightText rowIndex={1}>
                                         {feature.developerData}
                                     </RightText>
                                 </Box>
-                                <Box w={'17.5%'} alignSelf="center">
+                                <Box w={'27.5%'} alignSelf="center">
                                     <RightText rowIndex={2}>{feature.starterData}</RightText>
                                 </Box>
-                                <Box w={'17.5%'} alignSelf="center">
-                                    <RightText rowIndex={3}>{feature.growthData}</RightText>
-                                </Box>
-                                <Box w={'17.5%'} alignSelf="center">
+                                <Box w={'27.5%'} alignSelf="center">
                                     <RightText rowIndex={4}>{feature.enterpriseData}</RightText>
                                 </Box>
                             </Flex>

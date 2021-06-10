@@ -51,6 +51,13 @@ export default [
       title: 'Design & branding',
       features: [
         {
+          label: "\'Powered By Courier\' footer",
+          tooltipInfo: `Create an unlimited number of notifications 
+          templates, with support for as many channels as you need.`,
+          developerData: 'selected',
+          starterData: 'removed',
+          enterpriseData: 'removed',
+        },{
           label: 'Visual & code editor',
           tooltipInfo: `Create an unlimited number of notifications 
           templates, with support for as many channels as you need.`,
@@ -72,7 +79,7 @@ export default [
           label: 'Whitelabeling',
           tooltipInfo: `Create an unlimited number of notifications 
           templates, with support for as many channels as you need.`,
-          developerData: '10 custom brands',
+          developerData: 'Unlimited',
           starterData: 'Unlimited',
           growthData: 'Unlimited',
           enterpriseData: 'Unlimited',
