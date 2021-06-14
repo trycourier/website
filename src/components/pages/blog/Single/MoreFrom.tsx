@@ -9,7 +9,7 @@ const PostSummary = ({data, tagName}: {data:any, tagName: any}) => {
     
     return (
         <Box color="secondary.dark" key={id}>
-            <Image src={thumbnailUrl} borderRadius="24px" height="376px" objectFit="cover" mb={"32px"}/>
+            <Image src={`${thumbnailUrl}?h=376`} borderRadius="24px" height="376px" objectFit="cover" mb={"32px"}/>
             <BlogTag tag={tagName.toUpperCase()} /> 
             <InternalLink to={`/blog/${slug}`}>
                 <Heading variant="subh1" w={"80%"} mt={"12px"}>{title}</Heading>
@@ -18,7 +18,7 @@ const PostSummary = ({data, tagName}: {data:any, tagName: any}) => {
                 {excerpt}
             </Text>
             <Flex mt={5} color="secondary.dark">
-            <Avatar name={authorName} src={authorAvatar} height="40px" width="40px" />
+            <Avatar name={authorName} src={`${authorAvatar}?w=40`} height="40px" width="40px" />
             <Box ml={3}>
                 <Text variant="body3">{authorName}</Text>
                 <Text opacity="0.4" mt={0} variant='smallbody2'>{pubDate}</Text>

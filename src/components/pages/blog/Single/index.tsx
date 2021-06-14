@@ -57,7 +57,7 @@ const SingleBlogContent = ({headerImage, title, tagsCollection, publishDate, aut
         <MostPopular blogs={mostPopular} />
         <Box color="secondary.dark" w={{base: "100%", xl: "70%"}} ml={{base: 0, xl: 9}} >
             <ViewAllPosts />
-            <Image src={headerImage.url} borderRadius="16px" mt={{base: "32px", md: "42px", xl: "62px"}}/>
+            <Image src={`${headerImage.url}?w=1816`} borderRadius="16px" mt={{base: "32px", md: "42px", xl: "62px"}} />
             <Headline title={title} tags={tagsCollection} />
             <Flex justify='space-between' align={{base: "auto", md: "center"}} mt={8} direction={{base: "column-reverse", md: "row"}}>
                 <Author name={authorsCollection.items[0].name} avatar={authorsCollection.items[0].avatar.url} publishDate={publishDate} />
