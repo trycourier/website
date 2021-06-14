@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { InputGroup, Input, InputRightElement, Alert, AlertIcon, Box, FormControl, Spinner } from '@chakra-ui/react';
 import PurpleBgButton from 'components/buttons/PurpleBg';
-import cookies from 'js-cookie';
+
+function getCookie({name}: {name:string}) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop()!.split(';').shift();
+}
 
 function makeFormObj({email, hutk}: {email: string, hutk: string}) {
     const data = {
@@ -45,9 +50,8 @@ const BlogNewsletter = () => {
         if(emailFieldValid) {
             setIsLoading(true);
             const email = emailRef.current.value;
-            let hutk = cookies.get('hubspotutk');
+            let hutk = getCookie({name: 'hubspotutk'});
             if (!hutk) {
-                //fallback HS cookie when not available
                 hutk = "0357bb413489ee6bfdeda28e0566a639"
             };
             
