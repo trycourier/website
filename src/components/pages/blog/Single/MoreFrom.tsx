@@ -11,7 +11,7 @@ const PostSummary = ({data, tagName}: {data:any, tagName: any}) => {
     return (
         <Box color="secondary.dark" key={id}>
             <Box mb={"32px"} className="more-from-blog-thumbnail">
-                <Image src={`https://${thumbnailUrl}?h=376`} width="376px" height="376px" layout="responsive" />
+                <Image src={`https:${thumbnailUrl}?h=376`} width="376px" height="376px" layout="responsive" />
             </Box>
             <BlogTag tag={tagName.toUpperCase()} /> 
             <InternalLink to={`/blog/${slug}`}>
