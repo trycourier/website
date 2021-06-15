@@ -127,20 +127,10 @@ async function getMostPopularBlogs({slug}: Props) {
     return mostPopularBlogsFiltered;
 }
 
-const mostPopularBlogs = [
-    { "title": "The Three Things to Never Build In Your App: Authentication, Notifications, and Payments", "slug": "the-three-things-to-never-build-in-your-app"},
-    { "title": "How We Kept Datadog From Blowing Up Our AWS Bill", "slug": "we-changed-datadog-to-avoid-aws-bill"},
-    { "title": "How to Send Emails with Attachments Using Amazon SES and S3", "slug": "send-email-attachments-aws-s3"},
-    { "title": "Announcing Courier's $10M Series A", "slug": "announcing-our-series-a"},
-    { "title": "How to Send Emails with Node.js [3 Different Ways + Code Tutorials]", "slug": "how-to-send-emails-with-node-js"},
-    { "title": "Three Ways to Send Emails Using Python With Code Tutorials", "slug": "three-ways-to-send-emails-using-python-with-code-tutorials"}
-];
-
 const GetBlogPost = async ({slug}: Props) => {
-    //TODO: replace 4 API calls with 1
     const blogPostId = await getBlogPostId({slug});
     const blogPostDetails = await getBlogPostDetails({blogPostId});
-    //const mostPopularBlogs = await getMostPopularBlogs({slug});
+    const mostPopularBlogs = await getMostPopularBlogs({slug});
     const {name: tagName, slug: tagSlug } = blogPostDetails.tagsCollection.items[0];
     const moreBlogs = await GetSimilarBlogs({slug: tagSlug, excludeSlug: slug});
     blogPostDetails.moreFromTagName = tagName;
