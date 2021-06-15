@@ -121,3 +121,12 @@
 .slick-arrow {
     display: none!important;
 }
+
+#blog-header-image img {
+    border-radius: 16px;
+}
+
+.more-from-blog-thumbnail img {
+    object-fit: cover;
+    border-radius: 24px
+}

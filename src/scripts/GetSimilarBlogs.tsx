@@ -1,13 +1,4 @@
-const contentful = require('contentful');
-const client = contentful.createClient({
-    space: `${process.env.CONTENTFUL_SPACE_ID}`,
-    accessToken: `${process.env.CONTENTFUL_API_KEY}`
-});
-
-async function getAllBlogs() {
-    const response = await client.getEntries({content_type: "post", limit: 1000 });
-    return response.items;
-}
+import getAllBlogs from './GetAllBlogs';
 
 async function filterWithTag({blogs, slug, excludeSlug}: {blogs: any[], slug: string, excludeSlug: string}) {
     const blogsWithTag = blogs.filter(blog => {
