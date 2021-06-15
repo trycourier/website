@@ -3,6 +3,7 @@ import Footer from "components/Footer";
 import Content from 'components/pages/page/Content';
 import { NextSeo } from 'next-seo';
 import GetPageData from 'scripts/GetPageData';
+import getAllPages from 'scripts/GetAllPages';
 
 const slugToTitle: {[key: string]: any} = {
     privacy: "Privacy Policy",
@@ -11,7 +12,22 @@ const slugToTitle: {[key: string]: any} = {
     subprocessors: "Data Subprocessors"
 };
 
-export async function getServerSideProps(context: any) {
+export async function getStaticPaths() {
+    const allPages = await getAllPages();
+    const allPagesPath = [];
+    for (let index = 0; index < allPages.length; index++) {
+        const page = allPages[index];
+        allPagesPath.push({
+            params: {page: page.fields.slug}
+        })
+    }
+    return {
+      paths: allPagesPath,
+      fallback: true
+    };
+}
+
+export async function getStaticProps(context: any) {
     const { params } = context;
     const { page } = params;
     const pageDetails = await GetPageData({slug: page});

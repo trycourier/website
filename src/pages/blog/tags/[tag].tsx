@@ -7,7 +7,22 @@ import GetBlogsForTag from 'scripts/GetBlogsForTag';
 import menuData from 'components/pages/blog/common/Menu/data';
 import Newsletter from 'components/pages/blog/common/Newsletter';
 
-export async function getServerSideProps(context: any) {
+export async function getStaticPaths() {
+    const allTagPaths = [
+        {params: {tag: "courier"}},
+        {params: {tag: "courier-live"}},
+        {params: {tag: "engineering"}},
+        {params: {tag: "integrations"}},
+        {params: {tag: "news-and-updates"}},
+        {params: {tag: "notifications-landscape"}}
+    ];
+    return {
+      paths: allTagPaths,
+      fallback: true
+    };
+}
+
+export async function getStaticProps(context: any) {
     const { params } = context;
     const { tag } = params;
     const feedContent = await GetBlogsForTag({tag: tag});
