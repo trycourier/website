@@ -6,10 +6,11 @@ import Newsletter from 'components/pages/blog/common/Newsletter';
 import { NextSeo } from 'next-seo';
 import GetBlogsHomeFeed from 'scripts/GetBlogsHomeFeed';
 
-export async function getServerSideProps(context: any) {
+export async function getStaticProps(context: any) {
     const feedContent = await GetBlogsHomeFeed();
     return {
-        props: {feedContent}
+        props: {feedContent},
+        revalidate: 60
     }
 }
 
