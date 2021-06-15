@@ -1,8 +1,9 @@
-import { Box, Flex, Text, Image, Heading } from '@chakra-ui/react';
+import { Box, Flex, Text, Heading } from '@chakra-ui/react';
 import FreeTrialButton from './FreeTrialButton';
 import { login } from 'constants/urls';
 import data from './data';
 import FormattedPrice from './FormattedPrice';
+import TickIcon from './TickIcon';
 
 const Plans = () => (
     <Box p="0 20px">
@@ -22,7 +23,7 @@ const Plans = () => (
                                 {
                                     plan.planIncludes.points.map((point, index) => (
                                         <Flex mb={"20px"} key={point}>
-                                            <Image src={'/images/pages/pricing/tick.svg'} mr={2} />
+                                            <TickIcon />
                                             <Text key={index} variant="body3">{point}</Text>
                                         </Flex>
                                     ))
