@@ -1,15 +1,18 @@
 import React  from 'react';
-import { Heading, Box, Image, SimpleGrid, Text, Avatar, Flex } from '@chakra-ui/react';
+import { Heading, Box, SimpleGrid, Text, Avatar, Flex } from '@chakra-ui/react';
 import ParseData from 'components/pages/blog/common/ParseData';
 import InternalLink from 'components/InternalLink';
 import BlogTag from 'components/pages/blog/common/Tag';
+import Image from 'next/image';
 
 const PostSummary = ({data, tagName}: {data:any, tagName: any}) => {
     const {id, authorName, authorAvatar, thumbnailUrl, slug, excerpt, title, pubDate} = ParseData({data});
     
     return (
         <Box color="secondary.dark" key={id}>
-            <Image src={`${thumbnailUrl}?h=376`} borderRadius="24px" height="376px" objectFit="cover" mb={"32px"}/>
+            <Box mb={"32px"} className="more-from-blog-thumbnail">
+                <Image src={`https://${thumbnailUrl}?h=376`} width="376px" height="376px" layout="responsive" />
+            </Box>
             <BlogTag tag={tagName.toUpperCase()} /> 
             <InternalLink to={`/blog/${slug}`}>
                 <Heading variant="subh1" w={"80%"} mt={"12px"}>{title}</Heading>
