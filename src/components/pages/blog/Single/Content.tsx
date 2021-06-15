@@ -1,4 +1,5 @@
-import { Heading, Text, Box, Image, AspectRatio } from '@chakra-ui/react';
+import { Heading, Text, Box, AspectRatio } from '@chakra-ui/react';
+import Image from 'next/image';
 
 const YouTubeEmbed = ({embedUrl}: {embedUrl: string}) => {
     return (
@@ -59,7 +60,12 @@ const Content = ({content, images, snippets}: {content: any[], images: any, snip
                     }
 
                     if(row.nodeType == "embedded-asset-block") {
-                        return (<Image src={images[row.data.target.sys.id]} my={10} />)
+                        const { url, width, height } = images[row.data.target.sys.id];
+                        return (
+                            <Box my={10}>
+                                <Image src={url}  layout="responsive" width={width} height={height} quality={100} />
+                            </Box>
+                        )
                     }
 
                     if(row.nodeType == "paragraph") {

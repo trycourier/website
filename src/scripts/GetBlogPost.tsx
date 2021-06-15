@@ -68,6 +68,8 @@ async function getBlogPostDetails({blogPostId}: {blogPostId: string}) {
                                 block {
                                     sys { id  }
                                     url
+                                    width
+                                    height
                                 }
                             }
                             entries {
@@ -93,7 +95,10 @@ async function getBlogPostDetails({blogPostId}: {blogPostId: string}) {
     const imagesArrRaw = data.data.post.content.links.assets.block;
     for (let index = 0; index < imagesArrRaw.length; index++) {
         const thisImage = imagesArrRaw[index];
-        blogImages[thisImage.sys.id] = thisImage.url;   
+        const { url, height, width} = thisImage
+        blogImages[thisImage.sys.id] = {
+            url, height, width
+        }   
     }
     blogPostDetails.images = blogImages;
 
@@ -115,16 +120,8 @@ async function getBlogPostDetails({blogPostId}: {blogPostId: string}) {
 async function getMostPopularBlogs({slug}: Props) {
     const response = await fetch(`https://s3.amazonaws.com/courier.com/most-popular-blogs.json`);
     const data = await response.json();
-    const mostPopularBlogs = data;
-    const mostPopularBlogsFiltered = [];
-    //skip current blog if included in list
-    for (let index = 0; index < mostPopularBlogs.length; index++) {
-        const popularBlog = mostPopularBlogs[index];
-        if(popularBlog.slug !== slug && mostPopularBlogsFiltered.length < 4) {
-            mostPopularBlogsFiltered.push(popularBlog);
-        }
-    }
-    return mostPopularBlogsFiltered;
+    const mostPopularBlogs = data.splice(0, 4);
+    return mostPopularBlogs;
 }
 
 const GetBlogPost = async ({slug}: Props) => {
