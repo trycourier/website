@@ -18,13 +18,13 @@ export default [
     {
         name: "Business",
         buttonType: "PurpleBgButton",
-        price: "$.005/message",
+        price: "$.005/message/mo",
         limits: "Pay-per-use, no commitments",
         buttonText: "Create a free account",
         planIncludes: {
             title: "Everything in Developer, plus:",
             points: [
-                "Removal of 'Powered By Courier' footer",
+                "Removal of 'Powered By Courier' branding",
                 "Unlimited messages",
                 "Chat & email support",
             ]
