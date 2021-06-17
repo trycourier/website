@@ -14,7 +14,7 @@ interface FreeTrialButtonProps {
 const FreeTrialButton = ({buttonType, children, height, width, link, ...other}: FreeTrialButtonProps) => {
     if(buttonType === "WhiteBgSimple") {
         return (
-            <WhiteBgSimple height={height} width={width} link={link} {...other}>{children}</WhiteBgSimple>
+            <WhiteBgSimple height={height} width={width} link="mailto:sales@courier.com" {...other}>{children}</WhiteBgSimple>
         )
     } else if(buttonType === "DarkGradientBg") {
         return (
