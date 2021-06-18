@@ -18,8 +18,8 @@ export default [
     {
         name: "Business",
         buttonType: "PurpleBgButton",
-        price: "$.005/message/mo",
-        limits: "Pay-per-use, no commitments",
+        price: "$0.005/message",
+        limits: "Billed monthly, no commitments",
         buttonText: "Create a free account",
         planIncludes: {
             title: "Everything in Developer, plus:",
