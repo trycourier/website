@@ -11,7 +11,7 @@ const Plans = () => (
             <Flex color="secondary.dark" justify="space-between" flexWrap="wrap">
                 {
                     data.map((plan, index) => (
-                        <Box bg='white' key={plan.name} w={{base: "100%", md: "49%", xl: '23.5%'}} borderRadius={"16px"} p="21px" boxShadow="0 10px 40px rgb(0 0 0 / 8%)" mt={{base: index > 0 ? 10: 0, md: index > 1 ? 4: 0, xl: 0}}>
+                        <Box bg='white' key={plan.name} w={{base: "100%", md: "49%", xl: '32.5%'}} borderRadius={"16px"} p="21px" boxShadow="0 10px 40px rgb(0 0 0 / 8%)" mt={{base: index > 0 ? 10: 0, md: index > 1 ? 4: 0, xl: 0}}>
                             <Text variant="body1medium" fontWeight="600" mb={'27px'}>{plan.name}</Text>
                             <Box minHeight="81px">
                                 <Heading variant='h4'>{FormattedPrice({price: plan.price})}</Heading>

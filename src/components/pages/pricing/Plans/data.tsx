@@ -3,7 +3,7 @@ export default [
         name: "Developer",
         price: "Free, forever",
         buttonType: "DarkGradientBg",
-        limits: "Up to 10,000 notifications/mo",
+        limits: "Up to 10,000 messages/mo",
         buttonText: "Create a free account",
         planIncludes: {
             title: "What you get:",
@@ -11,37 +11,22 @@ export default [
                 "Unlimited team members",
                 "Unlimited templates",
                 "Access to all channels",
-                "72-hour log retention"
-            ]
-        }
-    },
-    {
-        name: "Startup",
-        buttonType: "PurpleBgButton",
-        price: "$99/month",
-        limits: "Includes 10,000 notifications/mo +$0.005/additional",
-        buttonText: "Try for free",
-        planIncludes: {
-            title: "Everything in Free, plus:",
-            points: [
                 "Unlimited custom brands",
-                "Chat & email support",
-                "7-day log retention"
             ]
         }
     },
     {
-        name: "Growth",
+        name: "Business",
         buttonType: "PurpleBgButton",
-        price: "$2,000/month",
-        limits: "Includes 10,000 notifications/mo +$0.001/additional",
-        buttonText: "Try for free",
+        price: "$.005/message/mo",
+        limits: "Pay-per-use, no commitments",
+        buttonText: "Create a free account",
         planIncludes: {
-            title: "Everything in Starter, plus:",
+            title: "Everything in Developer, plus:",
             points: [
-                "Role-based access control",
-                "Dedicated account manager",
-                "30-day log retention"
+                "Removal of 'Powered By Courier' branding",
+                "Unlimited messages",
+                "Chat & email support",
             ]
         }
     },
@@ -49,14 +34,14 @@ export default [
         name: "Enterprise",
         buttonType: "WhiteBgSimple",
         price: "Flexible pricing for your business",
-        limits: "",
         buttonText: "Get a demo",
         planIncludes: {
-            title: "Everything in Growth, plus:",
+            title: "Everything in Business, plus:",
             points: [
-                "Custom roles & permissions",
-                "Tailored onboarding & training",
-                "Flexible log retention"
+                "Volume discounts",
+                "Role-based access control",
+                "Dedicated account manager",
+                "SOC 2 report"
             ]
         }
     }

@@ -8,11 +8,12 @@ const FormattedPrice = ({price}: FormattedPriceProps) => {
     const priceBase = price;
     if(price.startsWith("$")) {
         const priceSplit = priceBase.split("/");
-        const [ price, period ] = priceSplit;
+        const [ price, period, term ] = priceSplit;
         return (
             <Flex justify='center'>
                 <Heading variant="h4">{price}</Heading>
                 <Text variant="body1medium" pt={"5px"}>/{period}</Text>
+                <Text variant="body1medium" pt={"5px"}>/{term}</Text>
             </Flex>
         )
     } else if(price.startsWith("Flexible")) {
