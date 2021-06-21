@@ -39,13 +39,29 @@ export async function getStaticProps(context: any) {
 const GeneratedPage = ({pageDetails}: {pageDetails: any}) => {
     if(!pageDetails) return <p></p>;
     const { slug, content, title } = pageDetails;
+    const pageTitle = `${slugToTitle[slug]} | Courier`;
+    const pageDescription = "";
+    const pageUrl = `https://www.courier.com/${slug}`;
 
     return (
         <>
             <NextSeo
-                title={`${slugToTitle[slug]} | Courier`}
-                description=""
-                canonical={`https://www.courier.com/${slug}`}
+                title={pageTitle}
+                description={pageDescription}
+                canonical={pageUrl}
+                openGraph={{
+                    type: "website",
+                    title: pageTitle,
+                    description: pageDescription,
+                    site_name: "Courier",
+                    images: [
+                      { url: "https://www.courier.com/images/og-image.png" }
+                    ],
+                }}
+                twitter={{
+                    cardType: "summary",
+                    site: "@trycourier",
+                }}
             />
             <Header headerPlain />
             <Content content={content.json.content} title={title} />
