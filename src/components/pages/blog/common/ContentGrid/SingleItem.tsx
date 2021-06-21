@@ -1,13 +1,27 @@
-import { Box, Image, Heading, Text, Flex, Avatar } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex, Avatar } from '@chakra-ui/react';
 import InternalLink from 'components/InternalLink';
 import ParseData from '../../common/ParseData';
 import BlogTag from '../../common/Tag';
+import Image from 'next/image';
 
 const SingleItem = ({data}: {data: any}) => {
-    const {id, tag, authorName, authorAvatar, thumbnailUrl, slug, excerpt, title, pubDate} = ParseData({data});
+    const {tag, authorName, authorAvatar, thumbnailUrl, slug, excerpt, title, pubDate} = ParseData({data});
     return (
-        <Box color="secondary.dark" key={id}>
-            <Image src={thumbnailUrl} borderRadius="12px" height={{base: "250px", md: "270px"}} objectFit="cover" w={{base: "100%", md: "auto"}} mb={"32px"}/>
+        <Box color="secondary.dark">
+            <Box mb={"32px"} sx={{
+                'img': {
+                    objectFit: "cover",
+                    borderRadius: "12px"
+                },
+                '@media screen and (max-width: 30em)': {
+                    'img': {
+                        width: "445px",
+                        height: "250px"
+                    }
+                }
+            }}>
+                <Image src={`https:${thumbnailUrl}`} width={270} height={270} />
+            </Box>
             <BlogTag tag={tag} />
             <InternalLink to={`/blog/${slug}`}>
                 <Heading variant="subh1" mt={"12px"}>{title}</Heading>
