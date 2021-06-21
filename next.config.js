@@ -7,7 +7,7 @@ module.exports = withPWA({
     return redirects
   },
   async headers() {
-    return process.env.NODE_ENV === "production" ? headers : []
+    return process.env.NODE_ENV === "development" ? [] : headers
   },
   poweredByHeader: false,
   images: {
