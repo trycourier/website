@@ -1,6 +1,14 @@
 const withPWA = require("next-pwa");
+const redirects = require('./redirects');
+const headers = require('./headers');
 
 module.exports = withPWA({
+  async redirects() {
+    return redirects
+  },
+  async headers() {
+    return process.env.NODE_ENV === "development" ? [] : headers
+  },
   images: {
     domains: ['images.ctfassets.net'],
   },
