@@ -5,6 +5,8 @@ import MessageIcon from './icons/Message';
 import PushIcon from './icons/Push';
 import SMSIcon from './icons/SMS';
 import ChatIcon from './icons/Chat';
+import NextImage from 'next/image';
+import BannerSlideBgImage from '../../../../../public/images/bannersliderBgNew@2x.png'
 
 const channelImages = [
   { name: "Email", image: "/images/pages/home/hero/email.png", width: "506px", ml: {xl: "90px", "2xl": "100px"}, mt: "20px" },
@@ -76,42 +78,45 @@ export default class PreviousNextMethods extends Component {
     };
     return (
         <Box maxWidth={"1063px"} mx="auto" w={"100%"} display={{base: "none", xl: "block"}}>
-            <Box bg="url('/images/bannersliderBgNew@2x.png') no-repeat" backgroundSize="100% 100%"  mx='auto' mt={{base: "-180px", xl: '-500px'}} padding='0 20px' >
-                <Box w={"100%"} h="648px" pt={"19px"}>
-                    <Box w={"calc(100% - 62px)"}  h={"80%"} ml={"58px"} borderRadius="16px">
-                        <Flex p="24px 44px 0 18px">
-                            <Box w={"212px"} p="0 32px 0 0" pt={"82px"}>
-                                {
-                                    channelButtons.map(button => (
-                                        <Flex h="38px" w={"180px"} bg="rgba(44,19,56,.03)" mb={"12px"} onClick={e => this.showSlideWithIndex(button.index)} align="center" justify="space-between" borderRadius="8px" p="0 14px" color={this.state.activeIndex === button.index ? "white": "rgba(44,19,56,.6)"} cursor="pointer" bg={this.state.activeIndex == button.index ? "linear-gradient(270deg,#9121c2,#ff5e5e)": "rgba(44,19,56,.03)"} transition="all .4s" sx={{
-                                          ":hover": {
-                                            background: "linear-gradient(270deg,#9121c2,#ff5e5e)",
-                                            color: "white"
+            <Box backgroundSize="100% 100%"  mx='auto' mt={{base: "-180px", xl: '-500px'}} >
+              <Box position="absolute">
+                <NextImage src={BannerSlideBgImage} priority width={1063} height={648} /> 
+              </Box>
+              <Box w={"100%"} h="648px" pt={"19px"}>
+                  <Box w={"calc(100% - 62px)"}  h={"80%"} ml={"58px"} borderRadius="16px">
+                      <Flex p="24px 44px 0 18px">
+                          <Box w={"212px"} p="0 0 0 20px" pt={"82px"} zIndex={300}>
+                              {
+                                  channelButtons.map(button => (
+                                      <Flex h="38px" w={"180px"} bg="rgba(44,19,56,.03)" mb={"12px"} onClick={e => this.showSlideWithIndex(button.index)} align="center" justify="space-between" borderRadius="8px" p="0 14px" color={this.state.activeIndex === button.index ? "white": "rgba(44,19,56,.6)"} cursor="pointer" bg={this.state.activeIndex == button.index ? "linear-gradient(270deg,#9121c2,#ff5e5e)": "rgba(44,19,56,.03)"} transition="all .4s" sx={{
+                                        ":hover": {
+                                          background: "linear-gradient(270deg,#9121c2,#ff5e5e)",
+                                          color: "white"
+                                        }
+                                      }} key={button.name}>
+                                          <Flex>
+                                              <ButtonIcon name={button.name} />
+                                              <Text fontSize="11px" lineHeight="16px" fontWeight="600" pb={"0 14px"}ml={3}>{button.index + 1}. <span style={{paddingLeft: "1px"}}>{button.name}</span></Text>
+                                          </Flex>
+                                          {
+                                              this.state.activeIndex === button.index ? <CircularProgress value={this.state[`circularProgress${button.index}`]} size="16px" color="white" trackColor="rgba(255, 255, 255, 0.16)"/>: <></>
                                           }
-                                        }} key={button.name}>
-                                            <Flex>
-                                                <ButtonIcon name={button.name} />
-                                                <Text fontSize="11px" lineHeight="16px" fontWeight="600" pb={"0 14px"}ml={3}>{button.index + 1}. <span style={{paddingLeft: "1px"}}>{button.name}</span></Text>
-                                            </Flex>
-                                            {
-                                                this.state.activeIndex === button.index ? <CircularProgress value={this.state[`circularProgress${button.index}`]} size="16px" color="white" trackColor="rgba(255, 255, 255, 0.16)"/>: <></>
-                                            }
-                                            
-                                        </Flex>
+                                          
+                                      </Flex>
+                                  ))
+                              }
+                          </Box>
+                          <Slider ref={c => (this.slider = c)} {...settings} style={{width: "calc(100% - 212px)", height: "592px", paddingTop: "82px"}}>
+                              {
+                                    channelImages.map(channel => (
+                                      <Image src={channel.image} w={channel.width} maxW={channel.width} ml={channel.ml} mt={channel.mt} key={channel.name} />
                                     ))
-                                }
-                            </Box>
-                            <Slider ref={c => (this.slider = c)} {...settings} style={{width: "calc(100% - 212px)", height: "592px", paddingTop: "82px"}}>
-                                {
-                                     channelImages.map(channel => (
-                                        <Image src={channel.image} w={channel.width} maxW={channel.width} ml={channel.ml} mt={channel.mt} key={channel.name} />
-                                     ))
-                                }
-                            </Slider>
-                        </Flex>
-                        
-                    </Box>
-                </Box>
+                              }
+                          </Slider>
+                      </Flex>
+                      
+                  </Box>
+              </Box>
             </Box>
         </Box>
     );

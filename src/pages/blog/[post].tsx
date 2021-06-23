@@ -31,12 +31,31 @@ export async function getStaticProps(context: any) {
 
 const Blog = ({postDetails}: {postDetails: any}) => {
     if(!postDetails) return <p></p>
+    const { title, excerpt, slug, headerImage, metaTitle, metaDescription } = postDetails;
+    const pageDescription = `${metaDescription || excerpt}`;
+    const pageTitle = `${metaTitle || title}`;
+    const pageUrl = `https://www.courier.com/blog/${slug}`;
+    const pageHeaderImage = `${headerImage.url}?w=1200&h=600&q=50&fit=pad&f=center`;
+
     return (
         <>
             <NextSeo
-                title={postDetails.title}
-                description={postDetails.excerpt}
-                canonical={`https://www.courier.com/blog/${postDetails.slug}`}
+                title={pageTitle}
+                description={pageDescription}
+                canonical={pageUrl}
+                openGraph={{
+                    type: "website",
+                    title: pageTitle,
+                    description: pageDescription,
+                    site_name: "Courier",
+                    images: [
+                        { url: pageHeaderImage }
+                    ],
+                }}
+                twitter={{
+                    cardType: "summary_large_image",
+                    site: "@trycourier"
+                }}
             />
             <Header headerPlain />
             <Content {...postDetails} />

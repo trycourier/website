@@ -21,7 +21,7 @@ const Desktop = ({data, slug} : {data: any[], slug: string}) => {
                 <Search />
             {
                 data.map((menu, index) => (
-                    <Box onClick={() => setSelectedMenu(menu.name)}>
+                    <Box onClick={() => setSelectedMenu(menu.name)} key={menu.name}>
                         <InternalLink to={menu.slug === "home" ? `/blog`: `/blog/tags/${menu.slug}`}>
                         <Box py="10px" bg={slug == menu.slug ? "#F7F6F7" : "#FFF"} variant="body3" pl={"20px"} borderRadius="6px">
                             <Text sx={{

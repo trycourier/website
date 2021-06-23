@@ -1,5 +1,7 @@
-import { Box, Heading, Text, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, Flex } from '@chakra-ui/react';
 import Container from 'components/Container';
+import Image from 'next/image';
+import InsightsImage from '../../../../public/images/pages/home/insights/insights@2x.png';
 
 const Insights = () => (
     <Container>
@@ -9,7 +11,9 @@ const Insights = () => (
             Access cross-channel analytics in one centralized dashboard and quickly troubleshoot with detailed logs for every user and every notification.
             </Text>
         </Box>
-        <Image src={'/images/pages/home/insights/insights@2x.png'} w={'1032px'} mx='auto' mt={{base: "-202px", md: "-350px", xl: "-510px"}}/>
+        <Flex mt={{base: "-202px", md: "-350px", xl: "-510px"}} justify="center">
+            <Image src={InsightsImage} width={1032} height={640} />
+        </Flex>
     </Container>
 )
 

@@ -42,6 +42,8 @@ async function getBlogPostDetails({blogPostId}: {blogPostId: string}) {
             query postEntryQuery {
                 post(id: "${blogPostId}") {
                     title,
+                    metaTitle,
+                    metaDescription,
                     excerpt,
                     publishDate,
                     ctaText,

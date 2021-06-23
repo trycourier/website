@@ -10,7 +10,12 @@ const PostSummary = ({data, tagName}: {data:any, tagName: any}) => {
     
     return (
         <Box color="secondary.dark" key={id}>
-            <Box mb={"32px"} className="more-from-blog-thumbnail">
+            <Box mb={"32px"} sx={{
+                'img': {
+                    objectFit: "cover",
+                    borderRadius: "24px"
+                }
+            }}>
                 <Image src={`https:${thumbnailUrl}?h=376`} width="376px" height="376px" layout="responsive" />
             </Box>
             <BlogTag tag={tagName.toUpperCase()} /> 

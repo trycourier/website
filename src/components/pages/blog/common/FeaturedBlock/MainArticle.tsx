@@ -1,15 +1,35 @@
-import { Flex, Image, Box, Heading, Text, Avatar } from '@chakra-ui/react';
+import { Flex, Box, Heading, Text, Avatar } from '@chakra-ui/react';
 import ParseData from '../ParseData';
 import InternalLink from 'components/InternalLink';
 import BlogTag from '../../common/Tag';
+import Image from 'next/image';
 
 const Main = ({item}: {item:any}) => {
     const { tag, authorName, authorAvatar, slug, excerpt, title, pubDate, headerImageUrl} = ParseData({data: item});
 
     return (
         <Flex direction={{base: "column", lg: "row"}}>
-            <Image src={headerImageUrl} w={{base: "100%", lg: "515px"}} h={{base: "250px", md: "375px"}} objectFit="cover" borderRadius="12px" mx={{base: "auto", lg:""}} />
-            <Box ml={{base: 0, lg: 7}} mt={{base: 8, lg: 0}}>
+            <Box sx={{
+                'img': {
+                    objectFit: "cover",
+                    borderRadius: "12px" 
+                },
+                '@media screen and (max-width: 30em)': {
+                    'img': {
+                        width: "450px",
+                        height: "250px"
+                    }
+                },
+                '@media screen and (min-width: 30em) and (max-width: 48em)': {
+                    'img': {
+                        width: "717px",
+                        height: "375px"
+                    }
+                }
+            }}>
+                <Image src={`https:${headerImageUrl}`} width={515} height={375} />
+            </Box>
+            <Box ml={{base: 0, lg: 7}} mt={{base: 8, lg: 0}} w={{base: "100%", lg: "40%", xl: "35%"}}>
                 <BlogTag tag={tag} />
                 <InternalLink to={`/blog/${slug}`}>
                     <Heading variant="h4" lineHeight="38px" mt={"12px"}>{title}</Heading>

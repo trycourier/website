@@ -1,7 +1,7 @@
 import { Box, Image } from '@chakra-ui/react';
 
 const IconsRight = () => (
-    <Box mt={{base: 4, lg: 14}} pr={{base: "132px", md: "492px", lg: "750px", xl: "62px"}} position={{base: "absolute", xl: "absolute"}}>
+    <Box mt={{base: 4, lg: 14}} pr={{base: "132px", md: "492px", lg: "750px", xl: "62px"}} position={{base: "absolute", xl: "absolute"}} zIndex={3}>
         <Box display={{md: "none", xl: "block"}}>
             <Image src={'/images/pages/home/visual-editor/cross.svg'} transform={'translate3d(28.25px, 35.15px, 0px)'} alignSelf='right' pl={{base: "-43px", xl: "192px"}} />
         </Box>

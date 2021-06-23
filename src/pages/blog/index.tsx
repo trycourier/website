@@ -16,12 +16,29 @@ export async function getStaticProps(context: any) {
 
 const Blog = ({feedContent}: {feedContent: any}) => {
     if(!feedContent) return <p></p>
+    const pageTitle = "Blog | Courier";
+    const pageDescription = "Latest posts from Courier.com's blog.";
+    const pageUrl = `https://www.courier.com/blog`;
+
     return (
         <>
             <NextSeo
-                title="Blog | Courier"
-                description=""
-                canonical={`https://www.courier.com/blog`}
+                title={pageTitle}
+                description={pageDescription}
+                canonical={pageUrl}
+                openGraph={{
+                    type: "website",
+                    title: pageTitle,
+                    description: pageDescription,
+                    site_name: "Courier",
+                    images: [
+                      { url: "https://www.courier.com/images/og-image.png" }
+                    ],
+                }}
+                twitter={{
+                    cardType: "summary",
+                    site: "@trycourier",
+                }}
             />
             <Header headerPlain />
             <Hero />

@@ -35,7 +35,7 @@ const Header = ({headerPlain, noHeaderBoxShadow}: Props) => {
     });
 
     return (
-        <Flex w={'100%'} color={stickyHeader || plainHeader ? 'secondary.dark': 'white'} justify='center' backgroundColor={stickyHeader || plainHeader ? 'white': 'transparent'} position='fixed' top='0' p='15px 0 17px' align='center' zIndex='2'
+        <Flex w={'100%'} color={stickyHeader || plainHeader ? 'secondary.dark': 'white'} justify='center' backgroundColor={stickyHeader || plainHeader ? 'white': 'transparent'} position='fixed' top='0' p='15px 0 17px' align='center' zIndex='999'
         boxShadow={stickyHeader && !noHeaderBoxShadow ? '0 4px 12px rgb(0 0 0 / 8%)': ""}
         >
             <Flex justify='space-between' w='100%'  maxW='1240px' align='center' p='0 20px'>

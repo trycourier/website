@@ -22,7 +22,7 @@ const customTheme = extendTheme({
     Heading: {
       variants: {
         h1: {
-          fontSize: ["48px", "48px", "48px", "48px", "60px"],
+          fontSize: ["42px", "48px", "48px", "48px", "60px"],
           lineHeight: ["56px", "56px", "56px", "56px", "64px"],
           fontWeight:'800',
         },

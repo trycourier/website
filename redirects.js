@@ -29,4 +29,4 @@ module.exports = [
         destination: 'https://jobs.lever.co/trycourier/',
         permanent: true,
     },
-] 
+]
