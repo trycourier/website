@@ -5,13 +5,6 @@ import { NextSeo } from 'next-seo';
 import GetPageData from 'scripts/GetPageData';
 import getAllPages from 'scripts/GetAllPages';
 
-const slugToTitle: {[key: string]: any} = {
-    privacy: "Privacy Policy",
-    terms: "Terms of Service",
-    disclosure: "Responsible Disclosure Policy",
-    subprocessors: "Data Subprocessors"
-};
-
 export async function getStaticPaths() {
     const allPages = await getAllPages();
     const allPagesPath = [];
@@ -39,7 +32,7 @@ export async function getStaticProps(context: any) {
 const GeneratedPage = ({pageDetails}: {pageDetails: any}) => {
     if(!pageDetails) return <p></p>;
     const { slug, content, title } = pageDetails;
-    const pageTitle = `${slugToTitle[slug]} | Courier`;
+    const pageTitle = `${title} | Courier`;
     const pageDescription = "";
     const pageUrl = `https://www.courier.com/${slug}`;
 
