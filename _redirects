@@ -9,4 +9,3 @@ http://www.trycourier.com/* https://www.courier.com/:splat/ 301!
 http://trycourier.com/* https://www.courier.com/:splat/ 301!
 https://www.trycourier.com/*    https://www.courier.com/:splat  301!
 https://trycourier.com/*    https://www.courier.com/:splat  301!
-
