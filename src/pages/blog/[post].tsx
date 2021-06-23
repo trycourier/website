@@ -31,10 +31,11 @@ export async function getStaticProps(context: any) {
 
 const Blog = ({postDetails}: {postDetails: any}) => {
     if(!postDetails) return <p></p>
-    const pageDescription = postDetails.excerpt;
-    const pageTitle = postDetails.title;
-    const pageUrl = `https://www.courier.com/blog/${postDetails.slug}`;
-    const pageHeaderImage = `${postDetails.headerImage.url}?w=1200&h=600&q=50&fit=pad&f=center`;
+    const { title, excerpt, slug, headerImage, metaTitle, metaDescription } = postDetails;
+    const pageDescription = `${metaDescription || excerpt}`;
+    const pageTitle = `${metaTitle || title}`;
+    const pageUrl = `https://www.courier.com/blog/${slug}`;
+    const pageHeaderImage = `${headerImage.url}?w=1200&h=600&q=50&fit=pad&f=center`;
 
     return (
         <>

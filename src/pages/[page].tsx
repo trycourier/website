@@ -31,9 +31,9 @@ export async function getStaticProps(context: any) {
 
 const GeneratedPage = ({pageDetails}: {pageDetails: any}) => {
     if(!pageDetails) return <p></p>;
-    const { slug, content, title } = pageDetails;
-    const pageTitle = `${title} | Courier`;
-    const pageDescription = "";
+    const { slug, content, title, metaTitle, metaDescription } = pageDetails;
+    const pageTitle = `${metaTitle || title} | Courier`;
+    const pageDescription = `${metaDescription || ""}`;
     const pageUrl = `https://www.courier.com/${slug}`;
 
     return (

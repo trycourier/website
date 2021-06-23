@@ -40,6 +40,8 @@ async function getPageData({pageId}: {pageId: string}) {
             query postEntryQuery {
                 textPage(id: "${pageId}") {
                 title,
+                metaTitle, 
+                metaDescription,
                 sys {
                     publishedAt
                 },
