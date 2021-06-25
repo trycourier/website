@@ -15,6 +15,7 @@ const colorMap: ColorProps = {
     "PRODUCT MANAGEMENT": {color:"#F07978", bg:"#FCE9E9"},
     "NOTIFICATIONS LANDSCAPE": {color:"#F19301", bg:"#FDF4DD"},
     "NEWS & UPDATES": {color:"#F19301", bg:"#FDF4DD"},
+    "LIVE STREAMING": {color:"#9122C2", bg:"#EEE0F7"},
 }
 
 const BlogPostTag = ({tag}: {tag: string}) => {
