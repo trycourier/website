@@ -9,7 +9,6 @@ const MenuData: Array<MenuDataProps> = [
     {name: "Courier Live", slug: "courier-live"}, 
     {name: "Engineering", slug: "engineering"}, 
     {name: "Integrations", slug: "integrations"}, 
-    {name: "Live Streaming", slug: "live-streaming"}, 
     {name: "News & Updates", slug: "news-and-updates"}, 
     {name: "Notifications Landscape", slug: "notifications-landscape"}
 ];
