@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react';
-import CourierLive from './CourierLive';
 import FeaturedBlock from './FeaturedBlock';
 
 const Feed = ({feedContent}: {feedContent: any}) => (
