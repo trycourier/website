@@ -3,7 +3,7 @@ import MainArticle from '../../common/FeaturedBlock/MainArticle';
 import ContentGrid from '../ContentGrid';
 
 const FeaturedBlock = ({items}: {items: any[]}) => (
-    <Box py="10px">
+    <Box pt="10px">
         <MainArticle item={items[0]} />  
         <ContentGrid items={items.slice(1, 4)} />      
     </Box>
