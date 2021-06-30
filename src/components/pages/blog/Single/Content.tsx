@@ -1,5 +1,8 @@
 import { Heading, Text, Box, AspectRatio } from '@chakra-ui/react';
 import Image from 'next/image';
+import { CopyBlock, dracula } from "react-code-blocks";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
 
 const YouTubeEmbed = ({embedUrl}: {embedUrl: string}) => {
     return (
@@ -18,75 +21,85 @@ const YouTubeEmbed = ({embedUrl}: {embedUrl: string}) => {
     )
 }
 
-function isBoldText({row} : {row: any}) {
-    const isBold = row.marks.length > 0 && row.marks.filter((e:any) => e.type === "bold");
-    return isBold
-}
-
-function getParagraphString({content}: {content:any[]}) {
-    let allText = "";
-    for (let index = 0; index < content.length; index++) {
-        const row = content[index];
-        if(row.nodeType === "text") {
-            if(isBoldText({row})) {
-                allText += `<strong>${row.value}</strong>`
-            } else {
-                allText += row.value;
-            }
-        }
-        if(row.nodeType === "hyperlink") {
-            const internalUrl = row.data.uri.includes("courier.com");
-            allText += `<a href="${row.data.uri}" style="border-bottom: 1px #2C1338 dotted" target='${internalUrl ? "": "_blank"}' rel='${internalUrl ? "": "noopener noreferrer"}'>${row.content[0].value}</a>`;
-        }
-    }
-    return allText;
-}
-
 const Content = ({content, images, snippets}: {content: any[], images: any, snippets: any}) => {
     return (
         <Box mt={"52px"}>
             {
                 content.map((row:any, contentsIndex) => {
-                    if(row.nodeType.startsWith("heading")) {
-                        return (
-                            <Box key={contentsIndex}>
-                                {
-                                    row.content.map((heading: any, index: any) => (
-                                        <Heading as="h2" mt={contentsIndex == 0 ? "0": "42px"} key={heading.value + index}>{heading.value}</Heading>
-                                    ))
+                    const document = row;
+                    return (
+                        documentToReactComponents(document, {
+                            renderMark: {
+                                [MARKS.BOLD]: text => {
+                                return <strong>{text}</strong>;
+                                },
+                            },
+                            renderNode: {
+                                [BLOCKS.HEADING_1]: (node, children) => <Heading as="h1" mt={"42px"} size="xl">{children}</Heading>,
+                                [BLOCKS.HEADING_2]: (node, children) => <Heading as="h2" mt={"32px"}>{children}</Heading>,
+                                [BLOCKS.HEADING_3]: (node, children) => <Heading as="h3" mt={"22px"} size="lg">{children}</Heading>,
+                                [BLOCKS.HEADING_4]: (node, children) => <Heading as="h4" mt={"22px"} size="md">{children}</Heading>,
+                                [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+                                    if (row.data.target.sys.id in snippets) {
+                                        let { code, language } = snippets[row.data.target.sys.id];
+                                        //for custom languages that are not available in Contentful
+                                        //picks language from 1st line of snippet eg: <<<yaml>>> -> yaml
+                                        if(code.match(/<<<.*>>>/)) {
+                                            const matched = code.match(/<<<.*>>>/)[0];
+                                            language = matched.replace("<<<", "").replace(">>>", "");
+                                            code = code.replace(matched, "").trim();
+                                        } else if(language === "htmlmixed") {
+                                            language = "html";
+                                            if(code.indexOf("React") > -1) {
+                                                language = "jsx"
+                                            }
+                                        }
+                                        return (
+                                            <Box mt={"10px"}>
+                                                <CopyBlock
+                                                    text={code}
+                                                    language={language}
+                                                    showLineNumbers={true}
+                                                    startingLineNumber={1}
+                                                    theme={dracula}
+                                                    codeBlock
+                                                />
+                                            </Box>
+                                        )
+                                    }
+                                },
+                                [BLOCKS.PARAGRAPH]: (node, children) => {
+                                    return (
+                                        <Text mt={6}>{children}</Text>
+                                    )
+                                },
+                                [BLOCKS.EMBEDDED_ASSET]: (node, next) => {
+                                    const { url, width, height } = images[node.data.target.sys.id];
+                                    return (
+                                        <Box my={10}>
+                                            <Image src={url}  layout="responsive" width={width} height={height} quality={100} />
+                                        </Box>
+                                    )
+                                },
+                                [INLINES.HYPERLINK]: ({ data }, children) => {
+                                    if (data.uri.indexOf("youtube.com") !== -1) {
+                                        return (
+                                            <YouTubeEmbed embedUrl={data.uri} />
+                                        )
+                                    } else {
+                                        return (
+                                            <a
+                                            style={{textDecoration: "underline"}}
+                                            href={data.uri}
+                                            target={`${data.uri.includes("courier.com") ? '_self' : '_blank'}`}
+                                            rel={`${data.uri.includes("courier.com") ? '' : 'noopener noreferrer'}`}
+                                            >{children}</a>
+                                        )
+                                    }
                                 }
-                            </Box>
-                        )
-                    }
-
-                    if(row.nodeType == "embedded-asset-block") {
-                        const { url, width, height } = images[row.data.target.sys.id];
-                        return (
-                            <Box my={10}>
-                                <Image src={url}  layout="responsive" width={width} height={height} quality={100} />
-                            </Box>
-                        )
-                    }
-
-                    if(row.nodeType == "paragraph") {
-                        const isYouTubeEmbed = row.content.find((item: any) => item.data.uri && item.data.uri.includes("youtube.com/embed"));
-                        if(isYouTubeEmbed) {
-                            return (<YouTubeEmbed embedUrl={isYouTubeEmbed.data.uri} />)
-                        }
-                        const allContent = getParagraphString({content: row.content});
-                        return (
-                            <Text mt={6} dangerouslySetInnerHTML={{__html: allContent}} />
-                        )
-                    }
-
-                    if(row.nodeType === "embedded-entry-block") {
-                        // Ignoring if not a snippet
-                        if (row.data.target.sys.id in snippets) {
-                            return (
-                                <code style={{display: "block", whiteSpace: "pre-wrap", color: "#FCEDE3", backgroundColor: "#2C1338", padding: "10px", margin: "10px 0px", borderRadius: "10px"}}>{snippets[row.data.target.sys.id].code}</code>
-                            )
-                        }
-                    }
+                            },
+                        })
+                    )
                 })
             }
         </Box>     

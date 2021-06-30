@@ -2,12 +2,12 @@ import Header from "components/Header/index";
 import Footer from "components/Footer";
 import Content from 'components/pages/blog/Single';
 import { NextSeo } from 'next-seo';
-import GetBlogPostPreview from 'scripts/GetBlogPostPreview';
+import GetBlogPostPreview from 'scripts/GetBlogPost';
 
 export async function getServerSideProps(context: any) {
     const { params } = context;
     const { post } = params;
-    const postDetails = await GetBlogPostPreview({slug: post});
+    const postDetails = await GetBlogPostPreview({slug: post, isPreview: true});
     return {
         props: {postDetails}
     }
