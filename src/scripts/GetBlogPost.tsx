@@ -2,19 +2,20 @@ import GetSimilarBlogs from './GetSimilarBlogs';
 
 interface Props {
     slug: string;
+    isPreview?: boolean;
 }
 
-async function getBlogPostId({slug}: Props) {
+async function getBlogPostId({slug, isPreview}: Props) {
     const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${process.env.CONTENTFUL_API_KEY}`,
+          Authorization: `Bearer ${isPreview ? process.env.CONTENTFUL_PREVIEW_API_KEY : process.env.CONTENTFUL_API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
         query: `
         query postEntryQuery {
-            postCollection(where: {slug:"${slug}"}) {
+            postCollection(where: {slug:"${slug}"}, preview: ${isPreview ? true : false}) {
               items {
                 sys {
                     id
@@ -30,17 +31,17 @@ async function getBlogPostId({slug}: Props) {
     return blogPostId;
 }
 
-async function getBlogPostDetails({blogPostId}: {blogPostId: string}) {
+async function getBlogPostDetails({blogPostId, isPreview}: {blogPostId: string, isPreview?: boolean}) {
     const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/`, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${process.env.CONTENTFUL_API_KEY}`,
+          Authorization: `Bearer ${isPreview ? process.env.CONTENTFUL_PREVIEW_API_KEY :  process.env.CONTENTFUL_API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
         query: `
             query postEntryQuery {
-                post(id: "${blogPostId}") {
+                post(id: "${blogPostId}" preview: ${isPreview ? true : false}) {
                     title,
                     metaTitle,
                     metaDescription,
@@ -119,17 +120,17 @@ async function getBlogPostDetails({blogPostId}: {blogPostId: string}) {
     return blogPostDetails;
 }
 
-async function getMostPopularBlogs({slug}: Props) {
+async function getMostPopularBlogs() {
     const response = await fetch(`https://s3.amazonaws.com/courier.com/most-popular-blogs.json`);
     const data = await response.json();
     const mostPopularBlogs = data.splice(0, 4);
     return mostPopularBlogs;
 }
 
-const GetBlogPost = async ({slug}: Props) => {
-    const blogPostId = await getBlogPostId({slug});
-    const blogPostDetails = await getBlogPostDetails({blogPostId});
-    const mostPopularBlogs = await getMostPopularBlogs({slug});
+const GetBlogPost = async ({slug, isPreview}: Props) => {
+    const blogPostId = await getBlogPostId({slug, isPreview});
+    const blogPostDetails = await getBlogPostDetails({blogPostId, isPreview});
+    const mostPopularBlogs = await getMostPopularBlogs();
     const {name: tagName, slug: tagSlug } = blogPostDetails.tagsCollection.items[0];
     const moreBlogs = await GetSimilarBlogs({slug: tagSlug, excludeSlug: slug});
     blogPostDetails.moreFromTagName = tagName;
