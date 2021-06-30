@@ -54,16 +54,17 @@ const Content = ({content, images, snippets}: {content: any[], images: any, snip
                                                 language = "jsx"
                                             }
                                         }
-                                
                                         return (
-                                            <CopyBlock
-                                                text={code}
-                                                language={language}
-                                                showLineNumbers={true}
-                                                startingLineNumber={1}
-                                                theme={dracula}
-                                                codeBlock
-                                            />
+                                            <Box mt={"10px"}>
+                                                <CopyBlock
+                                                    text={code}
+                                                    language={language}
+                                                    showLineNumbers={true}
+                                                    startingLineNumber={1}
+                                                    theme={dracula}
+                                                    codeBlock
+                                                />
+                                            </Box>
                                         )
                                     }
                                 },
