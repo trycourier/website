@@ -74,7 +74,7 @@ const GeneratedPage = ({
       />
       <Header headerPlain />
       <Content content={content} widgetsData={widgetsData} title={title} />
-      <Footer noBanner />
+      <Footer cta="none" />
     </>
   );
 };
