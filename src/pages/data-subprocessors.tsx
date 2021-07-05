@@ -23,7 +23,7 @@ export async function getStaticProps() {
   };
 }
 
-const Subprocessors = ({
+const DataSubprocessors = ({
   subprocessors,
 }: {
   subprocessors: Subprocessor[];
@@ -95,4 +95,4 @@ const Subprocessors = ({
   );
 };
 
-export default Subprocessors;
+export default DataSubprocessors;
