@@ -14,13 +14,14 @@ const About = () => {
   const pageTitle = "About Us | Courier";
   const pageDescription =
     "Our mission is to make software to human communication delightful. Courier’s API and Studio enable to the right user at the right time.";
+  const pageUrl = "https://www.courier.com/about";
 
   return (
     <>
       <NextSeo
         title={pageTitle}
         description={pageDescription}
-        canonical={"https://www.courier.com/"}
+        canonical={pageUrl}
         openGraph={{
           type: "website",
           title: pageTitle,
