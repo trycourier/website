@@ -8,7 +8,7 @@ const urls = {
   apiReference: "https://docs.courier.com/reference",
   status: "https://status.courier.com/",
   disclosure: "/disclosure",
-  subprocessors: "/data-subprocessors",
+  subprocessors: "/subprocessors",
   documentation: "https://docs.courier.com/docs",
   careers: "https://jobs.lever.co/trycourier",
   github: "https://www.github.com/trycourier",
