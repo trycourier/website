@@ -14,7 +14,7 @@ const VisualEditor = () => (
                 <Flex justify='center'>
                     <IconsLeft />
                     <Box pb={{base: "42px", lg: '132px'}} mt={3}>
-                        <Image src={visualEditor} />
+                        <Image src={visualEditor} alt={"Visual editor for creating notifications"} />
                     </Box>
                     <IconsRight />
                 </Flex>

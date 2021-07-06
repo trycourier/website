@@ -70,6 +70,7 @@ async function getBlogPostDetails({blogPostId, isPreview}: {blogPostId: string, 
                             assets {
                                 block {
                                     sys { id  }
+                                    title
                                     url
                                     width
                                     height
@@ -98,9 +99,9 @@ async function getBlogPostDetails({blogPostId, isPreview}: {blogPostId: string, 
     const imagesArrRaw = data.data.post.content.links.assets.block;
     for (let index = 0; index < imagesArrRaw.length; index++) {
         const thisImage = imagesArrRaw[index];
-        const { url, height, width} = thisImage
+        const { url, height, width, title } = thisImage
         blogImages[thisImage.sys.id] = {
-            url, height, width
+            url, height, width, title
         }   
     }
     blogPostDetails.images = blogImages;
