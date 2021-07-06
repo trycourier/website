@@ -10,7 +10,7 @@ const Headline = ({title, tags}: {title: string, tags: PostTags}) => (
                 ))
             }
         </Flex>
-        <Heading variant="h2">{title}</Heading>
+        <Heading variant="h2" as="h1">{title}</Heading>
     </>      
 );
 
