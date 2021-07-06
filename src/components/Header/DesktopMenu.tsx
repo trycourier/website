@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Menu, MenuButton, MenuList, MenuItem, Spinner } from '@chakra-ui/react';
+import { Flex, Text, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import MetaLink from 'components/MetaLink';
 import DocumentationIcon from './icons/Documentation';
@@ -17,17 +17,9 @@ interface CustomMenuProps {
 }
 
 const DesktopMenu = () => {
-    const [ showBlogSpinner, setShowBlogSpinner ] = React.useState(false);
-
-    function handleShowBlogSpinner({menuTitle}: {menuTitle: string}) {
-        if(menuTitle === "Blog") {
-            setShowBlogSpinner(true);
-        }
-    }
-
     const CustomMenuItem = ({children, menuTitle, ...other}: CustomMenuProps) => (
             <MenuItem {...other} fontWeight={500} fontSize='13px' lineHeight={'19.5px'} _hover={{backgroundColor: "rgba(44,19,56,.04)"}} 
-            style={{transition: "all .3s ease-in-out"}} onClick={() => handleShowBlogSpinner({menuTitle})}>
+            style={{transition: "all .3s ease-in-out"}}>
                 {children}
             </MenuItem>
     )
@@ -52,9 +44,7 @@ const DesktopMenu = () => {
                                 <MenuButton as={Text} p='0 20px' variant='smallbody1' fontWeight='500' cursor='pointer'>
                                     {menu.title} 
                                     <span style={{paddingLeft: "4px"}}>
-                                        {
-                                            showBlogSpinner && menu.title === "Resources" ?  <Spinner size="xs" />: <ChevronDownIcon />
-                                        }
+                                        <ChevronDownIcon />
                                     </span>
                                 </MenuButton>
                                 <MenuList color='secondary.dark' minWidth='200px' py={3} borderRadius='16px'>
