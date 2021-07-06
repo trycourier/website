@@ -5,7 +5,7 @@ import BlogTag from '../../common/Tag';
 import Image from 'next/image';
 
 const SingleItem = ({data}: {data: any}) => {
-    const {tag, authorName, authorAvatar, thumbnailUrl, slug, excerpt, title, pubDate} = ParseData({data});
+    const {tag, authorName, authorAvatar, thumbnailUrl, slug, excerpt, title, pubDate, thumbnailTitle} = ParseData({data});
     return (
         <Box color="secondary.dark">
             <Box mb={"32px"} sx={{
@@ -20,7 +20,7 @@ const SingleItem = ({data}: {data: any}) => {
                     }
                 }
             }}>
-                <Image src={`https:${thumbnailUrl}`} width={270} height={270} />
+                <Image src={`https:${thumbnailUrl}`} width={270} height={270} alt={thumbnailTitle} />
             </Box>
             <BlogTag tag={tag} />
             <InternalLink to={`/blog/${slug}`}>
