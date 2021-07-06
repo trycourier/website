@@ -1,125 +1,125 @@
 /* Global Styling here */
 @font-face {
-    font-family: "Gellix";
-    src: url("/fonts/Gellix/Gellix-ExtraBold.ttf");
-    font-style: normal;
-    font-weight: 800;
-    font-display: swap;
+  font-family: "Gellix";
+  src: url("/fonts/Gellix/Gellix-ExtraBold.ttf");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Gellix";
-    src: url("/fonts/Gellix/Gellix-Bold.ttf");
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
+  font-family: "Gellix";
+  src: url("/fonts/Gellix/Gellix-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Gellix";
-    src: url("/fonts/Gellix/Gellix-SemiBold.ttf");
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
+  font-family: "Gellix";
+  src: url("/fonts/Gellix/Gellix-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
 }
 
 /* Header Icons -- onHover */
 .apiReferenceIcon:hover > #apiReferenceIcon > g > rect.gradientIcon {
-    fill: url(#apiReferenceIconGradient);
+  fill: url(#apiReferenceIconGradient);
 }
 
 .statusIcon:hover > #statusIcon > g > rect.gradientIcon {
-    fill: url(#statusIconGradient);
+  fill: url(#statusIconGradient);
 }
 
 .communityIcon:hover > #communityIcon > g > rect.gradientIcon {
-    fill: url(#communityIconGradient);
+  fill: url(#communityIconGradient);
 }
 
 .documentationIcon:hover > #documentationIcon > g > rect.gradientIcon {
-    fill: url(#documentationIconGradient);
+  fill: url(#documentationIconGradient);
 }
 
 .blogIcon:hover > #blogIcon > g > rect.gradientIcon {
-    fill: url(#blogIconGradient);
+  fill: url(#blogIconGradient);
 }
 
 .helpIcon:hover > #helpIcon > g > rect.gradientIcon {
-    fill: url(#helpIconGradient);
+  fill: url(#helpIconGradient);
 }
 
 /* Homepage Code Editor Styles */
 
 #codeBox .purple {
-    color: #ca79ee;
+  color: #ca79ee;
 }
 
 #codeBox .blue {
-    color: #82aaff;
+  color: #82aaff;
 }
 
 #codeBox .perrot {
-    color: #beffad;
-    padding: 0;
+  color: #beffad;
+  padding: 0;
 }
 
 #codeBox .yellow {
-    color: #ffcb6b
+  color: #ffcb6b;
 }
 
 #codeBox .no-padding {
-    padding: 0;
+  padding: 0;
 }
 
 #codeBox .no-padding-right {
-    padding-right: 0;
+  padding-right: 0;
 }
 
 #codeBox .no-padding-left {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 #codeBox .padding-top-1 {
-    padding-top: 1px;
+  padding-top: 1px;
 }
 
 #codeBox .white {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 #codeBox .comment {
-    color: hsla(0,0%,100%,.5)
+  color: hsla(0, 0%, 100%, 0.5);
 }
 
 #codeBox .space-between {
-    padding-left: 6px;
-    padding-right: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 #codeBox .space-after {
-    padding-right: 6px;
+  padding-right: 6px;
 }
 
 #codeBox .tab-indent-1 {
-    padding-left: 32px;
+  padding-left: 32px;
 }
 
 #codeBox .tab-indent-2 {
-    padding-left: 64px;
+  padding-left: 64px;
 }
 
 #codeBox code {
-    min-height: 22px;
-    line-height: 19px;
-    padding-top: 3px;
-    color: #ff5e5e
+  min-height: 22px;
+  line-height: 19px;
+  padding-top: 3px;
+  color: #ff5e5e;
 }
 
 #codeBox span {
-    padding: 0 3px;
-    white-space: nowrap;
+  padding: 0 3px;
+  white-space: nowrap;
 }
 
 .slick-arrow {
-    display: none!important;
+  display: none !important;
 }
