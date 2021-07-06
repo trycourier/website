@@ -30,17 +30,19 @@ const FooterBanner = () => {
           ml={{ base: 0, lg: "-430px", xl: "-172px" }}
         >
           <Image
-            src={"/images/footer/footeradsmall@2x.png"}
+            src={"/images/footer/email-and-push-notification.png"}
             width={314}
             height={316}
             quality={100}
+            alt={"Email & push notification"}
           />
           <Box ml={"-115px"} mt={"-50px"}>
             <Image
-              src={"/images/footer/footeradLarge@2x.png"}
+              src={"/images/footer/chat-and-sms-notification.png"}
               width={314}
               height={366}
               quality={100}
+              alt={"Chat & SMS notification"}
             />
           </Box>
         </Flex>
