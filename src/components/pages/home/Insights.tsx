@@ -12,7 +12,7 @@ const Insights = () => (
             </Text>
         </Box>
         <Flex mt={{base: "-202px", md: "-350px", xl: "-510px"}} justify="center">
-            <Image src={InsightsImage} width={1032} height={640} />
+            <Image src={InsightsImage} width={1032} height={640} alt={"Notification insights dashboard"} />
         </Flex>
     </Container>
 )

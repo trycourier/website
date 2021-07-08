@@ -7,21 +7,21 @@ import BlissfullyImage from '../../../../../public/images/customers/blissfully.s
 import LTSEImage from '../../../../../public/images/customers/ltse.svg'
 import Image from 'next/image';
 
-const CustomerImage = ({paddingTop, imgSrc}: {paddingTop?: string, imgSrc: StaticImageData}) => (
+const CustomerImage = ({paddingTop, imgSrc, altTag}: {paddingTop?: string, imgSrc: StaticImageData, altTag: string}) => (
     <Box pt={paddingTop}>
-        <Image src={imgSrc} />
+        <Image src={imgSrc} alt={altTag} />
     </Box>
 )
 
 const Customers = ({...props}) => {
     return (
         <SimpleGrid mt={'62px'} columns={{base: 2, lg: 6}} spacingX={{base: 10, md: "112px", lg: 6, xl: 10}} spacingY={{base: 10, lg: 0}} align='center' maxW={{lg: 900, xl: 1024}} opacity="0.5" {...props}>
-            <CustomerImage paddingTop="7px" imgSrc={LatticeImage} />
-            <CustomerImage paddingTop="10px" imgSrc={LaunchDarklyImage} />
-            <CustomerImage paddingTop="6px" imgSrc={ExpelImage} />
-            <CustomerImage paddingTop="8px" imgSrc={BlueCrewImage} />
-            <CustomerImage paddingTop="4px" imgSrc={BlissfullyImage} />
-            <CustomerImage imgSrc={LTSEImage} />
+            <CustomerImage paddingTop="7px" imgSrc={LatticeImage} altTag={"Lattice"} />
+            <CustomerImage paddingTop="10px" imgSrc={LaunchDarklyImage} altTag={"LaunchDarkly"} />
+            <CustomerImage paddingTop="6px" imgSrc={ExpelImage} altTag={"Expel"} />
+            <CustomerImage paddingTop="8px" imgSrc={BlueCrewImage} altTag={"Bluecrew"} />
+            <CustomerImage paddingTop="4px" imgSrc={BlissfullyImage} altTag={"Blissfully"} />
+            <CustomerImage imgSrc={LTSEImage} altTag={"LTSE"} />
         </SimpleGrid>
     )
 }

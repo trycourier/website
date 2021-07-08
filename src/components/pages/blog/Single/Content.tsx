@@ -42,13 +42,8 @@ const Content = ({content, images, snippets}: {content: any[], images: any, snip
                                 [BLOCKS.EMBEDDED_ENTRY]: (node) => {
                                     if (row.data.target.sys.id in snippets) {
                                         let { code, language } = snippets[row.data.target.sys.id];
-                                        //for custom languages that are not available in Contentful
-                                        //picks language from 1st line of snippet eg: <<<yaml>>> -> yaml
-                                        if(code.match(/<<<.*>>>/)) {
-                                            const matched = code.match(/<<<.*>>>/)[0];
-                                            language = matched.replace("<<<", "").replace(">>>", "");
-                                            code = code.replace(matched, "").trim();
-                                        } else if(language === "htmlmixed") {
+                                        
+                                        if(language === "htmlmixed") {
                                             language = "html";
                                             if(code.indexOf("React") > -1) {
                                                 language = "jsx"
@@ -74,10 +69,10 @@ const Content = ({content, images, snippets}: {content: any[], images: any, snip
                                     )
                                 },
                                 [BLOCKS.EMBEDDED_ASSET]: (node, next) => {
-                                    const { url, width, height } = images[node.data.target.sys.id];
+                                    const { url, width, height, title } = images[node.data.target.sys.id];
                                     return (
                                         <Box my={10}>
-                                            <Image src={url}  layout="responsive" width={width} height={height} quality={100} />
+                                            <Image src={url}  layout="responsive" width={width} height={height} quality={100} alt={title}/>
                                         </Box>
                                     )
                                 },

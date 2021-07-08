@@ -5,8 +5,8 @@ import BlogTag from '../../common/Tag';
 import Image from 'next/image';
 
 const Main = ({item}: {item:any}) => {
-    const { tag, authorName, authorAvatar, slug, excerpt, title, pubDate, headerImageUrl} = ParseData({data: item});
-
+    const { tag, authorName, authorAvatar, slug, excerpt, title, pubDate, headerImageUrl, headerImageTitle} = ParseData({data: item});
+    console.log(headerImageTitle);
     return (
         <Flex direction={{base: "column", lg: "row"}}>
             <Box sx={{
@@ -27,7 +27,7 @@ const Main = ({item}: {item:any}) => {
                     }
                 }
             }}>
-                <Image src={`https:${headerImageUrl}`} width={515} height={375} />
+                <Image src={`https:${headerImageUrl}`} width={515} height={375} alt={headerImageTitle} />
             </Box>
             <Box ml={{base: 0, lg: 7}} mt={{base: 8, lg: 0}} w={{base: "100%", lg: "40%", xl: "35%"}}>
                 <BlogTag tag={tag} />

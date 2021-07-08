@@ -11,7 +11,7 @@ const Workflows = () => (
                 <Text mt={'32px'} w={{base: "100%", lg: '95%'}} variant='body1'>Prioritize your channels and use both conditional logic and user preferences, to control who sees what, when, and through which channel.</Text>
             </Box>
             <Box display={{base: "none", lg: "block"}} ml={{base: 0, xl: '62px'}} mb={'92px'}>
-                <Image src={'/images/pages/home/workflows/workflows.png'} width={"526px"} height={"364px"}  />
+                <Image src={'/images/pages/home/workflows/workflows.png'} width={"526px"} height={"364px"}  alt={"Notification workflow management view"} />
             </Box>
         </Flex>
     </Container>
