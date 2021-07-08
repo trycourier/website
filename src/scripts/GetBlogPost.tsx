@@ -120,7 +120,7 @@ async function getBlogPostDetails({
   const data = await response.json();
   let blogPostDetails = data.data.post;
   const blogImages: any = {};
-  const imagesArrRaw = data.data.post.content.links.assets.block;
+  const imagesArrRaw = data.data.post.content?.links?.assets?.block || [];
   for (let index = 0; index < imagesArrRaw.length; index++) {
     const thisImage = imagesArrRaw[index];
     const { url, height, width, title } = thisImage;
@@ -134,7 +134,8 @@ async function getBlogPostDetails({
   blogPostDetails.images = blogImages;
 
   const blogSnippets: any = {};
-  const codeSnippetsArrRaw = data.data.post.content.links.entries.block;
+  const codeSnippetsArrRaw =
+    data.data.post.content?.links?.entries?.block || [];
   for (let index = 0; index < codeSnippetsArrRaw.length; index++) {
     const thisSnippet = codeSnippetsArrRaw[index];
     blogSnippets[thisSnippet.sys.id] = {
