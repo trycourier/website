@@ -1,4 +1,12 @@
-import { Heading, Text, Box, AspectRatio } from "@chakra-ui/react";
+import {
+  Heading,
+  Text,
+  Box,
+  AspectRatio,
+  OrderedList,
+  UnorderedList,
+  ListItem,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import { CopyBlock, dracula } from "react-code-blocks";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -109,6 +117,15 @@ const RichContent = ({
                 </Box>
               );
             },
+            [BLOCKS.OL_LIST]: (node, children) => (
+              <OrderedList>{children}</OrderedList>
+            ),
+            [BLOCKS.UL_LIST]: (node, children) => (
+              <UnorderedList>{children}</UnorderedList>
+            ),
+            [BLOCKS.LIST_ITEM]: (node, children) => (
+              <ListItem>{children}</ListItem>
+            ),
             [INLINES.HYPERLINK]: ({ data }, children) => {
               if (data.uri.indexOf("youtube.com") !== -1) {
                 return <YouTubeEmbed embedUrl={data.uri} />;
