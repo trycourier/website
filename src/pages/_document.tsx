@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
- // @ts-expect-error
-import * as snippet from '@segment/snippet';
+// @ts-expect-error
+import * as snippet from "@segment/snippet";
 const APP_NAME = "Courier";
 
 class MyDocument extends Document {
@@ -13,42 +13,42 @@ class MyDocument extends Document {
     const opts = {
       apiKey: process.env.SEGMENT_KEY,
       page: true,
+    };
+
+    if (process.env.NODE_ENV === "development") {
+      return snippet.max(opts);
     }
 
-    if (process.env.NODE_ENV === 'development') {
-      return snippet.max(opts)
-    }
-
-    return snippet.min(opts)
+    return snippet.min(opts);
   }
 
   render() {
     return (
       <Html lang="en">
         <Head>
-        <script dangerouslySetInnerHTML={{ __html: this.renderSnippet() }} />
+          <script dangerouslySetInnerHTML={{ __html: this.renderSnippet() }} />
           <link
-          rel="preload"
-          href="/fonts/Gellix/Gellix-ExtraBold.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Gellix/Gellix-Bold.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Gellix/Gellix-SemiBold.ttf"
-          as="font"
-          crossOrigin=""
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+            rel="preload"
+            href="/fonts/Gellix/Gellix-ExtraBold.ttf"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/Gellix/Gellix-Bold.ttf"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            rel="preload"
+            href="/fonts/Gellix/Gellix-SemiBold.ttf"
+            as="font"
+            crossOrigin=""
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+          />
           <meta name="application-name" content={APP_NAME} />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta

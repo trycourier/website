@@ -1,11 +1,11 @@
-import DesktopAnimation from './animation';
-import MobileImage from './MobileImage';
+import DesktopAnimation from "./animation";
+import MobileImage from "./MobileImage";
 
 const HeroAnimation = () => (
-    <>
-        <DesktopAnimation />
-        <MobileImage />
-    </>     
+  <>
+    <DesktopAnimation />
+    <MobileImage />
+  </>
 );
 
 export default HeroAnimation;

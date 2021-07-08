@@ -8,7 +8,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prettify": "prettier --write src/"
+    "prettify": "prettier --write src/",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.13",
@@ -42,6 +43,11 @@
     "@types/node": "^15.0.1",
     "@types/react": "^17.0.4",
     "clipboardy": "^2.3.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.2.1"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

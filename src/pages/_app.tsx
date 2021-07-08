@@ -1,7 +1,7 @@
 import { ChakraProvider, Box } from "@chakra-ui/react";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import 'focus-visible/dist/focus-visible';
+import "focus-visible/dist/focus-visible";
 
 import customTheme from "styles/customTheme";
 import "styles/globals.css";
