@@ -16,7 +16,6 @@ const Main = ({ item }: { item: any }) => {
     headerImageUrl,
     headerImageTitle,
   } = ParseData({ data: item });
-  console.log(headerImageTitle);
   return (
     <Flex direction={{ base: "column", lg: "row" }}>
       <Box
