@@ -14,7 +14,7 @@ const VisualEditor = () => (
         </Heading>
         <Text mt={"32px"} variant="body1" color="rgba(0, 0, 0, 0.85)">
           Utilize our drag-and-drop builder or control every pixel with our code
-          editor, then
+          editor, then easily collaborate on designs with other team members.
         </Text>
         <Flex justify="center">
           <IconsLeft />
