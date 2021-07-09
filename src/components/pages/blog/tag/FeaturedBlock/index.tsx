@@ -5,9 +5,7 @@ import ContentGrid from "../ContentGrid";
 const FeaturedBlock = ({ items }: { items: any[] }) => {
   const allBlogs = items;
   const featuredBlog = items[0];
-  allBlogs.shift();
-  const otherBlogs = allBlogs;
-
+  const otherBlogs = allBlogs.slice(1, allBlogs.length);
   return (
     <Box>
       <MainArticle item={featuredBlog} />
