@@ -3,41 +3,53 @@ import InternalLink from "components/InternalLink";
 import TextButton from "components/buttons/TextButton";
 import { documentation } from "constants/urls";
 import Animation from "./animation";
+import FeatureSection from "components/common/FeatureSection";
 
-const Interations = () => (
-  <Flex
-    mt={{ base: "92px", lg: "132px" }}
-    direction={{ base: "column", lg: "row" }}
-    padding="0 20px"
+const Integrations = () => (
+  <Box
+    mt={{ base: "60px", lg: "230px" }}
+    mb={{ base: "20px", lg: "160px" }}
+    pos="relative"
   >
-    <Box
-      w={{ base: "100%", lg: "40%" }}
-      ml={{ base: 0, xl: "100px", "2xl": "330px" }}
+    <FeatureSection
+      graphicAlignment="right"
+      graphic={
+        <Box
+          mx={-5}
+          mt={{ base: -5, lg: -20 }}
+          pos={{ lg: "absolute" }}
+          left="50%"
+          right={0}
+        >
+          <Animation />
+        </Box>
+      }
+      tag={{
+        label: "Integrations",
+        textColor: "secondary.salmon",
+        bgColor: "primary.sand",
+      }}
     >
-      <Tag
-        sx={{
-          color: "secondary.salmon",
-          backgroundColor: "primary.sand",
-          fontSize: "10px",
-          fontWeight: "600",
-          marginBottom: "18px",
-        }}
-      >
-        INTEGRATIONS
-      </Tag>
-      <Heading variant="h3">
-        Deploy notifications to different channels from the same location
-      </Heading>
-      <Text mt={"32px"} w={"95%"} variant="body1" mb={"42px"}>
-        With 20+ integrations, you can reach users on the channels they prefer
-        –– all with the simple flip of a switch.
-      </Text>
-      <InternalLink to={documentation}>
-        <TextButton> Check out our docs </TextButton>
-      </InternalLink>
-    </Box>
-    <Animation />
-  </Flex>
+      <Box>
+        <Heading as="h3" variant="h3" maxW={{ lg: "480px" }}>
+          Deploy notifications to different channels from the same location
+        </Heading>
+        <Text
+          variant="body1"
+          mt={6}
+          mb={8}
+          color="secondary.darkAlpha"
+          maxW={{ lg: "520px" }}
+        >
+          With 20+ integrations, you can reach users on the channels they prefer
+          –– all with the simple flip of a switch.
+        </Text>
+        <InternalLink to={documentation}>
+          <TextButton> Check out our docs </TextButton>
+        </InternalLink>
+      </Box>
+    </FeatureSection>
+  </Box>
 );
 
-export default Interations;
+export default Integrations;

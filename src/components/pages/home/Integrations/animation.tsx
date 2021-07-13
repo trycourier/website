@@ -18,7 +18,24 @@ import MessageBirdIcon from "./icons/MessageBird";
 import PlivoIcon from "./icons/Plivo";
 import TelnyxIcon from "./icons/Telnyx";
 
-const integrationsData = {
+interface IntegrationsBoxProps {
+  channel: string;
+  index: number;
+  currentIndex: number;
+}
+
+interface IntegrationIconProps {
+  name: string;
+  currentIndex: number;
+}
+
+interface IntegrationData {
+  name: string;
+  category: string;
+  bgColor: string;
+}
+
+const integrationsData: Record<string, IntegrationData[]> = {
   email: [
     { name: "SendGrid", category: "Email", bgColor: "rgb(236, 250, 255)" },
     { name: "Mailgun", category: "Email", bgColor: "#C02428" },
@@ -45,7 +62,7 @@ const integrationsData = {
   ],
 };
 
-const IntegrationIcon = ({ name, currentIndex }) => {
+const IntegrationIcon = ({ name, currentIndex }: IntegrationIconProps) => {
   if (name === "WhatsApp") {
     return <WhatsAppIcon />;
   }
@@ -94,11 +111,16 @@ const IntegrationIcon = ({ name, currentIndex }) => {
   if (name === "Telnyx") {
     return <TelnyxIcon whiteFill={currentIndex !== 1 ? true : false} />;
   }
+  return null;
 };
 
-const IntegrationsBox = ({ channel, index, currentIndex }) => (
+const IntegrationsBox = ({
+  channel,
+  index,
+  currentIndex,
+}: IntegrationsBoxProps) => (
   <Box>
-    {integrationsData[channel].map((integration) => (
+    {integrationsData[channel].map((integration: IntegrationData) => (
       <Flex
         boxShadow="0 3px 8px rgb(0 0 0 / 8%)"
         w={"220px"}
@@ -152,144 +174,117 @@ const channelButtons = [
   { name: "Chat", index: 3, icon: "" },
 ];
 
-export default class PreviousNextMethods extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { activeIndex: 0 };
-  }
+const Animation = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const sliderRef = React.useRef<Slider>();
 
-  showSlideWithIndex(next) {
-    this.setState({ activeIndex: next });
-    this.slider.slickGoTo(next);
-  }
+  const showSlideWithIndex = (next: number) => {
+    setActiveIndex(next);
+    sliderRef.current?.slickGoTo(next);
+  };
 
-  render() {
-    const settings = {
-      dots: false,
-      infinite: true,
-      autoplaySpeed: 3800,
-      speed: 500,
-      autoplay: true,
-      slidesToScroll: 1,
-      slidesToShow: 3.6,
-      beforeChange: (current, next) => this.showSlideWithIndex(next),
-      responsive: [
-        {
-          breakpoint: 1700,
-          settings: {
-            slidesToShow: 2.8,
-            slidesToScroll: 1,
-            initialSlide: 1,
-          },
+  const settings = {
+    dots: false,
+    infinite: true,
+    autoplaySpeed: 3800,
+    speed: 500,
+    autoplay: true,
+    slidesToScroll: 1,
+    slidesToShow: 3.6,
+    beforeChange: (current: number, next: number) => showSlideWithIndex(next),
+    responsive: [
+      {
+        breakpoint: 1700,
+        settings: {
+          slidesToShow: 2.8,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
-        {
-          breakpoint: 1500,
-          settings: {
-            slidesToShow: 2.7,
-            slidesToScroll: 1,
-            initialSlide: 1,
-          },
+      },
+      {
+        breakpoint: 1500,
+        settings: {
+          slidesToShow: 2.7,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
-        {
-          breakpoint: 1200,
-          settings: {
-            slidesToShow: 1.8,
-            slidesToScroll: 1,
-            initialSlide: 1,
-          },
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 1.8,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
-        {
-          breakpoint: 850,
-          settings: {
-            slidesToShow: 2.8,
-            slidesToScroll: 1,
-            initialSlide: 1,
-          },
+      },
+      {
+        breakpoint: 850,
+        settings: {
+          slidesToShow: 2.8,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
-        {
-          breakpoint: 550,
-          settings: {
-            slidesToShow: 1.6,
-            slidesToScroll: 1,
-            initialSlide: 1,
-          },
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          slidesToShow: 1.6,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
-      ],
-    };
-    return (
-      <Box
-        mx="auto"
-        maxW={{
-          base: "100%",
-          lg: "calc(100vw - 550px)",
-          xl: "calc(100vw - 750px)",
-          "2xl": "calc(100vw - 950px)",
-        }}
-        mt={{ base: "32px", lg: 0 }}
-      >
-        <Flex mb={"40px"}>
-          {channelButtons.map((button) => (
-            <Flex
-              h="40px"
-              w="77px"
-              bg="rgba(44,19,56,.03)"
-              mb={"12px"}
-              onClick={(e) => this.showSlideWithIndex(button.index)}
-              align="center"
-              justify="center"
-              borderRadius="8px"
-              p="0 14px"
-              color={
-                this.state.activeIndex === button.index
-                  ? "white"
-                  : "rgba(255,94,94,.72)"
-              }
-              cursor="pointer"
-              bg={
-                this.state.activeIndex == button.index
-                  ? "linear-gradient(270deg,#9121c2,#ff5e5e)"
-                  : "#ffe8e8"
-              }
-              transition="all .4s"
-              mr={4}
-              key={button.name}
-            >
-              <Flex>
-                <Text
-                  fontSize="13px"
-                  lineHeight="16px"
-                  fontWeight="600"
-                  pb={"0 14px"}
-                >
-                  {button.name}
-                </Text>
-              </Flex>
+      },
+    ],
+  };
+  return (
+    <Box mt={{ base: "32px", lg: 0 }}>
+      <Flex mb={"40px"} px={5}>
+        {channelButtons.map((button) => (
+          <Flex
+            h="40px"
+            w="77px"
+            mb={"12px"}
+            onClick={(e) => showSlideWithIndex(button.index)}
+            align="center"
+            justify="center"
+            borderRadius="8px"
+            p="0 14px"
+            color={
+              activeIndex === button.index ? "white" : "rgba(255,94,94,.72)"
+            }
+            cursor="pointer"
+            bg={
+              activeIndex == button.index
+                ? "linear-gradient(270deg,#9121c2,#ff5e5e)"
+                : "#ffe8e8"
+            }
+            transition="all .4s"
+            mr={4}
+            key={button.name}
+          >
+            <Flex>
+              <Text
+                fontSize="13px"
+                lineHeight="16px"
+                fontWeight="600"
+                pb={"0 14px"}
+              >
+                {button.name}
+              </Text>
             </Flex>
-          ))}
-        </Flex>
-        <Slider ref={(c) => (this.slider = c)} {...settings}>
-          <IntegrationsBox
-            channel="chat"
-            index={4}
-            currentIndex={this.state.activeIndex}
-          />
-          <IntegrationsBox
-            channel="email"
-            index={1}
-            currentIndex={this.state.activeIndex}
-          />
-          <IntegrationsBox
-            channel="sms"
-            index={2}
-            currentIndex={this.state.activeIndex}
-          />
-          <IntegrationsBox
-            channel="push"
-            index={3}
-            currentIndex={this.state.activeIndex}
-          />
-        </Slider>
-      </Box>
-    );
-  }
-}
+          </Flex>
+        ))}
+      </Flex>
+      <Slider
+        ref={(ref) => (sliderRef.current = ref || undefined)}
+        {...settings}
+      >
+        <IntegrationsBox channel="chat" index={4} currentIndex={activeIndex} />
+        <IntegrationsBox channel="email" index={1} currentIndex={activeIndex} />
+        <IntegrationsBox channel="sms" index={2} currentIndex={activeIndex} />
+        <IntegrationsBox channel="push" index={3} currentIndex={activeIndex} />
+      </Slider>
+    </Box>
+  );
+};
+
+export default Animation;

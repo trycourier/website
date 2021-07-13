@@ -15,6 +15,7 @@ const customTheme = extendTheme({
     },
     secondary: {
       dark: "#2C1338",
+      darkAlpha: "rgb(44, 19, 56, 0.8)",
       salmon: "#FD897A",
     },
   },
