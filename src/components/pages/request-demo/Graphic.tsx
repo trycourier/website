@@ -33,7 +33,7 @@ const Graphic = () => (
 
       <Box flex={1} mb={{ base: 8, lg: "95px" }}>
         <Heading as="h1" variant="h2" mb={6}>
-          Request Pricing
+          Request A Demo
         </Heading>
         <Text variant="body2">With Courier you can:</Text>
         <UnorderedList ml={7}>
