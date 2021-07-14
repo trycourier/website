@@ -58,7 +58,7 @@ const Form = () => {
                 lastname: values.lastName,
                 email: values.email,
                 notification_volume__lead_gen_: values.notificationVolume,
-                Message: values.message,
+                message: values.message,
               });
 
               form.resetForm();
