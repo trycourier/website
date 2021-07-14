@@ -51,7 +51,7 @@ const Plans = () => (
               height={"50px"}
               mx="auto"
               mt={"24px"}
-              link={signup}
+              link={plan.link}
               buttonType={plan.buttonType}
             >
               {plan.buttonText}

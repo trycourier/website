@@ -16,29 +16,23 @@ const FreeTrialButton = ({
   children,
   height,
   width,
-  link,
   ...other
 }: FreeTrialButtonProps) => {
   if (buttonType === "WhiteBgSimple") {
     return (
-      <WhiteBgSimple
-        height={height}
-        width={width}
-        link="mailto:sales@courier.com"
-        {...other}
-      >
+      <WhiteBgSimple height={height} width={width} {...other}>
         {children}
       </WhiteBgSimple>
     );
   } else if (buttonType === "DarkGradientBg") {
     return (
-      <DarkGradientBg height={height} width={width} link={link} {...other}>
+      <DarkGradientBg height={height} width={width} {...other}>
         {children}
       </DarkGradientBg>
     );
   } else {
     return (
-      <PurpleBgButton height={height} width={width} link={link} {...other}>
+      <PurpleBgButton height={height} width={width} {...other}>
         {children}
       </PurpleBgButton>
     );

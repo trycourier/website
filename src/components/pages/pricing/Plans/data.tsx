@@ -1,3 +1,5 @@
+import { signup, requestDemo } from "constants/urls";
+
 export default [
   {
     name: "Developer",
@@ -5,6 +7,7 @@ export default [
     buttonType: "DarkGradientBg",
     limits: "Up to 10,000 messages/mo",
     buttonText: "Create a free account",
+    link: signup,
     planIncludes: {
       title: "What you get:",
       points: [
@@ -21,6 +24,7 @@ export default [
     price: "$0.005/message",
     limits: "Billed monthly, no commitments",
     buttonText: "Create a free account",
+    link: signup,
     planIncludes: {
       title: "Everything in Developer, plus:",
       points: [
@@ -35,6 +39,7 @@ export default [
     buttonType: "WhiteBgSimple",
     price: "Flexible pricing for your business",
     buttonText: "Get a demo",
+    link: requestDemo,
     planIncludes: {
       title: "Everything in Business, plus:",
       points: [
