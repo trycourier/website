@@ -12,29 +12,29 @@ import glasses from "../../../../public/images/pages/about/how-we-work/glasses.s
 const highlights = [
   {
     icon: lightbulb,
-    label: "We hire smart, engaged employees who are great at what they do",
+    label: "We maintain a high bar for talent. Courier is a place where you will work with the smartest people in your career.",
   },
   {
     icon: chat,
     label:
-      "We all trust each other to provide honest feedback on ideas and initiatives",
+      "We value honest, direct feedback. We beleive the only way we can all improve is to provide direct feedback in real time.",
   },
   {
     icon: flag,
-    label: "We each have the freedom to decide what we work on",
+    label: "We value team members who have opinions. We empower everyone to make decisions.",
   },
   {
     icon: heart,
-    label: "We all seek to help the business, not please the boss(es)",
+    label: "We succeed together, not individually. We beleive effective collaboration is key for innovation.",
   },
   {
     icon: doc,
     label:
-      "We all have access to the resources and information we need to make good decisions",
+      "We write things down. We beleive that the process of writing forces clarity in thought and makes discussing complex topics much easier.",
   },
   {
     icon: glasses,
-    label: "We all do great work and have fun doing it!",
+    label: "We value transparency. We beleive the more context talented people have, the more empowered they are to do great work.",
   },
 ];
 
