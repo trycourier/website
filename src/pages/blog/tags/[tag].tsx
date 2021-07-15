@@ -5,7 +5,7 @@ import Hero from "components/pages/blog/tag/Hero";
 import { NextSeo } from "next-seo";
 import GetBlogsForTag from "scripts/GetBlogsForTag";
 import menuData from "components/pages/blog/common/Menu/data";
-import Newsletter from "components/pages/blog/common/Newsletter";
+import Newsletter from "components/common/Newsletter";
 
 export async function getStaticPaths() {
   const allTagPaths = [

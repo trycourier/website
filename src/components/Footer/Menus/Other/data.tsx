@@ -2,6 +2,7 @@ import {
   pricing,
   documentation,
   blog,
+  about,
   careers,
   help,
   discord,
@@ -40,6 +41,9 @@ export default [
   },
   {
     title: "Company",
-    items: [{ title: "Careers", link: careers, linkType: "external" }],
+    items: [
+      { title: "About", link: about },
+      { title: "Careers", link: careers, linkType: "external" },
+    ],
   },
 ];

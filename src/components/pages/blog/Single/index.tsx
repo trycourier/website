@@ -6,7 +6,7 @@ import MarkdownContent from "./MarkdownContent";
 import Author from "./Author";
 import MoreFrom from "./MoreFrom";
 import MostPopular from "./MostPopular";
-import Newsletter from "components/pages/blog/common/Newsletter";
+import Newsletter from "components/common/Newsletter";
 import SocialShare from "./SocialShare";
 import Image from "next/image";
 
