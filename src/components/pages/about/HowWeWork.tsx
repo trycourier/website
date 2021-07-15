@@ -20,7 +20,7 @@ const highlights = [
     icon: chat,
     label: "We value honest, direct feedback.",
     description:
-      "We beleive the only way we can all improve is to provide direct feedback in real time.",
+      "We believe the only way we can all improve is to provide direct feedback in real time.",
   },
   {
     icon: flag,
@@ -30,19 +30,19 @@ const highlights = [
   {
     icon: heart,
     label: "We succeed together, not individually.",
-    description: "We beleive effective collaboration is key for innovation.",
+    description: "We believe effective collaboration is key for innovation.",
   },
   {
     icon: doc,
     label: "We write things down.",
     description:
-      "We beleive that the process of writing forces clarity in thought and makes discussing complex topics much easier.",
+      "We believe that the process of writing forces clarity in thought and makes discussing complex topics much easier.",
   },
   {
     icon: glasses,
     label: "We value transparency.",
     description:
-      "We beleive the more context talented people have, the more empowered they are to do great work.",
+      "We believe the more context talented people have, the more empowered they are to do great work.",
   },
 ];
 
