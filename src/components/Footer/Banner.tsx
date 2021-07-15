@@ -3,6 +3,8 @@ import CTAGradient from "components/buttons/CTAGradient";
 import { signup } from "constants/urls";
 import Image from "next/image";
 
+import notifications from "../../../public/images/notifications.png";
+
 const FooterBanner = () => {
   return (
     <Box
@@ -26,25 +28,16 @@ const FooterBanner = () => {
           <CTAGradient text={"Get started for free"} link={signup} />
         </Box>
         <Flex
-          pt={{ base: "104px" }}
+          pt={{ base: "55px" }}
           ml={{ base: 0, lg: "-430px", xl: "-172px" }}
         >
           <Image
-            src={"/images/footer/email-and-push-notification.png"}
-            width={314}
-            height={316}
+            src={notifications}
+            width={515}
+            height={365.5}
             quality={100}
             alt={"Email & push notification"}
           />
-          <Box ml={"-115px"} mt={"-50px"}>
-            <Image
-              src={"/images/footer/chat-and-sms-notification.png"}
-              width={314}
-              height={366}
-              quality={100}
-              alt={"Chat & SMS notification"}
-            />
-          </Box>
         </Flex>
       </Flex>
     </Box>

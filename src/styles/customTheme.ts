@@ -107,6 +107,91 @@ const customTheme = extendTheme({
         },
       },
     },
+    Input: {
+      baseStyle: {
+        field: {
+          color: "secondary.dark",
+        },
+      },
+      variants: {
+        outline: {
+          field: {
+            borderWidth: 2,
+          },
+        },
+      },
+      sizes: {
+        xl: {
+          field: {
+            h: 58,
+            fontSize: 14,
+            borderRadius: "lg",
+            px: 5,
+          },
+        },
+      },
+      defaultProps: {
+        focusBorderColor: "primary.violet",
+      },
+    },
+    Textarea: {
+      baseStyle: {
+        color: "secondary.dark",
+      },
+      sizes: {
+        xl: {
+          h: 58,
+          fontSize: 14,
+          borderRadius: "lg",
+          py: 4,
+          px: 5,
+        },
+      },
+      variants: {
+        outline: {
+          borderWidth: 2,
+        },
+      },
+      defaultProps: {
+        focusBorderColor: "primary.violet",
+      },
+    },
+    Select: {
+      baseStyle: {
+        color: "secondary.dark",
+      },
+      sizes: {
+        xl: {
+          field: {
+            h: 58,
+            fontSize: 14,
+            borderRadius: "lg",
+            px: 5,
+          },
+          icon: {
+            insetEnd: 3,
+            width: "2rem",
+            fontSize: 28,
+          },
+        },
+      },
+      variants: {
+        outline: {
+          field: {
+            borderWidth: 2,
+          },
+        },
+      },
+      defaultProps: {
+        focusBorderColor: "primary.violet",
+      },
+    },
+    FormLabel: {
+      baseStyle: {
+        color: "secondary.dark",
+        fontSize: 13,
+      },
+    },
   },
 });
 
