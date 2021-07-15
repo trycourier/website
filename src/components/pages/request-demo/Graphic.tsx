@@ -39,16 +39,16 @@ const Graphic = () => (
         <UnorderedList ml={7}>
           <ListItem>
             <Text variant="body2">
-              Edit notification templates without touching code
+              Programmatically deliver notifications across any channel
             </Text>
           </ListItem>
           <ListItem>
             <Text variant="body2">
-              Deliver notifications across any channel with any provider
+              Edit notification templates without touching code
             </Text>
           </ListItem>
           <ListItem>
-            <Text variant="body2">Effectively engage users</Text>
+            <Text variant="body2">Create powerful routing and workflow rules</Text>
           </ListItem>
         </UnorderedList>
       </Box>
