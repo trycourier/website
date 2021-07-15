@@ -1,45 +1,41 @@
-import { Flex, Heading, Text, Box, Tag } from "@chakra-ui/react";
-import Container from "components/Container";
+import { Heading, Text, Box } from "@chakra-ui/react";
 import Image from "next/image";
+import FeatureSection from "components/common/FeatureSection";
+
+import workflows from "../../../../public/images/pages/home/workflows/workflows.png";
 
 const Workflows = () => (
-  <Container maxWidth={1240}>
-    <Flex mt={{ base: "62px", lg: "132px" }} mb={{ base: "92px", xl: 0 }}>
-      <Box w={{ base: "100%", lg: "40%", xl: "45%" }}>
-        <Tag
-          sx={{
-            color: "secondary.salmon",
-            backgroundColor: "primary.sand",
-            fontSize: "10px",
-            fontWeight: "600",
-            marginBottom: "18px",
-          }}
-        >
-          WORKFLOWS
-        </Tag>
-        <Heading variant="h3">
+  <Box mt={{ base: "60px", lg: "200px" }} mb={{ base: "20px", lg: "160px" }}>
+    <FeatureSection
+      graphicAlignment="right"
+      graphic={
+        <Box display={{ base: "none", lg: "block" }} mt={{ lg: -10 }}>
+          <Image
+            src={workflows}
+            width={526}
+            height={364}
+            alt="Notification workflow management view"
+          />
+        </Box>
+      }
+      tag={{
+        label: "Workflows",
+        textColor: "secondary.salmon",
+        bgColor: "primary.sand",
+      }}
+    >
+      <Box maxW={{ lg: "480px" }}>
+        <Heading as="h3" variant="h3">
           Reach users at the right time on the right channel
         </Heading>
-        <Text mt={"32px"} w={{ base: "100%", lg: "95%" }} variant="body1">
+        <Text variant="body1" mt={6} color="secondary.darkAlpha">
           Prioritize your channels and use both conditional logic and user
           preferences, to control who sees what, when, and through which
           channel.
         </Text>
       </Box>
-      <Box
-        display={{ base: "none", lg: "block" }}
-        ml={{ base: 0, xl: "62px" }}
-        mb={"92px"}
-      >
-        <Image
-          src={"/images/pages/home/workflows/workflows.png"}
-          width={"526px"}
-          height={"364px"}
-          alt={"Notification workflow management view"}
-        />
-      </Box>
-    </Flex>
-  </Container>
+    </FeatureSection>
+  </Box>
 );
 
 export default Workflows;

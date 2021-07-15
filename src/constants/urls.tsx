@@ -25,6 +25,7 @@ const urls = {
   login: "https://app.courier.com/login",
   signup: "https://app.courier.com/signup",
   requestDemo: "/request-demo",
+  featuresTemplates: "/features/templates",
 };
 
 export let {
@@ -54,4 +55,5 @@ export let {
   login,
   signup,
   requestDemo,
+  featuresTemplates,
 } = urls;

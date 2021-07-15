@@ -1,4 +1,4 @@
-export default [
+const codeExamples = [
   {
     language: "Node.js",
     code:
@@ -30,3 +30,5 @@ export default [
       '<pre> \n  <code>\n    <span class="yellow">curl</span> \n    <span class="purple">--request</span> \n    <span class="gray">POST \\</span>\n  </code>\n  <code>\n    <span class="purple">--url</span> \n    <span class="gray">https://api.courier.com/send \\</span>\n  </code>\n  <code>\n    <span class="purple">--header</span> \n    <span class="perrot">\'Authorization: Bearer ******************\'</span>     <span class="gray">\\</span>\n  </code>\n  <code>\n    <span class="purple">--data-urlencode</span> \n    <span class="blue">event=</span> \n    <span class="gray">courier-quickstart \\</span>\n  </code>\n  <code>\n    <span class="purple">--data-urlencode</span> \n    <span class="blue">recipient=</span> \n    <span class="gray">9ea9ac85-3a52-48ca-bcdf-0f39e7001f9e \\</span>  </code>\n <code>\n     <span class="purple">--data-urlencode</span> \n     <span class="perrot">\'data={"favoriteAdjective":"awesomeness"}\' \\</span>\n </code>\n <code>\n     <span class="purple">--data-urlencode</span> \n     <span class="perrot">\'profile={}\' \\</span>\n   </code>\n</pre>\n',
   },
 ];
+
+export default codeExamples;
