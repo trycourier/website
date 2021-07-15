@@ -12,7 +12,7 @@ import glasses from "../../../../public/images/pages/about/how-we-work/glasses.s
 const highlights = [
   {
     icon: lightbulb,
-    label: "We maintain a high bar for talent. Courier is a place where you will work with the smartest people in your career.",
+    label: "We maintain a high bar for talent. <br>Courier is a place where you will work with the smartest people in your career.",
   },
   {
     icon: chat,
