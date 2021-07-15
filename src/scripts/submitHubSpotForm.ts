@@ -1,9 +1,41 @@
 import cookie from "cookie";
 
+interface ResponseBody {
+  inlineMessage?: string;
+  correlationId?: string;
+  message?: string;
+  status?: "error";
+  errors?: Array<{
+    message: string;
+    errorType:
+      | "MAX_NUMBER_OF_SUBMITTED_VALUES_EXCEEDED"
+      | "INVALID_EMAIL"
+      | "BLOCKED_EMAIL"
+      | "REQUIRED_FIELD"
+      | "INVALID_NUMBER"
+      | "INPUT_TOO_LARGE"
+      | "FIELD_NOT_IN_FORM_DEFINITION"
+      | "NUMBER_OUT_OF_RANGE"
+      | "VALUE_NOT_IN_FIELD_DEFINITION"
+      | "INVALID_METADATA"
+      | "INVALID_GOTOWEBINAR_WEBINAR_KEY"
+      | "INVALID_HUTK"
+      | "INVALID_IP_ADDRESS"
+      | "INVALID_PAGE_URI"
+      | "INVALID_LEGAL_OPTION_FORMAT"
+      | "MISSING_PROCESSING_CONSENT"
+      | "MISSING_PROCESSING_CONSENT_TEXT"
+      | "MISSING_COMMUNICATION_CONSENT_TEXT"
+      | "MISSING_LEGITIMATE_INTEREST_TEXT"
+      | "DUPLICATE_SUBSCRIPTION_TYPE_ID"
+      | "FORM_HAS_RECAPTCHA_ENABLED";
+  }>;
+}
+
 const submitHubSpotForm = async <Values extends {}>(
   formId: string,
   values: Values
-) => {
+): Promise<ResponseBody> => {
   const cookies = cookie.parse(document.cookie);
   const data = {
     submittedAt: new Date().valueOf(),
@@ -41,9 +73,6 @@ const submitHubSpotForm = async <Values extends {}>(
       body: JSON.stringify(data),
     }
   );
-
-  if (!response.ok) throw new Error("Error submitting the form");
-
   return response.json();
 };
 

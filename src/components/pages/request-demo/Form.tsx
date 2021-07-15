@@ -53,16 +53,40 @@ const Form = () => {
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={async (values, form) => {
-              await submitHubSpotForm("8237956f-b20d-43be-a987-2fadf6b42d33", {
-                firstname: values.firstName,
-                lastname: values.lastName,
-                email: values.email,
-                notification_volume__lead_gen_: values.notificationVolume,
-                message: values.message,
-              });
+              form.setStatus();
 
-              form.resetForm();
-              form.setStatus("success");
+              const body = await submitHubSpotForm(
+                "8237956f-b20d-43be-a987-2fadf6b42d33",
+                {
+                  firstname: values.firstName,
+                  lastname: values.lastName,
+                  email: values.email,
+                  notification_volume__lead_gen_: values.notificationVolume,
+                  message: values.message,
+                }
+              );
+
+              if (body.status !== "error") {
+                form.resetForm();
+                form.setStatus("success");
+                return;
+              }
+
+              const emailError = body.errors?.some((error) =>
+                ["INVALID_EMAIL", "BLOCKED_EMAIL"].includes(error.errorType)
+              );
+              const otherError = body.errors?.some(
+                (error) =>
+                  !["INVALID_EMAIL", "BLOCKED_EMAIL"].includes(error.errorType)
+              );
+
+              if (emailError) {
+                form.setErrors({ email: "Invalid Work email" });
+              }
+
+              if (otherError) {
+                form.setStatus("error");
+              }
             }}
           >
             {({
@@ -74,13 +98,16 @@ const Form = () => {
               handleChange,
               handleBlur,
               isSubmitting,
-              ...abc
             }) => (
               <chakra.form flex={1} onSubmit={handleSubmit}>
-                {status === "success" && (
-                  <Alert status="success" mb={8}>
+                {status && (
+                  <Alert status={status} mb={8}>
                     <AlertIcon />
-                    <Text variant="smallbody1">Success</Text>
+                    <Text variant="smallbody1">
+                      {status === "success"
+                        ? "Success"
+                        : "Error submitting the form"}
+                    </Text>
                   </Alert>
                 )}
 
