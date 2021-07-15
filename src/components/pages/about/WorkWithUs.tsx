@@ -47,12 +47,14 @@ const WorkWithUs = () => (
           borderRadius={22}
           bgColor="white"
         >
-          <Image
-            layout="fixed"
-            src={photo.image}
-            width={photo.image.width / 2}
-            height={photo.image.height / 2}
-          />
+          <Box borderRadius={16} overflow="hidden" display="flex">
+            <Image
+              layout="fixed"
+              src={photo.image}
+              width={photo.image.width / 2}
+              height={photo.image.height / 2}
+            />
+          </Box>
         </Box>
       ))}
     </Container>
