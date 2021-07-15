@@ -68,7 +68,7 @@ const Form = () => {
 
               if (body.status !== "error") {
                 form.resetForm();
-                form.setStatus("success");
+                form.setStatus("Thank you, we will be in touch shortly!");
                 return;
               }
 
