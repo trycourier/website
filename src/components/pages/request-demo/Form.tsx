@@ -173,11 +173,11 @@ const Form = () => {
                     onBlur={handleBlur}
                   >
                     <option value="" disabled></option>
-                    <option value="Less than 100,000/month">Option 1</option>
-                    <option value="100,000-500,000/month">Option 2</option>
-                    <option value="500,000-1,000,000/month">Option 3</option>
-                    <option value="1,000,000-10,000,000/month">Option 4</option>
-                    <option value="More than 10,000,000/month">Option 5</option>
+                    <option value="Less than 100,000/month">Less than 100,000/month</option>
+                    <option value="100,000-500,000/month">100,000-500,000/month</option>
+                    <option value="500,000-1,000,000/month">500,000-1,000,000/month</option>
+                    <option value="1,000,000-10,000,000/month">1,000,000-10,000,000/month</option>
+                    <option value="More than 10,000,000/month">More than 10,000,000/month</option>
                   </Select>
                   <FormErrorMessage>
                     {errors.notificationVolume}
