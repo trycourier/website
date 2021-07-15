@@ -12,7 +12,7 @@ const Hero = () => (
         About Us
       </Heading>
       <Text textAlign="center" mt="29px" mb="32px" variant="body1">
-        <b>Our mission is to make software to human communication delightful.</b>
+        <b>Courier's mission is to make software to human communication delightful.</b>
       </Text>
     </Box>
   </Container>
