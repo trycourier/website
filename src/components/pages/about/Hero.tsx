@@ -12,8 +12,7 @@ const Hero = () => (
         About Us
       </Heading>
       <Text textAlign="center" mt="29px" mb="32px" variant="body1">
-        Our mission is to make software to human communication delightful.
-        Courier’s API and Studio enable to the right user at the right time.
+        <b>Our mission is to make software to human communication delightful.</b>
       </Text>
     </Box>
   </Container>
