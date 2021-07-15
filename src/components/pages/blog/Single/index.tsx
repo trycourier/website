@@ -51,7 +51,7 @@ interface SingleBlogProps {
   publishDate: Date;
   content: ContentProps;
   contentMd?: string;
-  imageDimensions: Record<string, { width: number; height: number }>;
+  assets: Record<string, { url: string; width: number; height: number }>;
   images: object;
   snippets: object;
   slug: string;
@@ -68,7 +68,7 @@ const SingleBlogContent = ({
   authorsCollection,
   content,
   contentMd,
-  imageDimensions,
+  assets,
   images,
   snippets,
   moreFromTagName,
@@ -121,10 +121,7 @@ const SingleBlogContent = ({
         <SocialShare slug={slug} title={title} />
       </Flex>
       {contentMd ? (
-        <MarkdownContent
-          imageDimensions={imageDimensions}
-          content={contentMd}
-        />
+        <MarkdownContent assets={assets} content={contentMd} />
       ) : (
         <RichContent
           content={content.json.content}
