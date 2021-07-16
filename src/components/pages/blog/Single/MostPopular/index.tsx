@@ -23,7 +23,7 @@ const MostPopular = ({ blogs }: { blogs: any[] }) => (
       Most Popular
     </Text>
     {blogs.map((menu, index) => (
-      <Box>
+      <Box key={menu.title}>
         <InternalLink to={`/blog/${menu.slug}`}>
           <Box
             variant="body3"
