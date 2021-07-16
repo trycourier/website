@@ -38,10 +38,10 @@ const YouTubeEmbed = ({ embedUrl }: { embedUrl: string }) => {
 };
 
 const MarkdownContent = ({
-  imageDimensions,
+  assets,
   content,
 }: {
-  imageDimensions: Record<string, { width: number; height: number }>;
+  assets: Record<string, { url: string; width: number; height: number }>;
   content: string;
 }) => {
   return (
@@ -115,7 +115,7 @@ const MarkdownContent = ({
             },
             a: {
               component: (props) => {
-                if (props.href.includes("youtube.com")) {
+                if (props.href.includes("youtube.com/embed")) {
                   return <YouTubeEmbed embedUrl={props.href} />;
                 }
 
@@ -155,19 +155,19 @@ const MarkdownContent = ({
             },
             img: {
               component: (props) => {
-                const dimensions = imageDimensions[props.src];
+                const assetId = props.src.split("/")[4];
+                const asset = assets[assetId || ""];
 
-                if (!dimensions) return null;
+                if (!asset) return null;
 
                 return (
                   <Box my={10}>
                     <Image
-                      src={`https:${props.src}`}
+                      src={`https:${asset.url}`}
                       alt={props.alt}
                       title={props.title}
-                      layout="responsive"
-                      width={dimensions.width}
-                      height={dimensions.height}
+                      width={asset.width}
+                      height={asset.height}
                       quality={100}
                     />
                   </Box>

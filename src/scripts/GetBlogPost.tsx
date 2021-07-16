@@ -147,20 +147,23 @@ async function getBlogPostDetails({
   blogPostDetails.snippets = blogSnippets;
 
   // Extract assets from markdown content and fetch their width/height
-  const imageRegex = /\(\/\/images\.ctfassets\.net\/(?:.+?)\/(.+?)\/(?:.+?)\/(?:.+?)\)/g;
-  const matches = [...(blogPostDetails.contentMd || "").matchAll(imageRegex)];
+  const assetRegex = /\(\/\/images\.(?:ctfassets\.net|contentful\.com)\/(?:.+?)\/(.+?)\/(?:.+?)\/(?:.+?)\)/g;
+  const matches = [...(blogPostDetails.contentMd || "").matchAll(assetRegex)];
   const assetIds = Array.from(new Set(matches.map((match) => match[1])));
-  const assets = await Promise.all(
+  const assetsInfo = await Promise.all(
     assetIds.map((assetId) => client.getAsset(assetId))
   );
-  const imageDimensions = assets.reduce(
+  const assets = assetsInfo.reduce(
     (obj, asset) => ({
       ...obj,
-      [asset.fields.file.url]: asset.fields.file.details.image,
+      [asset.sys.id]: {
+        url: asset.fields.file.url,
+        ...asset.fields.file.details.image,
+      },
     }),
     {}
   );
-  blogPostDetails.imageDimensions = imageDimensions;
+  blogPostDetails.assets = assets;
 
   return blogPostDetails;
 }
