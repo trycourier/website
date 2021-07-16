@@ -15,6 +15,7 @@ const PostSummary = ({ data, tagName }: { data: any; tagName: any }) => {
     excerpt,
     title,
     pubDate,
+    thumbnailTitle,
   } = ParseData({ data });
 
   return (
@@ -33,6 +34,7 @@ const PostSummary = ({ data, tagName }: { data: any; tagName: any }) => {
           width="376px"
           height="376px"
           layout="responsive"
+          alt={thumbnailTitle}
         />
       </Box>
       <BlogTag tag={tagName.toUpperCase()} />
