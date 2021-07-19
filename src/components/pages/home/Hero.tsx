@@ -20,7 +20,7 @@ const Hero = () => (
               Your Complete Communication Stack
             </Experiment.Variant>
             <Experiment.Variant>
-              Lorem ipsum dolor sit amet consectetur
+              API For Human-To-Computer Communication
             </Experiment.Variant>
           </Experiment>
         </Heading>
