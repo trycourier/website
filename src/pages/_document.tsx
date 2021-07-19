@@ -12,7 +12,7 @@ class MyDocument extends Document {
   renderSnippet() {
     const opts = {
       apiKey: process.env.SEGMENT_KEY,
-      page: false,
+      page: true,
     };
 
     if (process.env.NODE_ENV === "development") {
