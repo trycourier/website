@@ -3,10 +3,10 @@ import SingleBox from "./SingleBox";
 import data from "./data";
 import Container from "components/Container";
 
-const Integrations = () => (
+const Providers = () => (
   <Container maxWidth={1240} mt={"92px"}>
     {data.map((integrations, index) => (
-      <Box mt={index === 0 ? "0" : "92px"}>
+      <Box mt={index === 0 ? "0" : "92px"} key={integrations.category}>
         <Heading mb={"62px"} fontSize="36px" fontWeight="700">
           {integrations.category}
         </Heading>
@@ -16,6 +16,7 @@ const Integrations = () => (
               name={integration.name}
               link={integration.link}
               image={integration.image}
+              key={integration.name}
             />
           ))}
         </SimpleGrid>
@@ -24,4 +25,4 @@ const Integrations = () => (
   </Container>
 );
 
-export default Integrations;
+export default Providers;

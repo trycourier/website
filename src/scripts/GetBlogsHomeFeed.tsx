@@ -1,13 +1,13 @@
 import getAllBlogs from "./GetAllBlogs";
 
-async function filterForHomepage({blogs}: {blogs: any[]}) {
-    const topFeatured = blogs.splice(0, 4);
-    const bottomFeatured = blogs.splice(0, 4);
+async function filterForHomepage({ blogs }: { blogs: any[] }) {
+  const topFeatured = blogs.splice(0, 4);
+  const bottomFeatured = blogs.splice(0, 4);
 
-    return {
-        topFeatured, 
-        bottomFeatured,
-    }
+  return {
+    topFeatured,
+    bottomFeatured,
+  };
 }
 
 const GetBlogsHomeFeed = async () => {
