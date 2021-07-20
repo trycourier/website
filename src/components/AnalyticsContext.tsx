@@ -1,13 +1,15 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 import Router from "next/router";
 import analyticsJS from "lib/analyticsJS";
 
 interface AnalyticsContextProps {
   experimentId: number | null;
+  setExperimentVariant: (experiment: string, variant: string) => void;
 }
 
 const AnalyticsContext = createContext<AnalyticsContextProps>({
   experimentId: null,
+  setExperimentVariant: () => {},
 });
 
 interface ProviderProps {
@@ -23,6 +25,7 @@ const EXPERIMENT_ID_STORAGE_KEY = "experimentId";
 
 export const Provider = ({ children }: ProviderProps) => {
   const [experimentId, setExperimentId] = useState<number | null>(null);
+  const [identifyTraits, setIdentifyTraits] = useState<object | null>(null);
 
   useEffect(() => {
     const storedExperimentId = localStorage.getItem(EXPERIMENT_ID_STORAGE_KEY);
@@ -34,18 +37,27 @@ export const Provider = ({ children }: ProviderProps) => {
       parsedExperimentId == null ? Math.random() : parsedExperimentId;
 
     setExperimentId(currentExperimentId);
+
+    localStorage.setItem(
+      EXPERIMENT_ID_STORAGE_KEY,
+      String(currentExperimentId)
+    );
   }, []);
 
   useEffect(() => {
     if (!experimentId) return;
+    if (!identifyTraits) return setIdentifyTraits({});
 
-    localStorage.setItem(EXPERIMENT_ID_STORAGE_KEY, String(experimentId));
-
+    analyticsJS()?.identify(undefined, identifyTraits);
     analyticsJS()?.page();
-  }, [experimentId]);
+  }, [experimentId, identifyTraits]);
+
+  const setExperimentVariant = useCallback((experiment, variant) => {
+    setIdentifyTraits((traits) => ({ ...traits, [experiment]: variant }));
+  }, []);
 
   return (
-    <AnalyticsContext.Provider value={{ experimentId }}>
+    <AnalyticsContext.Provider value={{ experimentId, setExperimentVariant }}>
       {children}
     </AnalyticsContext.Provider>
   );

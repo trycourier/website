@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
-import analyticsJS from "lib/analyticsJS";
 import AnalyticsContext from "components/AnalyticsContext";
+import { Box } from "@chakra-ui/react";
 
 interface VariantProps {
   children: React.ReactNode;
@@ -14,8 +14,8 @@ interface ExperimentProps {
 export const Variant = ({ children }: VariantProps) => <>{children}</>;
 
 const Experiment = ({ name, children }: ExperimentProps) => {
-  const [activeVariant, setActiveVariant] = useState(0);
-  const { experimentId } = useContext(AnalyticsContext);
+  const [activeVariant, setActiveVariant] = useState<number | null>(null);
+  const { experimentId, setExperimentVariant } = useContext(AnalyticsContext);
 
   useEffect(() => {
     if (!experimentId) return;
@@ -23,13 +23,17 @@ const Experiment = ({ name, children }: ExperimentProps) => {
     const variantIndex = Math.floor(experimentId * children.length);
 
     setActiveVariant(variantIndex);
-
-    analyticsJS()?.identify(undefined, {
-      [`Experiment - ${name}`]: String.fromCharCode(65 + variantIndex),
-    });
+    setExperimentVariant(
+      `Experiment - ${name}`,
+      String.fromCharCode(65 + variantIndex)
+    );
   }, [experimentId]);
 
-  return children[activeVariant];
+  return (
+    <Box opacity={activeVariant == null ? 0 : undefined}>
+      {children[activeVariant || 0]}
+    </Box>
+  );
 };
 
 Experiment.Variant = Variant;
